@@ -2,10 +2,13 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 //import routes
+import PrivateRoute from '../../components/PrivateRoute/PrivateRoute'
+import PublicOnlyRoute from '../../components/PublicOnlyRoute/PublicOnlyRoute'
 import HomeRoute from '../../Routes/HomeRoute/HomeRoute'
 import LoginRoute from '../../Routes/LoginRoute/LoginRoute'
 import RegisterRoute from '../../Routes/RegisterRoute/RegisterRoute'
 import NotFoundRoute from '../../Routes/NotFoundRoute/NotFoundRoute'
+
 
 class App extends React.Component {
   render() {
@@ -19,13 +22,11 @@ class App extends React.Component {
               path = { '/' }
               component = { HomeRoute } 
             />
-            <Route
-              exact
+            <PublicOnlyRoute
               path = { '/login' }
               component = { LoginRoute }
             />
-            <Route 
-              exact
+            <PublicOnlyRoute
               path = { '/register' }
               component = { RegisterRoute }
             />
