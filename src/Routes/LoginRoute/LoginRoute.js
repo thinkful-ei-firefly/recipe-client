@@ -1,15 +1,40 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
+import LoginForm from '../../components/Loginform/LoginForm'
+import AuthApiService from '../../services/auth-api-service'
+import TokenService from '../../services/token-service'
 
 import './loginRoute.css'
 
 class LoginRoute extends React.Component {
-    render() {
-        return(
-            <section className = "login">
-                Login
-            </section>
-        )
-    }
+
+  state = {
+    error: null
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const user_name = event.target.user_name.value
+    const password = event.target.password.value
+    AuthApiService.postLogin({user_name, password})
+      .then(response => {
+        console.log('authToken is '+response.authToken)
+        TokenService.saveAuthToken(response.authToken)
+        this.props.history.push('/')
+      })
+      .catch(res => this.setState({ error: res.error }))
+  }
+
+  render() {
+    return(
+      <section className = "login">
+        <h2>Log In</h2>
+        <LoginForm onSubmit={this.handleSubmit} buttonText='Login' error={this.state.error}/>
+        <p>Haven't signed up? <Link to='/register'>Register</Link></p>
+      </section>
+    )
+  }
 }
 
 export default LoginRoute
