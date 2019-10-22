@@ -65,7 +65,6 @@ class App extends React.Component {
                 path = { '/newrecipe' }
                 component = { AddRecipe }
               />
-              <Route 
               <PrivateRoute
                 path = { '/recipes' }
                 component = { RecipesRoute }
