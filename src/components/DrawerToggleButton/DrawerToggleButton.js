@@ -19,7 +19,7 @@ class DrawerToggleButton extends React.Component {
             <section 
                 className="drawer-toggle-button"
                 onClick = { this.handleClick }>
-                <i className="fas fa-bars fa-2x"></i>
+                <i className="fas fa-bars fa"></i>
             </section>
         )
     }

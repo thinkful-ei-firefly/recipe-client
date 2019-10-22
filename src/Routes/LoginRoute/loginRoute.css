@@ -1,0 +1,21 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.background {
+  height: 450px;
+}
+
+.login h2 {
+  font-size: 2.5em;
+}
