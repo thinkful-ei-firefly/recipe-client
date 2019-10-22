@@ -29,7 +29,7 @@ class LoginRoute extends React.Component {
   render() {
     return(
       <section className = "login">
-        <h2>Log In</h2>
+        <h2>Log In </h2>
         <LoginForm onSubmit={this.handleSubmit} buttonText='Login' error={this.state.error}/>
         <p>Haven't signed up? <Link to='/register'>Register</Link></p>
       </section>
