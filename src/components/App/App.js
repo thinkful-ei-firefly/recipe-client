@@ -6,6 +6,7 @@ import PrivateRoute from '../../components/PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../../components/PublicOnlyRoute/PublicOnlyRoute'
 import HomeRoute from '../../Routes/HomeRoute/HomeRoute'
 import LoginRoute from '../../Routes/LoginRoute/LoginRoute'
+import RecipeRoute from '../../Routes/RecipeRoute/RecipeRoute'
 import RegisterRoute from '../../Routes/RegisterRoute/RegisterRoute'
 import NotFoundRoute from '../../Routes/NotFoundRoute/NotFoundRoute'
 
@@ -27,12 +28,12 @@ class App extends React.Component {
     if(this.context.sideDrawerIsOpen) {
       backDrop = <BackDrop click = { this.context.handleCloseSideDrawer }/>
     }
-    
-    
+
+
     return(
-        
+
         <div className = 'app' style={ { height: '100%' } }>
-          
+
           <Header />
           <SideDrawer />
           { backDrop }
@@ -42,7 +43,7 @@ class App extends React.Component {
               <Route
                 exact
                 path = { '/' }
-                component = { HomeRoute } 
+                component = { HomeRoute }
                 />
               <PublicOnlyRoute
                 path = { '/login' }
@@ -52,7 +53,11 @@ class App extends React.Component {
                 path = { '/register' }
                 component = { RegisterRoute }
                 />
-              <Route 
+              <PrivateRoute
+                path = { '/recipe' }
+                component = { RecipeRoute }
+                />
+              <Route
                 component = { NotFoundRoute }
                 />
             </Switch>
