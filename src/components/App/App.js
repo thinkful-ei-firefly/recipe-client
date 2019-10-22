@@ -9,6 +9,7 @@ import LoginRoute from '../../Routes/LoginRoute/LoginRoute'
 import RecipeRoute from '../../Routes/RecipeRoute/RecipeRoute'
 import RegisterRoute from '../../Routes/RegisterRoute/RegisterRoute'
 import NotFoundRoute from '../../Routes/NotFoundRoute/NotFoundRoute'
+import RecipeSingleRoute from '../../Routes/RecipeSingleRoute/RecipeSingleRoute'
 
 //import components
 import Header from '../Header/Header'
@@ -45,6 +46,11 @@ class App extends React.Component {
                 path = { '/' }
                 component = { HomeRoute }
                 />
+              <Route 
+                exact
+                path = { '/recipe/:id' }
+                component = { RecipeSingleRoute }
+              />
               <PublicOnlyRoute
                 path = { '/login' }
                 component = { LoginRoute }
