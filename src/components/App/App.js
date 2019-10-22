@@ -6,8 +6,10 @@ import PrivateRoute from '../../components/PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../../components/PublicOnlyRoute/PublicOnlyRoute'
 import HomeRoute from '../../Routes/HomeRoute/HomeRoute'
 import LoginRoute from '../../Routes/LoginRoute/LoginRoute'
-import RecipeRoute from '../../Routes/RecipeRoute/RecipeRoute'
+import RecipesRoute from '../../Routes/RecipesRoute/RecipesRoute'
+import ShoppingListRoute from '../../Routes/ShoppingListRoute/ShoppingListRoute'
 import RegisterRoute from '../../Routes/RegisterRoute/RegisterRoute'
+import AddRecipe from '../../Routes/AddRecipe/AddRecipe'
 import NotFoundRoute from '../../Routes/NotFoundRoute/NotFoundRoute'
 import RecipeSingleRoute from '../../Routes/RecipeSingleRoute/RecipeSingleRoute'
 
@@ -59,10 +61,19 @@ class App extends React.Component {
                 path = { '/register' }
                 component = { RegisterRoute }
                 />
+              <Route 
+                path = { '/newrecipe' }
+                component = { AddRecipe }
+              />
+              <Route 
               <PrivateRoute
-                path = { '/recipe' }
-                component = { RecipeRoute }
+                path = { '/recipes' }
+                component = { RecipesRoute }
                 />
+              <PrivateRoute
+                  path = { '/shoppinglist' }
+                  component = { ShoppingListRoute }
+                  />
               <Route
                 component = { NotFoundRoute }
                 />

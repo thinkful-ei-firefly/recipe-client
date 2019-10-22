@@ -1,11 +1,11 @@
 import React from 'react'
 //import { Link } from 'react-router-dom'
 
-import Recipe from '../../components/Recipe/Recipe'
+import Recipes from '../../components/Recipes/Recipes'
 import RecipeContext from '../../contexts/RecipeContext'
 import RecipeApiService from '../../services/recipe-api-service'
 
-class RecipeRoute extends React.Component {
+class RecipesRoute extends React.Component {
 
   state = {
     recipeList: [],
@@ -59,10 +59,10 @@ class RecipeRoute extends React.Component {
 
     return(
       <RecipeContext.Provider value={value}>
-        <Recipe />
+        <Recipes />
       </RecipeContext.Provider>
     )
   }
 }
 
-export default RecipeRoute
+export default RecipesRoute

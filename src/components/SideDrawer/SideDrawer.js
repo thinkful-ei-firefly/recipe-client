@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import MenuContext from '../../contexts/MenuContext'
-import UserContext from '../../contexts/UserContext'
+// import UserContext from '../../contexts/UserContext'
 import TokenService from '../../services/token-service'
 
 import './sideDrawer.css'
@@ -15,7 +15,6 @@ class SideDrawer extends React.Component {
         this.context.handleCloseSideDrawer()
         this.context.processLogout()
     }
-
 
     renderLoginLink() {
         return(
