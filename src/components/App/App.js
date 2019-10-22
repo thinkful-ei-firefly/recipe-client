@@ -6,9 +6,11 @@ import PrivateRoute from '../../components/PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../../components/PublicOnlyRoute/PublicOnlyRoute'
 import HomeRoute from '../../Routes/HomeRoute/HomeRoute'
 import LoginRoute from '../../Routes/LoginRoute/LoginRoute'
+import RecipeRoute from '../../Routes/RecipeRoute/RecipeRoute'
 import RegisterRoute from '../../Routes/RegisterRoute/RegisterRoute'
 import AddRecipe from '../../Routes/AddRecipe/AddRecipe'
 import NotFoundRoute from '../../Routes/NotFoundRoute/NotFoundRoute'
+import RecipeSingleRoute from '../../Routes/RecipeSingleRoute/RecipeSingleRoute'
 
 //import components
 import Header from '../Header/Header'
@@ -28,12 +30,12 @@ class App extends React.Component {
     if(this.context.sideDrawerIsOpen) {
       backDrop = <BackDrop click = { this.context.handleCloseSideDrawer }/>
     }
-    
-    
+
+
     return(
-        
+
         <div className = 'app' style={ { height: '100%' } }>
-          
+
           <Header />
           <SideDrawer />
           { backDrop }
@@ -43,8 +45,13 @@ class App extends React.Component {
               <Route
                 exact
                 path = { '/' }
-                component = { HomeRoute } 
+                component = { HomeRoute }
                 />
+              <Route 
+                exact
+                path = { '/recipe/:id' }
+                component = { RecipeSingleRoute }
+              />
               <PublicOnlyRoute
                 path = { '/login' }
                 component = { LoginRoute }
@@ -58,6 +65,11 @@ class App extends React.Component {
                 component = { AddRecipe }
               />
               <Route 
+              <PrivateRoute
+                path = { '/recipe' }
+                component = { RecipeRoute }
+                />
+              <Route
                 component = { NotFoundRoute }
                 />
             </Switch>

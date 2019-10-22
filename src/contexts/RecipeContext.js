@@ -9,6 +9,8 @@ const RecipeContext = React.createContext({
     recipeSteps: [],
     recipeTime: '',
     recipeCuisine: '',
+    recipeList: [],
+    error: null,
 
     handleAddTitle: () => {},
     handleDesc: () => {},
@@ -17,6 +19,9 @@ const RecipeContext = React.createContext({
     setRecipeTime: () => {},
     setRecipeCuisine: () => {},
     handleCreateRecipe: () => {},
+    setError: () => {},
+    clearError: () => {},
+    setUser: () => {},
 })
 
 export default RecipeContext
@@ -32,6 +37,9 @@ export class RecipeProvider extends React.Component {
             recipeSteps: [],
             recipeTime: '',
             recipeCuisine: '',
+            recipeList: [],
+            error: null,
+            
         }
 
         this.state = state
@@ -95,6 +103,8 @@ export class RecipeProvider extends React.Component {
             recipeSteps: this.state.recipeSteps,
             recipeTime: this.state.recipeTime,
             recipeCuisine: this.state.recipeCuisine,
+            recipeList: this.state.recipeList,
+            error: this.state.error,
     
             handleAddTitle: this.handleAddTitle,
             handleAddDesc: this.handleAddDesc,
@@ -103,6 +113,9 @@ export class RecipeProvider extends React.Component {
             setRecipeTime: this.setRecipeTime,
             setRecipeCuisine: this.setRecipeCuisine,
             handleCreateRecipe: this.handleCreateRecipe,
+            setError: () => {},
+            clearError: () => {},
+            setUser: () => {},
         }
 
         return(
