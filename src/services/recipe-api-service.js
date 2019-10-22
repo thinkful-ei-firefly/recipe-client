@@ -1,4 +1,6 @@
-import TokenService from './token-service';
+import TokenService from './token-service'
+
+import config from '../config'
 
 const RecipeApiService = {
   getAll() {

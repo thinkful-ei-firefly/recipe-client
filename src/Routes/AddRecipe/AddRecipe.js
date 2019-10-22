@@ -3,7 +3,7 @@ import AddRecipeTitleForm from '../../components/AddRecipeTitleForm/AddRecipeTit
 import AddRecipeDescForm from '../../components/AddRecipeDescForm/AddRecipeDescForm'
 import AddRecipeIngredientForm from '../../components/AddRecipeIngredientForm/AddRecipeIngredientForm'
 import AddRecipeStepForm from '../../components/AddRecipeStepForm/AddRecipeStepForm'
-import AddRecipeTimeForm from '../../components/AddRecipeTimeForm/AddRecipeTime'
+import AddRecipeTimeForm from '../../components/AddRecipeTimeForm/AddRecipeTimeForm'
 import AddRecipeCuisineForm from '../../components/AddRecipeCuisineForm/AddRecipeCuisineForm'
 import Button from '../../components/Button/Button'
 
