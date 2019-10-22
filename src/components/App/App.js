@@ -9,6 +9,7 @@ import LoginRoute from '../../Routes/LoginRoute/LoginRoute'
 import RecipesRoute from '../../Routes/RecipesRoute/RecipesRoute'
 import ShoppingListRoute from '../../Routes/ShoppingListRoute/ShoppingListRoute'
 import RegisterRoute from '../../Routes/RegisterRoute/RegisterRoute'
+import AddRecipe from '../../Routes/AddRecipe/AddRecipe'
 import NotFoundRoute from '../../Routes/NotFoundRoute/NotFoundRoute'
 import RecipeSingleRoute from '../../Routes/RecipeSingleRoute/RecipeSingleRoute'
 
@@ -60,6 +61,11 @@ class App extends React.Component {
                 path = { '/register' }
                 component = { RegisterRoute }
                 />
+              <Route 
+                path = { '/newrecipe' }
+                component = { AddRecipe }
+              />
+              <Route 
               <PrivateRoute
                 path = { '/recipes' }
                 component = { RecipesRoute }
