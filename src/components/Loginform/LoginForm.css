@@ -30,3 +30,7 @@ input[type="text"] {
 button {
   margin-top: 25px;
 }
+
+.login_button {
+  color: black;
+}
