@@ -7,6 +7,7 @@ import PublicOnlyRoute from '../../components/PublicOnlyRoute/PublicOnlyRoute'
 import HomeRoute from '../../Routes/HomeRoute/HomeRoute'
 import LoginRoute from '../../Routes/LoginRoute/LoginRoute'
 import RegisterRoute from '../../Routes/RegisterRoute/RegisterRoute'
+import AddRecipe from '../../Routes/AddRecipe/AddRecipe'
 import NotFoundRoute from '../../Routes/NotFoundRoute/NotFoundRoute'
 
 //import components
@@ -52,6 +53,10 @@ class App extends React.Component {
                 path = { '/register' }
                 component = { RegisterRoute }
                 />
+              <Route 
+                path = { '/newrecipe' }
+                component = { AddRecipe }
+              />
               <Route 
                 component = { NotFoundRoute }
                 />

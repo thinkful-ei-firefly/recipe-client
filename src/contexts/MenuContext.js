@@ -7,7 +7,8 @@ const MenuContext = React.createContext({
   sideDrawerIsOpen: false,
   drawerClass: '',
   handleOpenSideDrawer: () => {},
-  handleCloseSideDrawer: () => {}
+  handleCloseSideDrawer: () => {},
+  processLogout: () => {},
 });
 
 export default MenuContext
@@ -47,14 +48,16 @@ export class MenuProvider extends React.Component {
       }
 
       render() {
-          const value = {
+          const menu = {
               sideDrawerIsOpen: this.state.sideDrawerIsOpen,
               drawerClass: this.state.drawerClass,
+
               handleOpenSideDrawer: this.handleOpenSideDrawer,
-              handleCloseSideDrawer: this.handleCloseSideDrawer
+              handleCloseSideDrawer: this.handleCloseSideDrawer,
+              processLogout: this.processLogout,
           }
           return(
-              <MenuContext.Provider value={ value }>
+              <MenuContext.Provider value={ menu }>
                   { this.props.children }
               </MenuContext.Provider>
           )
