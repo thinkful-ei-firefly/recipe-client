@@ -3,7 +3,7 @@ import RecipeContext from '../../contexts/RecipeContext'
 import RecipeItem from './RecipeItem'
 import { Link } from 'react-router-dom'
 
-class Recipe extends React.Component {
+class Recipes extends React.Component {
   static contextType = RecipeContext
 
   componentDidMount(){
@@ -32,4 +32,4 @@ class Recipe extends React.Component {
   }
 }
 
-export default Recipe
+export default Recipes
