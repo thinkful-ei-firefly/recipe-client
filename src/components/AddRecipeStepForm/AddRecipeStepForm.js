@@ -11,7 +11,7 @@ class AddStepToRecipeForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.context.handleUpdateRecipeSteps(e.target.step.value)
+        this.context.handleAddRecipeStep(e.target.step.value)
         e.target.step.value = ''
     }
 

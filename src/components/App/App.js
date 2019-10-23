@@ -12,6 +12,7 @@ import RegisterRoute from '../../Routes/RegisterRoute/RegisterRoute'
 import AddRecipe from '../../Routes/AddRecipe/AddRecipe'
 import NotFoundRoute from '../../Routes/NotFoundRoute/NotFoundRoute'
 import RecipeSingleRoute from '../../Routes/RecipeSingleRoute/RecipeSingleRoute'
+import IngredientsRoute from '../../Routes/IngredientsRoute/IngredientsRoute'
 
 //import components
 import Header from '../Header/Header'
@@ -56,11 +57,11 @@ class App extends React.Component {
               <PublicOnlyRoute
                 path = { '/login' }
                 component = { LoginRoute }
-                />
+              />
               <PublicOnlyRoute
                 path = { '/register' }
                 component = { RegisterRoute }
-                />
+              />
               <Route 
                 path = { '/newrecipe' }
                 component = { AddRecipe }
@@ -68,14 +69,18 @@ class App extends React.Component {
               <PrivateRoute
                 path = { '/recipes' }
                 component = { RecipesRoute }
-                />
+              />
               <PrivateRoute
                   path = { '/shoppinglist' }
                   component = { ShoppingListRoute }
-                  />
+              />
+              <PrivateRoute
+                path = {'/ingredients'}
+                component = { IngredientsRoute }
+              />
               <Route
                 component = { NotFoundRoute }
-                />
+              />
             </Switch>
           </main>
         </div>

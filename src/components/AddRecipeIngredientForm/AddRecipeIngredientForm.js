@@ -11,7 +11,7 @@ class AddRecipeIngredientForm extends React.Component {
     handleSubmit = e => {
         e.preventDefault()
         const {amount, measurement, ingredient} = e.target
-        this.context.handleUpdateRecipeIngredients(amount.value, measurement.value, ingredient.value)
+        this.context.handleAddRecipeIngredient(amount.value, measurement.value, ingredient.value)
         e.target.amount.value = ''
         e.target.measurement.value = ''
         e.target.ingredient.value = ''

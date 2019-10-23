@@ -12,7 +12,6 @@ class AddRecipeTitleForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        console.log(e.target.title.value)
         this.context.handleAddTitle(e.target.title.value)
         e.target.title.value = ''
     }

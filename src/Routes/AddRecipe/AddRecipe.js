@@ -1,10 +1,16 @@
 import React from 'react'
 import AddRecipeTitleForm from '../../components/AddRecipeTitleForm/AddRecipeTitleForm'
+import AddRecipeTitle from '../../components/AddRecipeTitle/AddRecipeTitle'
 import AddRecipeDescForm from '../../components/AddRecipeDescForm/AddRecipeDescForm'
+import AddRecipeDesc from '../../components/AddRecipeDesc/AddRecipeDesc'
 import AddRecipeIngredientForm from '../../components/AddRecipeIngredientForm/AddRecipeIngredientForm'
+import AddRecipeIngredient from '../../components/AddRecipeIngredient/AddRecipeIngredient'
 import AddRecipeStepForm from '../../components/AddRecipeStepForm/AddRecipeStepForm'
+import AddRecipeStep from '../../components/AddRecipeStep/AddRecipeStep'
 import AddRecipeTimeForm from '../../components/AddRecipeTimeForm/AddRecipeTimeForm'
+import AddRecipeTime from '../../components/AddRecipeTime/AddRecipeTime'
 import AddRecipeCuisineForm from '../../components/AddRecipeCuisineForm/AddRecipeCuisineForm'
+import AddRecipeCuisine from '../../components/AddRecipeCuisine/AddRecipeCuisine'
 import Button from '../../components/Button/Button'
 
 import RecipeContext from '../../contexts/RecipeContext'
@@ -17,62 +23,40 @@ class AddRecipe extends React.Component {
 
     render() {
 
-        const ingredients = this.context.recipeIngredients.map((ingredient, index) => {
-            return(
-                <div className = "ingredient" key={ index }>
-                    { ingredient }
-                </div>
-            )
-        })
-
-        const steps = this.context.recipeSteps.map((step, index) => {
-            return(
-                <div className ="step" key={ index }>
-                    {`${ index + 1 }) ${ step }` }
-                </div>
-            )
-        })
-
         return(
             <section className = "addRecipe">
                 
                 <h1>New Recipe</h1>
 
-                <div className = "title">
-                    { this.context.recipeTitle }
-                </div>
+                {
+                    this.context.recipeTitle 
+                        ? <AddRecipeTitle />
+                        : <AddRecipeTitleForm />
+                }
 
-                <div className = "description">
-                        { this.context.recipeDesc }
-                </div>
-                
-                <div className = "list-ingredients">
-                    { ingredients }
-                </div>
+                {
+                    this.context.recipeDesc
+                        ? <AddRecipeDesc />
+                        : <AddRecipeDescForm />
+                }
 
-                <div className = "list-steps">
-                    { steps }
-                </div>
-
-                <div className = "cuisine">
-                    { this.context.recipeCuisine }
-                </div>
-
-                <div className = "time">
-                    {this.context.recipeTime}
-                </div>
-
-                <AddRecipeTitleForm />
-
-                <AddRecipeDescForm />
-
+                <AddRecipeIngredient />
                 <AddRecipeIngredientForm />
-                
+
+                <AddRecipeStep />
                 <AddRecipeStepForm />
 
-                <AddRecipeCuisineForm />
+                {
+                    this.context.recipeCuisine
+                        ? <AddRecipeCuisine />
+                        : <AddRecipeCuisineForm />
+                }
 
-                <AddRecipeTimeForm />
+                {
+                    this.context.recipeTime
+                        ? <AddRecipeTime />
+                        : <AddRecipeTimeForm />
+                }
 
                 <Button className='submit_button'
                     onClick = { this.context.handleCreateRecipe }>
