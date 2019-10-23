@@ -22,9 +22,6 @@ const RecipeContext = React.createContext({
     setError: () => {},
     clearError: () => {},
     setUser: () => {},
-    setError: () => {},
-    clearError: () => {},
-    setUser: () => {},
 })
 
 export default RecipeContext
