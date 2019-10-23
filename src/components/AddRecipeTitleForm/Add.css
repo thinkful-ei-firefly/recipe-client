@@ -1,0 +1,13 @@
+.add {
+  width: 10px;
+  height: 10px;
+  border: none;
+  font-size: 30px;
+  margin: -10px;
+  cursor: pointer;
+}
+
+.recipe-form {
+  display: flex;
+  flex-direction: row;
+}

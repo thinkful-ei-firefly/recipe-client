@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-import background from '../../images/background.png'
+import background from '../../images/background1.png'
 
 import './homeRoute.css'
 
@@ -14,8 +14,8 @@ class HomeRoute extends React.Component {
                 <img src={background} alt='background' className='background'/>
                 <h2>Welcome to GoodMeal! </h2>
                 <div className='subtitle'>
-                  <p>Search and save recipes</p>
-                  <p>Create and save a shopping list</p>
+                  <p>Create and save your favorite recipes</p>
+                  <p>Create a grocery list</p>
                   <p>Create delicious meals</p>
                 </div>
               </section>

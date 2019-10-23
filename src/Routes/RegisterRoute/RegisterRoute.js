@@ -5,7 +5,7 @@ import LoginForm from '../../components/Loginform/LoginForm'
 import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
 
-import background from '../../images/background.png'
+import background from '../../images/background1.png'
 
 import './registerRoute.css'
 

@@ -16,10 +16,6 @@
   align-items: center;
 }
 
-.background {
-  background: 400px;
-}
-
 .subtitle {
   display: flex;
   flex-direction: column;

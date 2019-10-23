@@ -3,6 +3,8 @@ import RecipeContext from '../../contexts/RecipeContext'
 import RecipeItem from './RecipeItem'
 import { Link } from 'react-router-dom'
 
+import './Recipes.css'
+
 class Recipes extends React.Component {
   static contextType = RecipeContext
 
@@ -17,11 +19,11 @@ class Recipes extends React.Component {
     })
 
       return(
-          <section className="re">
-              Your recipes<br/>
+          <section className="recipes">
+              <h2>Your recipes</h2><br/>
               <Link
                   to="/newrecipe"
-                  className="menu">
+                  className="button">
                   Add
               </Link>
               <div>
