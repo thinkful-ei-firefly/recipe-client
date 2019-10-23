@@ -32,7 +32,7 @@ export class MenuProvider extends React.Component {
           drawerClass: 'side-drawer is-open'
         })
       }
-    
+
       handleCloseSideDrawer = () => {
         this.setState({
           sideDrawerIsOpen: false,
@@ -44,7 +44,7 @@ export class MenuProvider extends React.Component {
         TokenService.clearAuthToken()
         TokenService.clearCallbackBeforeExpiry()
         IdleService.unRegisterIdleResets()
-        this.setUser({})
+        //this.setUser({})
       }
 
       render() {
@@ -63,4 +63,3 @@ export class MenuProvider extends React.Component {
           )
       }
 }
-
