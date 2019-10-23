@@ -20,10 +20,7 @@ class AddRecipeTimeForm extends React.Component {
             <form
                 className = "recipe-form"
                 onSubmit = { this.handleSubmit }>
-<<<<<<< HEAD
-=======
                 <legend>Add how long this recipe takes(minutes).</legend>
->>>>>>> 31b88a117d5a9f6e93e02c4a5d6aeabb000931e3
                 <div className = "time">
                     <Label
                         htmlFor = "recipe-time">
