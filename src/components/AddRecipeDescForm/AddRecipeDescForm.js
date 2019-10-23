@@ -1,8 +1,9 @@
 import React from 'react'
-import { Label, Input, Required } from '../../components/Form/Form'
-import Button from '../../components/Button/Button'
+import { Label, Input, Required } from '../Form/Form'
+import Button from '../Button/Button'
 
 import RecipeContext from '../../contexts/RecipeContext'
+import '../../Routes/AddRecipe/addRecipe.css'
 
 class AddRecipeDescForm extends React.Component {
 
@@ -16,25 +17,27 @@ class AddRecipeDescForm extends React.Component {
     render() {
         return(
             <form
-                className = "desc-form"
+                className = "recipe-form"
                 onSubmit = { this.handleSubmit }>
-                <legend>Add Recipe Description</legend>
                 <div className = "description">
+                <div className='section'><span>2</span>Description</div>
+                <div className='inner-wrap'>
                     <Label
                         htmlFor = "recipe-desc">
                         Description: <Required />
                     </Label>
-                    <Input
+                    <Input className='input'
                         name = "desc"
                         id = "recipe-desc"
-                        type = "textarea"
+                        type = "text"
                         required>
                     </Input>
                 </div>
-                <Button
+                <Button className='add'
                     type = "Submit">
-                    Add Description
+                    +
                 </Button>
+                </div>
 
             </form>
         )

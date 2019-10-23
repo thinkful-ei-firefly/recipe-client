@@ -3,7 +3,7 @@ import { Label, Input, Required } from '../Form/Form'
 import Button from '../Button/Button'
 
 import RecipeContext from '../../contexts/RecipeContext'
-import '../AddRecipeTitleForm/Add.css'
+import '../../Routes/AddRecipe/addRecipe.css'
 
 class AddRecipeTimeForm extends React.Component {
 
@@ -20,13 +20,14 @@ class AddRecipeTimeForm extends React.Component {
             <form
                 className = "recipe-form"
                 onSubmit = { this.handleSubmit }>
-                <legend>Add how long this recipe takes(minutes).</legend>
                 <div className = "time">
+                <div className='section'><span>6</span>Cooking Time</div>
+                    <div class="inner-wrap">
                     <Label
                         htmlFor = "recipe-time">
-                        Cooking-Time: <Required />
+                        Time (in minutes): <Required />
                     </Label>
-                    <Input
+                    <Input className='input'
                         name = "time"
                         id = "recipe-step"
                         type = "number"
@@ -37,6 +38,7 @@ class AddRecipeTimeForm extends React.Component {
                     type = "submit">
                     +
                 </Button>
+                </div>
             </form>
         )
     }

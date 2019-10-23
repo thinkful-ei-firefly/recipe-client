@@ -10,4 +10,14 @@
 .recipe-form {
   display: flex;
   flex-direction: row;
+  margin-bottom: 40px;
+}
+
+.input {
+  width: 200px;
+}
+
+.recipe-form .amount {
+  display: flex;
+  flex-direction: column;
 }

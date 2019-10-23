@@ -1,8 +1,9 @@
 import React from 'react'
-import {Label, Input, Required } from '../Form/Form'
+import { Label, Input, Required } from '../Form/Form'
 import Button from '../Button/Button'
 
 import RecipeContext from '../../contexts/RecipeContext'
+import '../../Routes/AddRecipe/addRecipe.css'
 
 class AddStepToRecipeForm extends React.Component {
 
@@ -17,25 +18,27 @@ class AddStepToRecipeForm extends React.Component {
     render() {
         return(
             <form
-                className = "addStep-form"
+                className = "recipe-form"
                 onSubmit = { this.handleSubmit }>
-                <legend>Add a Step to the Instructions</legend>
                 <div className = "step">
+                    <div className='section'><span>4</span>Instructions</div>
+                    <div className='inner-wrap'>
                     <Label
                         htmlFor = "recipe-step">
                         Step: <Required />
                     </Label>
-                    <Input
+                    <Input className='input'
                         name = "step"
                         id = "recipe-step"
                         type = "text"
                         required>
                     </Input>
                 </div>
-                <Button
+                <Button className='add'
                     type = "submit">
-                    Add Step
-                </Button>       
+                    +
+                </Button>
+                </div>       
             </form>
         )
     }

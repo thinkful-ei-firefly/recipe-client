@@ -3,7 +3,8 @@ import { Label, Input, Required } from '../Form/Form'
 import Button from '../Button/Button'
 
 import RecipeContext from '../../contexts/RecipeContext'
-import './Add.css'
+//import './Add.css'
+import '../../Routes/AddRecipe/addRecipe.css'
 
 class AddRecipeTitleForm extends React.Component {
 
@@ -23,11 +24,13 @@ class AddRecipeTitleForm extends React.Component {
                 className = "recipe-form"
                 onSubmit = { this.handleSubmit }>
                 <div className = "title">
+                    <div className='section'><span>1</span>Title</div>
+                    <div class="inner-wrap">
                     <Label
                         htmlFor = "recipe-title">
                         Title: <Required />
                     </Label>
-                    <Input
+                    <Input className= 'input'
                         name = "title"
                         id = "text"
                         type = "text"
@@ -38,6 +41,7 @@ class AddRecipeTitleForm extends React.Component {
                     type = "Submit">
                     +
                 </Button>
+                </div>
             </form>
         )
     }

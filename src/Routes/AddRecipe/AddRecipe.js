@@ -36,7 +36,7 @@ class AddRecipe extends React.Component {
         return(
             <section className = "addRecipe">
                 
-                <h2>Let's Build Your New Recipe</h2>
+                <h1>New Recipe</h1>
 
                 <div className = "title">
                     { this.context.recipeTitle }
@@ -74,7 +74,7 @@ class AddRecipe extends React.Component {
 
                 <AddRecipeTimeForm />
 
-                <Button
+                <Button className='submit_button'
                     onClick = { this.context.handleCreateRecipe }>
                     Create Recipe
                 </Button>
