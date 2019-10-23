@@ -63,6 +63,30 @@ class SideDrawer extends React.Component {
                     </li>
                     <li>
                         <Link
+                            to = "/recipes"
+                            className = "menu"
+                            onClick = { this.context.handleCloseSideDrawer }>
+                            My Recipes
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to = "/shoppinlist" 
+                            className = "menu"
+                            onClick = { this.context.handleCloseSideDrawer }>
+                            Shopping List
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to = "/newrecipe"
+                            className = "menu"
+                            onClick = { this.context.handleCloseSideDrawer }>
+                            New Recipe
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
                             to = "/login"
                             className = "menu"
                             onClick = { this.handleLogout }>
