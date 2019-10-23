@@ -33,7 +33,7 @@ class LoginRoute extends React.Component {
       <div className='login_page'>
       <img src={background} alt='background' className='background'/>
       <section className = "login">
-        <h2>Log In</h2>
+        <h2>Log In </h2>
         <LoginForm onSubmit={this.handleSubmit} buttonText='Login' error={this.state.error}/>
         <p>Haven't signed up? <Link to='/register'>Register</Link></p>
       </section>

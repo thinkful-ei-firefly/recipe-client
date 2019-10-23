@@ -102,7 +102,7 @@ export class UserProvider extends Component {
   }
 
   render() {
-    const value = {
+    const user = {
       user: this.state.user,
       error: this.state.error,
       setError: this.setError,
@@ -112,7 +112,7 @@ export class UserProvider extends Component {
       processLogout: this.processLogout,
     }
     return (
-      <UserContext.Provider value={value}>
+      <UserContext.Provider value={ user }>
         {this.props.children}
       </UserContext.Provider>
     )
