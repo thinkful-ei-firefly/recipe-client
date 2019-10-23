@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
+import background from '../../images/background.png'
 
 import './homeRoute.css'
 
@@ -6,9 +9,21 @@ class HomeRoute extends React.Component {
 
     render() {
         return(
-            <section className = "home">
-                Home Page
-            </section>
+            <div className='landing'>
+              <section className = "home">
+                <img src={background} alt='background' className='background'/>
+                <h2>Welcome to GoodMeal! </h2>
+                <div className='subtitle'>
+                  <p>Search and save recipes</p>
+                  <p>Create and save a shopping list</p>
+                  <p>Create delicious meals</p>
+                </div>
+              </section>
+              
+              <Link to="/login" className="button">Login</Link>
+              <Link to="/register"className="button">Register</Link>
+              
+            </div>
         )
     }
 }

@@ -18,13 +18,6 @@ class Header extends React.Component {
                         <DrawerToggleButton />
                     </div>
 
-                    <div className="logo">
-                        <Link 
-                            to="/"
-                            className="logo">
-                            Recipe App
-                        </Link>
-                    </div>
 
                     <div className="spacer"></div>
 

@@ -1,14 +1,17 @@
 import React from 'react'
 
+import './LoginForm.css'
+
 const LoginForm = (props) => {
   const { onSubmit, buttonText, error } = props
   return (
     <form className='LoginForm' onSubmit={event=>onSubmit(event)}>
       <p>{error}</p>
-      <label htmlFor='username_input'>Username: </label>
-      <input name='user_name' type='text' required id='username_input'></input>
-      <label htmlFor='password_input'>Password: </label>
-      <input name='password' type='text' required id='password_input'></input>
+      <div className='inputs'>
+        <input placeholder='Username' name='user_name' type='text' required id='username_input'></input>
+        <br />
+        <input placeholder='Password' name='password' type='text' required id='password_input'></input>
+      </div>
       <button type='submit'>{buttonText}</button>
     </form>
   )
