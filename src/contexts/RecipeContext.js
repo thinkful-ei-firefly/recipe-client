@@ -82,12 +82,20 @@ export class RecipeProvider extends React.Component {
     // takes recipe data from state and sends api query to server
     handleCreateRecipe = () => {
 
+        const ingredientsList = this.state.recipeIngredients.map(ing => {
+            return '"' + ing + '", '
+        })
+
+        const instructionsList = this.state.recipeSteps.map(step => {
+            return '"' + step + '", '
+        })
+
         console.log('add recipe button pressed')
         const recipe = {
             name: this.state.recipeTitle,
             description: this.state.recipeDesc,
-            ingredients: this.state.recipeIngredients,
-            instructions: this.state.recipeSteps,
+            ingredients: "{" + this.state.recipeIngredients.join(',') + "}",
+            instructions: "{" + this.state.recipeSteps.join(',') + "}",
             time_to_make: this.state.recipeTime,
             category: this.state.recipeCuisine,
         }
