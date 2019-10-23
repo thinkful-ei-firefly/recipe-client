@@ -13,16 +13,11 @@ const RecipeContext = React.createContext({
     error: null,
 
     handleAddTitle: () => {},
-    handleRemoveTitle: () => {},
-    handleAddDesc: () => {},
-    handleRemoveDesc: () => {},
-    handleAddRecipeIngredient: () => {},
-    handleRemoveIngredient: () => {},
-    handleAddRecipeStep: () => {},
-    handleRemoveStep: () => {},
+    handleDesc: () => {},
+    handleUpdateRecipeIngredients: () => {},
+    handleUpdateRecipeSteps: () => {},
     setRecipeTime: () => {},
-    handleAddCuisine: () => {},
-    handleRemoveCuisine: () => {},
+    setRecipeCuisine: () => {},
     handleCreateRecipe: () => {},
     setError: () => {},
     clearError: () => {},
@@ -40,8 +35,8 @@ export class RecipeProvider extends React.Component {
             recipeDesc: '',
             recipeIngredients: [],
             recipeSteps: [],
+            recipeTime: '',
             recipeCuisine: '',
-            recipeTime: null,
             recipeList: [],
             error: null,
             
@@ -54,19 +49,11 @@ export class RecipeProvider extends React.Component {
         this.setState({ recipeTitle })
     }
 
-    handleRemoveTitle = () => {
-        this.setState({ recipeTitle: '' })
-    }
-
     handleAddDesc = recipeDesc => {
         this.setState({ recipeDesc })
     }
 
-    handleRemoveDesc = () => {
-        this.setState({ recipeDesc: '' })
-    }
-
-    handleAddRecipeIngredient = (amount, measurement, ingredient) => {
+    handleUpdateRecipeIngredients = (amount, measurement, ingredient) => {
 
         const addIngredient = amount + ' ' + measurement + ' ' + ingredient
         const recipeIngredients = this.state.recipeIngredients
@@ -76,13 +63,7 @@ export class RecipeProvider extends React.Component {
         })
     }
 
-    handleRemoveIngredient = (ingToRemove) => {
-        const recipeIngredients = this.state.recipeIngredients
-            .filter(ing => ing !== ingToRemove)
-        this.setState({ recipeIngredients })
-    }
-
-    handleAddRecipeStep = step => {
+    handleUpdateRecipeSteps = step => {
         const recipeSteps = this.state.recipeSteps
         recipeSteps.push(step)
         this.setState({
@@ -90,26 +71,12 @@ export class RecipeProvider extends React.Component {
         })
     }
 
-    handleRemoveStep = stepToRemove => {
-        const recipeSteps = this.state.recipeSteps
-            .filter(step => step !== stepToRemove)
-        this.setState({ recipeSteps })
-    }
-
-    handleAddTime = recipeTime => {
+    setRecipeTime = recipeTime => {
         this.setState({ recipeTime })
     }
 
-    handleRemoveTime = () => {
-        this.setState({ recipeTime: null })
-    }
-
-    handleAddCuisine = recipeCuisine => {
+    setRecipeCuisine = recipeCuisine => {
         this.setState({ recipeCuisine })
-    }
-
-    handleRemoveCuisine = () => {
-        this.setState({ recipeCuisine: '' })
     }
 
     // takes recipe data from state and sends api query to server
@@ -148,17 +115,11 @@ export class RecipeProvider extends React.Component {
             error: this.state.error,
     
             handleAddTitle: this.handleAddTitle,
-            handleRemoveTitle: this.handleRemoveTitle,
             handleAddDesc: this.handleAddDesc,
-            handleRemoveDesc: this.handleRemoveDesc,
-            handleAddRecipeIngredient: this.handleAddRecipeIngredient,
-            handleRemoveIngredient: this.handleRemoveIngredient,
-            handleAddRecipeStep: this.handleAddRecipeStep,
-            handleRemoveStep: this.handleRemoveStep,
-            handleAddTime: this.handleAddTime,
-            handleRemoveTime: this.handleRemoveTime,
-            handleAddCuisine: this.handleAddCuisine,
-            handleRemoveCuisine: this.handleRemoveCuisine,
+            handleUpdateRecipeIngredients: this.handleUpdateRecipeIngredients,
+            handleUpdateRecipeSteps: this.handleUpdateRecipeSteps,
+            setRecipeTime: this.setRecipeTime,
+            setRecipeCuisine: this.setRecipeCuisine,
             handleCreateRecipe: this.handleCreateRecipe,
             setError: () => {},
             clearError: () => {},

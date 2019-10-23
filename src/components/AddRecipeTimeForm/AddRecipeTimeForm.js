@@ -11,7 +11,7 @@ class AddRecipeTimeForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.context.handleAddTime(e.target.time.value)
+        this.context.setRecipeTime(e.target.time.value)
         e.target.time.value = ''
     }
 
