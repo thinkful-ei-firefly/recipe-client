@@ -10,7 +10,7 @@ class AddRecipeCuisineForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.context.setRecipeCuisine(e.target.cuisine.value)
+        this.context.handleAddCuisine(e.target.cuisine.value)
         e.target.cuisine.value = ''
     }
 
