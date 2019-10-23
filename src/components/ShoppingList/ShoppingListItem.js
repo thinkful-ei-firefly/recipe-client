@@ -1,9 +1,9 @@
 import React from 'react';
-import RecipeContext from '../../contexts/RecipeContext'
+import ShoppingListRoute from '../../contexts/ShoppingListContext'
 import { Link } from 'react-router-dom'
 
 class RecipeItem extends React.Component {
-  static contextType = RecipeContext
+  static contextType = ShoppingListRoute
 
   render() {
     console.log(this.props.recipe);
