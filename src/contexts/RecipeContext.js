@@ -47,7 +47,8 @@ export class RecipeProvider extends React.Component {
             recipeImage: null,
             recipePublic: false,
             error: null,
-            loading: false
+            loading: false,
+            saved: false
 
         }
 
@@ -152,6 +153,7 @@ export class RecipeProvider extends React.Component {
             public: this.state.recipePublic,
             imageurl: fileName,
         }
+        console.log(recipe);
         this.setState({
           loading: true
         })
@@ -166,15 +168,15 @@ export class RecipeProvider extends React.Component {
             console.log(resImage);
             this.setState({
               loading: false,
-              error: null
+              error: null,
+              saved: true
             })
-            this.props.history.push('/recipes')
           })
           .catch(error => {
             console.log(error);
             this.setState({
               loading: false,
-              error: error.message
+              error: error.message || error.error
             })
           } )
     }
@@ -191,6 +193,7 @@ export class RecipeProvider extends React.Component {
             recipePublic: this.state.recipePublic,
             error: this.state.error,
             loading: this.state.loading,
+            saved: this.state.saved,
 
             handleAddTitle: this.handleAddTitle,
             handleRemoveTitle: this.handleRemoveTitle,
