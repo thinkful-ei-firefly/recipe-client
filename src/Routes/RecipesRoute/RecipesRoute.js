@@ -8,7 +8,9 @@ class RecipesRoute extends React.Component {
 
   state = {
     recipeList: [],
-    error: null
+    error: null,
+    filteredRecipes: [],
+    filterBy: null
   }
 
   setError = (error) => {
@@ -46,14 +48,20 @@ class RecipesRoute extends React.Component {
       .catch(this.setError)
   }
 
+  setFilter = (filterBy) => {
+    this.setState({ filterBy })
+  }
+
   render() {
     const value = {
       recipeList: this.state.recipeList,
       error: this.state.error,
+      filterBy: this.state.filterBy,
       setError: this.setError,
       clearError: this.clearError,
       getAllRecipes: this.getAllRecipes,
       delete: this.delete,
+      setFilter: this.setFilter
     }
 
     return(
