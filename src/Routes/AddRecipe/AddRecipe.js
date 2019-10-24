@@ -12,6 +12,7 @@ import AddRecipeTime from '../../components/AddRecipeTime/AddRecipeTime'
 import AddRecipeCuisineForm from '../../components/AddRecipeCuisineForm/AddRecipeCuisineForm'
 import AddRecipeCuisine from '../../components/AddRecipeCuisine/AddRecipeCuisine'
 import AddRecipeImage from '../../components/AddRecipeImage/AddRecipeImage'
+import AddRecipePublic from '../../components/AddRecipePublic/AddRecipePublic'
 import Button from '../../components/Button/Button'
 
 import RecipeContext from '../../contexts/RecipeContext'
@@ -59,12 +60,18 @@ class AddRecipe extends React.Component {
                         : <AddRecipeTimeForm />
                 }
 
+                <AddRecipePublic />
+
                 <AddRecipeImage />
+
+                {this.context.error && <div>{this.context.error}</div>}
 
                 <Button className='submit_button'
                     onClick = { this.context.handleCreateRecipe }>
                     Create Recipe
                 </Button>
+
+                {this.context.loading && <div>Saving..</div>}
 
             </section>
         )

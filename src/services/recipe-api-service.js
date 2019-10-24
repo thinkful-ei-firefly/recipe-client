@@ -37,15 +37,7 @@ const RecipeApiService = {
             'authorization': `Bearer ${TokenService.getAuthToken()}`,
             'content-type': 'application/json'
         },
-        body: JSON.stringify({
-          "name": recipe.name,
-          "description": recipe.description,
-          "ingredients": recipe.ingredients,
-          "instructions": recipe.instructions,
-          "category": recipe.category,
-          "time_to_make": recipe.time_to_make,
-          "imageURL": recipe.imageURL,
-        })
+        body: JSON.stringify(recipe)
         })
 
         .then(res =>

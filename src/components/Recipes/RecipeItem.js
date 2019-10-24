@@ -7,10 +7,10 @@ class RecipeItem extends React.Component {
 
   render() {
     console.log(this.props.recipe);
-    const { id, name, time_to_make, category } = this.props.recipe
+    const { id, name, time_to_make, category, imageurl } = this.props.recipe
     //const ingredientList = ingregients.map(ingredient => <div>{ingredient}</div>)
     //const instructionList = instructions.map(instruction => <div>{instruction}</div>)
-
+    console.log(imageurl);
       return(
           <section className="recipe">
               <Link
@@ -18,6 +18,7 @@ class RecipeItem extends React.Component {
                   className="menu">
                   {name}
               </Link>
+              <div><img src={"https://good-meal.s3.amazonaws.com/" + (imageurl?imageurl:"nofound.png")} alt={name}/></div>
               <div>Category: {category}</div>
               <div>Time to make: {time_to_make}</div>
               <button onClick={e => this.context.delete(id)}>Remove</button>

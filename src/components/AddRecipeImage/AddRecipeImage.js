@@ -8,9 +8,17 @@ class AddRecipeImage extends React.Component {
 
     render() {
         return(
-          <label htmlFor='image'>Image
-            <input id='image' type="file" required accept=".png,.jpg,.jpeg" onChange={ (e) => this.context.handleAddImage(e.target.files) }/>
-          </label>
+          <form
+              className = "recipe-form">
+              <div className = "description">
+              <div className='section'><span>8</span>Image</div>
+              <div className='inner-wrap'>
+              <label htmlFor='image'>Image
+                <input id='image' type="file" accept=".png,.jpg,.jpeg" onChange={ (e) => this.context.handleAddImage(e.target.files) }/>
+              </label>
+              </div>
+              </div>
+          </form>
         )
     }
 }
