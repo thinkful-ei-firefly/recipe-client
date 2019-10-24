@@ -22,7 +22,7 @@ class AddRecipeTimeForm extends React.Component {
                 onSubmit = { this.handleSubmit }>
                 <div className = "time">
                 <div className='section'><span>6</span>Cooking Time</div>
-                    <div class="inner-wrap">
+                    <div className="inner-wrap">
                     <Label
                         htmlFor = "recipe-time">
                         Time (in minutes): <Required />

@@ -24,7 +24,7 @@ class AddRecipeTitleForm extends React.Component {
                 onSubmit = { this.handleSubmit }>
                 <div className = "title">
                     <div className='section'><span>1</span>Title</div>
-                    <div class="inner-wrap">
+                    <div className="inner-wrap">
                     <Label
                         htmlFor = "recipe-title">
                         Title: <Required />
