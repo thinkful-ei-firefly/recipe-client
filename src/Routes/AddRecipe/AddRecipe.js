@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 import AddRecipeTitleForm from '../../components/AddRecipeTitleForm/AddRecipeTitleForm'
 import AddRecipeTitle from '../../components/AddRecipeTitle/AddRecipeTitle'
 import AddRecipeDescForm from '../../components/AddRecipeDescForm/AddRecipeDescForm'
@@ -71,7 +72,9 @@ class AddRecipe extends React.Component {
                     Create Recipe
                 </Button>
 
-                {this.context.loading && <div>Saving..</div>}
+                { this.context.loading && <div>Saving..</div> }
+
+                { this.context.saved && <Redirect to={'/recipes'}/> }
 
             </section>
         )

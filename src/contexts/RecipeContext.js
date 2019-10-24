@@ -16,6 +16,7 @@ const RecipeContext = React.createContext({
     filteredRecipes: [],
     filterBy: null,
     error: null,
+    saved: false,
 
     setError: () => {},
     clearError: () => {},
@@ -60,7 +61,8 @@ export class RecipeProvider extends React.Component {
             recipeImage: null,
             recipePublic: false,
             error: null,
-            loading: false
+            loading: false,
+            saved: false
         }
 
         this.state = state
@@ -200,6 +202,7 @@ export class RecipeProvider extends React.Component {
             public: this.state.recipePublic,
             imageurl: fileName,
         }
+        console.log(recipe);
         this.setState({
           loading: true
         })
@@ -214,15 +217,15 @@ export class RecipeProvider extends React.Component {
             console.log(resImage);
             this.setState({
               loading: false,
-              error: null
+              error: null,
+              saved: true
             })
-            this.props.history.push('/recipes')
           })
           .catch(error => {
             console.log(error);
             this.setState({
               loading: false,
-              error: error.message
+              error: error.message || error.error
             })
           } )
     }
@@ -243,6 +246,7 @@ export class RecipeProvider extends React.Component {
             searchBy: this.state.searchBy,
             filteredRecipes: this.state.filteredRecipes,
             filterBy: this.state.filterBy,
+            saved: this.state.saved,
 
             setRecipeList: this.setRecipeList,
             removeRecipe: this.removeRecipe,
