@@ -16,7 +16,7 @@ class SideDrawer extends React.Component {
         this.context.processLogout()
     }
 
-    renderLoginLink() {
+    renderLogin() {
         return(
             <div className="sidebar-navigation-items">    
                 <ul>
@@ -49,7 +49,7 @@ class SideDrawer extends React.Component {
         )
     }
 
-    renderLogoutLink() {
+    renderLogout() {
         return(
             <div className="sidebar-navigation-items">    
                 <ul>
@@ -79,6 +79,14 @@ class SideDrawer extends React.Component {
                     </li>
                     <li>
                         <Link
+                            to = "/ingredients"
+                            className = "menu"
+                            onClick = { this.context.handleCloseSideDrawer }>
+                            My ingredients
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
                             to = "/newrecipe"
                             className = "menu"
                             onClick = { this.context.handleCloseSideDrawer }>
@@ -102,8 +110,8 @@ class SideDrawer extends React.Component {
         return(
             <nav className = { this.context.drawerClass }>
                 { TokenService.hasAuthToken()
-                    ? this.renderLogoutLink()
-                    : this.renderLoginLink()
+                    ? this.renderLogout()
+                    : this.renderLogin()
                 }
             </nav>
         )

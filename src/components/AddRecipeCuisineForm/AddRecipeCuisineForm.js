@@ -22,7 +22,7 @@ class AddRecipeCuisineForm extends React.Component {
                 onSubmit = { this.handleSubmit }>
                 <div className = "cuisine">
                 <div className='section'><span>5</span>Cuisine</div>
-                    <div class="inner-wrap">
+                    <div className="inner-wrap">
                     <Label
                         htmlFor = "recipe-cuisine">
                         Cuisine: <Required />
