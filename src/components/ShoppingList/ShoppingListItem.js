@@ -2,6 +2,8 @@ import React from 'react';
 import ShoppingListRoute from '../../contexts/ShoppingListContext'
 import { Link } from 'react-router-dom'
 
+import GoodmealApiService from '../../services/goodmeal-api-service'
+
 class RecipeItem extends React.Component {
   static contextType = ShoppingListRoute
 
@@ -10,7 +12,8 @@ class RecipeItem extends React.Component {
   }
 
   crossUncross = () => {
-    this.setState({crossed: !this.state.crossed})
+    GoodmealApiService.strikeUnstrikeListItem(this.props.recipe.id, {crossed: !this.state.crossed})
+      .then(() => this.setState({crossed: !this.state.crossed}))
   }
 
   render() {

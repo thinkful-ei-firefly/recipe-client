@@ -52,6 +52,18 @@ const GoodmealApiService = {
       }
     })
     .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
+  },
+
+  strikeUnstrikeListItem(id, crossed) {
+    return fetch(this.url+'/list/'+id, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify(crossed)
+    })
+    .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
   }
 }
 
