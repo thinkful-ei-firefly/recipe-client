@@ -11,7 +11,19 @@ const RecipeContext = React.createContext({
     recipeTime: '',
     recipeCuisine: '',
     recipeList: [],
+    searchRecipes: [],
+    searchBy: null,
+    filteredRecipes: [],
+    filterBy: null,
     error: null,
+
+    setError: () => {},
+    clearError: () => {},
+    setRecipeList: () => {},
+    removeRecipe: () => {},
+    getAllRecipes: () => {},
+    delete: () => {},
+    setFilter: () => {},
 
     handleAddTitle: () => {},
     handleRemoveTitle: () => {},
@@ -25,8 +37,6 @@ const RecipeContext = React.createContext({
     handleAddCuisine: () => {},
     handleRemoveCuisine: () => {},
     handleCreateRecipe: () => {},
-    setError: () => {},
-    clearError: () => {},
     setUser: () => {},
 })
 
@@ -44,16 +54,58 @@ export class RecipeProvider extends React.Component {
             recipeCuisine: '',
             recipeTime: null,
             recipeList: [],
+            searchRecipes: [],
+            searchBy: null,
+            filteredRecipes: [],
+            filterBy: null,
             recipeImage: null,
             recipePublic: false,
             error: null,
             loading: false
-
         }
 
         this.state = state
     }
 
+    setError = (error) => {
+        this.setState({
+            error
+        })
+    }
+    
+    clearError = () => {
+        this.setState({
+            error: null
+        })
+    }
+    
+    setRecipeList = (recipeList) => {
+        this.setState({
+            recipeList
+        })
+    }
+
+    removeRecipe = (idProduct) => {
+        this.setState({
+            recipeList: this.state.recipeList.filter((item, index) => item.id !== idProduct)
+        });
+    }
+
+    getAllRecipes = () => {
+        RecipeApiService.getAll()
+            .then(this.setRecipeList)
+    }
+
+    delete = (idRecipe) => {
+        RecipeApiService.delete(idRecipe)
+            .then(() => this.removeRecipe(idRecipe))
+            .catch(this.setError)
+    }
+
+    setFilter = (filterBy) => {
+        this.setState({ filterBy })
+    }
+    
     handleAddTitle = recipeTitle => {
         this.setState({ recipeTitle })
     }
@@ -131,15 +183,8 @@ export class RecipeProvider extends React.Component {
 
     // takes recipe data from state and sends api query to server
     handleCreateRecipe = () => {
-      const fileName =  this.state.recipeImage?`${Date.parse(new Date())}.${this.state.recipeImage.name.split('.').pop()}`:'';
-
-        const ingredientsList = this.state.recipeIngredients.map(ing => {
-            return '"' + ing + '", '
-        })
-
-        const instructionsList = this.state.recipeSteps.map(step => {
-            return '"' + step + '", '
-        })
+        
+        const fileName =  this.state.recipeImage?`${Date.parse(new Date())}.${this.state.recipeImage.name.split('.').pop()}`:'';
 
         console.log('add recipe button pressed', this.state.recipePublic)
         const recipe = {
@@ -191,7 +236,14 @@ export class RecipeProvider extends React.Component {
             recipePublic: this.state.recipePublic,
             error: this.state.error,
             loading: this.state.loading,
+            searchRecipes: this.state.searchRecipes,
+            searchBy: this.state.searchBy,
+            filteredRecipes: this.state.filteredRecipes,
+            filterBy: this.state.filterBy,
 
+            setRecipeList: this.setRecipeList,
+            removeRecipe: this.removeRecipe,
+            getAllRecipes: this.getAllRecipes,
             handleAddTitle: this.handleAddTitle,
             handleRemoveTitle: this.handleRemoveTitle,
             handleAddDesc: this.handleAddDesc,
@@ -207,8 +259,8 @@ export class RecipeProvider extends React.Component {
             handleCreateRecipe: this.handleCreateRecipe,
             handleAddImage: this.handleAddImage,
             handleAddPublic: this.handleAddPublic,
-            setError: () => {},
-            clearError: () => {},
+            setError: this.setError,
+            clearError: this.clearError,
             setUser: () => {},
         }
 
