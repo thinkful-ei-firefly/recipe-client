@@ -1,7 +1,6 @@
 import React from 'react';
 import ShoppingListContext from '../../contexts/ShoppingListContext'
 import ShoppingListItem from './ShoppingListItem'
-import { Link } from 'react-router-dom'
 
 class ShoppingList extends React.Component {
   static contextType = ShoppingListContext
@@ -19,11 +18,6 @@ class ShoppingList extends React.Component {
       return(
           <section className="re">
               Your shopping list<br/>
-              <Link
-                  to="/newrecipe"
-                  className="menu">
-                  Add
-              </Link>
               <div>
                 { recipes }
               </div>
