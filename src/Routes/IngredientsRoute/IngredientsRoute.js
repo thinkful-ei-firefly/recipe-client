@@ -66,7 +66,6 @@ class IngredientsRoute extends React.Component {
       <div>
         <h2>Ingredients</h2>
         {error}
-        {console.log(ingredientList)}
         <ul>
           {listElements}
         </ul>
