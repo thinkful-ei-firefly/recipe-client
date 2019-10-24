@@ -29,11 +29,6 @@ class RecipeItem extends React.Component {
               <div>{text}</div>
               <button onClick={this.crossUncross}>{crossed ? 'Uncross' : 'Cross off'}</button>
               <button onClick={e => this.context.delete(id)}>Remove</button>
-              <Link
-                  to="/editrecipe"
-                  className="menu">
-                  Edit
-              </Link>
           </section>
       )
   }

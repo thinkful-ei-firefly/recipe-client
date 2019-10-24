@@ -64,6 +64,24 @@ const GoodmealApiService = {
       body: JSON.stringify(crossed)
     })
     .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
+  },
+  deletShoppingList() {
+    return fetch(this.url+'/list/', {
+      method: 'DELETE',
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
+  },
+  deleteCrossedOnShoppingList() {
+    return fetch(this.url+'/list/crossed', {
+      method: 'DELETE',
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
   }
 }
 
