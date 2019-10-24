@@ -3,7 +3,7 @@ import React from 'react'
 
 import ShoppingList from '../../components/ShoppingList/ShoppingList'
 import ShoppingListContext from '../../contexts/ShoppingListContext'
-import RecipeApiService from '../../services/recipe-api-service'
+import ShoppingListApiService from '../../services/shoppinglist-api-service'
 
 class ShoppingListRoute extends React.Component {
 
@@ -37,12 +37,12 @@ class ShoppingListRoute extends React.Component {
   }
 
   getShoppingList = () => {
-    RecipeApiService.getAll()
+    ShoppingListApiService.getAll()
       .then(this.setRecipeList)
   }
 
   delete = (idRecipe) => {
-    RecipeApiService.delete(idRecipe)
+    ShoppingListApiService.delete(idRecipe)
       .then(() => this.removeRecipe(idRecipe))
       .catch(this.setError)
   }

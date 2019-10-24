@@ -3,7 +3,7 @@ import {Label, Input, Required } from '../Form/Form'
 import Button from '../Button/Button'
 
 import RecipeContext from '../../contexts/RecipeContext'
-
+import '../../Routes/AddRecipe/addRecipe.css'
 class AddRecipeIngredientForm extends React.Component {
 
     static contextType = RecipeContext
@@ -11,7 +11,7 @@ class AddRecipeIngredientForm extends React.Component {
     handleSubmit = e => {
         e.preventDefault()
         const {amount, measurement, ingredient} = e.target
-        this.context.handleUpdateRecipeIngredients(amount.value, measurement.value, ingredient.value)
+        this.context.handleAddRecipeIngredient(amount.value, measurement.value, ingredient.value)
         e.target.amount.value = ''
         e.target.measurement.value = ''
         e.target.ingredient.value = ''
@@ -25,8 +25,9 @@ class AddRecipeIngredientForm extends React.Component {
             <form
                 className = "addIngredient-form"
                 onSubmit = { this.handleSubmit }>
-                <legend>Add An Ingredient</legend>
                 <div className = "amount">
+                <div className='section'><span>3</span>Ingredients</div>
+                <div className='inner-wrap'>
                     <Label
                         htmlFor = "recipe-amount">
                         How much: <Required />
@@ -47,7 +48,7 @@ class AddRecipeIngredientForm extends React.Component {
                         <option value = "dozen"/>
                     </datalist>
                 </div>
-                <div className = "measurement">
+                <div className = "inner-wrap">
                     <Label
                         htmlFor = "recipe-measurement">
                         Measure <Required />
@@ -67,7 +68,7 @@ class AddRecipeIngredientForm extends React.Component {
                         <option value = "each"/>
                     </datalist>
                 </div>
-                <div className = "ingredient">
+                <div className = "inner-wrap">
                     <Label
                         htmlFor = "recipe-ingredient">
                         Ingredient: <Required />
@@ -79,10 +80,11 @@ class AddRecipeIngredientForm extends React.Component {
                         required>
                     </Input>
                 </div>
-                <Button
+                <Button className='add'
                     type = "Submit">
-                    Add Ingredient
+                    +
                 </Button>
+                </div>
             </form>
         )
     }

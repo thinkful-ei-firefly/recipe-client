@@ -2,9 +2,9 @@ import TokenService from './token-service'
 
 import config from '../config'
 
-const RecipeApiService = {
+const ShoppingListApiService = {
   getAll() {
-      return fetch(`${config.API_ENDPOINT}/recipes`, {
+      return fetch(`${config.API_ENDPOINT}/list`, {
         headers: {
           "Authorization": `bearer ${TokenService.getAuthToken()}`,
         },
@@ -17,7 +17,7 @@ const RecipeApiService = {
     },
 
   getById(id) {
-        return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
+        return fetch(`${config.API_ENDPOINT}/list/${id}`, {
           headers: {
             "Authorization": `bearer ${TokenService.getAuthToken()}`,
           },
@@ -28,10 +28,10 @@ const RecipeApiService = {
               : res.json()
           )
       },
-  
+
   postRecipe(recipe) {
         console.log(recipe)
-        return fetch(`${config.API_ENDPOINT}/recipes`, {
+        return fetch(`${config.API_ENDPOINT}/list`, {
         method: 'POST',
         headers: {
             'authorization': `Bearer ${TokenService.getAuthToken()}`,
@@ -46,8 +46,8 @@ const RecipeApiService = {
           "time_to_make": recipe.time_to_make,
         })
         })
-    
-        .then(res => 
+
+        .then(res =>
             (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()
@@ -55,7 +55,7 @@ const RecipeApiService = {
     },
 
   saveNew(obj) {
-    return fetch(`${config.API_ENDPOINT}/recipes`, {
+    return fetch(`${config.API_ENDPOINT}/list`, {
       method: 'POST',
       headers: {
         "Authorization": `bearer ${TokenService.getAuthToken()}`,
@@ -71,7 +71,7 @@ const RecipeApiService = {
   },
 
   saveExisting(id, obj) {
-    return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
+    return fetch(`${config.API_ENDPOINT}/list/${id}`, {
       method: 'PATCH',
       headers: {
         "Authorization": `bearer ${TokenService.getAuthToken()}`,
@@ -87,7 +87,7 @@ const RecipeApiService = {
   },
 
   delete(id) {
-    return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
+    return fetch(`${config.API_ENDPOINT}/list/${id}`, {
       method: 'DELETE',
       headers: {
         "Authorization": `bearer ${TokenService.getAuthToken()}`,
@@ -102,7 +102,7 @@ const RecipeApiService = {
   },
 
   deleteWithResult(id) {
-    return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
+    return fetch(`${config.API_ENDPOINT}/list/${id}`, {
       method: 'DELETE',
       headers: {
         "Authorization": `bearer ${TokenService.getAuthToken()}`,
@@ -118,4 +118,4 @@ const RecipeApiService = {
 
 }
 
-export default RecipeApiService;
+export default ShoppingListApiService;

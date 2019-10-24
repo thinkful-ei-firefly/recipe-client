@@ -3,6 +3,8 @@ import { Label, Input, Required } from '../Form/Form'
 import Button from '../Button/Button'
 
 import RecipeContext from '../../contexts/RecipeContext'
+//import './Add.css'
+import '../../Routes/AddRecipe/addRecipe.css'
 
 class AddRecipeTitleForm extends React.Component {
 
@@ -10,7 +12,6 @@ class AddRecipeTitleForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        console.log(e.target.title.value)
         this.context.handleAddTitle(e.target.title.value)
         e.target.title.value = ''
     }
@@ -21,23 +22,25 @@ class AddRecipeTitleForm extends React.Component {
             <form
                 className = "recipe-form"
                 onSubmit = { this.handleSubmit }>
-                <legend>Add Recipe Title</legend>
                 <div className = "title">
+                    <div className='section'><span>1</span>Title</div>
+                    <div class="inner-wrap">
                     <Label
                         htmlFor = "recipe-title">
                         Title: <Required />
                     </Label>
-                    <Input
+                    <Input className= 'input'
                         name = "title"
                         id = "text"
                         type = "text"
                         required>
                     </Input>
                 </div>
-                <Button
+                <Button className='add'
                     type = "Submit">
-                    Add Recipe Title
+                    +
                 </Button>
+                </div>
             </form>
         )
     }
