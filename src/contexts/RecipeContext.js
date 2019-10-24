@@ -1,6 +1,7 @@
 import React from 'react'
 
 import RecipeApiService from '../services/recipe-api-service'
+import UploadApiService from '../services/upload-api-service'
 
 const RecipeContext = React.createContext({
     recipeTitle: '',
@@ -43,8 +44,9 @@ export class RecipeProvider extends React.Component {
             recipeCuisine: '',
             recipeTime: null,
             recipeList: [],
+            recipeImage: null,
             error: null,
-            
+
         }
 
         this.state = state
@@ -112,8 +114,16 @@ export class RecipeProvider extends React.Component {
         this.setState({ recipeCuisine: '' })
     }
 
+    handleAddImage = (e) => {
+      console.log(e[0]);
+      this.setState({
+        recipeImage : e[0]
+      })
+    }
+
     // takes recipe data from state and sends api query to server
     handleCreateRecipe = () => {
+      const fileName = `${Date.parse(new Date())}.${this.state.recipeImage.name.split('.').pop()}`;
 
         const ingredientsList = this.state.recipeIngredients.map(ing => {
             return '"' + ing + '", '
@@ -131,9 +141,16 @@ export class RecipeProvider extends React.Component {
             instructions: "{" + this.state.recipeSteps.join(',') + "}",
             time_to_make: this.state.recipeTime,
             category: this.state.recipeCuisine,
+            imageURL: fileName,
         }
 
-        RecipeApiService.postRecipe(recipe);
+        RecipeApiService.postRecipe(recipe)
+          .then(response => UploadApiService.uploadImage(this.state.recipeImage, fileName))
+          .then(resImage => {
+            console.log(resImage);
+            //this.props.history.push('/recipes')
+          })
+          .catch(this.setError)
     }
 
     render() {
@@ -146,7 +163,7 @@ export class RecipeProvider extends React.Component {
             recipeCuisine: this.state.recipeCuisine,
             recipeList: this.state.recipeList,
             error: this.state.error,
-    
+
             handleAddTitle: this.handleAddTitle,
             handleRemoveTitle: this.handleRemoveTitle,
             handleAddDesc: this.handleAddDesc,
@@ -160,6 +177,7 @@ export class RecipeProvider extends React.Component {
             handleAddCuisine: this.handleAddCuisine,
             handleRemoveCuisine: this.handleRemoveCuisine,
             handleCreateRecipe: this.handleCreateRecipe,
+            handleAddImage: this.handleAddImage,
             setError: () => {},
             clearError: () => {},
             setUser: () => {},
