@@ -45,7 +45,9 @@ export class RecipeProvider extends React.Component {
             recipeTime: null,
             recipeList: [],
             recipeImage: null,
+            recipePublic: false,
             error: null,
+            loading: false
 
         }
 
@@ -115,15 +117,21 @@ export class RecipeProvider extends React.Component {
     }
 
     handleAddImage = (e) => {
-      console.log(e[0]);
       this.setState({
         recipeImage : e[0]
       })
     }
 
+    handleAddPublic = (e) => {
+      console.log(e.target.checked);
+      this.setState({
+        recipePublic : e.target.checked
+      })
+    }
+
     // takes recipe data from state and sends api query to server
     handleCreateRecipe = () => {
-      const fileName = `${Date.parse(new Date())}.${this.state.recipeImage.name.split('.').pop()}`;
+      const fileName =  this.state.recipeImage?`${Date.parse(new Date())}.${this.state.recipeImage.name.split('.').pop()}`:'';
 
         const ingredientsList = this.state.recipeIngredients.map(ing => {
             return '"' + ing + '", '
@@ -133,7 +141,7 @@ export class RecipeProvider extends React.Component {
             return '"' + step + '", '
         })
 
-        console.log('add recipe button pressed')
+        console.log('add recipe button pressed', this.state.recipePublic)
         const recipe = {
             name: this.state.recipeTitle,
             description: this.state.recipeDesc,
@@ -141,16 +149,34 @@ export class RecipeProvider extends React.Component {
             instructions: "{" + this.state.recipeSteps.join(',') + "}",
             time_to_make: this.state.recipeTime,
             category: this.state.recipeCuisine,
-            imageURL: fileName,
+            public: this.state.recipePublic,
+            imageurl: fileName,
         }
-
+        this.setState({
+          loading: true
+        })
         RecipeApiService.postRecipe(recipe)
-          .then(response => UploadApiService.uploadImage(this.state.recipeImage, fileName))
+          .then(response => {
+            if (fileName && fileName!==''){
+              return UploadApiService.uploadImage(this.state.recipeImage, fileName)
+            }
+            return {message: 'No image'}
+          })
           .then(resImage => {
             console.log(resImage);
-            //this.props.history.push('/recipes')
+            this.setState({
+              loading: false,
+              error: null
+            })
+            this.props.history.push('/recipes')
           })
-          .catch(this.setError)
+          .catch(error => {
+            console.log(error);
+            this.setState({
+              loading: false,
+              error: error.message
+            })
+          } )
     }
 
     render() {
@@ -162,7 +188,9 @@ export class RecipeProvider extends React.Component {
             recipeTime: this.state.recipeTime,
             recipeCuisine: this.state.recipeCuisine,
             recipeList: this.state.recipeList,
+            recipePublic: this.state.recipePublic,
             error: this.state.error,
+            loading: this.state.loading,
 
             handleAddTitle: this.handleAddTitle,
             handleRemoveTitle: this.handleRemoveTitle,
@@ -178,6 +206,7 @@ export class RecipeProvider extends React.Component {
             handleRemoveCuisine: this.handleRemoveCuisine,
             handleCreateRecipe: this.handleCreateRecipe,
             handleAddImage: this.handleAddImage,
+            handleAddPublic: this.handleAddPublic,
             setError: () => {},
             clearError: () => {},
             setUser: () => {},
