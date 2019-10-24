@@ -28,7 +28,7 @@ const RecipeApiService = {
               : res.json()
           )
       },
-  
+
   postRecipe(recipe) {
         console.log(recipe)
         return fetch(`${config.API_ENDPOINT}/recipes`, {
@@ -44,10 +44,11 @@ const RecipeApiService = {
           "instructions": recipe.instructions,
           "category": recipe.category,
           "time_to_make": recipe.time_to_make,
+          "imageURL": recipe.imageURL,
         })
         })
-    
-        .then(res => 
+
+        .then(res =>
             (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()
