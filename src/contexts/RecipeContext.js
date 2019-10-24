@@ -24,7 +24,6 @@ const RecipeContext = React.createContext({
     getAllRecipes: () => {},
     delete: () => {},
     setFilter: () => {},
-
     handleAddTitle: () => {},
     handleRemoveTitle: () => {},
     handleAddDesc: () => {},
@@ -100,6 +99,10 @@ export class RecipeProvider extends React.Component {
         RecipeApiService.delete(idRecipe)
             .then(() => this.removeRecipe(idRecipe))
             .catch(this.setError)
+    }
+
+    setSearch = (searchBy) => {
+        this.setState({ searchBy })
     }
 
     setFilter = (filterBy) => {
@@ -244,6 +247,7 @@ export class RecipeProvider extends React.Component {
             setRecipeList: this.setRecipeList,
             removeRecipe: this.removeRecipe,
             getAllRecipes: this.getAllRecipes,
+            delete: this.delete,
             handleAddTitle: this.handleAddTitle,
             handleRemoveTitle: this.handleRemoveTitle,
             handleAddDesc: this.handleAddDesc,
