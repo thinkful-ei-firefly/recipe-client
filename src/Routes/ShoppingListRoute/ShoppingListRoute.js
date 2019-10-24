@@ -6,7 +6,6 @@ import IngedientsAdderForm from '../../components/IngredientsAdderForm/Ingredien
 import ShoppingListContext from '../../contexts/ShoppingListContext'
 import GoodmealApiService from '../../services/goodmeal-api-service'
 import ShoppingListApiService from '../../services/shoppinglist-api-service'
-import GoodmealApiService from '../../services/goodmeal-api-service'
 
 class ShoppingListRoute extends React.Component {
 
@@ -64,6 +63,7 @@ class ShoppingListRoute extends React.Component {
     GoodmealApiService.deletShoppingList()
       .then(() => this.setState({ recipeList: []}))
       .catch(this.setError)
+  }
     
   addIngredient = (event) => {
     event.preventDefault()

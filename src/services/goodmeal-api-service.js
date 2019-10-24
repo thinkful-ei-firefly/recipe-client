@@ -66,7 +66,7 @@ addToShoppingList(item) {
     body: JSON.stringify(item)
   })
   .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : res.json())
-}
+},
   strikeUnstrikeListItem(id, crossed) {
     return fetch(this.url+'/list/'+id, {
       method: 'PATCH',
