@@ -68,6 +68,13 @@ class Header extends React.Component {
                     </li>
                     <li>
                         <Link
+                            to = "/ingredients"
+                            className = "menu">
+                            My Ingredients
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
                             to = "/newrecipe"
                             className = "menu">
                             New Recipe
