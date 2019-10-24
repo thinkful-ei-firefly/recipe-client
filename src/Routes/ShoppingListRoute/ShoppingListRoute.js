@@ -6,6 +6,7 @@ import IngedientsAdderForm from '../../components/IngredientsAdderForm/Ingredien
 import ShoppingListContext from '../../contexts/ShoppingListContext'
 import GoodmealApiService from '../../services/goodmeal-api-service'
 import ShoppingListApiService from '../../services/shoppinglist-api-service'
+import GoodmealApiService from '../../services/goodmeal-api-service'
 
 class ShoppingListRoute extends React.Component {
 
@@ -49,7 +50,21 @@ class ShoppingListRoute extends React.Component {
       .then(() => this.removeRecipe(idRecipe))
       .catch(this.setError)
   }
+  
+  deleteCrossedItems = () => {
+    GoodmealApiService.deleteCrossedOnShoppingList()
+      .then(() => {
+        const newList = this.state.recipeList.filter(item => item.crossed === false)
+        this.setState({ recipeList: newList })
+      })
+      .catch(this.setError)
+  }
 
+  deleteList = () => {
+    GoodmealApiService.deletShoppingList()
+      .then(() => this.setState({ recipeList: []}))
+      .catch(this.setError)
+    
   addIngredient = (event) => {
     event.preventDefault()
     let ingredient = {
@@ -84,6 +99,8 @@ class ShoppingListRoute extends React.Component {
     return(
       <ShoppingListContext.Provider value={value}>
         <ShoppingList />
+        <button onClick={this.deleteList}>Delete List</button>
+        <button onClick={this.deleteCrossedItems}>Delete crossed off list items</button>
         {adding ? <IngedientsAdderForm handleSubmit={this.addIngredient}/> : <button onClick={this.openForm}>Add to list</button>}
       </ShoppingListContext.Provider>
     )

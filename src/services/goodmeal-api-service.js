@@ -67,6 +67,35 @@ addToShoppingList(item) {
   })
   .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : res.json())
 }
+  strikeUnstrikeListItem(id, crossed) {
+    return fetch(this.url+'/list/'+id, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify(crossed)
+    })
+    .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
+  },
+  deletShoppingList() {
+    return fetch(this.url+'/list/', {
+      method: 'DELETE',
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
+  },
+  deleteCrossedOnShoppingList() {
+    return fetch(this.url+'/list/crossed', {
+      method: 'DELETE',
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
+  }
 }
 
 export default GoodmealApiService
