@@ -19,7 +19,7 @@ class RecipeItem extends React.Component {
                   {name}
               </Link>
               <div><img src={"https://good-meal.s3.amazonaws.com/" + (imageurl?imageurl:"nofound.png")} alt={name}/></div>
-              <div>Category: {category}</div>
+              <div>Cuisine: {category}</div>
               <div>Time to make: {time_to_make}</div>
               <button onClick={e => this.context.delete(id)}>Remove</button>
               <Link

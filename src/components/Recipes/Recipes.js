@@ -13,14 +13,22 @@ class Recipes extends React.Component {
     this.context.getAllRecipes()
   }
 
+  setFilter(filterBy) {
+    this.context.setFilter(filterBy)
+  }
+
   render() {
-    const recipes = this.context.recipeList.map(recipe => {
+    let recipeList = this.context.recipeList
+    if (this.context.filterBy) recipeList = recipeList.filter(recipe => Object.values(recipe).join('').toLowerCase().includes(this.context.filterBy.toLowerCase()))
+    const recipes = recipeList.map(recipe => {
       return <RecipeItem key={recipe.id} recipe={recipe}/>
     })
 
       return(
           <section className="recipes">
               <h2>Your recipes</h2><br/>
+              <label htmlFor='recipe-search'>Search for </label>
+              <input onChange={event => this.setFilter(event.target.value)} id='recipe-search'type='text' placeholder='e.g. "bananas"'></input>
               <Link
                   to="/newrecipe"
                   className="button">
