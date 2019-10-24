@@ -99,8 +99,8 @@ class ShoppingListRoute extends React.Component {
     return(
       <ShoppingListContext.Provider value={value}>
         <ShoppingList />
-        <button onClick={this.deleteList}>Delete List</button>
-        <button onClick={this.deleteCrossedItems}>Delete crossed off list items</button>
+        <button hidden={!this.state.recipeList.length}onClick={this.deleteList}>Delete List</button>
+        <button hidden={!this.state.recipeList.length}onClick={this.deleteCrossedItems}>Delete crossed off list items</button>
         {adding ? <IngedientsAdderForm handleSubmit={this.addIngredient}/> : <button onClick={this.openForm}>Add to list</button>}
       </ShoppingListContext.Provider>
     )
