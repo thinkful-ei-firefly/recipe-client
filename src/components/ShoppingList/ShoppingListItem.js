@@ -1,6 +1,5 @@
 import React from 'react';
 import ShoppingListRoute from '../../contexts/ShoppingListContext'
-import { Link } from 'react-router-dom'
 
 import GoodmealApiService from '../../services/goodmeal-api-service'
 
