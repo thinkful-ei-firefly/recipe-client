@@ -1,5 +1,4 @@
 import React from 'react'
-//import { Link } from 'react-router-dom'
 
 import Recipes from '../../components/Recipes/Recipes'
 import RecipeContext from '../../contexts/RecipeContext'
