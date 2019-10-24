@@ -7,13 +7,13 @@ class RecipeItem extends React.Component {
 
   render() {
     console.log(this.props.recipe);
-    const { id, name } = this.props.recipe
+    const { id, name, amount, unit } = this.props.recipe
     //const ingredientList = ingregients.map(ingredient => <div>{ingredient}</div>)
     //const instructionList = instructions.map(instruction => <div>{instruction}</div>)
 
       return(
           <section className="recipe">
-              <div>{name}</div>
+              <div>{amount} {unit} of {name}</div>
               <button onClick={e => this.context.delete(id)}>Remove</button>
               <Link
                   to="/editrecipe"
