@@ -17,6 +17,8 @@ const RecipeContext = React.createContext({
     filterBy: null,
     error: null,
     saved: false,
+    searchPublicRecipesBy: '',
+    publicRecipes: [],
 
     setError: () => {},
     clearError: () => {},
@@ -38,6 +40,8 @@ const RecipeContext = React.createContext({
     handleAddCuisine: () => {},
     handleRemoveCuisine: () => {},
     handleCreateRecipe: () => {},
+    searchRecipesBy: () => {},
+    filterRecipesByTime: () => {},
     setUser: () => {},
 })
 
@@ -63,7 +67,9 @@ export class RecipeProvider extends React.Component {
             recipePublic: false,
             error: null,
             loading: false,
-            saved: false
+            saved: false,
+            searchPublicRecipesBy: '',
+            publicRecipes: [],
         }
 
         this.state = state
@@ -231,6 +237,28 @@ export class RecipeProvider extends React.Component {
           } )
     }
 
+    searchRecipesBy = (recipeList, term) => {
+        return recipeList
+                .filter(recipe => 
+                    Object.values(recipe)
+                        .join('')
+                        .toLowerCase()
+                        .includes(term.toLowerCase()) 
+                    
+                )
+    }
+
+    filterRecipesByTime = (recipeList, time) => {
+        return recipeList
+            .filter(recipe => 
+                recipe.time_to_make <= time
+            )
+    }
+
+    updateSearchPublicRecipeBy = searchPublicRecipesBy => {
+        this.setState({ searchPublicRecipesBy })
+    }
+
     render() {
         const recipe = {
             recipeTitle: this.state.recipeTitle,
@@ -248,6 +276,8 @@ export class RecipeProvider extends React.Component {
             filteredRecipes: this.state.filteredRecipes,
             filterBy: this.state.filterBy,
             saved: this.state.saved,
+            searchPublicRecipesBy: this.state.searchPublicRecipesBy,
+            publicRecipes: this.state.publicRecipes,
 
             setRecipeList: this.setRecipeList,
             removeRecipe: this.removeRecipe,
@@ -272,6 +302,8 @@ export class RecipeProvider extends React.Component {
             handleAddPublic: this.handleAddPublic,
             setError: this.setError,
             clearError: this.clearError,
+            searchRecipesBy: this.searchRecipesBy,
+            filterRecipesByTime: this.filterRecipesByTime,
             setUser: () => {},
         }
 
