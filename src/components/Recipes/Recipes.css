@@ -4,3 +4,7 @@
   align-items: center;
   flex-direction: column;
 }
+
+.recipes h1 {
+  font-size: 30px;
+}

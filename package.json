@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "classnames": "^2.2.6",
     "cx": "^19.10.6",
     "jwt-decode": "^2.2.0",

@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: #f21323;
+  background: black;
   height: 56px;
   z-index: 50;
   box-shadow: grey 0 0 5px 0;
@@ -22,7 +22,7 @@
 }
 
 .logo a {
-  color: #fef72a;
+  color: #fff;
   text-decoration: none;
   font-size: 1.5rem;
 }
@@ -43,13 +43,13 @@
 }
 
 .navigation-items a {
-  color: #fef72a;
+  color: #fff;
   text-decoration: none;
 }
 
 .navigation-items .menu:hover,
 .navigation-items .menu:active {
-  color: #fff;
+  color: lightgreen;
 }
 
 @media (max-width: 700px) {
