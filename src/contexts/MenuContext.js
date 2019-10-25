@@ -44,7 +44,6 @@ export class MenuProvider extends React.Component {
         TokenService.clearAuthToken()
         TokenService.clearCallbackBeforeExpiry()
         IdleService.unRegisterIdleResets()
-        //this.setUser({})
       }
 
       render() {

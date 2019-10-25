@@ -11,7 +11,7 @@ class Header extends React.Component {
 
     handleLogout = () => {
         TokenService.clearAuthToken()
-        this.forceUpdate()
+        this.props.updateLogin(false)
     }
 
     renderLogin() {

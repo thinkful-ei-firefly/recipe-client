@@ -14,6 +14,7 @@ class SideDrawer extends React.Component {
     handleLogout = () => {
         this.context.handleCloseSideDrawer()
         this.context.processLogout()
+        this.props.updateLogin(false)
     }
 
     renderLogin() {

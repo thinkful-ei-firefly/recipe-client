@@ -22,6 +22,7 @@ class LoginRoute extends React.Component {
     AuthApiService.postLogin({user_name, password})
       .then(response => {
         TokenService.saveAuthToken(response.authToken)
+        this.props.updateLogin(true)
         this.props.history.push('/recipes')
       })
       .catch(res => this.setState({ error: res.error }))

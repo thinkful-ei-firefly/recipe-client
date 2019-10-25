@@ -26,6 +26,16 @@ class App extends React.Component {
 
   static contextType = MenuContext
 
+  state = {
+    login: false
+  }
+
+  updateLogin = bool => {
+    this.setState({
+      login: bool
+    })
+  }
+
   render() {
 
     let backDrop
@@ -38,8 +48,8 @@ class App extends React.Component {
 
         <div className = 'app' style={ { height: '100%' } }>
 
-          <Header />
-          <SideDrawer />
+          <Header updateLogin = { this.updateLogin } />
+          <SideDrawer updateLogin = { this.updateLogin } />
           { backDrop }
 
           <main style = { { marginTop: '64px' } }>
@@ -56,11 +66,11 @@ class App extends React.Component {
               />
               <PublicOnlyRoute
                 path = { '/login' }
-                component = { LoginRoute }
+                render = { () => <LoginRoute updateLogin = { this.updateLogin } /> }
               />
               <PublicOnlyRoute
                 path = { '/register' }
-                component = { RegisterRoute }
+                render = { () => <RegisterRoute updateLogin = { this.updateLogin } /> }
               />
               <Route 
                 path = { '/newrecipe' }

@@ -23,6 +23,7 @@ class RegisterRoute extends React.Component {
       .then(response => {
         console.log('authToken is '+response.authToken)
         TokenService.saveAuthToken(response.authToken)
+        this.props.updateLogin(true)
         this.props.history.push('/recipes')
       })
       .catch(res => this.setState({ error: res.error }))
