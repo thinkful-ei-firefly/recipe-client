@@ -1,7 +1,6 @@
 import React from 'react';
 import RecipeContext from '../../contexts/RecipeContext'
 import RecipeItem from '../RecipeItem/RecipeItem'
-import { Link } from 'react-router-dom'
 import { Label, Input } from '../Form/Form'
 
 import './Recipes.css'
@@ -55,7 +54,7 @@ class Recipes extends React.Component {
                         </Label>
                         <Input
                             id = "recipe-filter"
-                            onChange = { e => this.context.setfilter(e.target.value) }
+                            onChange = { e => this.context.setFilter(e.target.value) }
                             type = "number"
                             min = "0">
                         </Input>

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Label, Input, Required } from '../Form/Form'
-import Button from '../Button/Button'
 
 import RecipeContext from '../../contexts/RecipeContext'
 import '../../Routes/AddRecipe/addRecipe.css'
