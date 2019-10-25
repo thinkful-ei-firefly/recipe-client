@@ -15,15 +15,19 @@ class Recipes extends React.Component {
     }
 
     render() {
-        let recipeList = this.context.searchRecipesBy(
-            this.context.recipeList, 
-            this.context.searchBy
-        )
-
-        recipeList = this.context.filterRecipeByTime(
-            recipeList,
-            this.context.filterBy
-        )
+      let recipeList = this.context.recipeList
+      if (this.context.searchBy) {
+        recipeList = this.context.searchRecipesBy(
+          this.context.recipeList, 
+          this.context.searchBy
+      )
+      }
+      if (this.context.filterBy) {
+        recipeList = this.context.filterRecipesByTime(
+          recipeList,
+          this.context.filterBy
+      )
+      }
 
         const recipes = recipeList
             .map(recipe => 
