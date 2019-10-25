@@ -5,15 +5,17 @@ import { Switch, Route } from 'react-router-dom';
 //import routes
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../../components/PublicOnlyRoute/PublicOnlyRoute'
+import PublicRecipe from '../../components/PublicRecipe/PublicRecipe'
 import HomeRoute from '../../Routes/HomeRoute/HomeRoute'
 import LoginRoute from '../../Routes/LoginRoute/LoginRoute'
+import RegisterRoute from '../../Routes/RegisterRoute/RegisterRoute'
 import RecipesRoute from '../../Routes/RecipesRoute/RecipesRoute'
 import ShoppingListRoute from '../../Routes/ShoppingListRoute/ShoppingListRoute'
-import RegisterRoute from '../../Routes/RegisterRoute/RegisterRoute'
 import AddRecipe from '../../Routes/AddRecipe/AddRecipe'
-import NotFoundRoute from '../../Routes/NotFoundRoute/NotFoundRoute'
 import RecipeSingleRoute from '../../Routes/RecipeSingleRoute/RecipeSingleRoute'
 import IngredientsRoute from '../../Routes/IngredientsRoute/IngredientsRoute'
+import PublicRecipesRoute from '../../Routes/PublicRecipesRoute/PublicRecipesRoute'
+import NotFoundRoute from '../../Routes/NotFoundRoute/NotFoundRoute'
 
 //import components
 import Header from '../Header/Header'
@@ -52,6 +54,14 @@ class App extends React.Component {
                 />
               <Route 
                 exact
+                path = { '/publicrecipes'}
+                component = { PublicRecipesRoute }
+              />
+              <Route 
+                path = { '/publicrecipes/:id' }
+                component = { PublicRecipe }
+              />
+              <Route 
                 path = { '/recipe/:id' }
                 component = { RecipeSingleRoute }
               />
