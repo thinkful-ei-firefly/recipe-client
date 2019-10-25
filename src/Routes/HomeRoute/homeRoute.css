@@ -9,6 +9,14 @@
   flex-direction: column;
 }
 
+.landing .background {
+  height: auto;
+  max-width: 120%;
+  border: none;
+  display: block;
+  margin-top: -60px;
+}
+
 .home {
   display: flex;
   flex-direction: column;
@@ -51,6 +59,10 @@
 
 @media (min-width: 700px) {
   .landing {
-    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 600px;
   }
 }
