@@ -1,6 +1,7 @@
 import React from 'react'
 
 import GoodmealApiService from '../../services/goodmeal-api-service'
+import './RecipeSingleRoute.css'
 
 class RecipeRoute extends React.Component {
 
@@ -39,18 +40,22 @@ class RecipeRoute extends React.Component {
       }
     }
     return (
-      <div>
-        <h2>{recipe ? recipe.name : 'loading...'}</h2>
+      <div className='recipe-tabs'>
+        <h1>{recipe ? recipe.name : 'loading...'}</h1>
         {error}
-        <div>
-          <button disabled={display==='summary'} name="summary" onClick={event=>this.handleTabClick(event)}>Summary</button>
-          <button disabled={display==='ingredients'} name="ingredients" onClick={event=>this.handleTabClick(event)}>Ingredients</button>
-          <button disabled={display==='instructions'} name="instructions" onClick={event=>this.handleTabClick(event)}>Instructions</button>
+        <div class='tabset'>
+          <input type='radio' id='tab1' checked  name="summary" onClick={event=>this.handleTabClick(event)}></input>
+          <label for='tab1'>Summary</label>
+          <input type='radio' id='tab2'  name="ingredients" onClick={event=>this.handleTabClick(event)}></input>
+          <label for='tab2'>Ingredients</label>
+          <input type='radio' id='tab3'  name="instructions" onClick={event=>this.handleTabClick(event)}></input>
+          <label for='tab3'>Instructions</label>
         </div>
-        <section>
+        <div className='tab-panels'>
+          <section className='tab-panel'>
             {display === 'summary' ? description : <ul>{list}</ul>}
-        </section>
-        <button onClick={this.handleDelete}>Delete this recipe</button>
+            </section>
+        </div>
       </div>
     )
   }
