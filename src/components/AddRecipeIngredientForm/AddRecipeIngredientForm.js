@@ -45,7 +45,6 @@ class AddRecipeIngredientForm extends React.Component {
                         <option value = "1/4"/>
                         <option value = "1/2"/>
                         <option value = "1"/>
-                        <option value = "dozen"/>
                     </datalist>
                 </div>
                 <div className = "inner-wrap">
@@ -64,6 +63,7 @@ class AddRecipeIngredientForm extends React.Component {
                         <option value = "tsp"/>
                         <option value = "Tbs"/>
                         <option value = "cup"/>
+                        <option value = "dozen"/>
                         <option value = "lb"/>
                         <option value = "each"/>
                     </datalist>

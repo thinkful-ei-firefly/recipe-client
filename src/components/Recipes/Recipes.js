@@ -2,6 +2,7 @@ import React from 'react';
 import RecipeContext from '../../contexts/RecipeContext'
 import RecipeItem from '../RecipeItem/RecipeItem'
 import { Link } from 'react-router-dom'
+import { Label, Input } from '../Form/Form'
 
 import './Recipes.css'
 
@@ -16,15 +17,14 @@ class Recipes extends React.Component {
 
     render() {
         let recipeList = this.context.recipeList
-        if (this.context.filterBy) 
+        if (this.context.searchBy || this.context.filterBy ) 
             recipeList = recipeList
-                .filter(recipe => Object.values(recipe)
-                    .join('')
-                    .toLowerCase()
-                    .includes(this.context.filterBy
-                        .toLowerCase()
-                    )
-                )
+                .filter(recipe => {
+                    if(Object.values(recipe).join('').toLowerCase().includes(this.context.searchBy.toLowerCase()) && recipe.time_to_make <= this.context.filterBy ) {
+                        return recipe
+                    }
+                })
+
         const recipes = recipeList
             .map(recipe => 
                 { return <RecipeItem key={recipe.id} recipe={recipe}/> }
@@ -32,24 +32,37 @@ class Recipes extends React.Component {
 
             return(
                 <section className="recipes">
-                    <h2>Your recipes</h2><br/>
-                    <label 
-                        htmlFor='recipe-search'>
-                        Search for
-                    </label>
-                    <input 
-                        onChange={event => this.context.setSearch(event.target.value)} 
-                        id='recipe-search'type='text' 
-                        placeholder='e.g. "bananas"'>
-                    </input>
-                    <Link
-                        to="/newrecipe"
-                        className="button">
-                        Add
-                    </Link>
-                    <div>
-                        { recipes }
-                    </div>
+
+                    <h2>Your recipes</h2>
+                    
+                    <form className = "search">
+                        <label 
+                            htmlFor='recipe-search'>
+                            Search for
+                        </label>
+                        <input 
+                            onChange={event => this.context.setSearch(event.target.value)} 
+                            id='recipe-search'
+                            type='text' 
+                            placeholder='e.g. "bananas"'>
+                        </input>
+                    </form>
+
+                    <form className = "filterByTime">
+                        <Label
+                            htmlFor = "recipe-filter">
+                            Cookng Time Less Than (minutes)
+                        </Label>
+                        <Input
+                            id = "recipe-filter"
+                            onChange = { e => this.context.setfilter(e.target.value) }
+                            type = "number"
+                            min = "0">
+                        </Input>
+                    </form>
+                        
+                    { recipes }
+                
                 </section>
             )
     }
