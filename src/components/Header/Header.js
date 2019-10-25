@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service'
+import MenuContext from '../../contexts/MenuContext'
 
 //import nav bar components
 import DrawerToggleButton from '../DrawerToggleButton/DrawerToggleButton'
@@ -9,9 +10,11 @@ import './header.css';
 
 class Header extends React.Component {
 
+    static contextType = MenuContext
+
     handleLogout = () => {
         TokenService.clearAuthToken()
-        this.props.updateLogin(false)
+        this.context.updateLogin(false)
     }
 
     renderLogin() {

@@ -26,16 +26,6 @@ class App extends React.Component {
 
   static contextType = MenuContext
 
-  state = {
-    login: false
-  }
-
-  updateLogin = bool => {
-    this.setState({
-      login: bool
-    })
-  }
-
   render() {
 
     let backDrop
@@ -66,11 +56,11 @@ class App extends React.Component {
               />
               <PublicOnlyRoute
                 path = { '/login' }
-                render = { () => <LoginRoute updateLogin = { this.updateLogin } /> }
+                component = { LoginRoute }
               />
               <PublicOnlyRoute
                 path = { '/register' }
-                render = { () => <RegisterRoute updateLogin = { this.updateLogin } /> }
+                component = { RegisterRoute }
               />
               <Route 
                 path = { '/newrecipe' }

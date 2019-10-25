@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link, withRouter } from 'react-router-dom'
+import MenuContext from '../../contexts/MenuContext'
 import LoginForm from '../../components/Loginform/LoginForm'
 import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
@@ -10,6 +10,8 @@ import background from '../../images/background1.png'
 import './loginRoute.css'
 
 class LoginRoute extends React.Component {
+
+  static contextType = MenuContext
 
   state = {
     error: null
@@ -22,7 +24,7 @@ class LoginRoute extends React.Component {
     AuthApiService.postLogin({user_name, password})
       .then(response => {
         TokenService.saveAuthToken(response.authToken)
-        this.props.updateLogin(true)
+        this.context.updateLogin(true)
         this.props.history.push('/recipes')
       })
       .catch(res => this.setState({ error: res.error }))
@@ -42,4 +44,4 @@ class LoginRoute extends React.Component {
   }
 }
 
-export default LoginRoute
+export default withRouter(LoginRoute)
