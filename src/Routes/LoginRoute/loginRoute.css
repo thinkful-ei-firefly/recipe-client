@@ -10,10 +10,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 500px;
 }
 
-.background {
-  height: 200px;
+.login_page .background {
+  height: auto;
+  max-width: 120%;
+  border: none;
+  display: block;
+  margin-top: -60px;
 }
 
 .login h2 {
@@ -39,10 +44,4 @@ button:hover {
   border-radius: 50px;
   border-color: #000000;
   transition: all 0.3s ease 0s;
-}
-
-@media (min-width: 700px) {
-  .background {
-    height: 450px;
-  }
 }
