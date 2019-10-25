@@ -80,13 +80,13 @@ export class RecipeProvider extends React.Component {
             error
         })
     }
-    
+
     clearError = () => {
         this.setState({
             error: null
         })
     }
-    
+
     setRecipeList = (recipeList) => {
         this.setState({
             recipeList
@@ -117,7 +117,7 @@ export class RecipeProvider extends React.Component {
     setFilter = (filterBy) => {
         this.setState({ filterBy })
     }
-    
+
     handleAddTitle = recipeTitle => {
         this.setState({ recipeTitle })
     }
@@ -195,10 +195,22 @@ export class RecipeProvider extends React.Component {
 
     // takes recipe data from state and sends api query to server
     handleCreateRecipe = () => {
-        
+
         const fileName =  this.state.recipeImage?`${Date.parse(new Date())}.${this.state.recipeImage.name.split('.').pop()}`:'';
 
         console.log('add recipe button pressed', this.state.recipePublic)
+
+        const requiredKeys = ['recipeTitle', 'recipeDesc', 'recipeIngredients', 'recipeSteps', 'recipeTime', 'recipeCuisine' ]
+        const requiredLabels = ['Title', 'Description', 'Ingredient', 'Instruction', 'Cooking Time', 'Cuisine' ]
+
+        for (let i=0; i<requiredKeys.length; i++){
+          if (!this.state[requiredKeys[i]] || this.state[requiredKeys[i]] === '' || this.state[requiredKeys[i]].length === 0) {
+            return this.setState({
+              error: `${requiredLabels[i]} is required`
+            })
+          }
+        }
+
         const recipe = {
             name: this.state.recipeTitle,
             description: this.state.recipeDesc,
