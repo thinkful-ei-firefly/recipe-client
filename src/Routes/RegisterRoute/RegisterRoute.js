@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link, withRouter } from 'react-router-dom'
+import MenuContext from '../../contexts/MenuContext'
 import LoginForm from '../../components/Loginform/LoginForm'
 import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
@@ -10,6 +10,8 @@ import background from '../../images/background1.png'
 import './registerRoute.css'
 
 class RegisterRoute extends React.Component {
+
+  static contextType = MenuContext
 
   state = {
     error: null
@@ -23,6 +25,7 @@ class RegisterRoute extends React.Component {
       .then(response => {
         console.log('authToken is '+response.authToken)
         TokenService.saveAuthToken(response.authToken)
+        this.context.updateLogin(true)
         this.props.history.push('/recipes')
       })
       .catch(res => this.setState({ error: res.error }))
@@ -42,4 +45,4 @@ class RegisterRoute extends React.Component {
   }
 }
 
-export default RegisterRoute
+export default withRouter(RegisterRoute)
