@@ -1,11 +1,11 @@
 .side-drawer {
   height: 100%;
-  background: #d3c4b4;
+  background: #b6282b;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
-  width: 40%;
+  width: 60%;
   max-width: 400px;
   z-index: 200;
   transform: translateX(-100%);
@@ -26,7 +26,7 @@
 }
 
 .side-drawer li {
-  margin: 0.7rem 0 0.7rem 2rem;
+  margin: 0.7rem 0 0.7rem 0.4rem;
 }
 
 .side-drawer a {
@@ -37,7 +37,7 @@
 
 .side-drawer a:hover,
 .side-drawer a:active {
-  color: red;
+  color: rgb(255, 191, 191);
 }
 
 @media (min-width: 700px) {

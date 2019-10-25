@@ -88,14 +88,6 @@ class SideDrawer extends React.Component {
                     </li>
                     <li>
                         <Link
-                            to = "/newrecipe"
-                            className = "menu"
-                            onClick = { this.context.handleCloseSideDrawer }>
-                            New Recipe
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
                             to = "/login"
                             className = "menu"
                             onClick = { this.handleLogout }>
