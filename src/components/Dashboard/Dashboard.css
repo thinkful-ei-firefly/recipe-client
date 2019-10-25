@@ -1,0 +1,14 @@
+.Dashboard {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.Dashboard .PublicRecipes, .MyRecipes, .ShoppingList, .MyIngredients {
+  display: flex;
+  flex-direction: column;
+  border: solid black 1px;
+  margin: 0 5px;
+  text-align: center;
+  padding: 5px;
+}
