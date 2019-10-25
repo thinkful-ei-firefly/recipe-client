@@ -1,12 +1,12 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
+
 .landing {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: auto;
 }
 
 .home {
@@ -47,4 +47,10 @@
   border-radius: 50px;
   border-color: #000000;
   transition: all 0.3s ease 0s;
+}
+
+@media (min-width: 700px) {
+  .landing {
+    height: 700px;
+  }
 }
