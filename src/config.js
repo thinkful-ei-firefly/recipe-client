@@ -1,4 +1,4 @@
 export default {
-    API_ENDPOINT: 'https://good-meal-server.herokuapp.com/api',
+    API_ENDPOINT: 'http://localhost:8080/api',
     TOKEN_KEY: 'recipe-client-auth-token',
   }
