@@ -38,8 +38,8 @@ class App extends React.Component {
 
         <div className = 'app' style={ { height: '100%' } }>
 
-          <Header />
-          <SideDrawer />
+          <Header updateLogin = { this.updateLogin } />
+          <SideDrawer updateLogin = { this.updateLogin } />
           { backDrop }
 
           <main style = { { marginTop: '64px' } }>

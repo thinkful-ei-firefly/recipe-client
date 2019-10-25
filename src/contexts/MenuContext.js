@@ -4,8 +4,11 @@ import TokenService from '../services/token-service'
 import IdleService from '../services/idle-service'
 
 const MenuContext = React.createContext({
+  login: false,
   sideDrawerIsOpen: false,
   drawerClass: '',
+
+  updateLogin: () => {},
   handleOpenSideDrawer: () => {},
   handleCloseSideDrawer: () => {},
   processLogout: () => {},
@@ -19,11 +22,16 @@ export class MenuProvider extends React.Component {
         super(props)
 
         const state = {
+            login: false,
             sideDrawerIsOpen: false,
             drawerClass: 'side-drawer'
         }
 
         this.state = state;
+    }
+
+    updateLogin = bool => {
+      this.setState({ login: bool})
     }
 
     handleOpenSideDrawer = () => {
@@ -44,14 +52,15 @@ export class MenuProvider extends React.Component {
         TokenService.clearAuthToken()
         TokenService.clearCallbackBeforeExpiry()
         IdleService.unRegisterIdleResets()
-        //this.setUser({})
       }
 
       render() {
           const menu = {
+              login: this.state.login,
               sideDrawerIsOpen: this.state.sideDrawerIsOpen,
               drawerClass: this.state.drawerClass,
 
+              updateLogin: this.updateLogin,
               handleOpenSideDrawer: this.handleOpenSideDrawer,
               handleCloseSideDrawer: this.handleCloseSideDrawer,
               processLogout: this.processLogout,
