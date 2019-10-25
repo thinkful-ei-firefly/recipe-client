@@ -25,7 +25,7 @@ class LoginRoute extends React.Component {
       .then(response => {
         TokenService.saveAuthToken(response.authToken)
         this.context.updateLogin(true)
-        this.props.history.push('/recipes')
+        this.props.history.push('/')
       })
       .catch(res => this.setState({ error: res.error }))
   }
