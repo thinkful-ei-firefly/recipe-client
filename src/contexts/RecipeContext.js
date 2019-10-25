@@ -12,7 +12,7 @@ const RecipeContext = React.createContext({
     recipeCuisine: '',
     recipeList: [],
     searchRecipes: [],
-    searchBy: null,
+    searchBy: '',
     filteredRecipes: [],
     filterBy: null,
     error: null,
