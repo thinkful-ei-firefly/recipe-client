@@ -24,21 +24,21 @@ class Header extends React.Component {
                     <Link
                         to="/"
                         className="menu">
-                        <i class="fas fa-home"><span>Home</span></i>
+                        <i className="fas fa-home"><span>Home</span></i>
                     </Link>
                 </li>
                 <li>
                     <Link
                         to="/login"
                         className="menu">
-                        <i class="fas fa-sign-in-alt"><span>LogIn</span></i>
+                        <i className="fas fa-sign-in-alt"><span>LogIn</span></i>
                     </Link>
                 </li>
                 <li>
                     <Link
                         to="/register"
                         className="menu">
-                        <i class="fas fa-registered"><span>Register</span></i>
+                        <i className="fas fa-registered"><span>Register</span></i>
                     </Link>
                 </li>
             </ul>
@@ -52,28 +52,28 @@ class Header extends React.Component {
                         <Link
                             to = "/"
                             className = "menu">
-                            <i class="fas fa-home"><span>Home</span></i>
+                            <i className="fas fa-home"><span>Home</span></i>
                         </Link>
                     </li>
                     <li>
                         <Link
                             to = "/recipes"
                             className = "menu">
-                            <i class="fas fa-utensils"><span>My Recipes</span></i>
+                            <i className="fas fa-utensils"><span>My Recipes</span></i>
                         </Link>
                     </li>
                     <li>
                         <Link
                             to = "/shoppinglist" 
                             className = "menu">
-                            <i class="fas fa-shopping-basket"><span>Shopping List</span></i>
+                            <i className="fas fa-shopping-basket"><span>Shopping List</span></i>
                         </Link>
                     </li>
                     <li>
                         <Link
                             to = "/ingredients"
                             className = "menu">
-                            <i class="fas fa-clipboard-list"><span>Ingredients</span></i>
+                            <i className="fas fa-clipboard-list"><span>Ingredients</span></i>
                         </Link>
                     </li>
                     <li>
@@ -81,7 +81,7 @@ class Header extends React.Component {
                             onClick = { this.handleLogout }
                             to = "/"
                             className = "menu">
-                            <i class="fas fa-sign-out-alt"><span>LogOut</span></i>
+                            <i className="fas fa-sign-out-alt"><span>LogOut</span></i>
                         </Link>
                     </li>
                 </ul>

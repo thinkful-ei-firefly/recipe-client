@@ -43,7 +43,7 @@ class RecipeRoute extends React.Component {
       <div className='recipe-tabs'>
         <h1>{recipe ? recipe.name : 'loading...'}</h1>
         {error}
-        <div class='tabset'>
+        <div className='tabset'>
           <input type='radio' id='tab1' checked  name="summary" onClick={event=>this.handleTabClick(event)}></input>
           <label for='tab1'>Summary</label>
           <input type='radio' id='tab2'  name="ingredients" onClick={event=>this.handleTabClick(event)}></input>
