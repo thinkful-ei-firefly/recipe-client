@@ -16,7 +16,6 @@ class SearchPublicRecipes extends React.Component {
     componentDidMount() {
         RecipeApiService.getPublicRecipes()
             .then(recipes => {
-                console.log(recipes)
                 this.context.updatePublicRecipes(recipes)
             })
             .catch(res => this.setState({error: res.error}))

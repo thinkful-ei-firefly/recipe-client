@@ -16,7 +16,7 @@ const IngredientsAdderForm = (props) => {
                 <Input
                     name = "amount"
                     id = "recipe-amount"
-                    type = "text"
+                    type = "number"
                     list = "amounts"
                     required>
                 </Input>

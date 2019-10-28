@@ -23,7 +23,6 @@ class RegisterRoute extends React.Component {
     const password = event.target.password.value
     AuthApiService.postUser({user_name, password})
       .then(response => {
-        console.log('authToken is '+response.authToken)
         TokenService.saveAuthToken(response.authToken)
         this.context.updateLogin(true)
         this.props.history.push('/')

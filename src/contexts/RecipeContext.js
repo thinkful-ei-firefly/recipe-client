@@ -198,7 +198,6 @@ export class RecipeProvider extends React.Component {
     }
 
     handleAddPublic = (e) => {
-      console.log(e.target.checked);
       this.setState({
         recipePublic : e.target.checked
       })
@@ -208,8 +207,6 @@ export class RecipeProvider extends React.Component {
     handleCreateRecipe = () => {
 
         const fileName =  this.state.recipeImage?`${Date.parse(new Date())}.${this.state.recipeImage.name.split('.').pop()}`:'';
-
-        console.log('add recipe button pressed', this.state.recipePublic)
 
         const requiredKeys = ['recipeTitle', 'recipeDesc', 'recipeIngredients', 'recipeSteps', 'recipeTime', 'recipeCuisine' ]
         const requiredLabels = ['Title', 'Description', 'Ingredient', 'Instruction', 'Cooking Time', 'Cuisine' ]
@@ -232,7 +229,6 @@ export class RecipeProvider extends React.Component {
             public: this.state.recipePublic,
             imageurl: fileName,
         }
-        console.log(recipe);
         this.setState({
           loading: true
         })
@@ -244,7 +240,6 @@ export class RecipeProvider extends React.Component {
             return {message: 'No image'}
           })
           .then(resImage => {
-            console.log(resImage);
             this.setState({
               loading: false,
               error: null,
@@ -301,7 +296,6 @@ export class RecipeProvider extends React.Component {
             recipes,
             this.state.searchPublicRecipesBy
         )
-        console.log(recipes)
         recipes = recipes.map(recipe =>
             <section
                 className = "recipe"

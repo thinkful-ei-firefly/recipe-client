@@ -30,7 +30,6 @@ const ShoppingListApiService = {
       },
 
   postRecipe(recipe) {
-        console.log(recipe)
         return fetch(`${config.API_ENDPOINT}/list`, {
         method: 'POST',
         headers: {
