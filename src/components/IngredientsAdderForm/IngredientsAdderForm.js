@@ -26,7 +26,6 @@ const IngredientsAdderForm = (props) => {
                     <option value = "1/4"/>
                     <option value = "1/2"/>
                     <option value = "1"/>
-                    <option value = "dozen"/>
                 </datalist>
             </div>
             <div className = "measurement">
@@ -47,6 +46,7 @@ const IngredientsAdderForm = (props) => {
                     <option value = "cup"/>
                     <option value = "lb"/>
                     <option value = "each"/>
+                    <option value = "dozen"/>
                 </datalist>
             </div>
             <div className = "ingredient">
