@@ -92,7 +92,7 @@ class SideDrawer extends React.Component {
                     </li>
                     <li>
                         <Link
-                            to = "/shoppinlist" 
+                            to = "/shoppinglist" 
                             className = "menu"
                             onClick = { this.context.handleCloseSideDrawer }>
                             <i className="fas fa-shopping-basket">
