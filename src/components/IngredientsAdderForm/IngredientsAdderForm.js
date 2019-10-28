@@ -2,13 +2,32 @@ import React from 'react'
 import {Label, Input, Required } from '../Form/Form'
 import Button from '../Button/Button'
 
-const IngredientsAdderForm = (props) => {
+class IngredientsAdderForm extends React.Component {
+
+  state = {
+    amountError: null
+  }
+
+  validateAmount = (event) => {
+    event.preventDefault()
+    this.setState({ amountError: null })
+    const string = event.target.amount.value
+    const isNumber = /^[\d/ ]+$/.test(string)
+    if(!isNumber) return this.setState({ amountError: 'Error: Amount must contain only numbers and fractions'})
+    if(string.startsWith(' ') || string.endsWith(' ')) return this.setState({ amountError: 'Error: Amount cannot start or end with an empty space'})
+    if(string.startsWith('/') || string.endsWith('/')) return this.setState({ amountError: 'Error: Amount cannot start or end with a slash'})
+    const hasSlash = /\//.test(string)
+    const hasSpace = / /.test(string)
+    // this.props.handleSubmit(event)
+  }
+  render() {
     return(
         <form
             className = "addIngredient-form"
-            onSubmit = {event => props.handleSubmit(event) }>
+            onSubmit = {event => this.validateAmount(event) }>
             <legend>Add An Ingredient</legend>
             <div className = "amount">
+                {this.state.amountError}<br />
                 <Label
                     htmlFor = "recipe-amount">
                     How much: <Required />
@@ -16,8 +35,9 @@ const IngredientsAdderForm = (props) => {
                 <Input
                     name = "amount"
                     id = "recipe-amount"
-                    type = "number"
+                    type = "text"
                     list = "amounts"
+                    placeholder = "1 1/4"
                     required>
                 </Input>
                 <datalist
@@ -67,6 +87,7 @@ const IngredientsAdderForm = (props) => {
             </Button>
         </form>
     )
+  }
 }
 
 export default IngredientsAdderForm
