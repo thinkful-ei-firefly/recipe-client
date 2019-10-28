@@ -72,6 +72,8 @@ class AddRecipe extends React.Component {
                     Create Recipe
                 </Button>
 
+                <button onClick={this.props.history.goBack}>Back to recipes</button>
+
                 { this.context.loading && <div>Saving..</div> }
 
                 { this.context.saved && <Redirect to={'/recipes'}/> }

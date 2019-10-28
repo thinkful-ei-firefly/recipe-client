@@ -26,7 +26,7 @@ class RecipeRoute extends React.Component {
       .then(this.props.history.push('/'))
       .catch(res => this.setState({ error: res.error }))
   }
-  
+
   render() {
     const { recipe, error, display } = this.state
     let description
@@ -41,6 +41,7 @@ class RecipeRoute extends React.Component {
     }
     return (
       <div className='recipe-tabs'>
+        <button onClick={this.props.history.goBack}>Back to recipes</button>
         <h1>{recipe ? recipe.name : 'loading...'}</h1>
         {error}
         <div className='tabset'>
