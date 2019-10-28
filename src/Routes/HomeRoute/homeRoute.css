@@ -33,7 +33,7 @@
   margin-bottom: 3em;
 }
 
-.button {
+.landing .button {
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -50,7 +50,7 @@
   width: 150px;
 }
 
-.button:hover {
+.landing .button:hover {
   color: #000000;
   border-radius: 50px;
   border-color: #000000;
