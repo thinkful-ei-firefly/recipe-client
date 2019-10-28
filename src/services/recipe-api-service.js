@@ -8,7 +8,7 @@ const RecipeApiService = {
     return fetch(`${config.API_ENDPOINT}/recipes/public`, {
       method: 'GET'
     })
-      .then(res => 
+      .then(res =>
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
@@ -120,7 +120,7 @@ const RecipeApiService = {
   },
 
   cloneRecipe(id) {
-    return fetch(`${config.API_ENDPOINT}/clone`, {
+    return fetch(`${config.API_ENDPOINT}/recipes/clone`, {
       method: 'POST',
       headers: {
         "Authorization": `bearer ${TokenService.getAuthToken()}`,

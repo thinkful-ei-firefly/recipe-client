@@ -19,6 +19,7 @@ const RecipeContext = React.createContext({
     filterBy: null,
     error: null,
     saved: false,
+    redirect: false,
     searchPublicRecipesBy: '',
     publicRecipes: [],
     publicRecipesJSX: [],
@@ -75,6 +76,7 @@ export class RecipeProvider extends React.Component {
             error: null,
             loading: false,
             saved: false,
+            redirect: false,
             searchPublicRecipesBy: '',
             publicRecipes: [],
             publicRecipesJSX: [],
@@ -259,25 +261,25 @@ export class RecipeProvider extends React.Component {
 
     searchRecipesBy = (recipeList, term) => {
         return recipeList
-                .filter(recipe => 
+                .filter(recipe =>
                     Object.values(recipe)
                         .join('')
                         .toLowerCase()
-                        .includes(term.toLowerCase()) 
-                    
+                        .includes(term.toLowerCase())
+
                 )
     }
 
     filterRecipesByTime = (recipeList, time) => {
         return recipeList
-            .filter(recipe => 
+            .filter(recipe =>
                 recipe.time_to_make <= time
             )
     }
 
     updateSearchPublicRecipeBy = searchPublicRecipesBy => {
-        this.setState({ 
-            searchPublicRecipesBy 
+        this.setState({
+            searchPublicRecipesBy
         })
     }
 
@@ -287,15 +289,20 @@ export class RecipeProvider extends React.Component {
         })
     }
 
+    cloneRecipe = (id) => {
+      RecipeApiService.cloneRecipe(id)
+        .then(recipe => this.setState({redirect: true}))
+    }
+
     updatePublicRecipesJSX = () => {
         let recipes = this.state.publicRecipes
         recipes = this.searchRecipesBy(
-            recipes, 
+            recipes,
             this.state.searchPublicRecipesBy
         )
         console.log(recipes)
-        recipes = recipes.map(recipe => 
-            <section 
+        recipes = recipes.map(recipe =>
+            <section
                 className = "recipe"
                 key = { recipe.id }>
                 <Link
@@ -304,7 +311,7 @@ export class RecipeProvider extends React.Component {
                     { recipe.name }
                 </Link>
                 <div className = "image">
-                    <img 
+                    <img
                         src = { "https://good-meal.s3.amazonaws.com/" + (recipe.imageurl?recipe.imageurl:"nofound.png") }
                         alt = { recipe.name }
                     />
@@ -314,6 +321,9 @@ export class RecipeProvider extends React.Component {
                 </div>
                 <div className = "time" >
                     Time to make: { recipe.time_to_make }
+                </div>
+                <div>
+                  <button type='button' onClick={e => this.cloneRecipe(recipe.id)} >Copy to my recipes</button>
                 </div>
             </section>
         )
@@ -340,6 +350,7 @@ export class RecipeProvider extends React.Component {
             filteredRecipes: this.state.filteredRecipes,
             filterBy: this.state.filterBy,
             saved: this.state.saved,
+            redirect: this.state.redirect,
             searchPublicRecipesBy: this.state.searchPublicRecipesBy,
             publicRecipes: this.state.publicRecipes,
             publicRecipesJSX: this.state.publicRecipesJSX,
