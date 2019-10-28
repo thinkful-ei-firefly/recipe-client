@@ -1,7 +1,6 @@
 import React from 'react';
 import RecipeContext from '../../contexts/RecipeContext'
 import RecipeItem from '../RecipeItem/RecipeItem'
-import { Label, Input } from '../Form/Form'
 import { Link } from 'react-router-dom'
 
 import './Recipes.css'

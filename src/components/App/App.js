@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 //import routes
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../../components/PublicOnlyRoute/PublicOnlyRoute'
-import PublicRecipe from '../../components/PublicRecipe/PublicRecipe'
+import PublicRecipeRoute from '../../Routes/PublicRecipeRoute/PublicRecipeRoute'
 import HomeRoute from '../../Routes/HomeRoute/HomeRoute'
 import LoginRoute from '../../Routes/LoginRoute/LoginRoute'
 import RegisterRoute from '../../Routes/RegisterRoute/RegisterRoute'
@@ -58,7 +58,7 @@ class App extends React.Component {
               />
               <Route 
                 path = { '/publicrecipes/:id' }
-                component = { PublicRecipe }
+                component = { PublicRecipeRoute }
               />
               <Route 
                 path = { '/recipe/:id' }

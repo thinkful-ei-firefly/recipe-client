@@ -7,15 +7,22 @@ class PublicRecipesRoute extends React.Component {
 
     static contextType = RecipeContext
 
-
+    handleSubmit = async e => {
+      e.preventDefault()
+      await this.context.updateSearchPublicRecipeBy(
+          e.target.publicSearch.value
+      )
+      this.context.updatePublicRecipesJSX()
+      // this.props.history.push('/publicrecipes') //?
+  }
 
     render() {
         return(
             <section className = "public-recipes">
 
-            {this.context.redirect && <Redirect to='/recipes' />}
-
-                <SearchPublicRecipe />
+                {this.context.redirect && <Redirect to='/recipes' />}
+                
+                <SearchPublicRecipe handleSubmit={this.handleSubmit} label={'Search For:'}/>
 
                 { this.context.publicRecipesJSX }
 
