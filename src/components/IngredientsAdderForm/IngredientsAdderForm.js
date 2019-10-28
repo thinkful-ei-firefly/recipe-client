@@ -65,6 +65,11 @@ const IngredientsAdderForm = (props) => {
                 type = "Submit">
                 Add Ingredient
             </Button>
+            <Button
+                onClick={props.cancelSubmit}
+                type = "Button">
+                Cancel
+            </Button>
         </form>
     )
 }
