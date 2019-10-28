@@ -93,6 +93,7 @@ class ShoppingListRoute extends React.Component {
       clearError: this.clearError,
       getShoppingList: this.getShoppingList,
       delete: this.delete,
+      setRecipeList: this.setRecipeList
     }
     const { adding } = this.state
 

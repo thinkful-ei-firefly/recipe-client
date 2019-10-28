@@ -3,6 +3,8 @@ import React from 'react'
 import RecipeApiService from '../services/recipe-api-service'
 import UploadApiService from '../services/upload-api-service'
 
+import { Link } from 'react-router-dom'
+
 const RecipeContext = React.createContext({
     recipeTitle: '',
     recipeDesc: '',
@@ -19,6 +21,7 @@ const RecipeContext = React.createContext({
     saved: false,
     searchPublicRecipesBy: '',
     publicRecipes: [],
+    publicRecipesJSX: [],
 
     setError: () => {},
     clearError: () => {},
@@ -42,6 +45,10 @@ const RecipeContext = React.createContext({
     handleCreateRecipe: () => {},
     searchRecipesBy: () => {},
     filterRecipesByTime: () => {},
+    updateSearchPublicRecipeBy: () => {},
+    updatePublicRecipesList: () => {},
+    updatePublicRecipes: () => {},
+    updatePublicRecipesJSX: () => {},
     setUser: () => {},
 })
 
@@ -70,6 +77,7 @@ export class RecipeProvider extends React.Component {
             saved: false,
             searchPublicRecipesBy: '',
             publicRecipes: [],
+            publicRecipesJSX: [],
         }
 
         this.state = state
@@ -268,7 +276,51 @@ export class RecipeProvider extends React.Component {
     }
 
     updateSearchPublicRecipeBy = searchPublicRecipesBy => {
-        this.setState({ searchPublicRecipesBy })
+        this.setState({ 
+            searchPublicRecipesBy 
+        })
+    }
+
+    updatePublicRecipes = publicRecipes => {
+        this.setState({
+            publicRecipes
+        })
+    }
+
+    updatePublicRecipesJSX = () => {
+        let recipes = this.state.publicRecipes
+        recipes = this.searchRecipesBy(
+            recipes, 
+            this.state.searchPublicRecipesBy
+        )
+        console.log(recipes)
+        recipes = recipes.map(recipe => 
+            <section 
+                className = "recipe"
+                key = { recipe.id }>
+                <Link
+                    to = { '/publicrecipes/' + recipe.id }
+                    className = "name">
+                    { recipe.name }
+                </Link>
+                <div className = "image">
+                    <img 
+                        src = { "https://good-meal.s3.amazonaws.com/" + (recipe.imageurl?recipe.imageurl:"nofound.png") }
+                        alt = { recipe.name }
+                    />
+                </div>
+                <div className = "cuisine">
+                    Cuisine: { recipe.cuisine }
+                </div>
+                <div className = "time" >
+                    Time to make: { recipe.time_to_make }
+                </div>
+            </section>
+        )
+
+        this.setState({
+            publicRecipesJSX: recipes
+        })
     }
 
     render() {
@@ -290,6 +342,7 @@ export class RecipeProvider extends React.Component {
             saved: this.state.saved,
             searchPublicRecipesBy: this.state.searchPublicRecipesBy,
             publicRecipes: this.state.publicRecipes,
+            publicRecipesJSX: this.state.publicRecipesJSX,
 
             setRecipeList: this.setRecipeList,
             removeRecipe: this.removeRecipe,
@@ -315,7 +368,11 @@ export class RecipeProvider extends React.Component {
             setError: this.setError,
             clearError: this.clearError,
             searchRecipesBy: this.searchRecipesBy,
+            updateSearchPublicRecipeBy: this.updateSearchPublicRecipeBy,
             filterRecipesByTime: this.filterRecipesByTime,
+            updatePublicRecipesList: this.updatePublicRecipesList,
+            updatePublicRecipes: this.updatePublicRecipes,
+            updatePublicRecipesJSX: this.updatePublicRecipesJSX,
             setUser: () => {},
         }
 

@@ -2,18 +2,11 @@ import React from 'react'
 import SearchPublicRecipe from '../../components/SearchPublicRecipes/SearchPublicRecipes'
 import RecipeContext from '../../contexts/RecipeContext'
 
-import PublicRecipe from '../../components/PublicRecipe/PublicRecipe'
-
 class PublicRecipesRoute extends React.Component {
 
     static contextType = RecipeContext
 
-    componentDidMount() {
-        this.context.clearError()
-        this.context.getAllRecipes()
-    }
 
-    
 
     render() {
         return(
@@ -21,7 +14,8 @@ class PublicRecipesRoute extends React.Component {
                 
                 <SearchPublicRecipe />
 
-                { this.context.publicRecipes }
+                { this.context.publicRecipesJSX }
+
             </section>
         )
     }
