@@ -12,7 +12,7 @@ class RecipeRoute extends React.Component {
   }
 
   componentDidMount() {
-    GoodmealApiService.getRecipe(this.props.match.params.id)
+    GoodmealApiService.getPublicRecipe(this.props.match.params.id)
       .then(recipe => this.setState({ recipe }))
       .catch(res => this.setState({ error: res.error }))
   }
