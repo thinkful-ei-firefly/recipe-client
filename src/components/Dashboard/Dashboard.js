@@ -11,7 +11,7 @@ const Dashboard = () => {
           View and search recipes added by other users. If you find one you like, add it to your recipe list and make
           any modifications or substitutions you want.
         </div>
-        <Link to='/placeholder'>
+        <Link to='/publicrecipes'>
           <button>All Recipes</button>
         </Link>
       </section>

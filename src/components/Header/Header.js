@@ -41,6 +41,14 @@ class Header extends React.Component {
                         <i className="fas fa-registered"><span>Register</span></i>
                     </Link>
                 </li>
+                <li>
+                    <Link
+                        to="/publicrecipes"
+                        className="menu">
+                        <i className="fas fa-utensil-spoon"><span>Public Recipes</span></i>
+                    </Link>
+                </li>
+                
             </ul>
         )
     }
