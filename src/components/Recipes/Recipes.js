@@ -48,7 +48,7 @@ class Recipes extends React.Component {
                             placeholder='Search...'
                             name='search'>
                         </input>
-                        <button type='submit'><i class="fa fa-search"></i></button>
+                        <button type='submit'><i className="fa fa-search"></i></button>
 
                         <Link
                         to="/newrecipe"
