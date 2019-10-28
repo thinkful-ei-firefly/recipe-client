@@ -1,6 +1,6 @@
 .side-drawer {
   height: 100%;
-  background: #b6282b;
+  background: rgb(46, 46, 46);
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -37,7 +37,7 @@
 
 .side-drawer a:hover,
 .side-drawer a:active {
-  color: rgb(255, 191, 191);
+  color: #01e00c;
 }
 
 @media (min-width: 700px) {
