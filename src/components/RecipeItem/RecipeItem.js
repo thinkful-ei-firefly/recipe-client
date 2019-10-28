@@ -2,6 +2,8 @@ import React from 'react';
 import RecipeContext from '../../contexts/RecipeContext'
 import { Link } from 'react-router-dom'
 
+import '../Recipes/Recipes.css'
+
 class RecipeItem extends React.Component {
     static contextType = RecipeContext
 
@@ -10,33 +12,31 @@ class RecipeItem extends React.Component {
         const { id, name, time_to_make, cuisine, imageurl } = this.props.recipe
 
         return(
-            <section className="recipe">
-                <Link
-                    to = { '/recipe/'+id }
-                    className = "name">
-                    { name }
-                </Link>
-                <div className = "image">
+            <section className="recipe-card">
+                  <div className = "image">
                     <img 
                         src = { "https://good-meal.s3.amazonaws.com/" + (imageurl?imageurl:"nofound.png") } 
                         alt = { name }
                     />
                 </div>
-                <div className = "cuisine">
-                    Cuisine: { cuisine }
-                </div>
-                <div className = "time">
-                    Time to make: { time_to_make }
-                </div>
-                <button 
+                <Link
+                    to = { '/recipe/'+id }
+                    className = "name">
+                    { name }
+                </Link>
+              
+                <div className='recipe-buttons'>
+                <button className='remove-recipe'
                     onClick = {e => this.context.delete(id)}>
-                    Remove
+                    <i class="fas fa-trash-alt"></i>
                 </button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
                 <Link
                     to="/editrecipe"
                     className="edit-recipe">
-                    Edit
+                    <i class="fas fa-edit"></i>
                 </Link>
+                </div>
             </section>
         )
     }

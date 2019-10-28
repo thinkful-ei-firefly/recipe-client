@@ -39,8 +39,8 @@ class HomeRoute extends React.Component {
               {
                 loggedIn ? <Dashboard /> :
                 <div>
-                  <Link to="/login" className="button">Login</Link>
-                  <Link to="/register"className="button">Register</Link> 
+                  <Link to="/login" className="log-button">Login</Link>
+                  <Link to="/register"className="reg-button">Register</Link> 
                 </div>
               }
               <SearchPublicRecipe hidden={loggedIn} handleSubmit={this.handleSubmit} />

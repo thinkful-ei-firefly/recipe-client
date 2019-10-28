@@ -56,6 +56,57 @@ form.example::after {
 }
 
 .add_new i:hover {
-  background-color: #01e00c;
-  color: #fff;
+  color: #2e2e2e;
+}
+
+.recipe-buttons .edit-recipe {
+  color: #01e00c;
+  font-size: 27px;
+  margin-right: 10px;
+}
+
+.recipe-buttons .edit-recipe:hover {
+  color: #2e2e2e;
+}
+
+.recipe-buttons .remove-recipe {
+  color: #01e00c;
+  font-size: 27px;
+  padding: 0;
+  width: auto;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+.recipe-buttons .remove-recipe:hover {
+  color: #2e2e2e;
+}
+
+.recipe-card {
+  border: 1px solid black;
+  width: 100%;
+  max-width: 500px;
+  text-align: end;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px;
+}
+
+.recipe-card img {
+  width: 100%;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #01e00c;
+}
+
+.recipe-card .name {
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  padding-right: 15px;
+  color: #2e2e2e;
+}
+
+.recipe-card .name:hover {
+  color: #01e00c;
 }
