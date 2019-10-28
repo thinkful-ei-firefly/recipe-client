@@ -1,7 +1,6 @@
 import React from 'react';
 
 import TokenService from '../services/token-service'
-import IdleService from '../services/idle-service'
 
 const MenuContext = React.createContext({
   login: false,
@@ -51,7 +50,6 @@ export class MenuProvider extends React.Component {
       processLogout = () => {
         TokenService.clearAuthToken()
         TokenService.clearCallbackBeforeExpiry()
-        IdleService.unRegisterIdleResets()
       }
 
       render() {
