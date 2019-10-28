@@ -2,6 +2,7 @@ import React from 'react'
 
 import RecipeApiService from '../services/recipe-api-service'
 import UploadApiService from '../services/upload-api-service'
+import TokenService from '../services/token-service'
 
 import { Link } from 'react-router-dom'
 
@@ -322,9 +323,9 @@ export class RecipeProvider extends React.Component {
                 <div className = "time" >
                     Time to make: { recipe.time_to_make }
                 </div>
-                <div>
+                { TokenService.hasAuthToken() && <div>
                   <button type='button' onClick={e => this.cloneRecipe(recipe.id)} >Copy to my recipes</button>
-                </div>
+                </div>}
             </section>
         )
 
