@@ -1,10 +1,10 @@
 import React from 'react';
-import ShoppingListRoute from '../../contexts/ShoppingListContext'
+import ShoppingListContext from '../../contexts/ShoppingListContext'
 
 import GoodmealApiService from '../../services/goodmeal-api-service'
 
 class RecipeItem extends React.Component {
-  static contextType = ShoppingListRoute
+  static contextType = ShoppingListContext
 
   state = {
     crossed: this.props.recipe.crossed
@@ -12,6 +12,12 @@ class RecipeItem extends React.Component {
 
   crossUncross = () => {
     GoodmealApiService.strikeUnstrikeListItem(this.props.recipe.id, {crossed: !this.state.crossed})
+      .then(() => {
+        let list = this.context.recipeList
+        const index = list.indexOf(this.props.recipe)
+        list[index].crossed = !list[index].crossed
+        this.context.setRecipeList(list)
+      })
       .then(() => this.setState({crossed: !this.state.crossed}))
   }
 
