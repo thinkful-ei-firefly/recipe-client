@@ -5,6 +5,7 @@ import Button from '../Button/Button'
 import RecipeContext from '../../contexts/RecipeContext'
 import RecipeApiService from '../../services/recipe-api-service'
 
+import './SearchPublicRecipes.css'
 class SearchPublicRecipes extends React.Component {
 
     static contextType = RecipeContext
@@ -33,13 +34,15 @@ class SearchPublicRecipes extends React.Component {
                     {this.props.label}
                 </Label>
                 <Input
+                placeholder='Search Recipes...'
                 id = "public-recipe-search"
                 name = "publicSearch"
                 type = "text">
+                    
                 </Input>
                 <Button
                     type = "Submit">
-                    Go
+                    <i className="fa fa-search"></i>
                 </Button>
             </form>
         )

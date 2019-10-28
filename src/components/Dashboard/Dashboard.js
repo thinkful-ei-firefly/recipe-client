@@ -12,7 +12,7 @@ const Dashboard = () => {
       <section className='card 1'>
         <div className='card_image'>
           <Link to='/publicrecipes'>
-            <img src= {recipe} alt='icon'></img> 
+            <img src= {recipe2} alt='icon'></img> 
           </Link>
         </div>
           <p>
@@ -29,7 +29,7 @@ const Dashboard = () => {
       <section className='card 2'>
       <div className='card_image'>
       <Link to='/recipes'>
-      <img src= {recipe} alt='icon'></img> 
+      <img src= {recipe2} alt='icon'></img> 
         </Link>
         </div>
         <p>
@@ -46,7 +46,7 @@ const Dashboard = () => {
       <section className='card 3'>
       <div className='card_image'>
       <Link to='/shoppinglist'>
-      <img src= {recipe} alt='icon'></img> 
+      <img src= {recipe2} alt='icon'></img> 
         </Link>
         </div>
         <p>
@@ -63,7 +63,7 @@ const Dashboard = () => {
       <section className='card 4'>
       <div className='card_image'>
       <Link to='/ingredients'>
-      <img src= {recipe} alt='icon'></img> 
+      <img src= {recipe2} alt='icon'></img> 
         </Link>
         </div>
         <p>

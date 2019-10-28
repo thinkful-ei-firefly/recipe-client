@@ -45,7 +45,7 @@ class Header extends React.Component {
                     <Link
                         to="/publicrecipes"
                         className="menu">
-                        <i className="fas fa-utensil-spoon"><span>Public Recipes</span></i>
+                        <i className="fas fa-utensil-spoon"><span>Recipes</span></i>
                     </Link>
                 </li>
                 

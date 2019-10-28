@@ -1,0 +1,35 @@
+form.search-public-recipes input[type="text"] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.search-public-recipes button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #01e00c;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+  margin-top: -0.4px;
+}
+
+form.search-public-recipes button:hover {
+  background: #01e00c;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
