@@ -49,12 +49,15 @@ class Recipes extends React.Component {
                             name='search'>
                         </input>
                         <button type='submit'><i className="fa fa-search"></i></button>
-
-                        <Link
-                        to="/newrecipe"
-                        className="menu">
-                        <i className="far fa-plus-square"><span>Add New Recipe</span></i>
-                    </Link>
+                        <div className='add_new'>
+                          <h3>Add New Recipe
+                          &nbsp;&nbsp;
+                          <Link
+                            to="/newrecipe"
+                            className="menu">
+                            <i className="far fa-plus-square"></i>
+                          </Link></h3>
+                        </div>
                      
                     </form>
                         

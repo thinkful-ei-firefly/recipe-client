@@ -29,10 +29,6 @@ class SearchPublicRecipes extends React.Component {
                 onSubmit = { this.props.handleSubmit }
                 className = "search-public-recipes">
                 { error }
-                <Label
-                    htmlFor = "public-recipe-search">
-                    {this.props.label}
-                </Label>
                 <Input
                 placeholder='Search Recipes...'
                 id = "public-recipe-search"

@@ -44,3 +44,18 @@ form.example::after {
   clear: both;
   display: table;
 }
+
+.add_new {
+  font-size: 20px;
+  text-align: end;
+}
+
+.add_new i {
+  color: #01e00c;
+  font-size: 30px;
+}
+
+.add_new i:hover {
+  background-color: #01e00c;
+  color: #fff;
+}
