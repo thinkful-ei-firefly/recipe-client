@@ -3,6 +3,17 @@ import TokenService from './token-service'
 import config from '../config'
 
 const RecipeApiService = {
+
+  getPublicRecipes() {
+    return fetch(`${config.API_ENDPOINT}/recipes/public`, {
+      method: 'GET'
+    })
+      .then(res => 
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
   getAll() {
       return fetch(`${config.API_ENDPOINT}/recipes`, {
         headers: {
@@ -30,7 +41,6 @@ const RecipeApiService = {
       },
 
   postRecipe(recipe) {
-        console.log(recipe)
         return fetch(`${config.API_ENDPOINT}/recipes`, {
         method: 'POST',
         headers: {
