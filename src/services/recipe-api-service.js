@@ -3,6 +3,17 @@ import TokenService from './token-service'
 import config from '../config'
 
 const RecipeApiService = {
+
+  getPublicRecipes() {
+    return fetch(`${config.API_ENDPOINT}/recipes/public`, {
+      method: 'GET'
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
   getAll() {
       return fetch(`${config.API_ENDPOINT}/recipes`, {
         headers: {
@@ -30,7 +41,6 @@ const RecipeApiService = {
       },
 
   postRecipe(recipe) {
-        console.log(recipe)
         return fetch(`${config.API_ENDPOINT}/recipes`, {
         method: 'POST',
         headers: {
@@ -107,8 +117,23 @@ const RecipeApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
-  }
+  },
 
+  cloneRecipe(id) {
+    return fetch(`${config.API_ENDPOINT}/recipes/clone`, {
+      method: 'POST',
+      headers: {
+        "Authorization": `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({id}),
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
 }
 
 export default RecipeApiService;

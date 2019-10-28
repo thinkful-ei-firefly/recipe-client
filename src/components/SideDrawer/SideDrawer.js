@@ -21,12 +21,14 @@ class SideDrawer extends React.Component {
         return(
             <div className="sidebar-navigation-items">    
                 <ul>
-                    <li>
+                    <li> 
                         <Link
                             to="/"
                             className="menu"
                             onClick = { this.context.handleCloseSideDrawer }>
-                            Home
+                            <i className="fas fa-home">
+                                <span>Home</span>
+                            </i>
                         </Link>
                     </li>
                     <li>
@@ -34,7 +36,9 @@ class SideDrawer extends React.Component {
                             to="/login"
                             className="menu"
                             onClick = { this.context.handleCloseSideDrawer }>
-                            Login
+                            <i className="fas fa-sign-in-alt">
+                                <span>LogIn</span>
+                            </i>
                         </Link>
                     </li>
                     <li>
@@ -42,7 +46,19 @@ class SideDrawer extends React.Component {
                             to="/register"
                             className="menu"
                             onClick = { this.context.handleCloseSideDrawer }>
-                            Register
+                            <i className="fas fa-registered">
+                                <span>Register</span>
+                            </i>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/publicrecipes"
+                            className="menu"
+                            onClick = { this.context.handleCloseSideDrawer }>
+                            <i className="fas fa-utensil-spoon">
+                                <span>Recipes</span>
+                            </i>
                         </Link>
                     </li>
                 </ul>
@@ -59,7 +75,9 @@ class SideDrawer extends React.Component {
                             to="/"
                             className="menu"
                             onClick = { this.context.handleCloseSideDrawer }>
-                            Home
+                            <i className="fas fa-home">
+                                <span>Home</span>
+                            </i>
                         </Link>
                     </li>
                     <li>
@@ -67,15 +85,19 @@ class SideDrawer extends React.Component {
                             to = "/recipes"
                             className = "menu"
                             onClick = { this.context.handleCloseSideDrawer }>
-                            My Recipes
+                            <i className="fas fa-utensils">
+                                <span>My Recipes</span>
+                            </i>
                         </Link>
                     </li>
                     <li>
                         <Link
-                            to = "/shoppinlist" 
+                            to = "/shoppinglist" 
                             className = "menu"
                             onClick = { this.context.handleCloseSideDrawer }>
-                            Shopping List
+                            <i className="fas fa-shopping-basket">
+                                <span>Shopping List</span>
+                            </i>
                         </Link>
                     </li>
                     <li>
@@ -83,7 +105,9 @@ class SideDrawer extends React.Component {
                             to = "/ingredients"
                             className = "menu"
                             onClick = { this.context.handleCloseSideDrawer }>
-                            My ingredients
+                            <i className="fas fa-clipboard-list">
+                                <span>My Pantry</span>
+                            </i>
                         </Link>
                     </li>
                     <li>
@@ -91,7 +115,9 @@ class SideDrawer extends React.Component {
                             to = "/login"
                             className = "menu"
                             onClick = { this.handleLogout }>
-                            Logout
+                            <i className="fas fa-sign-out-alt">
+                                <span>LogOut</span>
+                            </i>
                         </Link>
                     </li>
                 </ul>

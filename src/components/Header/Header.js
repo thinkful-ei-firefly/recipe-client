@@ -41,6 +41,14 @@ class Header extends React.Component {
                         <i className="fas fa-registered"><span>Register</span></i>
                     </Link>
                 </li>
+                <li>
+                    <Link
+                        to="/publicrecipes"
+                        className="menu">
+                        <i className="fas fa-utensil-spoon"><span>Recipes</span></i>
+                    </Link>
+                </li>
+                
             </ul>
         )
     }
@@ -73,7 +81,7 @@ class Header extends React.Component {
                         <Link
                             to = "/ingredients"
                             className = "menu">
-                            <i className="fas fa-clipboard-list"><span>Ingredients</span></i>
+                            <i className="fas fa-clipboard-list"><span>My Pantry</span></i>
                         </Link>
                     </li>
                     <li>

@@ -5,7 +5,15 @@ const GoodmealApiService = {
   url: config.API_ENDPOINT,
 //recipe endpoints
   getRecipe(id) {
-    return fetch(this.url+'/recipes/'+id)
+    return fetch(this.url+'/recipes/'+id, {
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+      .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : res.json())
+  },
+  getPublicRecipe(id) {
+    return fetch(this.url+'/recipes/public/'+id)
       .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : res.json())
   },
   deleteRecipe(id) {

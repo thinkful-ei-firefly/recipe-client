@@ -3,37 +3,42 @@ import { Label, Input } from '../Form/Form'
 import Button from '../Button/Button'
 
 import RecipeContext from '../../contexts/RecipeContext'
+import RecipeApiService from '../../services/recipe-api-service'
 
+import './SearchPublicRecipes.css'
 class SearchPublicRecipes extends React.Component {
 
     static contextType = RecipeContext
 
-    handleSubmit = e => {
-        e.preventDefault()
-        this.context.updateSearchPublicRecipesBy(
-            e.target.publicSearch.value
-        )
-        // create PublicRecipesList
-        // push history to PublicRecipesRoute
+    state = {
+        error: null
+    }
+
+    componentDidMount() {
+        RecipeApiService.getPublicRecipes()
+            .then(recipes => {
+                this.context.updatePublicRecipes(recipes)
+            })
+            .catch(res => this.setState({error: res.error}))
     }
 
     render() {
+        const error = this.state.error
         return(
             <form 
-                onSubmit = { this.handleSubmit }
+                onSubmit = { this.props.handleSubmit }
                 className = "search-public-recipes">
-                <Label
-                    htmlFor = "public-recipe-search">
-                    Search For:
-                </Label>
+                { error }
                 <Input
+                placeholder='Search Recipes...'
                 id = "public-recipe-search"
                 name = "publicSearch"
                 type = "text">
+                    
                 </Input>
                 <Button
                     type = "Submit">
-                    Go
+                    <i className="fa fa-search"></i>
                 </Button>
             </form>
         )

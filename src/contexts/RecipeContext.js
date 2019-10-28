@@ -2,6 +2,9 @@ import React from 'react'
 
 import RecipeApiService from '../services/recipe-api-service'
 import UploadApiService from '../services/upload-api-service'
+import TokenService from '../services/token-service'
+
+import { Link } from 'react-router-dom'
 
 const RecipeContext = React.createContext({
     recipeTitle: '',
@@ -17,8 +20,10 @@ const RecipeContext = React.createContext({
     filterBy: null,
     error: null,
     saved: false,
+    redirect: false,
     searchPublicRecipesBy: '',
     publicRecipes: [],
+    publicRecipesJSX: [],
 
     setError: () => {},
     clearError: () => {},
@@ -42,6 +47,10 @@ const RecipeContext = React.createContext({
     handleCreateRecipe: () => {},
     searchRecipesBy: () => {},
     filterRecipesByTime: () => {},
+    updateSearchPublicRecipeBy: () => {},
+    updatePublicRecipesList: () => {},
+    updatePublicRecipes: () => {},
+    updatePublicRecipesJSX: () => {},
     setUser: () => {},
 })
 
@@ -68,8 +77,10 @@ export class RecipeProvider extends React.Component {
             error: null,
             loading: false,
             saved: false,
+            redirect: false,
             searchPublicRecipesBy: '',
             publicRecipes: [],
+            publicRecipesJSX: [],
         }
 
         this.state = state
@@ -187,7 +198,6 @@ export class RecipeProvider extends React.Component {
     }
 
     handleAddPublic = (e) => {
-      console.log(e.target.checked);
       this.setState({
         recipePublic : e.target.checked
       })
@@ -197,8 +207,6 @@ export class RecipeProvider extends React.Component {
     handleCreateRecipe = () => {
 
         const fileName =  this.state.recipeImage?`${Date.parse(new Date())}.${this.state.recipeImage.name.split('.').pop()}`:'';
-
-        console.log('add recipe button pressed', this.state.recipePublic)
 
         const requiredKeys = ['recipeTitle', 'recipeDesc', 'recipeIngredients', 'recipeSteps', 'recipeTime', 'recipeCuisine' ]
         const requiredLabels = ['Title', 'Description', 'Ingredient', 'Instruction', 'Cooking Time', 'Cuisine' ]
@@ -221,7 +229,6 @@ export class RecipeProvider extends React.Component {
             public: this.state.recipePublic,
             imageurl: fileName,
         }
-        console.log(recipe);
         this.setState({
           loading: true
         })
@@ -233,7 +240,6 @@ export class RecipeProvider extends React.Component {
             return {message: 'No image'}
           })
           .then(resImage => {
-            console.log(resImage);
             this.setState({
               loading: false,
               error: null,
@@ -251,24 +257,75 @@ export class RecipeProvider extends React.Component {
 
     searchRecipesBy = (recipeList, term) => {
         return recipeList
-                .filter(recipe => 
+                .filter(recipe =>
                     Object.values(recipe)
                         .join('')
                         .toLowerCase()
-                        .includes(term.toLowerCase()) 
-                    
+                        .includes(term.toLowerCase())
+
                 )
     }
 
     filterRecipesByTime = (recipeList, time) => {
         return recipeList
-            .filter(recipe => 
+            .filter(recipe =>
                 recipe.time_to_make <= time
             )
     }
 
     updateSearchPublicRecipeBy = searchPublicRecipesBy => {
-        this.setState({ searchPublicRecipesBy })
+        this.setState({
+            searchPublicRecipesBy
+        })
+    }
+
+    updatePublicRecipes = publicRecipes => {
+        this.setState({
+            publicRecipes
+        })
+    }
+
+    cloneRecipe = (id) => {
+      RecipeApiService.cloneRecipe(id)
+        .then(recipe => this.setState({redirect: true}))
+    }
+
+    updatePublicRecipesJSX = () => {
+        let recipes = this.state.publicRecipes
+        recipes = this.searchRecipesBy(
+            recipes,
+            this.state.searchPublicRecipesBy
+        )
+        recipes = recipes.map(recipe =>
+            <section
+                className = "recipe"
+                key = { recipe.id }>
+                <Link
+                    to = { '/publicrecipes/' + recipe.id }
+                    className = "name">
+                    { recipe.name }
+                </Link>
+                <div className = "image">
+                    <img
+                        src = { "https://good-meal.s3.amazonaws.com/" + (recipe.imageurl?recipe.imageurl:"nofound.png") }
+                        alt = { recipe.name }
+                    />
+                </div>
+                <div className = "cuisine">
+                    Cuisine: { recipe.cuisine }
+                </div>
+                <div className = "time" >
+                    Time to make: { recipe.time_to_make }
+                </div>
+                { TokenService.hasAuthToken() && <div>
+                  <button type='button' onClick={e => this.cloneRecipe(recipe.id)} >Copy to my recipes</button>
+                </div>}
+            </section>
+        )
+
+        this.setState({
+            publicRecipesJSX: recipes
+        })
     }
 
     render() {
@@ -288,8 +345,10 @@ export class RecipeProvider extends React.Component {
             filteredRecipes: this.state.filteredRecipes,
             filterBy: this.state.filterBy,
             saved: this.state.saved,
+            redirect: this.state.redirect,
             searchPublicRecipesBy: this.state.searchPublicRecipesBy,
             publicRecipes: this.state.publicRecipes,
+            publicRecipesJSX: this.state.publicRecipesJSX,
 
             setRecipeList: this.setRecipeList,
             removeRecipe: this.removeRecipe,
@@ -315,7 +374,11 @@ export class RecipeProvider extends React.Component {
             setError: this.setError,
             clearError: this.clearError,
             searchRecipesBy: this.searchRecipesBy,
+            updateSearchPublicRecipeBy: this.updateSearchPublicRecipeBy,
             filterRecipesByTime: this.filterRecipesByTime,
+            updatePublicRecipesList: this.updatePublicRecipesList,
+            updatePublicRecipes: this.updatePublicRecipes,
+            updatePublicRecipesJSX: this.updatePublicRecipesJSX,
             setUser: () => {},
         }
 

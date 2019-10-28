@@ -1,7 +1,7 @@
 import React from 'react';
 import RecipeContext from '../../contexts/RecipeContext'
 import RecipeItem from '../RecipeItem/RecipeItem'
-import { Label, Input } from '../Form/Form'
+import { Link } from 'react-router-dom'
 
 import './Recipes.css'
 
@@ -37,32 +37,28 @@ class Recipes extends React.Component {
             return(
                 <section className="recipes">
 
-                    <h1>My recipes</h1>
+                    <h1>My Recipes</h1>
                     
                     <form className = "search">
-                        <label 
-                            htmlFor='recipe-search'>
-                            Search:  
-                        </label>
-                        <input 
+
+                    <input 
                             onChange={event => this.context.setSearch(event.target.value)} 
                             id='recipe-search'
                             type='text' 
-                            placeholder='e.g. "meatloaf"'>
+                            placeholder='Search...'
+                            name='search'>
                         </input>
-                    </form>
-
-                    <form className = "filterByTime">
-                        <Label
-                            htmlFor = "recipe-filter">
-                            Cooking Time Less Than (minutes)
-                        </Label>
-                        <Input
-                            id = "recipe-filter"
-                            onChange = { e => this.context.setFilter(e.target.value) }
-                            type = "number"
-                            min = "0">
-                        </Input>
+                        <button type='submit'><i className="fa fa-search"></i></button>
+                        <div className='add_new'>
+                          <h3>Add New Recipe
+                          &nbsp;&nbsp;
+                          <Link
+                            to="/newrecipe"
+                            className="menu">
+                            <i className="far fa-plus-square"></i>
+                          </Link></h3>
+                        </div>
+                     
                     </form>
                         
                     { recipes }

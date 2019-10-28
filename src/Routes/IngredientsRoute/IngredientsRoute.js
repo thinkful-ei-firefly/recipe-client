@@ -5,7 +5,7 @@ import GoodmealApiService from '../../services/goodmeal-api-service'
 import IngedientsAdderForm from '../../components/IngredientsAdderForm/IngredientsAdderForm'
 
 class IngredientsRoute extends React.Component {
-  
+
   state = {
     error: null,
     ingredientList: null,
@@ -38,6 +38,12 @@ class IngredientsRoute extends React.Component {
       .catch(res => this.setState({ error: res.error }))
   }
 
+  cancelSubmit = () => {
+    this.setState({
+      adding: false
+    })
+  }
+
   deleteIngredient = (id) => {
     GoodmealApiService.deleteIngredient(id)
       .then(() => {
@@ -65,12 +71,16 @@ class IngredientsRoute extends React.Component {
     return (
       <div>
         <h2>Ingredients</h2>
-        {error}
+        { error }
         <ul>
-          {listElements}
+          { listElements }
         </ul>
-        {adding ? <IngedientsAdderForm handleSubmit={this.addIngredient}/> : <button onClick={this.openForm}>New Ingredient</button>}
-        {(ingredientList && ingredientList.length) ? <button onClick={this.deleteAllIngredients}>Delete Whole List</button> : null}
+        { adding
+          ? <IngedientsAdderForm handleSubmit={this.addIngredient} cancelSubmit={this.cancelSubmit}/>
+          : <button onClick={this.openForm}>New Ingredient</button>}
+        { (ingredientList && ingredientList.length)
+          ? <button onClick={this.deleteAllIngredients}>Delete Whole List</button>
+          : null}
       </div>
     )
   }

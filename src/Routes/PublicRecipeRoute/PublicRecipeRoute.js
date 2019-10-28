@@ -1,7 +1,7 @@
 import React from 'react'
 
 import GoodmealApiService from '../../services/goodmeal-api-service'
-import './RecipeSingleRoute.css'
+import './PublicRecipeRoute.css'
 
 class RecipeRoute extends React.Component {
 
@@ -12,7 +12,7 @@ class RecipeRoute extends React.Component {
   }
 
   componentDidMount() {
-    GoodmealApiService.getRecipe(this.props.match.params.id)
+    GoodmealApiService.getPublicRecipe(this.props.match.params.id)
       .then(recipe => this.setState({ recipe }))
       .catch(res => this.setState({ error: res.error }))
   }
@@ -26,7 +26,7 @@ class RecipeRoute extends React.Component {
       .then(this.props.history.push('/'))
       .catch(res => this.setState({ error: res.error }))
   }
-
+  
   render() {
     const { recipe, error, display } = this.state
     let description
@@ -41,7 +41,6 @@ class RecipeRoute extends React.Component {
     }
     return (
       <div className='recipe-tabs'>
-        <button onClick={this.props.history.goBack}>Back to recipes</button>
         <h1>{recipe ? recipe.name : 'loading...'}</h1>
         {error}
         <div className='tabset'>
