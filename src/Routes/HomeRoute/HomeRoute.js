@@ -13,9 +13,9 @@ class HomeRoute extends React.Component {
 
   static contextType = RecipeContext
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault()
-    this.context.updateSearchPublicRecipeBy(
+    await this.context.updateSearchPublicRecipeBy(
         e.target.publicSearch.value
     )
     this.context.updatePublicRecipesJSX()
