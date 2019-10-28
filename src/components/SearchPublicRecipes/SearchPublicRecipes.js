@@ -22,25 +22,16 @@ class SearchPublicRecipes extends React.Component {
             .catch(res => this.setState({error: res.error}))
     }
 
-    handleSubmit = e => {
-        e.preventDefault()
-        this.context.updateSearchPublicRecipeBy(
-            e.target.publicSearch.value
-        )
-        this.context.updatePublicRecipesJSX()
-        // this.props.history.push('/publicrecipes') //?
-    }
-
     render() {
         const error = this.state.error
         return(
             <form 
-                onSubmit = { this.handleSubmit }
+                onSubmit = { this.props.handleSubmit }
                 className = "search-public-recipes">
                 { error }
                 <Label
                     htmlFor = "public-recipe-search">
-                    Search For:
+                    {this.props.label}
                 </Label>
                 <Input
                 id = "public-recipe-search"
