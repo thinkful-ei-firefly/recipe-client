@@ -12,6 +12,10 @@ const GoodmealApiService = {
     })
       .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : res.json())
   },
+  getPublicRecipe(id) {
+    return fetch(this.url+'/recipes/public/'+id)
+      .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : res.json())
+  },
   deleteRecipe(id) {
     return fetch(this.url+'/recipes/'+id, {
       method: 'DELETE',
