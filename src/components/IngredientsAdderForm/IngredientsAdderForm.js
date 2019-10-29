@@ -112,7 +112,7 @@ class IngredientsAdderForm extends React.Component {
                 Add Ingredient
             </Button>
             <Button
-                onClick={props.cancelSubmit}
+                onClick={this.props.cancelSubmit}
                 type = "Button">
                 Cancel
             </Button>

@@ -9,21 +9,26 @@ class RecipeItem extends React.Component {
 
     render() {
 
-        const { id, name, imageurl } = this.props.recipe
+        const { id, name, description, imageurl } = this.props.recipe
 
         return(
+            <div className ='cards'>
             <section className="recipe-card">
+                <Link to = { '/recipe/'+id }>
                   <div className = "image">
                     <img 
                         src = { "https://good-meal.s3.amazonaws.com/" + (imageurl?imageurl:"nofound.png") } 
                         alt = { name }
                     />
-                </div>
+                  </div>
+                </Link>
+                <div className = 'name'></div>
                 <Link
                     to = { '/recipe/'+id }
                     className = "name">
                     { name }
                 </Link>
+                <p className='description'>{ description } </p>
               
                 <div className='recipe-buttons'>
                 <button className='remove-recipe'
@@ -38,6 +43,7 @@ class RecipeItem extends React.Component {
                 </Link>
                 </div>
             </section>
+            </div>
         )
     }
 }
