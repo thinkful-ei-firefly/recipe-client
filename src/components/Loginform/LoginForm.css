@@ -16,6 +16,10 @@ input[type="text"] {
   font-size: 20px;
 }
 
+input[type="password"] {
+  font-size: 20px;
+}
+
 .inputs {
   display: flex;
   justify-content: center;
@@ -27,8 +31,9 @@ input[type="text"] {
   color: red;
 }
 
-.login-form button {
-  margin-top: 25px;
+.LoginForm button[type="submit"] {
+  margin-top: 30px;
+  cursor: pointer;
 }
 
 .login_button {

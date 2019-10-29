@@ -9,35 +9,40 @@ class RecipeItem extends React.Component {
 
     render() {
 
-        const { id, name, time_to_make, cuisine, imageurl } = this.props.recipe
+        const { id, name, description, imageurl } = this.props.recipe
 
         return(
+            <div className ='cards'>
             <section className="recipe-card">
+                <Link to = { '/recipe/'+id }>
                   <div className = "image">
                     <img
                         src = { "https://good-meal.s3.amazonaws.com/" + (imageurl?imageurl:"nofound.png") }
                         alt = { name }
                     />
-                </div>
+                  </div>
+                </Link>
+                <div className = 'name'></div>
                 <Link
                     to = { '/recipe/'+id }
                     className = "name">
                     { name }
                 </Link>
-
+                <p className='description'>{ description } </p>
                 <div className='recipe-buttons'>
                 <button className='remove-recipe'
                     onClick = {e => this.context.delete(id)}>
-                    <i class="fas fa-trash-alt"></i>
+                    <i className="fas fa-trash-alt"></i>
                 </button>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <Link
                     to={ '/editrecipe/'+id }
                     className="edit-recipe">
-                    <i class="fas fa-edit"></i>
+                    <i className="fas fa-edit"></i>
                 </Link>
                 </div>
             </section>
+            </div>
         )
     }
 }

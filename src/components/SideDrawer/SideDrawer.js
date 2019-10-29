@@ -57,7 +57,7 @@ class SideDrawer extends React.Component {
                             className="menu"
                             onClick = { this.context.handleCloseSideDrawer }>
                             <i className="fas fa-utensil-spoon">
-                                <span>Recipes</span>
+                                <span>All Recipes</span>
                             </i>
                         </Link>
                     </li>
@@ -107,6 +107,16 @@ class SideDrawer extends React.Component {
                             onClick = { this.context.handleCloseSideDrawer }>
                             <i className="fas fa-clipboard-list">
                                 <span>My Pantry</span>
+                            </i>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/publicrecipes"
+                            className="menu"
+                            onClick = { this.context.handleCloseSideDrawer }>
+                            <i className="fas fa-utensil-spoon">
+                                <span>All Recipes</span>
                             </i>
                         </Link>
                     </li>
