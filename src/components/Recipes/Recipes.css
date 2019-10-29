@@ -73,17 +73,22 @@ form.example::after {
   border: none;
   cursor: pointer;
   margin-bottom: 5px;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 
 .recipe-buttons .remove-recipe:hover {
   color: #2e2e2e;
 }
 
+.cards {
+  display: flex;
+  justify-content: center;
+}
+
 .recipe-card {
   border: 1px solid black;
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
   text-align: end;
   border-radius: 5px;
   box-shadow: 0px 0px 5px;
@@ -92,6 +97,7 @@ form.example::after {
 
 .recipe-card img {
   width: 100%;
+  max-height: 300px;
   margin-bottom: 10px;
   border-bottom: 5px solid #01e00c;
 }
@@ -115,4 +121,7 @@ form.example::after {
 
 .recipe-card .name:hover {
   color: #01e00c;
+}
+
+@media (min-width: 701px) {
 }

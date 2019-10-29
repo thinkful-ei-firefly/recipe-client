@@ -297,30 +297,30 @@ export class RecipeProvider extends React.Component {
             this.state.searchPublicRecipesBy
         )
         recipes = recipes.map(recipe =>
-            <section
-                className = "recipe"
+            <div className='cards'>
+            <section className = "recipe-card"
                 key = { recipe.id }>
-                <Link
-                    to = { '/publicrecipes/' + recipe.id }
-                    className = "name">
-                    { recipe.name }
-                </Link>
-                <div className = "image">
+                    <Link to = { '/publicrecipes/' + recipe.id }>
+                      <div className = "image">
                     <img
                         src = { "https://good-meal.s3.amazonaws.com/" + (recipe.imageurl?recipe.imageurl:"nofound.png") }
                         alt = { recipe.name }
                     />
                 </div>
-                <div className = "cuisine">
-                    Cuisine: { recipe.cuisine }
-                </div>
-                <div className = "time" >
-                    Time to make: { recipe.time_to_make }
-                </div>
-                { TokenService.hasAuthToken() && <div>
-                  <button type='button' onClick={e => this.cloneRecipe(recipe.id)} >Copy to my recipes</button>
+                </Link>
+                <Link
+                    to = { '/publicrecipes/' + recipe.id }
+                    className = "name">
+                    { recipe.name }
+                </Link>
+                <p className='description'>{ recipe.description}</p>
+                
+                { TokenService.hasAuthToken() && 
+                <div className='recipe-buttons'>
+                  <button className='remove-recipe' type='button' onClick={e => this.cloneRecipe(recipe.id)} ><i className="fas fa-copy"></i></button>
                 </div>}
             </section>
+            </div>
         )
 
         this.setState({
