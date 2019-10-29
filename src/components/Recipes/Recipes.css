@@ -108,6 +108,15 @@ form.example::after {
   color: #2e2e2e;
 }
 
+.recipe-card p.description {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  padding-right: 15px;
+  color: #2e2e2e;
+  margin-bottom: -16px;
+}
+
 .recipe-card .name:hover {
   color: #01e00c;
 }

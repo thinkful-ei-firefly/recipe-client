@@ -9,7 +9,7 @@ class RecipeItem extends React.Component {
 
     render() {
 
-        const { id, name, imageurl } = this.props.recipe
+        const { id, name, description, imageurl } = this.props.recipe
 
         return(
             <section className="recipe-card">
@@ -19,11 +19,13 @@ class RecipeItem extends React.Component {
                         alt = { name }
                     />
                 </div>
+                <div className = 'name'></div>
                 <Link
                     to = { '/recipe/'+id }
                     className = "name">
                     { name }
                 </Link>
+                <p className='description'>{ description } </p>
               
                 <div className='recipe-buttons'>
                 <button className='remove-recipe'
