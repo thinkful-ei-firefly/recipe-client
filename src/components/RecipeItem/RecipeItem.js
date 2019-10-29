@@ -12,13 +12,16 @@ class RecipeItem extends React.Component {
         const { id, name, description, imageurl } = this.props.recipe
 
         return(
+            <div className ='cards'>
             <section className="recipe-card">
+                <Link to = { '/recipe/'+id }>
                   <div className = "image">
                     <img 
                         src = { "https://good-meal.s3.amazonaws.com/" + (imageurl?imageurl:"nofound.png") } 
                         alt = { name }
                     />
-                </div>
+                  </div>
+                </Link>
                 <div className = 'name'></div>
                 <Link
                     to = { '/recipe/'+id }
@@ -40,6 +43,7 @@ class RecipeItem extends React.Component {
                 </Link>
                 </div>
             </section>
+            </div>
         )
     }
 }

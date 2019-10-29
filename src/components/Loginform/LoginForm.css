@@ -31,8 +31,9 @@ input[type="password"] {
   color: red;
 }
 
-.login-form button {
-  margin-top: 25px;
+.LoginForm button[type="submit"] {
+  margin-top: 30px;
+  cursor: pointer;
 }
 
 .login_button {
