@@ -16,9 +16,35 @@ class IngredientsAdderForm extends React.Component {
     if(!isNumber) return this.setState({ amountError: 'Error: Amount must contain only numbers and fractions'})
     if(string.startsWith(' ') || string.endsWith(' ')) return this.setState({ amountError: 'Error: Amount cannot start or end with an empty space'})
     if(string.startsWith('/') || string.endsWith('/')) return this.setState({ amountError: 'Error: Amount cannot start or end with a slash'})
-    const hasSlash = /\//.test(string)
-    const hasSpace = / /.test(string)
-    // this.props.handleSubmit(event)
+    const arr = string.split(' ')
+    if (arr.length === 1) {
+      const slashSplit = arr[0].split('/')
+      if (slashSplit.length === 2) {
+        if (!slashSplit[0].length || !slashSplit[1].length) {
+          return this.setState({ amountError: 'Error: Amount cannot have a number that starts or ends with a slash'})
+        }
+      } else if (slashSplit.length !== 1) {
+        return this.setState({ amountError: 'Error: Amount cannot have more than 1 fraction'})
+      }
+    } else if (arr.length === 2) {
+      if (arr[0].includes('/')) {
+        return this.setState({ amountError: 'Error: In amount, a fraction cannot precede a whole number'})
+      } else if (!arr[1].includes('/')) {
+        return this.setState({ amountError: 'Error: In amount, cannot have 2 numbers unless the second is a fraction'})
+      } else {
+        const slashSplit = arr[1].split('/')
+        if (slashSplit.length === 2) {
+          if (!slashSplit[0].length || !slashSplit[1].length) {
+            return this.setState({ amountError: 'Error: Amount cannot have a number that starts or ends with a slash'})
+          }
+        } else if (slashSplit.length !== 1){
+          return this.setState({ amountError: 'Error: Amount cannot have more than 1 fraction'})
+        }
+      }
+    } else {
+      return this.setState({ amountError: 'Error: Amount cannot have more than 1 space'})
+    }
+    this.props.handleSubmit(event)
   }
   render() {
     return(
