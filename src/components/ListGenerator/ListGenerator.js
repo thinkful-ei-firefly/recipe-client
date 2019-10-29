@@ -14,6 +14,7 @@ class ListGenerator extends React.Component {
   }
   
   handleListCreate = async () => {
+    console.log('create')
     const popUpArray = []
     const ingredientsToAdd = []
     let newIngs = []
@@ -42,8 +43,10 @@ class ListGenerator extends React.Component {
       }
     })
     if (!!popUpArray.length) {
+      console.log('popups')
       this.handlePopUps(popUpArray)
     } else {
+      console.log('no popups')
       this.createList()
     }
   }
@@ -54,18 +57,19 @@ class ListGenerator extends React.Component {
     popUps.forEach((popUp, i) => {
       const {amount, unit, name} = popUp[1]
       const newIng = popUp[0].join(' ')
-      const handleYes = () => {
+      const handleYes = (event) => {
+        event.preventDefault()
         ingredientsToAdd.push(popUp[0])
-        popUp = ''
+        console.log(event.target.parent)
       }
-      const handleNo = () => {
-        popUp = ''
+      const handleNo = (event) => {
+
       }
       popUpArray.push(
         <li key={i}>
           {`You already own ${amount} ${unit} of ${name}. Add ${newIng} to your shopping list?`}
-          <button onClick={handleYes}>Yes</button>
-          <button onClick={handleNo}>No</button>
+          <button onClick={event => handleYes(event)}>Yes</button>
+          <button onClick={event => handleNo(event)}>No</button>
         </li>)
     })
     console.log(popUpArray)

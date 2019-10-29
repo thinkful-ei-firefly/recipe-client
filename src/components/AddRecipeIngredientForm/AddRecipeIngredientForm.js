@@ -9,12 +9,14 @@ class AddRecipeIngredientForm extends React.Component {
     static contextType = RecipeContext
 
     state = {
-      amountError: null
+      amountError: null,
+      measurementError: null
     }
 
     handleSubmit = e => {
         e.preventDefault()
-        this.validateAmount(e)
+        if (!this.validateAmount(e)) return
+        if (!this.validateMeasurement(e)) return
         const {amount, measurement, ingredient} = e.target
         this.context.handleAddRecipeIngredient(amount.value, measurement.value, ingredient.value)
         e.target.amount.value = ''
@@ -22,8 +24,13 @@ class AddRecipeIngredientForm extends React.Component {
         e.target.ingredient.value = ''
     }
 
+    validateMeasurement = (event) => {
+      this.setState({ measurementError: null })
+      if (event.target.measurement.value.includes(' ')) return this.setState({ measurementError: 'Error: your measurement unit cannot contain any spaces' })
+      return true
+    }
+
     validateAmount = (event) => {
-      event.preventDefault()
       this.setState({ amountError: null })
       const string = event.target.amount.value
       const isNumber = /^[\d/ ]+$/.test(string)
@@ -57,7 +64,7 @@ class AddRecipeIngredientForm extends React.Component {
         }
       } else {
         return this.setState({ amountError: 'Error: Amount cannot have more than 1 space'})
-      }
+      } return true
     }
 
     amounts = ['1/8', '1/4', '1/2']
@@ -70,8 +77,8 @@ class AddRecipeIngredientForm extends React.Component {
                 onSubmit = { this.handleSubmit }>
                 <div className = "amount">
                 <div className='section'><span>3</span>Ingredients</div>
+                {this.state.amountError}
                 <div className='inner-wrap'>
-                    {this.state.amountError}<br />
                     <Label
                         htmlFor = "recipe-amount">
                         How much: <Required />
@@ -91,6 +98,7 @@ class AddRecipeIngredientForm extends React.Component {
                         <option value = "1"/>
                     </datalist>
                 </div>
+                {this.state.measurementError}
                 <div className = "inner-wrap">
                     <Label
                         htmlFor = "recipe-measurement">

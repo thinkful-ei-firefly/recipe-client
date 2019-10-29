@@ -52,8 +52,8 @@ class IngredientsAdderForm extends React.Component {
             className = "addIngredient-form"
             onSubmit = {event => this.validateAmount(event) }>
             <legend>Add An Ingredient</legend>
+            {this.state.amountError}
             <div className = "amount">
-                {this.state.amountError}<br />
                 <Label
                     htmlFor = "recipe-amount">
                     How much: <Required />
