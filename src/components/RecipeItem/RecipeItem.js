@@ -14,6 +14,7 @@ class RecipeItem extends React.Component {
         return(
             <div className ='cards'>
             <section className="recipe-card">
+                <div className='rc'>
                 <Link to = { '/recipe/'+id }>
                   <div className = "image">
                     <img
@@ -41,6 +42,7 @@ class RecipeItem extends React.Component {
                     <i className="fas fa-edit"></i>
                 </Link>
                 </div>
+                </div>                
             </section>
             </div>
         )
