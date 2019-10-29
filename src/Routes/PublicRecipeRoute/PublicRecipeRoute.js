@@ -1,64 +1,80 @@
 import React from 'react'
+import PublicRecipeTabs from '../../components/PublicRecipeTabs/PublicRecipeTabs'
+import PublicRecipeSummary from '../../components/PublicRecipeSummary/PublicRecipeSummary'
+import PublicRecipeIngredients from '../../components/PublicRecipeIngredients/PublicRecipeIngredients'
+import PublicRecipeInstructions from '../../components/PublicRecipeInstructions/PublicRecipeInstructions'
 
+import PublicRecipeContext from '../../contexts/PublicRecipeContext'
 import GoodmealApiService from '../../services/goodmeal-api-service'
 import './PublicRecipeRoute.css'
 
 class RecipeRoute extends React.Component {
 
-  state = {
-    recipe: null,
-    error: null,
-    display: 'summary' //summary, ingredients, or instructions
-  }
+    static contextType = PublicRecipeContext
 
-  componentDidMount() {
-    GoodmealApiService.getPublicRecipe(this.props.match.params.id)
-      .then(recipe => this.setState({ recipe }))
-      .catch(res => this.setState({ error: res.error }))
-  }
-
-  handleTabClick(event) {
-    this.setState({ display: event.target.name })
-  }
-
-  handleDelete = () => {
-    GoodmealApiService.deleteRecipe(this.props.match.params.id)
-      .then(this.props.history.push('/'))
-      .catch(res => this.setState({ error: res.error }))
-  }
-  
-  render() {
-    const { recipe, error, display } = this.state
-    let description
-    let list = []
-    if (recipe) {
-      description = recipe.description
-      if (display==='ingredients') {
-        recipe.ingredients.forEach((item, i) => list.push(<li key={i}>{item}</li>))
-      } else if (display==='instructions') {
-        recipe.instructions.forEach((item, i) => list.push(<li key={i}>{item}</li>))
-      }
+    state = {
+        error: null,
     }
-    return (
-      <div className='recipe-tabs'>
-        <h1>{recipe ? recipe.name : 'loading...'}</h1>
-        {error}
-        <div className='tabset'>
-          <input type='radio' id='tab1' defaultChecked  name="summary" onClick={event=>this.handleTabClick(event)}></input>
-          <label htmlFor='tab1'>Summary</label>
-          <input type='radio' id='tab2'  name="ingredients" onClick={event=>this.handleTabClick(event)}></input>
-          <label htmlFor='tab2'>Ingredients</label>
-          <input type='radio' id='tab3'  name="instructions" onClick={event=>this.handleTabClick(event)}></input>
-          <label htmlFor='tab3'>Instructions</label>
-        </div>
-        <div className='tab-panels'>
-          <section className='tab-panel'>
-            {display === 'summary' ? description : <ul>{list}</ul>}
-            </section>
-        </div>
-      </div>
-    )
-  }
+
+    componentDidMount() {
+        GoodmealApiService.getPublicRecipe(this.props.match.params.id)
+            .then(recipe => this.context.updateRecipe(recipe))
+            .catch(res => this.setState({ error: res.error }))
+    }
+
+    componentWillUnmount() {
+        this.context.updateDisplay('summary')
+    }
+
+    handleTabClick(event) {
+        this.context.updateDisplay(event.target.name)
+    }
+
+    render() {
+
+        const error = this.state.error
+        const recipe = this.context.recipe
+        let publicRecipePage
+
+        if(this.context.display === 'summary')
+            publicRecipePage = <PublicRecipeSummary />
+
+        else if(this.context.display === 'ingredients')
+            publicRecipePage = <PublicRecipeIngredients />
+
+        else if(this.context.display === 'instructions')
+            publicRecipePage = <PublicRecipeInstructions />
+
+        return(
+
+            <div className='recipe-tabs' itemType = "http://schema.org/Recipe">
+                <h1 itemProp = "name">
+                    {
+                        recipe 
+                            ? recipe.name 
+                            : 'loading...'
+                    }
+                </h1>
+
+                {error}
+
+                <div className = "image" itemProp = "image">
+                    <img
+                        src = { "https://good-meal.s3.amazonaws.com/" + (recipe.imageurl?recipe.imageurl:"nofound.png") }
+                        alt = { recipe.name }
+                    />
+                </div>
+
+                <PublicRecipeTabs />
+                
+                <div className='tab-panels'>
+                    { publicRecipePage }
+                </div>
+
+            </div>
+          
+        )
+    }
 }
 
 export default RecipeRoute
