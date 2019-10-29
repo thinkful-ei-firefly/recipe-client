@@ -14,8 +14,8 @@ class RecipeItem extends React.Component {
         return(
             <section className="recipe-card">
                   <div className = "image">
-                    <img 
-                        src = { "https://good-meal.s3.amazonaws.com/" + (imageurl?imageurl:"nofound.png") } 
+                    <img
+                        src = { "https://good-meal.s3.amazonaws.com/" + (imageurl?imageurl:"nofound.png") }
                         alt = { name }
                     />
                 </div>
@@ -24,7 +24,7 @@ class RecipeItem extends React.Component {
                     className = "name">
                     { name }
                 </Link>
-              
+
                 <div className='recipe-buttons'>
                 <button className='remove-recipe'
                     onClick = {e => this.context.delete(id)}>
@@ -32,7 +32,7 @@ class RecipeItem extends React.Component {
                 </button>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <Link
-                    to="/editrecipe"
+                    to={ '/editrecipe/'+id }
                     className="edit-recipe">
                     <i class="fas fa-edit"></i>
                 </Link>

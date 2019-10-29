@@ -61,6 +61,7 @@ export class RecipeProvider extends React.Component {
         super(props)
 
         const state = {
+            recipeId: null,
             recipeTitle: '',
             recipeDesc: '',
             recipeIngredients: [],
@@ -77,6 +78,7 @@ export class RecipeProvider extends React.Component {
             error: null,
             loading: false,
             saved: false,
+            editing: false,
             redirect: false,
             searchPublicRecipesBy: '',
             publicRecipes: [],
@@ -84,6 +86,41 @@ export class RecipeProvider extends React.Component {
         }
 
         this.state = state
+    }
+
+    loadRecipe = (id) => {
+      RecipeApiService.getById(id)
+        .then(recipe => {
+          //console.log(recipe)
+          this.setState({
+            recipeId: recipe.id,
+            recipeTitle: recipe.name,
+            recipeDesc: recipe.description,
+            recipeIngredients: recipe.ingredients,
+            recipeSteps: recipe.instructions,
+            recipeCuisine: recipe.category,
+            recipeTime: recipe.time_to_make,
+            recipeImage: recipe.imageurl,
+            recipePublic: recipe.public,
+            editing: true
+          })
+        })
+        .catch(res => this.setState({ error: res.error }))
+    }
+
+    clearRecipe = () => {
+      this.setState({
+        recipeId: null,
+        recipeTitle: '',
+        recipeDesc: '',
+        recipeIngredients: [],
+        recipeSteps: [],
+        recipeCuisine: '',
+        recipeTime: null,
+        recipeImage: null,
+        recipePublic: false,
+        editing: false
+      })
     }
 
     setError = (error) => {
@@ -100,7 +137,8 @@ export class RecipeProvider extends React.Component {
 
     setRecipeList = (recipeList) => {
         this.setState({
-            recipeList
+            recipeList,
+            saved: false
         })
     }
 
@@ -204,9 +242,9 @@ export class RecipeProvider extends React.Component {
     }
 
     // takes recipe data from state and sends api query to server
-    handleCreateRecipe = () => {
+    handleCreateRecipe = async () => {
 
-        const fileName =  this.state.recipeImage?`${Date.parse(new Date())}.${this.state.recipeImage.name.split('.').pop()}`:'';
+        const fileName =  (!this.state.editing && this.state.recipeImage)?`${Date.parse(new Date())}.${this.state.recipeImage.name.split('.').pop()}`:'';
 
         const requiredKeys = ['recipeTitle', 'recipeDesc', 'recipeIngredients', 'recipeSteps', 'recipeTime', 'recipeCuisine' ]
         const requiredLabels = ['Title', 'Description', 'Ingredient', 'Instruction', 'Cooking Time', 'Cuisine' ]
@@ -232,27 +270,31 @@ export class RecipeProvider extends React.Component {
         this.setState({
           loading: true
         })
-        RecipeApiService.postRecipe(recipe)
-          .then(response => {
-            if (fileName && fileName!==''){
-              return UploadApiService.uploadImage(this.state.recipeImage, fileName)
-            }
-            return {message: 'No image'}
+
+        try{
+          console.log(recipe);
+          if (this.state.editing){
+            delete recipe.imageurl;
+            await RecipeApiService.saveExisting(this.state.recipeId, recipe)
+          }else{
+            await RecipeApiService.postRecipe(recipe)
+          }
+          if (fileName && fileName!==''){
+            await UploadApiService.uploadImage(this.state.recipeImage, fileName)
+          }
+          this.setState({
+            loading: false,
+            error: null,
+            saved: true,
+            editing: false
           })
-          .then(resImage => {
-            this.setState({
-              loading: false,
-              error: null,
-              saved: true
-            })
+        }catch(error){
+          //console.log(error);
+          this.setState({
+            loading: false,
+            error: error.message || error.error
           })
-          .catch(error => {
-            console.log(error);
-            this.setState({
-              loading: false,
-              error: error.message || error.error
-            })
-          } )
+        }
     }
 
     searchRecipesBy = (recipeList, term) => {
@@ -345,6 +387,7 @@ export class RecipeProvider extends React.Component {
             filteredRecipes: this.state.filteredRecipes,
             filterBy: this.state.filterBy,
             saved: this.state.saved,
+            editing: this.state.editing,
             redirect: this.state.redirect,
             searchPublicRecipesBy: this.state.searchPublicRecipesBy,
             publicRecipes: this.state.publicRecipes,
@@ -379,6 +422,8 @@ export class RecipeProvider extends React.Component {
             updatePublicRecipesList: this.updatePublicRecipesList,
             updatePublicRecipes: this.updatePublicRecipes,
             updatePublicRecipesJSX: this.updatePublicRecipesJSX,
+            loadRecipe: this.loadRecipe,
+            clearRecipe: this.clearRecipe,
             setUser: () => {},
         }
 

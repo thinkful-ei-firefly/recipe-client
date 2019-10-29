@@ -51,16 +51,16 @@ class App extends React.Component {
                 path = { '/' }
                 component = { HomeRoute }
                 />
-              <Route 
+              <Route
                 exact
                 path = { '/publicrecipes'}
                 component = { PublicRecipesRoute }
               />
-              <Route 
+              <Route
                 path = { '/publicrecipes/:id' }
                 component = { PublicRecipeRoute }
               />
-              <Route 
+              <Route
                 path = { '/recipe/:id' }
                 component = { RecipeSingleRoute }
               />
@@ -72,13 +72,17 @@ class App extends React.Component {
                 path = { '/register' }
                 component = { RegisterRoute }
               />
-              <Route 
+              <Route
                 path = { '/newrecipe' }
                 component = { AddRecipe }
               />
               <PrivateRoute
                 path = { '/recipes' }
                 component = { RecipesRoute }
+              />
+              <PrivateRoute
+                path = { '/editrecipe/:id' }
+                component = { AddRecipe }
               />
               <PrivateRoute
                   path = { '/shoppinglist' }
