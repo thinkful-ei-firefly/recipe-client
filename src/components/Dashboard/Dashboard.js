@@ -14,7 +14,7 @@ const Dashboard = () => {
             <img src= {recipe2} alt='icon'></img> 
           </Link>
         </div>
-        <Link to='/publicrecipes'>
+        <Link className='explanation' to='/publicrecipes'>
           <p>
           View and search recipes added by other users. If you find one you like, add it to your recipe list and make
           any modifications or substitutions you want.
@@ -33,7 +33,7 @@ const Dashboard = () => {
       <img src= {recipe2} alt='icon'></img> 
         </Link>
         </div>
-        <Link to='/recipes'>
+        <Link className='explanation' to='/recipes'>
         <p>
           Curate your personal list or recipes. Write new ones, modify old ones, and search your recipes by title,
           ingredients, description, cuisine, or time to make.
@@ -52,7 +52,7 @@ const Dashboard = () => {
       <img src= {recipe2} alt='icon'></img> 
         </Link>
         </div>
-        <Link to='/shoppinglist'>
+        <Link className='explanation' to='/shoppinglist'>
         <p>
           Once you know what you want to cook, keep track of the ingredients you'll need with a shopping list you can
           take with you on your next excursion.
@@ -70,7 +70,7 @@ const Dashboard = () => {
       <img src= {recipe2} alt='icon'></img> 
         </Link>
         </div>
-        <Link to='/ingredients'>
+        <Link className='explanation' to='/ingredients'>
         <p>
           Instead of trying to remember every ingredient sitting in your pantry, keep track of them here to make it that
           much easier to figure out what meals you can make from what you already own.
