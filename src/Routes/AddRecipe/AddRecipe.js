@@ -80,8 +80,8 @@ class AddRecipe extends React.Component {
                     onClick = { this.context.handleCreateRecipe }>
                     Save Recipe
                 </Button>
-
-                <button onClick={this.props.history.goBack}>Back</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button className='submit_button' onClick={this.props.history.goBack}>Back</button>
 
                 { this.context.loading && <div>Saving..</div> }
 
