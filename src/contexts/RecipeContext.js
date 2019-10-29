@@ -329,7 +329,9 @@ export class RecipeProvider extends React.Component {
 
     cloneRecipe = (id) => {
       RecipeApiService.cloneRecipe(id)
-        .then(recipe => this.setState({redirect: true}))
+        .then(recipe => this.setState({redirect: true},
+          () => this.setState({redirect: false})
+        ))
     }
 
     updatePublicRecipesJSX = () => {
