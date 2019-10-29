@@ -24,12 +24,21 @@ class AddRecipe extends React.Component {
 
     static contextType = RecipeContext
 
+    componentDidMount() {
+      const idRecipe = this.props.match.params.id;
+      if (idRecipe) {
+        this.context.loadRecipe(idRecipe)
+      }else{
+        this.context.clearRecipe()
+      }
+    }
+
     render() {
 
         return(
             <section className = "addRecipe">
 
-                <h1>New Recipe</h1>
+                <h1>{this.context.editing?'Edit':'New'} Recipe</h1>
 
                 {
                     this.context.recipeTitle
@@ -63,16 +72,16 @@ class AddRecipe extends React.Component {
 
                 <AddRecipePublic />
 
-                <AddRecipeImage />
+                {!this.context.editing && <AddRecipeImage />}
 
                 {this.context.error && <div>{this.context.error}</div>}
 
                 <Button className='submit_button'
                     onClick = { this.context.handleCreateRecipe }>
-                    Create Recipe
+                    Save Recipe
                 </Button>
 
-                <button onClick={this.props.history.goBack}>Back to recipes</button>
+                <button onClick={this.props.history.goBack}>Back</button>
 
                 { this.context.loading && <div>Saving..</div> }
 

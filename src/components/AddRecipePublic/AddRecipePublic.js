@@ -17,12 +17,13 @@ class AddRecipePublic extends React.Component {
                 <div className='inner-wrap'>
                   <Label
                       htmlFor = "recipe-type">
-                      Public <Required />
+                      Public
                   </Label>
                   <Input
                       name = "measurement"
                       id = "recipe-type"
                       type = "checkbox"
+                      checked ={this.context.recipePublic}
                       onChange = {this.context.handleAddPublic}
                       >
                   </Input>
