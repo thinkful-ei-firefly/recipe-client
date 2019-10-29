@@ -11,8 +11,7 @@
   width: 250px;
   height: 250px;
   border-radius: 40px;
-  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
-    -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+  box-shadow: 5px 5px 5px;
   cursor: pointer;
   transition: 0.4s;
 }
@@ -63,8 +62,7 @@
 }
 .card:hover {
   transform: scale(0.9, 0.9);
-  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
-    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+  box-shadow: 5px 5px 5px;
 }
 @media all and (max-width: 500px) {
   .card-list {
