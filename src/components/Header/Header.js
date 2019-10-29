@@ -45,7 +45,7 @@ class Header extends React.Component {
                     <Link
                         to="/publicrecipes"
                         className="menu">
-                        <i className="fas fa-utensil-spoon"><span>Recipes</span></i>
+                        <i className="fas fa-utensil-spoon"><span>All Recipes</span></i>
                     </Link>
                 </li>
                 
@@ -84,6 +84,13 @@ class Header extends React.Component {
                             <i className="fas fa-clipboard-list"><span>My Pantry</span></i>
                         </Link>
                     </li>
+                    <li>
+                    <Link
+                        to="/publicrecipes"
+                        className="menu">
+                        <i className="fas fa-utensil-spoon"><span>All Recipes</span></i>
+                    </Link>
+                </li>
                     <li>
                         <Link
                             onClick = { this.handleLogout }

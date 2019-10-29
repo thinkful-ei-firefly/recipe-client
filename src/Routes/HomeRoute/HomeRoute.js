@@ -30,9 +30,9 @@ class HomeRoute extends React.Component {
                 <img src={background} alt='background' className='background'/>
                 <h2>Welcome to GoodMeal! </h2>
                 <div className='subtitle'>
-                  <p hidden={loggedIn}>Create and save your favorite recipes</p>
-                  <p hidden={loggedIn}>Create a grocery list</p>
-                  <p hidden={loggedIn}>Create delicious meals</p>
+                  <p hidden={loggedIn}>Create your own recipes</p>
+                  <p hidden={loggedIn}>Make a shopping list</p>
+                  <p hidden={loggedIn}>Cook delicious meals</p>
                 </div>
               </section>
               
