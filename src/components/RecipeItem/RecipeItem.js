@@ -9,7 +9,7 @@ class RecipeItem extends React.Component {
 
     render() {
 
-        const { id, name, time_to_make, cuisine, imageurl } = this.props.recipe
+        const { id, name, imageurl } = this.props.recipe
 
         return(
             <section className="recipe-card">
@@ -28,13 +28,13 @@ class RecipeItem extends React.Component {
                 <div className='recipe-buttons'>
                 <button className='remove-recipe'
                     onClick = {e => this.context.delete(id)}>
-                    <i class="fas fa-trash-alt"></i>
+                    <i className="fas fa-trash-alt"></i>
                 </button>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <Link
                     to="/editrecipe"
                     className="edit-recipe">
-                    <i class="fas fa-edit"></i>
+                    <i className="fas fa-edit"></i>
                 </Link>
                 </div>
             </section>

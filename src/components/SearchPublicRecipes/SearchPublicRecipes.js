@@ -1,5 +1,5 @@
 import React from 'react'
-import { Label, Input } from '../Form/Form'
+import { Input } from '../Form/Form'
 import Button from '../Button/Button'
 
 import RecipeContext from '../../contexts/RecipeContext'

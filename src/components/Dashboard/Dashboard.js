@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import recipe from '../../images/RecipeIcon.png'
 import recipe2 from '../../images/RecipeIcon2.png'
 import './Dashboard.css'
 
