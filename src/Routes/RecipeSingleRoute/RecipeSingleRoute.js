@@ -1,6 +1,8 @@
 import React from 'react'
 
 import GoodmealApiService from '../../services/goodmeal-api-service'
+import ListGenerator from '../../components/ListGenerator/ListGenerator'
+
 import './RecipeSingleRoute.css'
 
 class RecipeRoute extends React.Component {
@@ -57,6 +59,7 @@ class RecipeRoute extends React.Component {
             {display === 'summary' ? description : <ul>{list}</ul>}
             </section>
         </div>
+        <ListGenerator recipe={this.state.recipe}/>
       </div>
     )
   }
