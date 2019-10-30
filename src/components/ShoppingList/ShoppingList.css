@@ -1,0 +1,84 @@
+.shop-list {
+  display: block;
+  border: 1px solid;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 5px;
+  padding-right: 10px;
+}
+
+.shop-list img {
+  margin-top: 10px;
+
+  width: 70px;
+  height: 70px;
+}
+
+.shop-list .title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #01e00c;
+  margin-bottom: 15px;
+}
+
+.shop-list h1 {
+  padding-left: 15px;
+  padding-bottom: 15px;
+  font-size: 30px;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  align-items: center;
+  margin-bottom: -12px;
+  margin-top: -12px;
+}
+
+.check-buttons i {
+  font-size: 25px;
+  color: #01e00c;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.check-buttons {
+  background-color: #fff;
+  border: none;
+  text-decoration: none;
+}
+
+.check-buttons:active {
+  background-color: #fff;
+  border: none;
+}
+
+hr {
+  width: 95%;
+}
+
+.modify-buttons {
+  border: 0.5px solid black;
+  box-shadow: 5px 5px 5px;
+  background: #5a5d5a;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.modify-buttons i span {
+  font-size: 20px;
+}
+
+.list-buttons i {
+  font-size: 20px;
+  background-color: #5a5d5a;
+  color: #01e00c;
+  cursor: pointer;
+}
+
+.list-buttons i:hover {
+  color: #fff;
+}
