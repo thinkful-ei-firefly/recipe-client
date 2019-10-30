@@ -15,12 +15,13 @@ class AddRecipeTitle extends React.Component {
     render() {
         return(
             <div className = "title">
-                { this.context.recipeTitle }
+                
                 <Button
-                    className = "removeTitle"
+                    className = "edit-button"
                     onClick = { this.handleClick }>
                     -
                 </Button>
+                { this.context.recipeTitle }
             </div>
         )
     }

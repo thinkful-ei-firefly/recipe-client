@@ -52,13 +52,13 @@
   color: lightgreen;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 715px) {
   .navigation-items {
     display: none;
   }
 }
 
-@media (min-width: 701px) {
+@media (min-width: 716px) {
   .toggle-button {
     display: none;
   }

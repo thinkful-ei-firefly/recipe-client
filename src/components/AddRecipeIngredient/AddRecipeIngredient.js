@@ -17,13 +17,14 @@ class AddRecipeIngredient extends React.Component {
         const ingredients = this.context.recipeIngredients.map((ingredient, index) => {
             return(
                 <div className = "ingredient" key={ index }>
-                    { ingredient }
+                    
                     <Button
                         value = { ingredient }
-                        className = "removeTitle"
+                        className = "edit-button"
                         onClick = { this.handleClick }>
                         -
                     </Button>
+                    { ingredient }
                 </div>
             )
         })
