@@ -51,6 +51,7 @@ const RecipeContext = React.createContext({
     updatePublicRecipesList: () => {},
     updatePublicRecipes: () => {},
     updatePublicRecipesJSX: () => {},
+    getPublicRecipes: () => {},
     setUser: () => {},
 })
 
@@ -327,6 +328,15 @@ export class RecipeProvider extends React.Component {
         })
     }
 
+    getPublicRecipes = () => {
+        return RecipeApiService.getPublicRecipes()
+            .then(recipes => {
+                this.setState({
+                    publicRecipes: recipes
+                })
+            })    
+    }
+
     cloneRecipe = (id) => {
       RecipeApiService.cloneRecipe(id)
         .then(recipe => this.setState({redirect: true},
@@ -335,11 +345,14 @@ export class RecipeProvider extends React.Component {
     }
 
     updatePublicRecipesJSX = () => {
+        
         let recipes = this.state.publicRecipes
-        recipes = this.searchRecipesBy(
-            recipes,
-            this.state.searchPublicRecipesBy
-        )
+        if(this.state.searchPublicRecipesBy !== ''){
+            recipes = this.searchRecipesBy(
+                recipes,
+                this.state.searchPublicRecipesBy
+            )
+        }
         recipes = recipes.map(recipe =>
             <div className='cards'>
             <section className = "recipe-card"
@@ -366,7 +379,6 @@ export class RecipeProvider extends React.Component {
             </section>
             </div>
         )
-
         this.setState({
             publicRecipesJSX: recipes
         })
@@ -424,6 +436,7 @@ export class RecipeProvider extends React.Component {
             updatePublicRecipesList: this.updatePublicRecipesList,
             updatePublicRecipes: this.updatePublicRecipes,
             updatePublicRecipesJSX: this.updatePublicRecipesJSX,
+            getPublicRecipes: this.getPublicRecipes,
             loadRecipe: this.loadRecipe,
             clearRecipe: this.clearRecipe,
             setUser: () => {},
