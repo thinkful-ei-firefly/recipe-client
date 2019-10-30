@@ -114,6 +114,15 @@ const GoodmealApiService = {
       }
     })
     .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
+  },
+  moveCrossedOnShoppingList() {
+    return fetch(this.url+'/list/movetopantry', {
+      method: 'POST',
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
   }
 }
 
