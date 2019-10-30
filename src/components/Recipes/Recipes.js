@@ -40,8 +40,7 @@ class Recipes extends React.Component {
                     <h1>My Recipes</h1>
 
                     <form onSubmit={this.context.searchMyRecipes} className = "search">
-
-                    <input
+                      <input
                             id='recipe-search'
                             type='text'
                             placeholder='Search...'
