@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import GoodmealApiService from '../../services/goodmeal-api-service'
 
@@ -7,7 +8,7 @@ import './ListGenerator.css'
 class ListGenerator extends React.Component {
   
   state = {
-    ingredientsToAdd: null,
+    ingredientsToAdd: [],
     feedback: null,
     popUpArray: null,
     poppingUp: false
@@ -23,16 +24,17 @@ class ListGenerator extends React.Component {
       let ingArr = ing.split(' ')
       const num1 = ingArr.shift()
       const num2 = (ingArr[0].split('/').length === 2) ? ingArr.shift() : null
+      const unit = ingArr.shift()
       const ingString = ingArr.join(' ')
       const numString = num2 ? [num1, num2].join(' ') : num1
-      ingArr = [numString, ingString]
+      ingArr = [numString, unit, ingString]
       newIngs.push(ingArr)
     })
     const myIngs = await GoodmealApiService.getIngredientList()
     newIngs.forEach(newIng => {
       let includes = false
       for(let i=0; i<myIngs.length; i++) {
-        if (newIng[1].includes(myIngs[i].name)) {
+        if (newIng[2].includes(myIngs[i].name)) {
           includes = true
           popUpArray.push([newIng, myIngs[i]])
           break
@@ -42,6 +44,7 @@ class ListGenerator extends React.Component {
         ingredientsToAdd.push(newIng)
       }
     })
+    this.setState({ ingredientsToAdd })
     if (!!popUpArray.length) {
       console.log('popups')
       this.handlePopUps(popUpArray)
@@ -53,46 +56,54 @@ class ListGenerator extends React.Component {
 
   handlePopUps = async (popUps) => {
     const popUpArray = []
-    const ingredientsToAdd = []
     popUps.forEach((popUp, i) => {
       const {amount, unit, name} = popUp[1]
       const newIng = popUp[0].join(' ')
-      const handleYes = (event) => {
-        event.preventDefault()
-        ingredientsToAdd.push(popUp[0])
-        console.log(event.target.parent)
-      }
-      const handleNo = (event) => {
-
-      }
       popUpArray.push(
-        <li key={i}>
+        <li key={i} id={i}>
           {`You already own ${amount} ${unit} of ${name}. Add ${newIng} to your shopping list?`}
-          <button onClick={event => handleYes(event)}>Yes</button>
-          <button onClick={event => handleNo(event)}>No</button>
+          <button value={popUp[0]} onClick={event => this.handleYes(event, i)}>Yes</button>
+          <button onClick={event => this.handleNo(event)}>No</button>
         </li>)
     })
-    console.log(popUpArray)
     await this.setState({ popUpArray })
     const modal = document.getElementById("myModal");
     modal.style.display= "block"
   }
 
-  createList = () => {
-
+  handleYes = (event, i) => {
+    event.preventDefault()
+    this.setState({ ingredientsToAdd: [...this.state.ingredientsToAdd, event.target.value.split(',')] })
+    event.target.parentElement.remove()
+  }
+  handleNo = (event) => {
+    event.target.parentElement.remove()
+  }
+  
+  createList = async () => {
+    const newIngs = []
+    this.state.ingredientsToAdd.forEach(ing => newIngs.push({amount: ing[0], unit: ing[1], name: ing[2]}))
+    await GoodmealApiService.addManyToShoppingList(newIngs)
+    document.getElementById("myModal").style.display = 'none'
+    this.setState({ feedback: this.state.ingredientsToAdd.length })
   }
     
 
   render() {
+    const {feedback} = this.state
     return (
       <div className='ListGenerator'>
-        <button onClick={this.handleListCreate}>Create shopping list</button>
+        {feedback ? `Added ${feedback} ingredients to your shopping list` : ''}
+        <Link hidden={!feedback} to='/shoppinglist'><button>View List</button></Link>
+        <button hidden={feedback} id='listCreateButton' onClick={this.handleListCreate}>Create shopping list</button>
         <div id="myModal" className="modal">
-          <ul className='modal-content'>
-            {this.state.popUpArray}
-          </ul>
+          <div className='modal-content'>
+            <ul>
+              {this.state.popUpArray}
+            </ul>
+            <button onClick={this.createList}>Done!</button>
+          </div>
         </div>
-        {this.state.popUpArray}
       </div>
     )
   }
