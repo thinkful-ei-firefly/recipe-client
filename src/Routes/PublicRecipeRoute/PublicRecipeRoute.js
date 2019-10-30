@@ -48,6 +48,7 @@ class RecipeRoute extends React.Component {
         return(
 
             <div className='recipe-tabs' itemType = "http://schema.org/Recipe">
+                <div>
                 <h1 itemProp = "name">
                     {
                         recipe 
@@ -70,7 +71,7 @@ class RecipeRoute extends React.Component {
                 <div className='tab-panels'>
                     { publicRecipePage }
                 </div>
-
+                </div>
             </div>
           
         )
