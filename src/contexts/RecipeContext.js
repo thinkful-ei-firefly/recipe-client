@@ -336,7 +336,7 @@ export class RecipeProvider extends React.Component {
                 this.setState({
                     publicRecipes: recipes
                 })
-            })    
+            })
     }
 
     cloneRecipe = (id) => {
@@ -347,7 +347,7 @@ export class RecipeProvider extends React.Component {
     }
 
     updatePublicRecipesJSX = () => {
-        
+
         let recipes = this.state.publicRecipes
         if(this.state.searchPublicRecipesBy !== ''){
             recipes = this.searchRecipesBy(
@@ -356,7 +356,7 @@ export class RecipeProvider extends React.Component {
             )
         }
         recipes = recipes.map(recipe =>
-            <div className='cards'>
+            <div key={recipe.id} className='cards'>
             <section className = "recipe-card"
                 key = { recipe.id }>
                     <Link to = { '/publicrecipes/' + recipe.id }>
