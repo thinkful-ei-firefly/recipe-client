@@ -48,7 +48,6 @@ class Recipes extends React.Component {
                       </input>
                       <button className='search_button' type='submit'><i className="fa fa-search"></i></button>
                     </form>    
-                        { recipes }
                     <form className='search'> 
                         <div className='add_new'>
                           <h3>Add New Recipe
@@ -59,11 +58,8 @@ class Recipes extends React.Component {
                             <i className="far fa-plus-square"></i>
                           </Link></h3>
                         </div>
-
                     </form>
-                        
-                    
-                
+                    { recipes }
                 </section>
             )
     }
