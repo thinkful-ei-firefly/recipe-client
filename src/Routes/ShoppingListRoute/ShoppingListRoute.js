@@ -61,6 +61,15 @@ class ShoppingListRoute extends React.Component {
       .catch(this.setError)
   }
 
+  moveCrossedItems = () => {
+    GoodmealApiService.moveCrossedOnShoppingList()
+      .then(() => {
+        const newList = this.state.recipeList.filter(item => item.crossed === false)
+        this.setState({ recipeList: newList })
+      })
+      .catch(this.setError)
+  }
+
   deleteList = () => {
     GoodmealApiService.deletShoppingList()
       .then(() => this.setState({ recipeList: []}))
@@ -112,6 +121,7 @@ class ShoppingListRoute extends React.Component {
         {adding ? <IngedientsAdderForm handleSubmit={this.addIngredient} cancelSubmit={this.cancelSubmit}/> : <button className='modify-buttons' onClick={this.openForm}><i className="far fa-plus-square"><span>&nbsp;Add Item</span></i></button>}
         <button className='modify-buttons' hidden={!this.state.recipeList.length}onClick={this.deleteCrossedItems}><i className="far fa-minus-square"><span>&nbsp;Delete Checked</span></i></button>
         <button className='modify-buttons' hidden={!this.state.recipeList.length}onClick={this.deleteList}><i className="fas fa-trash-alt"><span>&nbsp;Delete All</span></i></button>
+        <button className='modify-buttons' hidden={!this.state.recipeList.length}onClick={this.moveCrossedItems}><i className="fas fa-mouse-pointer"><span>&nbsp;Move Checked to Pantry</span></i></button>
         </div>
       </ShoppingListContext.Provider>
     )
