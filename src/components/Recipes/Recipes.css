@@ -20,6 +20,7 @@ form.search input[type="text"] {
   float: left;
   width: 80%;
   background: #f1f1f1;
+  margin-bottom: 30px;
 }
 
 form.search button {
@@ -32,7 +33,6 @@ form.search button {
   border: 1px solid grey;
   border-left: none; /* Prevent double borders */
   cursor: pointer;
-  margin-top: -0.4px;
 }
 
 form.search button:hover {
@@ -45,8 +45,8 @@ form.example::after {
   display: table;
 }
 
-.add_new {
-  font-size: 20px;
+.add_new h3 {
+  font-size: 24px;
   text-align: center;
 }
 
@@ -57,6 +57,10 @@ form.example::after {
 
 .add_new i:hover {
   color: #2e2e2e;
+}
+
+.recipe-buttons {
+  margin-top: 30px;
 }
 
 .recipe-buttons .edit-recipe {
@@ -71,6 +75,7 @@ form.example::after {
 
 .recipe-buttons .remove-recipe {
   color: #01e00c;
+  background-color: white;
   font-size: 17px;
   padding: 0;
   width: auto;
@@ -91,8 +96,8 @@ form.example::after {
 
 .recipe-card {
   border: 1px solid black;
-  width: 100%;
-  max-width: 400px;
+  width: auto;
+  max-width: 350px;
   text-align: end;
   border-radius: 5px;
   box-shadow: 0px 0px 5px;
@@ -102,9 +107,10 @@ form.example::after {
 .recipe-card img {
   object-fit: cover;
   object-position: 100% 0;
-  width: 397.5px;
+  max-width: 347.5px;
   height: 350px;
   margin-bottom: 10px;
+  box-shadow: 0px 3px 5px 1px #2e2e2e;
   border-bottom: 5px solid #01e00c;
 }
 

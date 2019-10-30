@@ -1,6 +1,8 @@
 import React from 'react'
 import Button from '../Button/Button'
 
+import '../AddRecipeTitleForm/Add.css'
+
 import RecipeContext from '../../contexts/RecipeContext'
 
 class AddRecipeCuisine extends React.Component {
@@ -15,12 +17,13 @@ class AddRecipeCuisine extends React.Component {
     render() {
         return(
             <div className = "cuisine">
-                { this.context.recipeCuisine }
+                
                 <Button
-                    className = "removeCuisine"
+                    className = "edit-button"
                     onClick = { this.handleClick }>
                     -
                 </Button>
+                { this.context.recipeCuisine }
             </div>
         )
     }

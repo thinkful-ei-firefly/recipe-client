@@ -12,7 +12,7 @@ const LoginForm = (props) => {
         <br />
         <input placeholder='Password' name='password' type='password' required id='password_input'></input>
       </div>
-      <button type='submit'>{buttonText}</button>
+      <button className='sub' type='submit'>{buttonText}</button>
     </form>
   )
 }

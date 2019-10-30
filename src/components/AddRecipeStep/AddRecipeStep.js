@@ -16,13 +16,14 @@ class AddRecipeStep extends React.Component {
         const steps = this.context.recipeSteps.map((step, index) => {
             return(
                 <div className ="step" key={ index }>
-                    {`${ index + 1 }) ${ step }` }
+                   
                     <Button
                         value = { step }
-                        className = "removeStep"
+                        className = "edit-button"
                         onClick = { this.handleClick }>
                         -
                     </Button>
+                    {`${ index + 1 }) ${ step }` }
                 </div>
             )
         })

@@ -15,12 +15,13 @@ class AddRecipeTime extends React.Component {
     render() {
         return(
             <div className = "time">
-                {this.context.recipeTime}
+               
                 <Button
-                    className = "removeTime"
+                    className = "edit-button"
                     onClick = { this.handleClick }>
                     -
                 </Button>
+                {this.context.recipeTime}
             </div>
 
         )
