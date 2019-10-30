@@ -64,17 +64,28 @@ const GoodmealApiService = {
     .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
   },
 //shopping list endpoints
-addToShoppingList(item) {
-  return fetch(this.url+'/list', {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      'authorization': `bearer ${TokenService.getAuthToken()}`
-    },
-    body: JSON.stringify(item)
-  })
-  .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : res.json())
-},
+  addToShoppingList(item) {
+    return fetch(this.url+'/list', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify(item)
+    })
+    .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : res.json())
+  },
+  addManyToShoppingList(items) {
+    return fetch(this.url+'/list/many', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify(items)
+    })
+    .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
+  },
   strikeUnstrikeListItem(id, crossed) {
     return fetch(this.url+'/list/'+id, {
       method: 'PATCH',
