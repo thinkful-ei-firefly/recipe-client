@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { UserProvider } from './contexts/UserContext'
 import { MenuProvider } from './contexts/MenuContext'
 import { RecipeProvider } from './contexts/RecipeContext'
+import { PublicRecipeProvider } from './contexts/PublicRecipeContext'
 import App from './components/App/App'
 import * as serviceWorker from './serviceWorker'
 
@@ -12,7 +13,9 @@ ReactDOM.render(
         <UserProvider>
             <MenuProvider>
                 <RecipeProvider> 
-                    <App />
+                    <PublicRecipeProvider>
+                        <App />
+                    </PublicRecipeProvider>
                 </RecipeProvider>
             </MenuProvider>
         </UserProvider>

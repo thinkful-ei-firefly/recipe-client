@@ -7,6 +7,11 @@ class PublicRecipesRoute extends React.Component {
 
     static contextType = RecipeContext
 
+    componentDidMount = async () => {
+        await this.context.getPublicRecipes();
+        this.context.updatePublicRecipesJSX()
+    }
+
     handleSubmit = async e => {
       e.preventDefault()
       await this.context.updateSearchPublicRecipeBy(
