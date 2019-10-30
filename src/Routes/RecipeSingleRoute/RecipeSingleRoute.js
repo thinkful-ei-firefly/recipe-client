@@ -31,7 +31,7 @@ class RecipeRoute extends React.Component {
   }
 
   render() {
-    const { recipe, error, display } = this.state
+    const { imageurl, name, recipe, error, display } = this.state
     let description
     let list = []
     if (recipe) {
@@ -51,6 +51,13 @@ class RecipeRoute extends React.Component {
       </Link>
         <h1>{recipe ? recipe.name : 'loading...'}</h1>
         {error}
+        
+        <div className = "image">
+                    <img
+                        src = { "https://good-meal.s3.amazonaws.com/" + (imageurl?imageurl:"nofound.png") }
+                        alt = { name }
+                    />
+                  </div>
         <div className='tabset'>
           <input type='radio' id='tab1' defaultChecked  name="summary" onClick={event=>this.handleTabClick(event)}></input>
           <label htmlFor='tab1'>Summary</label>
