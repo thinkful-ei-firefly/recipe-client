@@ -31,7 +31,6 @@ const RecipeContext = React.createContext({
     removeRecipe: () => {},
     getAllRecipes: () => {},
     delete: () => {},
-    setSearch: () => {},
     setFilter: () => {},
     handleAddTitle: () => {},
     handleRemoveTitle: () => {},
@@ -51,7 +50,9 @@ const RecipeContext = React.createContext({
     updatePublicRecipesList: () => {},
     updatePublicRecipes: () => {},
     updatePublicRecipesJSX: () => {},
+    getPublicRecipes: () => {},
     setUser: () => {},
+    searchMyRecipes: () => {},
 })
 
 export default RecipeContext
@@ -157,10 +158,6 @@ export class RecipeProvider extends React.Component {
         RecipeApiService.delete(idRecipe)
             .then(() => this.removeRecipe(idRecipe))
             .catch(this.setError)
-    }
-
-    setSearch = (searchBy) => {
-        this.setState({ searchBy })
     }
 
     setFilter = (filterBy) => {
@@ -297,6 +294,12 @@ export class RecipeProvider extends React.Component {
         }
     }
 
+    searchMyRecipes = (e) => {
+      e.preventDefault()
+      const searchBy = e.target['recipe-search'].value.trim();
+      this.setState({ searchBy })
+    }
+
     searchRecipesBy = (recipeList, term) => {
         return recipeList
                 .filter(recipe =>
@@ -327,6 +330,15 @@ export class RecipeProvider extends React.Component {
         })
     }
 
+    getPublicRecipes = () => {
+        return RecipeApiService.getPublicRecipes()
+            .then(recipes => {
+                this.setState({
+                    publicRecipes: recipes
+                })
+            })    
+    }
+
     cloneRecipe = (id) => {
       RecipeApiService.cloneRecipe(id)
         .then(recipe => this.setState({redirect: true},
@@ -335,11 +347,14 @@ export class RecipeProvider extends React.Component {
     }
 
     updatePublicRecipesJSX = () => {
+        
         let recipes = this.state.publicRecipes
-        recipes = this.searchRecipesBy(
-            recipes,
-            this.state.searchPublicRecipesBy
-        )
+        if(this.state.searchPublicRecipesBy !== ''){
+            recipes = this.searchRecipesBy(
+                recipes,
+                this.state.searchPublicRecipesBy
+            )
+        }
         recipes = recipes.map(recipe =>
             <div className='cards'>
             <section className = "recipe-card"
@@ -358,15 +373,14 @@ export class RecipeProvider extends React.Component {
                     { recipe.name }
                 </Link>
                 <p className='description'>{ recipe.description}</p>
-                
-                { TokenService.hasAuthToken() && 
+
+                { TokenService.hasAuthToken() &&
                 <div className='recipe-buttons'>
                   <button className='remove-recipe' type='button' onClick={e => this.cloneRecipe(recipe.id)} ><i className="fas fa-copy"></i></button>
                 </div>}
             </section>
             </div>
         )
-
         this.setState({
             publicRecipesJSX: recipes
         })
@@ -398,7 +412,6 @@ export class RecipeProvider extends React.Component {
             setRecipeList: this.setRecipeList,
             removeRecipe: this.removeRecipe,
             getAllRecipes: this.getAllRecipes,
-            setSearch: this.setSearch,
             setFilter: this.setFilter,
             delete: this.delete,
             handleAddTitle: this.handleAddTitle,
@@ -424,8 +437,10 @@ export class RecipeProvider extends React.Component {
             updatePublicRecipesList: this.updatePublicRecipesList,
             updatePublicRecipes: this.updatePublicRecipes,
             updatePublicRecipesJSX: this.updatePublicRecipesJSX,
+            getPublicRecipes: this.getPublicRecipes,
             loadRecipe: this.loadRecipe,
             clearRecipe: this.clearRecipe,
+            searchMyRecipes: this.searchMyRecipes,
             setUser: () => {},
         }
 
