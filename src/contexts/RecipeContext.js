@@ -31,7 +31,6 @@ const RecipeContext = React.createContext({
     removeRecipe: () => {},
     getAllRecipes: () => {},
     delete: () => {},
-    setSearch: () => {},
     setFilter: () => {},
     handleAddTitle: () => {},
     handleRemoveTitle: () => {},
@@ -53,6 +52,7 @@ const RecipeContext = React.createContext({
     updatePublicRecipesJSX: () => {},
     getPublicRecipes: () => {},
     setUser: () => {},
+    searchMyRecipes: () => {},
 })
 
 export default RecipeContext
@@ -158,10 +158,6 @@ export class RecipeProvider extends React.Component {
         RecipeApiService.delete(idRecipe)
             .then(() => this.removeRecipe(idRecipe))
             .catch(this.setError)
-    }
-
-    setSearch = (searchBy) => {
-        this.setState({ searchBy })
     }
 
     setFilter = (filterBy) => {
@@ -298,6 +294,12 @@ export class RecipeProvider extends React.Component {
         }
     }
 
+    searchMyRecipes = (e) => {
+      e.preventDefault()
+      const searchBy = e.target['recipe-search'].value.trim();
+      this.setState({ searchBy })
+    }
+
     searchRecipesBy = (recipeList, term) => {
         return recipeList
                 .filter(recipe =>
@@ -371,8 +373,8 @@ export class RecipeProvider extends React.Component {
                     { recipe.name }
                 </Link>
                 <p className='description'>{ recipe.description}</p>
-                
-                { TokenService.hasAuthToken() && 
+
+                { TokenService.hasAuthToken() &&
                 <div className='recipe-buttons'>
                   <button className='remove-recipe' type='button' onClick={e => this.cloneRecipe(recipe.id)} ><i className="fas fa-copy"></i></button>
                 </div>}
@@ -410,7 +412,6 @@ export class RecipeProvider extends React.Component {
             setRecipeList: this.setRecipeList,
             removeRecipe: this.removeRecipe,
             getAllRecipes: this.getAllRecipes,
-            setSearch: this.setSearch,
             setFilter: this.setFilter,
             delete: this.delete,
             handleAddTitle: this.handleAddTitle,
@@ -439,6 +440,7 @@ export class RecipeProvider extends React.Component {
             getPublicRecipes: this.getPublicRecipes,
             loadRecipe: this.loadRecipe,
             clearRecipe: this.clearRecipe,
+            searchMyRecipes: this.searchMyRecipes,
             setUser: () => {},
         }
 

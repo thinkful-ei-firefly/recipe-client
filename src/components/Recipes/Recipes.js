@@ -18,7 +18,7 @@ class Recipes extends React.Component {
       let recipeList = this.context.recipeList
       if (this.context.searchBy) {
         recipeList = this.context.searchRecipesBy(
-          this.context.recipeList, 
+          this.context.recipeList,
           this.context.searchBy
       )
       }
@@ -30,7 +30,7 @@ class Recipes extends React.Component {
       }
 
         const recipes = recipeList
-            .map(recipe => 
+            .map(recipe =>
                 { return <RecipeItem key={recipe.id} recipe={recipe}/> }
             )
 
@@ -38,13 +38,12 @@ class Recipes extends React.Component {
                 <section className="recipes">
 
                     <h1>My Recipes</h1>
-                    
-                    <form className = "search">
 
-                    <input 
-                            onChange={event => this.context.setSearch(event.target.value)} 
+                    <form onSubmit={this.context.searchMyRecipes} className = "search">
+
+                    <input
                             id='recipe-search'
-                            type='text' 
+                            type='text'
                             placeholder='Search...'
                             name='search'>
                         </input>
@@ -58,11 +57,11 @@ class Recipes extends React.Component {
                             <i className="far fa-plus-square"></i>
                           </Link></h3>
                         </div>
-                     
+
                     </form>
-                        
+
                     { recipes }
-                
+
                 </section>
             )
     }
