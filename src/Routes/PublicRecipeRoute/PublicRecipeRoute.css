@@ -3,12 +3,14 @@
   height: auto;
   max-width: 600px;
   border-bottom: 5px solid #01e00c;
+  border-top: 1px solid;
 }
 
 .recipe-tabs {
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 5px 5px 2px;
+
   max-width: 600px;
   display: flex;
   justify-content: center;

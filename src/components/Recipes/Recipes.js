@@ -35,11 +35,9 @@ class Recipes extends React.Component {
             )
 
             return(
-                <section className="recipes">
-
-                    <h1>My Recipes</h1>
-
-                    <form onSubmit={this.context.searchMyRecipes} className = "search">
+                <section>
+                    <div className='search-bar'>
+                      <form onSubmit={this.context.searchMyRecipes} className = "search">
                       <input
                             id='recipe-search'
                             type='text'
@@ -47,8 +45,12 @@ class Recipes extends React.Component {
                             name='search'>
                       </input>
                       <button className='search_button' type='submit'><i className="fa fa-search"></i></button>
-                    </form>    
-                    <form className='search'> 
+                      </form> 
+                    </div>   
+                    <br/>
+                    <h1 className='my-recipe'>My Recipes</h1>
+
+                    <form> 
                         <div className='add_new'>
                           <h3>Add New Recipe
                           &nbsp;&nbsp;

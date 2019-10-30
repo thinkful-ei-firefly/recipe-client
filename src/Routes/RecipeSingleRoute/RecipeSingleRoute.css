@@ -24,6 +24,7 @@
   color: #111;
   font-weight: 300;
   font-size: 12px;
+  display: block;
 }
 
 .tabset {
