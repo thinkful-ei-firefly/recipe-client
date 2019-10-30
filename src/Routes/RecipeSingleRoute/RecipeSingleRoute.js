@@ -2,6 +2,7 @@ import React from 'react'
 
 import GoodmealApiService from '../../services/goodmeal-api-service'
 import './RecipeSingleRoute.css'
+import { Link } from 'react-router-dom'
 
 class RecipeRoute extends React.Component {
 
@@ -41,7 +42,11 @@ class RecipeRoute extends React.Component {
     }
     return (
       <div className='recipe-tabs'>
-        <button onClick={this.props.history.goBack}>Back to recipes</button>
+      <Link
+          to = '/recipes'
+          className = "name">
+          Back to recipes
+      </Link>
         <h1>{recipe ? recipe.name : 'loading...'}</h1>
         {error}
         <div className='tabset'>
