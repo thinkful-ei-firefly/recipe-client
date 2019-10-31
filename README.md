@@ -16,3 +16,9 @@ User can see other users public recipes
 User can create a shopping list of items
 User can "cross off" items from their shopping list
 
+Installation:
+*clone github
+*run "npm install"
+*run "npm start"
+
+No .env file to worry about
