@@ -3,6 +3,8 @@ import ShoppingListContext from '../../contexts/ShoppingListContext'
 
 import GoodmealApiService from '../../services/goodmeal-api-service'
 
+import './ShoppingList.css'
+
 class RecipeItem extends React.Component {
   static contextType = ShoppingListContext
 
@@ -24,15 +26,18 @@ class RecipeItem extends React.Component {
   render() {
     const { id, name, amount, unit } = this.props.recipe
     const { crossed } = this.state
-    const text = crossed ? <strike>{`${amount} ${unit} of ${name}`}</strike> : `${amount} ${unit} of ${name}`
-    //const ingredientList = ingregients.map(ingredient => <div>{ingredient}</div>)
+    const text = crossed ? <strike>{`${amount} ${unit} ${name}`}</strike> : `${amount} ${unit} ${name}`
+    //const ingredientList = ingredients.map(ingredient => <div>{ingredient}</div>)
     //const instructionList = instructions.map(instruction => <div>{instruction}</div>)
 
       return(
-          <section className="recipe">
-              <div>{text}</div>
-              <button onClick={this.crossUncross}>{crossed ? 'Uncross' : 'Cross off'}</button>
-              <button onClick={e => this.context.delete(id)}>Remove</button>
+          <section>
+              <div className='item'>
+                <button className='check-buttons' onClick={this.crossUncross}>{crossed ? <i className="fas fa-check-square"></i> : <i className="fas fa-square"></i>}</button>
+                &nbsp;&nbsp;
+                <div className='food-item'>{text}</div>         
+              </div>
+              <hr />
           </section>
       )
   }
