@@ -19,7 +19,8 @@ class ShoppingList extends React.Component {
     })
 
       return(
-          <section className="shop-list">
+        <div className='shop-list'>
+          <section className="shop-list-page">
             <div className='title'>
               <h1>Shopping List</h1><br/>
               <img src={logo} alt='logo'></img>
@@ -28,6 +29,7 @@ class ShoppingList extends React.Component {
                 { recipes }
               </div>
           </section>
+        </div>
       )
   }
 }

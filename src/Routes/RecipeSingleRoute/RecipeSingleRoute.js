@@ -46,15 +46,15 @@ class RecipeRoute extends React.Component {
       <div className='recipe-tabs'>
       <Link
           to = '/recipes'
-          className = "name">
-          Back to recipes
+          className = "back">
+         <i class="fas fa-backspace">&nbsp;<span>Back To Recipes</span></i> 
       </Link>
         <h1>{recipe ? recipe.name : 'loading...'}</h1>
         {error}
         
         <div className = "image">
                     <img
-                        src = { "https://good-meal.s3.amazonaws.com/" + (imageurl?imageurl:"nofound.png") }
+                        src = { "https://good-meal.s3.amazonaws.com/" + (recipe && recipe.imageurl?recipe.imageurl:"nofound.png") }
                         alt = { name }
                     />
                   </div>
