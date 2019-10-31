@@ -1,0 +1,31 @@
+.addIngredient-form {
+  border: 1px solid;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.addIngredient-form legend {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.ingredients-buttons {
+  float: right;
+  padding-top: 10px;
+}
+
+.ingr-button i {
+  background-color: #fff;
+  color: #01e00c;
+  font-size: 24px;
+}
+
+button.ingr-button {
+  border: none;
+  background-color: #fff;
+}
