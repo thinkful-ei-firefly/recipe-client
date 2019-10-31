@@ -92,7 +92,6 @@ export class RecipeProvider extends React.Component {
     loadRecipe = (id) => {
       RecipeApiService.getById(id)
         .then(recipe => {
-          //console.log(recipe)
           this.setState({
             recipeId: recipe.id,
             recipeTitle: recipe.name,
@@ -101,8 +100,8 @@ export class RecipeProvider extends React.Component {
             recipeSteps: recipe.instructions,
             recipeCuisine: recipe.category,
             recipeTime: recipe.time_to_make,
-            recipeImage: recipe.imageurl,
             recipePublic: recipe.public,
+            recipeImage: null,
             editing: true
           })
         })
@@ -241,7 +240,7 @@ export class RecipeProvider extends React.Component {
     // takes recipe data from state and sends api query to server
     handleCreateRecipe = async () => {
 
-        const fileName =  (!this.state.editing && this.state.recipeImage)?`${Date.parse(new Date())}.${this.state.recipeImage.name.split('.').pop()}`:'';
+        const fileName =  this.state.recipeImage?`${Date.parse(new Date())}.${this.state.recipeImage.name.split('.').pop()}`:null;
 
         const requiredKeys = ['recipeTitle', 'recipeDesc', 'recipeIngredients', 'recipeSteps', 'recipeTime', 'recipeCuisine' ]
         const requiredLabels = ['Title', 'Description', 'Ingredient', 'Instruction', 'Cooking Time', 'Cuisine' ]
@@ -262,16 +261,15 @@ export class RecipeProvider extends React.Component {
             time_to_make: this.state.recipeTime,
             category: this.state.recipeCuisine,
             public: this.state.recipePublic,
-            imageurl: fileName,
+            imageurl: fileName
         }
         this.setState({
           loading: true
         })
 
         try{
-          console.log(recipe);
           if (this.state.editing){
-            delete recipe.imageurl;
+            if (!recipe.imageurl) delete recipe.imageurl
             await RecipeApiService.saveExisting(this.state.recipeId, recipe)
           }else{
             await RecipeApiService.postRecipe(recipe)

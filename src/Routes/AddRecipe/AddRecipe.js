@@ -72,7 +72,7 @@ class AddRecipe extends React.Component {
 
                 <AddRecipePublic />
 
-                {!this.context.editing && <AddRecipeImage />}
+                <AddRecipeImage />
 
                 {this.context.error && <div>{this.context.error}</div>}
 
