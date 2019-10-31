@@ -46,8 +46,8 @@ section.home {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  line-height: 0.5em;
-  margin-bottom: 3em;
+  line-height: 0.05em;
+  margin-bottom: 1em;
 }
 
 .landing .buttons .log-button,
@@ -57,7 +57,7 @@ section.home {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   color: #f21323;
   text-transform: uppercase;
   background: #ffffff;
@@ -84,6 +84,12 @@ section.home {
   .landing h2 {
     font-size: 30px;
     margin-top: -20px;
+  }
+
+  .subtitle {
+    line-height: 0.5em;
+    margin-bottom: 1.5em;
+    font-size: 18px;
   }
 }
 
