@@ -18,7 +18,7 @@ class AddStepToRecipeForm extends React.Component {
     render() {
         return(
             <form
-                className = "recipe-form"
+                className = "addIngredient-form"
                 onSubmit = { this.handleSubmit }>
                 <div className = "step">
                     <div className='section'><span>4</span>Instructions</div>

@@ -1,19 +1,20 @@
-.add {
+button.add {
   border: 1px solid;
   font-size: 30px;
   padding: 2px;
   cursor: pointer;
   border-radius: 5px;
+  float: right;
+  margin-top: -50px;
 }
 
-.recipe-form {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 40px;
+.addRecipe {
+  max-width: 475px;
+  width: 100%;
 }
 
 .input {
-  width: 200px;
+  width: 300px;
 }
 
 .recipe-form .amount {
@@ -35,4 +36,8 @@
 
 .section {
   margin-top: 30px;
+}
+
+.inner-wrap {
+  max-width: 375px;
 }

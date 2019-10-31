@@ -37,7 +37,7 @@
 
 .ListGenerator {
   float: right;
-  margin-top: -30px;
+  margin-top: -33px;
   margin-right: 10px;
 }
 
@@ -51,6 +51,7 @@
   border-radius: 5px;
   margin-left: 10px;
   margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .ListGenerator .create:hover {

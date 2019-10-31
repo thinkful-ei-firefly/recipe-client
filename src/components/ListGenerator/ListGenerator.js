@@ -93,9 +93,9 @@ class ListGenerator extends React.Component {
     const {feedback} = this.state
     return (
       <div className='ListGenerator'>
-        {feedback ? `Added ${feedback} ingredients to your shopping list` : ''}
+        {feedback ? `Added ${feedback} items ` : ''}
         <Link hidden={!feedback} to='/shoppinglist'><button className='create'>View List</button></Link>
-        <button className='create' hidden={feedback} id='listCreateButton' onClick={this.handleListCreate}><i class="fas fa-cart-plus"><span>Create shopping list</span></i></button>
+        <button className='create' hidden={feedback} id='listCreateButton' onClick={this.handleListCreate}><i class="fas fa-cart-plus"><span>Create Shopping List</span></i></button>
         <div id="myModal" className="modal">
           <div className='modal-content'>
             <ul>

@@ -11,7 +11,7 @@ class AddRecipePublic extends React.Component {
     render() {
         return(
             <form
-                className = "recipe-form">
+                className = "addIngredient-form">
                 <div className = "description">
                 <div className='section'><span>7</span>Type</div>
                 <div className='inner-wrap'>

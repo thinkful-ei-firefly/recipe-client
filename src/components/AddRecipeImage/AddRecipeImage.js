@@ -1,6 +1,7 @@
 import React from 'react'
 
 import RecipeContext from '../../contexts/RecipeContext'
+import '../../Routes/AddRecipe/addRecipe.css'
 
 class AddRecipeImage extends React.Component {
 
@@ -9,7 +10,7 @@ class AddRecipeImage extends React.Component {
     render() {
         return(
           <form
-              className = "recipe-form">
+              className = "addIngredient-form">
               <div className = "description">
               <div className='section'><span>8</span>Image</div>
               <div className='inner-wrap'>

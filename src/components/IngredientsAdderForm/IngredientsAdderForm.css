@@ -29,3 +29,7 @@ button.ingr-button {
   border: none;
   background-color: #fff;
 }
+
+.addIng-input {
+  width: 100%;
+}

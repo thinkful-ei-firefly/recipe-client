@@ -18,7 +18,7 @@ class AddRecipeTimeForm extends React.Component {
     render() {
         return(
             <form
-                className = "recipe-form"
+                className = "addIngredient-form"
                 onSubmit = { this.handleSubmit }>
                 <div className = "time">
                 <div className='section'><span>6</span>Cooking Time</div>

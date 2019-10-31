@@ -37,9 +37,9 @@ class RecipeRoute extends React.Component {
     if (recipe) {
       description = recipe.description
       if (display==='ingredients') {
-        recipe.ingredients.forEach((item, i) => list.push(<li key={i}>{item}</li>))
+        recipe.ingredients.forEach((item, i) => list.push(<li className='ing-list' key={i}>{item}</li>))
       } else if (display==='instructions') {
-        recipe.instructions.forEach((item, i) => list.push(<li key={i}>{item}</li>))
+        recipe.instructions.forEach((item, i) => list.push(<li className='inst-list' key={i}>{item}</li>))
       }
     }
     return (
@@ -47,7 +47,7 @@ class RecipeRoute extends React.Component {
       <Link
           to = '/recipes'
           className = "back">
-         <i class="fas fa-backspace">&nbsp;<span>Back To Recipes</span></i> 
+         <i className="fas fa-backspace">&nbsp;<span>Back To Recipes</span></i> 
       </Link>
         <h1>{recipe ? recipe.name : 'loading...'}</h1>
         {error}

@@ -53,6 +53,7 @@ class IngredientsAdderForm extends React.Component {
         <form
             className = "addIngredient-form"
             onSubmit = {event => this.validateAmount(event) }>
+
             <legend>Add An Item:</legend>
             <hr/>
             {this.state.amountError}
@@ -61,7 +62,7 @@ class IngredientsAdderForm extends React.Component {
                     htmlFor = "recipe-amount">
                     Quantity: <Required />
                 </Label>
-                <Input
+                <Input className='addIng-input'
                     name = "amount"
                     id = "recipe-amount"
                     type = "text"
@@ -82,7 +83,7 @@ class IngredientsAdderForm extends React.Component {
                     htmlFor = "recipe-measurement">
                     Measure: <Required />
                 </Label>
-                <Input
+                <Input className='addIng-input'
                     name = "measurement"
                     id = "recipe-measurement"
                     type = "text"
@@ -103,7 +104,7 @@ class IngredientsAdderForm extends React.Component {
                     htmlFor = "recipe-ingredient">
                     Ingredient: <Required />
                 </Label>
-                <Input
+                <Input className='addIng-input'
                     name = "ingredient"
                     id = "recipe-ingredient"
                     type = "text"
