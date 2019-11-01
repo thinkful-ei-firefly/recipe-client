@@ -5,23 +5,33 @@ import '../../Routes/AddRecipe/addRecipe.css'
 
 class AddRecipeImage extends React.Component {
 
-    static contextType = RecipeContext
+  static contextType = RecipeContext
 
-    render() {
-        return(
-          <form
-              className = "addIngredient-form">
-              <div className = "description">
-              <div className='section'><span>8</span>Image</div>
-              <div className='inner-wrap'>
-              <label htmlFor='image'>Image
-                <input id='image' type="file" accept=".png,.jpg,.jpeg" onChange={ (e) => this.context.handleAddImage(e.target.files) }/>
-              </label>
-              </div>
-              </div>
-          </form>
-        )
-    }
+  render() {
+    return(
+      <form
+        className = "addIngredient-form">
+        <div className = "description">
+          <div 
+            className='section'>
+            <span>8</span>
+            Image
+          </div>
+          <div className='inner-wrap'>
+            <label htmlFor='image'>Image
+              <input 
+                id='image' 
+                type="file" 
+                accept=".png,.jpg,.jpeg" 
+                onChange={ 
+                  (e) => this.context.handleAddImage(e.target.files) 
+                }/>
+            </label>
+          </div>
+        </div>
+      </form>
+    )
+  }
 }
 
 export default AddRecipeImage
