@@ -10,7 +10,7 @@ class PublicRecipeIngredients extends React.Component {
         
         return(
             <section className = "tab-panel">
-                <ul>
+                <ul className='ing-list'>
                     { this.context.getIngredientsList() }
                 </ul>
             </section>

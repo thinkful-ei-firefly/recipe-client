@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import MenuContext from '../../contexts/MenuContext'
+import UserContext from '../../contexts/UserContext'
 // import UserContext from '../../contexts/UserContext'
 import TokenService from '../../services/token-service'
 
@@ -8,7 +8,7 @@ import './sideDrawer.css'
 
 class SideDrawer extends React.Component {
     
-    static contextType = MenuContext
+    static contextType = UserContext
     // static contextType = UserContext
 
     handleLogout = () => {

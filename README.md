@@ -20,3 +20,11 @@ Demo account:
 demo
 Password1
 
+![Desktop Home Screen](https://i.imgur.com/UTsQob5.png)
+![Mobile Nav Menu](https://i.imgur.com/Pdmghcd.png)
+![Mobile Login](https://i.imgur.com/FpIdFnu.png)
+
+Installation:
+*clone github
+*run "npm install"
+*run "npm start"

@@ -31,7 +31,7 @@ class RecipeRoute extends React.Component {
   }
 
   render() {
-    const { imageurl, name, recipe, error, display } = this.state
+    const { name, recipe, error, display } = this.state
     let description
     let list = []
     if (recipe) {
@@ -43,6 +43,7 @@ class RecipeRoute extends React.Component {
       }
     }
     return (
+      <div className='single-recipe'>
       <div className='recipe-tabs'>
       <Link
           to = '/recipes'
@@ -54,7 +55,7 @@ class RecipeRoute extends React.Component {
         
         <div className = "image">
                     <img
-                        src = { "https://good-meal.s3.amazonaws.com/" + (recipe && recipe.imageurl?recipe.imageurl:"nofound.png") }
+                        src = { "https://good-meal.s3.amazonaws.com/" + (recipe && recipe.imageurl?recipe.imageurl:'nofound.png') }
                         alt = { name }
                     />
                   </div>
@@ -72,6 +73,7 @@ class RecipeRoute extends React.Component {
             </section>
         </div>
         <ListGenerator recipe={this.state.recipe}/>
+      </div>
       </div>
     )
   }

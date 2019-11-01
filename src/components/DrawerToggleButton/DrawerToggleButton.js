@@ -1,11 +1,11 @@
 import React from 'react';
-import MenuContext from '../../contexts/MenuContext';
+import UserContext from '../../contexts/UserContext';
 
 import './drawerToggleButton.css';
 
 class DrawerToggleButton extends React.Component {
 
-    static contextType = MenuContext;
+    static contextType = UserContext;
 
     handleClick = e => {
         e.preventDefault()

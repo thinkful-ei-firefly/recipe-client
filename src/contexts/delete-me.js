@@ -6,8 +6,10 @@ const MenuContext = React.createContext({
   login: false,
   sideDrawerIsOpen: false,
   drawerClass: '',
+  googleUser: {},
 
   updateLogin: () => {},
+  updateGoogleUser: () => {},
   handleOpenSideDrawer: () => {},
   handleCloseSideDrawer: () => {},
   processLogout: () => {},
@@ -23,7 +25,8 @@ export class MenuProvider extends React.Component {
         const state = {
             login: false,
             sideDrawerIsOpen: false,
-            drawerClass: 'side-drawer'
+            drawerClass: 'side-drawer',
+            googleUser: {}
         }
 
         this.state = state;
@@ -31,6 +34,10 @@ export class MenuProvider extends React.Component {
 
     updateLogin = bool => {
       this.setState({ login: bool})
+    }
+
+    updateGoogleUser = googleUser => {
+      this.setState({ googleUser })
     }
 
     handleOpenSideDrawer = () => {
@@ -57,8 +64,10 @@ export class MenuProvider extends React.Component {
               login: this.state.login,
               sideDrawerIsOpen: this.state.sideDrawerIsOpen,
               drawerClass: this.state.drawerClass,
+              googleUser: this.state.googleUser,
 
               updateLogin: this.updateLogin,
+              updateGoogleUser: this.updateGoogleUser,
               handleOpenSideDrawer: this.handleOpenSideDrawer,
               handleCloseSideDrawer: this.handleCloseSideDrawer,
               processLogout: this.processLogout,
