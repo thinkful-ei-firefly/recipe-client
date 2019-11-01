@@ -3,7 +3,7 @@ import config from '../../config'
 import firebase from 'firebase'
 import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
-import MenuContext from '../../contexts/MenuContext'
+import UserContext from '../../contexts/UserContext'
 
 import Button from '../Button/Button'
 
@@ -11,7 +11,7 @@ require('dotenv').config()
 
 class SignInWithFacebook extends React.Component {
 
-    static contextType = MenuContext
+    static contextType = UserContext
 
     initializeFirebase = () => {
         if(!firebase.apps.length) {
