@@ -1,3 +1,4 @@
+
 import React from 'react'
 import config from '../../config'
 import firebase from 'firebase'
@@ -7,13 +8,19 @@ import MenuContext from '../../contexts/MenuContext'
 
 import Button from '../Button/Button'
 
+require('dotenv').config()
 
 class SignInWithGoogle extends React.Component {
 
     static contextType = MenuContext
     
     initializeFirebase = () => {
-        firebase.initializeApp(config.FirebaseConfig)
+        if(!firebase.apps.length) {
+            firebase.initializeApp(config.FirebaseConfig)
+        }
+        else {
+            return
+        }
       }
 
     handleClick = e => {
@@ -43,7 +50,6 @@ class SignInWithGoogle extends React.Component {
                     else {
                         AuthApiService.postGoogleLogin(this.context.googleUser)
                             .then(res => {
-                                console.log(res)
                                 TokenService.saveAuthToken(res.authToken)
                                 this.context.updateLogin(true)
                             })

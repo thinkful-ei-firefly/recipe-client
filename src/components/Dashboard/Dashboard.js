@@ -3,14 +3,10 @@ import { Link } from 'react-router-dom'
 
 import './Dashboard.css'
 import recipe2 from '../../images/RecipeIcon2.png'
-import SignOutGoogle from '../SignOutGoogle/SignOutGoogle'
-
-
 
 const Dashboard = () => {
   return (
     <div className='cards-list'>
-      <SignOutGoogle />
       <section className='card 1'>
         <div className='card_image'>
           <Link to='/publicrecipes'>
