@@ -39,6 +39,7 @@ class LoginRoute extends React.Component {
           <img src={background} alt='background' className='background'/>
           <h2>Log In</h2>
           <LoginForm className='sub' onSubmit={this.handleSubmit} buttonText='Login' error={this.state.error}/>
+          <p>-OR-</p>
           <SignInWithGoogle />
           <SignInWithFacebook />
           <p>Haven't signed up? <Link to='/register'>Register</Link></p>

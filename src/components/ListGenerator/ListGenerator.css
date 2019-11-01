@@ -15,22 +15,29 @@
 /* Modal Content/Box */
 .ListGenerator .modal-content {
   background-color: #fefefe;
+  box-shadow: 5px 5px 5px;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
+  border-radius: 10px;
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
 .ListGenerator .close {
-  color: #aaa;
+  color: #01e00c;
+  background-color: #5a5d5a;
+  border: 1px solid black;
   float: right;
-  font-size: 28px;
+  font-size: 18px;
   font-weight: bold;
+  border-radius: 5px;
+  margin-top: -15px;
+  margin-right: -10px;
 }
 .ListGenerator .close:hover,
 .ListGenerator .close:focus {
-  color: black;
+  color: white;
   text-decoration: none;
   cursor: pointer;
 }
@@ -39,6 +46,11 @@
   float: right;
   margin-top: -33px;
   margin-right: 10px;
+}
+
+.ListGenerator ul {
+  margin-left: -30px;
+  font-size: 14px;
 }
 
 .ListGenerator .create {
@@ -57,6 +69,21 @@
 .ListGenerator .create:hover {
   color: #5a5d5a;
   border: 1px solid #5a5d5a;
+}
+
+.yes-no-button {
+  border: none;
+  background-color:white;
+  cursor:pointer;
+}
+
+.yes-no-button i {
+ font-size: 20px;
+ color: #01e00c;
+}
+
+.yes-no-button i:hover {
+  color: black;
 }
 
 @media (min-width: 700px) {

@@ -39,7 +39,7 @@ class HomeRoute extends React.Component {
               {
                 loggedIn ? <Dashboard /> :
                 <div className='buttons'>
-                  <Link to="/login" className="log-button">Login</Link>
+                  <Link to="/login" className="log-button">Log In</Link>
                   <Link to="/register"className="reg-button">Register</Link> 
                 </div>
               }
