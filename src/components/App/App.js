@@ -22,12 +22,12 @@ import SideDrawer from '../SideDrawer/SideDrawer'
 import BackDrop from '../BackDrop/BackDrop'
 
 //import contexts
-import MenuContext from '../../contexts/MenuContext'
+import UserContext from '../../contexts/UserContext'
 
 
 class App extends React.Component {
 
-  static contextType = MenuContext
+  static contextType = UserContext
 
   render() {
 

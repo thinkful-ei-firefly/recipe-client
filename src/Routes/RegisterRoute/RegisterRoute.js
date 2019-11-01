@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import MenuContext from '../../contexts/MenuContext'
+import UserContext from '../../contexts/UserContext'
 import LoginForm from '../../components/Loginform/LoginForm'
 import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
@@ -11,7 +11,7 @@ import './registerRoute.css'
 
 class RegisterRoute extends React.Component {
 
-  static contextType = MenuContext
+  static contextType = UserContext
 
   state = {
     error: null
