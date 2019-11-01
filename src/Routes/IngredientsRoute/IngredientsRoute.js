@@ -4,6 +4,8 @@ import GoodmealApiService from '../../services/goodmeal-api-service'
 
 import IngedientsAdderForm from '../../components/IngredientsAdderForm/IngredientsAdderForm'
 
+import "./IngredientsRoute.css"
+
 class IngredientsRoute extends React.Component {
 
   state = {
@@ -65,21 +67,23 @@ class IngredientsRoute extends React.Component {
     if (ingredientList) {
     ingredientList.forEach(item => {
       let listItem = `${item.amount} ${item.unit} of ${item.name}`
-      listElements.push(<li key={item.id}>{listItem} <button onClick={() => this.deleteIngredient(item.id)}>Delete</button></li>)
+      listElements.push(<li className="pantry-item" key={item.id}><button className="del-item" onClick={() => this.deleteIngredient(item.id)}>Delete</button><div>{listItem}</div></li>)
+      listElements.push(<hr/>)
     })
     }
     return (
-      <div>
-        <h2>Ingredients</h2>
+      <div className="pantry">
+        <h2>My Pantry</h2>
+        <hr className="rule"/>
         { error }
-        <ul>
+        <ul className="pantry-list">
           { listElements }
         </ul>
         { adding
           ? <IngedientsAdderForm handleSubmit={this.addIngredient} cancelSubmit={this.cancelSubmit}/>
-          : <button onClick={this.openForm}>New Ingredient</button>}
+          : <button className="new-pantry" onClick={this.openForm}>New Ingredient</button>}
         { (ingredientList && ingredientList.length)
-          ? <button onClick={this.deleteAllIngredients}>Delete Whole List</button>
+          ? <button className="delete-pantry" onClick={this.deleteAllIngredients}>Delete Whole List</button>
           : null}
       </div>
     )
