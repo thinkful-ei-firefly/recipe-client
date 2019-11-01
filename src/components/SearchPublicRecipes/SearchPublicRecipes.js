@@ -2,25 +2,25 @@ import React from 'react'
 import { Input } from '../Form/Form'
 import Button from '../Button/Button'
 
-import RecipeContext from '../../contexts/RecipeContext'
-import RecipeApiService from '../../services/recipe-api-service'
+// import RecipeContext from '../../contexts/RecipeContext'
+// import RecipeApiService from '../../services/recipe-api-service'
 
 import './SearchPublicRecipes.css'
 class SearchPublicRecipes extends React.Component {
 
-    static contextType = RecipeContext
+    // static contextType = RecipeContext
 
     state = {
         error: null
     }
 
-    componentDidMount() {
-        RecipeApiService.getPublicRecipes()
-            .then(recipes => {
-                this.context.updatePublicRecipes(recipes)
-            })
-            .catch(res => this.setState({error: res.error}))
-    }
+    // componentDidMount() {
+    //     RecipeApiService.getPublicRecipes()
+    //         .then(recipes => {
+    //             this.context.updatePublicRecipes(recipes)
+    //         })
+    //         .catch(res => this.setState({error: res.error}))
+    // }
 
     render() {
         const error = this.state.error
