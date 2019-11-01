@@ -128,7 +128,7 @@ export class PublicRecipeProvider extends React.Component {
                         { recipe.name }
                     </Link>
                     <p className='description'>{ recipe.description}</p>
-
+                    <p className='Rating'>{Number(recipe.rating) ? `Rating: ${recipe.rating}` : 'Recipe not yet rated'}</p>
                     { 
                         TokenService.hasAuthToken() &&
                         <div className='recipe-buttons'>
