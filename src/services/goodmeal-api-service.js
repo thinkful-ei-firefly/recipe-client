@@ -123,6 +123,18 @@ const GoodmealApiService = {
       }
     })
     .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
+  },
+//rating endpoints
+  submitRating(id, rating) {
+    return fetch(this.url+'/ratings/'+id, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify(rating)
+    })
+    .then(res => (!res.ok) ? res.json().then(err => Promise.reject(err)) : Promise.resolve('OK'))
   }
 }
 
