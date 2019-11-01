@@ -2,6 +2,8 @@ import React from 'react'
 import {Label, Input, Required } from '../Form/Form'
 import Button from '../Button/Button'
 
+import './IngredientsAdderForm.css'
+
 class IngredientsAdderForm extends React.Component {
 
   state = {
@@ -51,14 +53,16 @@ class IngredientsAdderForm extends React.Component {
         <form
             className = "addIngredient-form"
             onSubmit = {event => this.validateAmount(event) }>
-            <legend>Add An Ingredient</legend>
+
+            <legend>Add An Item:</legend>
+            <hr/>
             {this.state.amountError}
             <div className = "amount">
                 <Label
                     htmlFor = "recipe-amount">
-                    How much: <Required />
+                    Quantity: <Required />
                 </Label>
-                <Input
+                <Input className='addIng-input'
                     name = "amount"
                     id = "recipe-amount"
                     type = "text"
@@ -77,9 +81,9 @@ class IngredientsAdderForm extends React.Component {
             <div className = "measurement">
                 <Label
                     htmlFor = "recipe-measurement">
-                    Measure <Required />
+                    Measure: <Required />
                 </Label>
-                <Input
+                <Input className='addIng-input'
                     name = "measurement"
                     id = "recipe-measurement"
                     type = "text"
@@ -100,22 +104,25 @@ class IngredientsAdderForm extends React.Component {
                     htmlFor = "recipe-ingredient">
                     Ingredient: <Required />
                 </Label>
-                <Input
+                <Input className='addIng-input'
                     name = "ingredient"
                     id = "recipe-ingredient"
                     type = "text"
                     required>
                 </Input>
             </div>
-            <Button
+            <div className='ingredients-buttons'>
+              <Button className ='ingr-button'
                 type = "Submit">
-                Add Ingredient
-            </Button>
-            <Button
+                <i className="fas fa-plus"></i>
+              </Button>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <Button className ='ingr-button'
                 onClick={this.props.cancelSubmit}
                 type = "Button">
-                Cancel
-            </Button>
+                <i className="fas fa-times"></i>
+              </Button>
+            </div>
         </form>
     )
   }

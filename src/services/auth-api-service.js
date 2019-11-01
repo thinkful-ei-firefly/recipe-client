@@ -1,5 +1,5 @@
 import config from '../config'
-import TokenService from './token-service'
+// import TokenService from './token-service'
 
 const AuthApiService = {
   postUser(user) {
@@ -30,19 +30,52 @@ const AuthApiService = {
           : res.json()
       )
   },
-  refreshToken() {
-    return fetch(`${config.API_ENDPOINT}/auth/token`, {
-      method: 'PUT',
+  // creates a new user on the backend
+  postGoogleUser(user) {
+    return fetch(`${config.API_ENDPOINT}/users/google`, {
+      method: 'POST',
       headers: {
-        'authorization': `Bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
       },
+      body: JSON.stringify(user)
     })
-      .then(res =>
+      .then(res => 
         (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
+          ? res.json().then(err => Promise.reject(err))
           : res.json()
       )
   },
+  // login of an existing user
+  postGoogleLogin(user) {
+    return fetch(`${config.API_ENDPOINT}/auth/googlelogin`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(err => Promise.reject(err))
+          : res.json()
+      )
+  }
+
+
+
+  // refreshToken() {
+  //   return fetch(`${config.API_ENDPOINT}/auth/token`, {
+  //     method: 'PUT',
+  //     headers: {
+  //       'authorization': `Bearer ${TokenService.getAuthToken()}`,
+  //     },
+  //   })
+  //     .then(res =>
+  //       (!res.ok)
+  //         ? res.json().then(e => Promise.reject(e))
+  //         : res.json()
+  //     )
+  // },
 }
 
 export default AuthApiService
