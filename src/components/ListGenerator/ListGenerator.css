@@ -42,7 +42,7 @@
 }
 
 .ListGenerator .create {
-  font-size: 16px;
+  font-size: 12px;
   background-color: white;
   border: none;
   cursor: pointer;
@@ -57,4 +57,10 @@
 .ListGenerator .create:hover {
   color: #5a5d5a;
   border: 1px solid #5a5d5a;
+}
+
+@media (min-width: 700px) {
+  .ListGenerator .create {
+    font-size: 18px;
+  }
 }

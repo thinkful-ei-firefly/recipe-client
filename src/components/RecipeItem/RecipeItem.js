@@ -32,16 +32,17 @@ class RecipeItem extends React.Component {
                 <p>{matchPercent ? `You own ${matchPercent}% of these ingredients` : ''}</p>
                 <p className='description'>{ description } </p>
                 <div className='recipe-buttons'>
-                <button className='remove-recipe'
-                    onClick = {e => this.context.delete(id)}>
-                    <i className="fas fa-trash-alt"></i>
-                </button>
-                &nbsp;&nbsp;&nbsp;&nbsp;
                 <Link
                     to={ '/editrecipe/'+id }
                     className="edit-recipe">
                     <i className="fas fa-edit"></i>
                 </Link>
+                <button className='remove-recipe'
+                    onClick = {e => this.context.delete(id)}>
+                    <i className="fas fa-trash-alt"></i>
+                </button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+               
                 </div>
                        
             </section>

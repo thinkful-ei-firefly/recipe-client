@@ -20,12 +20,25 @@
  Styling
 */
 
+.single-recipe {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .recipe-tabs {
   color: #111;
   font-weight: 300;
   font-size: 14px;
   display: block;
   width: auto;
+  max-width: 500px;
+}
+
+.recipe-tabs .image {
+  width: 100%;
+  max-width: 500px;
 }
 
 .recipe-tabs li {
@@ -122,5 +135,9 @@ body {
 @media (min-width: 700px) {
   .recipe-tabs {
     font-size: 18px;
+  }
+
+  .tabset {
+    font-size: 16px;
   }
 }
