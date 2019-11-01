@@ -1,0 +1,82 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+}
+
+.pantry{
+  text-align: center;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+
+  border: 1px solid;
+  border-radius: 10px;
+  box-shadow:  5px 5px 5px;
+}
+
+.pantry-list{
+  text-align: left;
+  max-width: 400px;
+  padding: 5px;
+}
+
+.pantry-item{
+  margin: 15px;
+  padding-bottom: 5px;
+  display: flex;
+}
+
+.del-item{
+  margin-right: 15px;
+}
+
+.del-item:hover{
+  color: #01e00c;
+}
+.delete-pantry:hover{
+  color: #01e00c;
+}
+.new-pantry:hover{
+  color: #01e00c;
+}
+
+.new-pantry, .delete-pantry, .del-item{
+  border: 0.5px solid black;
+  box-shadow: black 5px 5px 5px;
+  background: #5a5d5a;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 400px;
+
+  font-size: 20px;
+  background-color: #5a5d5a;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+
+@media (min-width: 600px) {
+  .background {
+    margin-top: -250px;
+  }
+
+  .landing h2 {
+    font-size: 30px;
+    margin-top: -20px;
+  }
+
+  .subtitle {
+    line-height: 0.5em;
+    margin-bottom: 1.5em;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 900px) {
+  .background {
+    margin-top: -150px;
+  }
+}
