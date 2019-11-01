@@ -1,6 +1,7 @@
 import React from 'react'
 import LoginForm from '../../components/Loginform/LoginForm'
 import SignInWithGoogle from '../../components/SignInWithGoogle/SignInWithGoogle'
+import SignInWithFacebook from '../../components/SignInWithFacebook/SignInWithFacebook'
 import { Link, withRouter } from 'react-router-dom'
 import UserContext from '../../contexts/UserContext'
 import AuthApiService from '../../services/auth-api-service'
@@ -39,6 +40,7 @@ class LoginRoute extends React.Component {
           <h2>Log In</h2>
           <LoginForm className='sub' onSubmit={this.handleSubmit} buttonText='Login' error={this.state.error}/>
           <SignInWithGoogle />
+          <SignInWithFacebook />
           <p>Haven't signed up? <Link to='/register'>Register</Link></p>
         </section>
       </div>

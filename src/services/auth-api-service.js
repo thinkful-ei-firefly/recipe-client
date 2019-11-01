@@ -39,7 +39,7 @@ const AuthApiService = {
       },
       body: JSON.stringify(user)
     })
-      .then(res => 
+      .then(res =>
         (!res.ok)
           ? res.json().then(err => Promise.reject(err))
           : res.json()
@@ -59,8 +59,37 @@ const AuthApiService = {
           ? res.json().then(err => Promise.reject(err))
           : res.json()
       )
+  },
+  // creates a new user on the backend
+  postFacebookUser(user) {
+    return fetch(`${config.API_ENDPOINT}/users/facebook`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(err => Promise.reject(err))
+          : res.json()
+      )
+  },
+  // login of an existing user
+  postFacebookLogin(user) {
+    return fetch(`${config.API_ENDPOINT}/auth/facebooklogin`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(err => Promise.reject(err))
+          : res.json()
+      )
   }
-
 
 
   // refreshToken() {
