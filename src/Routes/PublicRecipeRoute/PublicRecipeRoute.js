@@ -79,6 +79,9 @@ class RecipeRoute extends React.Component {
               {publicRecipePage}
             </div>
             <RatingPopups id={recipe.id} />
+            <a href={'https://www.facebook.com/sharer/sharer.php?u=https://good-meal-client.herokuapp.com/publicrecipes/' + recipe.id} target="_blank" rel="noopener noreferrer">
+                Share on Facebook
+            </a>
           </div>
         </div>
       </div>
