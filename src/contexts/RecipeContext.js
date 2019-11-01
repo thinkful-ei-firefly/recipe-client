@@ -2,9 +2,7 @@ import React from 'react'
 
 import RecipeApiService from '../services/recipe-api-service'
 import UploadApiService from '../services/upload-api-service'
-import TokenService from '../services/token-service'
 
-import { Link } from 'react-router-dom'
 
 const RecipeContext = React.createContext({
     recipeTitle: '',
@@ -21,9 +19,6 @@ const RecipeContext = React.createContext({
     error: null,
     saved: false,
     redirect: false,
-    searchPublicRecipesBy: '',
-    publicRecipes: [],
-    publicRecipesJSX: [],
 
     setError: () => {},
     clearError: () => {},
@@ -46,11 +41,6 @@ const RecipeContext = React.createContext({
     handleCreateRecipe: () => {},
     searchRecipesBy: () => {},
     filterRecipesByTime: () => {},
-    updateSearchPublicRecipeBy: () => {},
-    updatePublicRecipesList: () => {},
-    updatePublicRecipes: () => {},
-    updatePublicRecipesJSX: () => {},
-    getPublicRecipes: () => {},
     setUser: () => {},
     searchMyRecipes: () => {},
 })
@@ -81,9 +71,6 @@ export class RecipeProvider extends React.Component {
             saved: false,
             editing: false,
             redirect: false,
-            searchPublicRecipesBy: '',
-            publicRecipes: [],
-            publicRecipesJSX: [],
         }
 
         this.state = state
@@ -283,8 +270,8 @@ export class RecipeProvider extends React.Component {
             saved: true,
             editing: false
           })
-        }catch(error){
-          //console.log(error);
+        }
+        catch(error) {
           this.setState({
             loading: false,
             error: error.message || error.error
@@ -316,74 +303,6 @@ export class RecipeProvider extends React.Component {
             )
     }
 
-    updateSearchPublicRecipeBy = searchPublicRecipesBy => {
-        this.setState({
-            searchPublicRecipesBy
-        })
-    }
-
-    updatePublicRecipes = publicRecipes => {
-        this.setState({
-            publicRecipes
-        })
-    }
-
-    getPublicRecipes = () => {
-        return RecipeApiService.getPublicRecipes()
-            .then(recipes => {
-                this.setState({
-                    publicRecipes: recipes
-                })
-            })
-    }
-
-    cloneRecipe = (id) => {
-      RecipeApiService.cloneRecipe(id)
-        .then(recipe => this.setState({redirect: true},
-          () => this.setState({redirect: false})
-        ))
-    }
-
-    updatePublicRecipesJSX = () => {
-
-        let recipes = this.state.publicRecipes
-        if(this.state.searchPublicRecipesBy !== ''){
-            recipes = this.searchRecipesBy(
-                recipes,
-                this.state.searchPublicRecipesBy
-            )
-        }
-        recipes = recipes.map(recipe =>
-            <div key={recipe.id} className='cards'>
-            <section className = "recipe-card"
-                key = { recipe.id }>
-                    <Link to = { '/publicrecipes/' + recipe.id }>
-                      <div className = "image">
-                    <img
-                        src = { "https://good-meal.s3.amazonaws.com/" + (recipe.imageurl?recipe.imageurl:"nofound.png") }
-                        alt = { recipe.name }
-                    />
-                </div>
-                </Link>
-                <Link
-                    to = { '/publicrecipes/' + recipe.id }
-                    className = "name">
-                    { recipe.name }
-                </Link>
-                <p className='description'>{ recipe.description}</p>
-
-                { TokenService.hasAuthToken() &&
-                <div className='recipe-buttons'>
-                  <button className='remove-recipe' type='button' onClick={e => this.cloneRecipe(recipe.id)} ><i className="fas fa-copy"></i></button>
-                </div>}
-            </section>
-            </div>
-        )
-        this.setState({
-            publicRecipesJSX: recipes
-        })
-    }
-
     render() {
         const recipe = {
             recipeTitle: this.state.recipeTitle,
@@ -403,9 +322,6 @@ export class RecipeProvider extends React.Component {
             saved: this.state.saved,
             editing: this.state.editing,
             redirect: this.state.redirect,
-            searchPublicRecipesBy: this.state.searchPublicRecipesBy,
-            publicRecipes: this.state.publicRecipes,
-            publicRecipesJSX: this.state.publicRecipesJSX,
 
             setRecipeList: this.setRecipeList,
             removeRecipe: this.removeRecipe,
@@ -432,10 +348,6 @@ export class RecipeProvider extends React.Component {
             searchRecipesBy: this.searchRecipesBy,
             updateSearchPublicRecipeBy: this.updateSearchPublicRecipeBy,
             filterRecipesByTime: this.filterRecipesByTime,
-            updatePublicRecipesList: this.updatePublicRecipesList,
-            updatePublicRecipes: this.updatePublicRecipes,
-            updatePublicRecipesJSX: this.updatePublicRecipesJSX,
-            getPublicRecipes: this.getPublicRecipes,
             loadRecipe: this.loadRecipe,
             clearRecipe: this.clearRecipe,
             searchMyRecipes: this.searchMyRecipes,
