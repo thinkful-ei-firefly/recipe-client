@@ -32,6 +32,22 @@ class RecipeRoute extends React.Component {
     this.context.updateDisplay(event.target.name)
   }
 
+  shareFacebook = (id) => {
+    var facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=https://good-meal-client.herokuapp.com/publicrecipes/' + id, 'facebook-popup', 'height=350,width=600');
+    if(facebookWindow.focus) {
+      facebookWindow.focus();
+    }
+    return false;
+  }
+
+  shareTwitter = (id) => {
+    var twitterWindow = window.open('https://twitter.com/share?url=https://good-meal-client.herokuapp.com/publicrecipes/' + id, 'twitter-popup', 'height=350,width=600');
+    if(twitterWindow.focus) {
+      twitterWindow.focus();
+    }
+    return false;
+  }
+
   render() {
 
     const error = this.state.error
@@ -79,9 +95,8 @@ class RecipeRoute extends React.Component {
               {publicRecipePage}
             </div>
             <RatingPopups id={recipe.id} />
-            <a href={'https://www.facebook.com/sharer/sharer.php?u=https://good-meal-client.herokuapp.com/publicrecipes/' + recipe.id} target="_blank" rel="noopener noreferrer">
-                Share on Facebook
-            </a>
+            <button type='button' onClick={e => this.shareFacebook(recipe.id)}>Share on Facebook</button>
+            <button type='button' onClick={e => this.shareTwitter(recipe.id)}>Share on Twitter</button>
           </div>
         </div>
       </div>
