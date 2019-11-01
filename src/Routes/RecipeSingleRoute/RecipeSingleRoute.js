@@ -72,8 +72,8 @@ class RecipeRoute extends React.Component {
             {display === 'summary' ? description : <ul>{list}</ul>}
             </section>
         </div>
-        <ListGenerator recipe={this.state.recipe}/>
       </div>
+      <ListGenerator recipe={this.state.recipe}/>
       </div>
     )
   }

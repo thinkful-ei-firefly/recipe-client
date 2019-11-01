@@ -11,16 +11,11 @@
   justify-content: center;
   align-items: center;
   height: 500px;
+  margin-left:-50px;
+  margin-right:-50px;
 }
 
-.login_page .background {
-  width: auto;
-  border: none;
-  display: block;
-  margin-top: -190px;
-  margin-left: -10px;
-  margin-bottom: -40px;
-}
+
 
 .login-page p {
   margin-top: 10px;

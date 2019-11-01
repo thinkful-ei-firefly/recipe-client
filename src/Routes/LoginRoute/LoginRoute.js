@@ -36,7 +36,7 @@ class LoginRoute extends React.Component {
     return(
       <div className='login_page'>
         <section className = "login">
-          <img src={background} alt='background' className='background'/>
+          <img src={background} alt='background' className='back-image'/>
           <h2>Log In</h2>
           <LoginForm className='sub' onSubmit={this.handleSubmit} buttonText='Login' error={this.state.error}/>
           <p>-OR-</p>

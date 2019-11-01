@@ -27,7 +27,9 @@ class HomeRoute extends React.Component {
         return(
             <div className='landing'>
               <section className = "home">
-                <img src={background} alt='background' className='background'/>
+                <div className ='wrapper'>
+                  <img src={background} alt='background' className='back-image'/>
+                </div>
                 <h2>Welcome to GoodMeal! </h2>
                 <div className='subtitle'>
                   <p hidden={loggedIn}>Create your own recipes</p>
