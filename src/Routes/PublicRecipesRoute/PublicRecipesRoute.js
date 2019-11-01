@@ -1,24 +1,23 @@
 import React from 'react'
 import SearchPublicRecipe from '../../components/SearchPublicRecipes/SearchPublicRecipes'
-import RecipeContext from '../../contexts/RecipeContext'
+import PublicRecipeContext from '../../contexts/PublicRecipeContext'
 import { Redirect } from 'react-router-dom'
 
 class PublicRecipesRoute extends React.Component {
 
-    static contextType = RecipeContext
+    static contextType = PublicRecipeContext
 
     componentDidMount = async () => {
-        await this.context.getPublicRecipes();
+        await this.context.getPublicRecipes()
         this.context.updatePublicRecipesJSX()
     }
 
     handleSubmit = async e => {
       e.preventDefault()
-      await this.context.updateSearchPublicRecipeBy(
+      await this.context.updateSearchPublicRecipesBy(
           e.target.publicSearch.value
       )
       this.context.updatePublicRecipesJSX()
-      // this.props.history.push('/publicrecipes') //?
   }
 
     render() {

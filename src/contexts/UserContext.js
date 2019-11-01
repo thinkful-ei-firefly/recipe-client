@@ -2,29 +2,39 @@ import React, { Component } from 'react'
 import config from '../config'
 import firebase from 'firebase'
 import TokenService from '../services/token-service'
-import AuthApiService from '../services/auth-api-service'
 
 
 const UserContext = React.createContext({
   error: null,
+  login: false,
+  sideDrawerIsOpen: false,
+  drawerClass: '',
   user: {},
   googleUser: {},
+
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
+  updateLogin: () => {},
+  updateGoogleUser: () => {},
+  handleOpenSideDrawer: () => {},
+  handleCloseSideDrawer: () => {},
   processLogin: () => {},
   processLogout: () => {},
-  signInWithGoogle: () => {},
-  signOutGoogle: () => {}
 })
 
 export default UserContext
 
 export class UserProvider extends Component {
   constructor(props) {
+
     super(props)
+
     const state = { 
       error: null,
+      login: false,
+      sideDrawerIsOpen: false,
+      drawerClass: 'side-drawer',
       user: {}, 
       googleUser: {}
     }
@@ -40,14 +50,6 @@ export class UserProvider extends Component {
 
     this.state = state;
   }
-
-  // componentDidMount() {
-  //   if (TokenService.hasAuthToken()) {
-  //     /*TokenService.queueCallbackBeforeExpiry(() => {
-  //       this.fetchRefreshToken()
-  //     })*/
-  //   }
-  // }
 
   componentWillUnmount() {
     TokenService.clearCallbackBeforeExpiry()
@@ -66,6 +68,33 @@ export class UserProvider extends Component {
     this.setState({ user })
   }
 
+  updateLogin = bool => {
+    this.setState({ login: bool})
+  }
+
+  updateGoogleUser = googleUser => {
+    this.setState({ googleUser })
+  }
+
+  handleOpenSideDrawer = () => {
+      this.setState({
+        sideDrawerIsOpen: true,
+        drawerClass: 'side-drawer is-open'
+      })
+    }
+
+    handleCloseSideDrawer = () => {
+      this.setState({
+        sideDrawerIsOpen: false,
+        drawerClass: 'side-drawer'
+      })
+    }
+
+    processLogout = () => {
+      TokenService.clearAuthToken()
+      TokenService.clearCallbackBeforeExpiry()
+    }
+
   processLogin = authToken => {
     TokenService.saveAuthToken(authToken)
     const jwtPayload = TokenService.parseAuthToken()
@@ -74,14 +103,10 @@ export class UserProvider extends Component {
       name: jwtPayload.name,
       username: jwtPayload.sub,
     })
-    /*TokenService.queueCallbackBeforeExpiry(() => {
-      this.fetchRefreshToken()
-    })*/
   }
 
   processLogout = () => {
     TokenService.clearAuthToken()
-    // TokenService.clearCallbackBeforeExpiry()
     this.setUser({})
   }
 
@@ -89,59 +114,24 @@ export class UserProvider extends Component {
     firebase.initializeApp(config.FirebaseConfig)
   }
 
-  signInWithGoogle = () => {
-    this.initializeFirebase()
-    const provider = new firebase.auth.GoogleAuthProvider()
-    firebase.auth().signInWithPopup(provider)
-      .then(result => {
-        // console.log(result)
-        this.setState({
-          googleUser: {
-            token: result.credential.idToken,
-            isNewUser: result.additionalUserInfo.isNewUser,
-            fullName: result.additionalUserInfo.profile.name,
-            email: result.user.email,
-            accountCreated: result.user.metadata.creationTime,
-            lastLogin: result.user.metadata.lastSignInTime
-          }
-        })
-      })
-      .then(() => {
-        if(this.state.googleUser.isNewUser){
-          AuthApiService.postGoogleUser(this.state.googleUser)
-            .then(res => {
-              TokenService.saveAuthToken(res.authToken)
-            })
-        }
-        else {
-          AuthApiService.postGoogleLogin(this.state.googleUser)
-            .then(res => {
-              TokenService.saveAuthToken(res.authToken)
-            })
-        }
-      })
-  }
-
-  signOutGoogle = () => {
-    firebase.auth().signOut()
-      .then(() => {
-        TokenService.clearAuthToken()
-      })
-      .catch(err => console.log(err))
-  }
-
   render() {
     const user = {
       error: this.state.error,
       user: this.state.user,
+      login: this.state.login,
+      sideDrawerIsOpen: this.state.sideDrawerIsOpen,
+      drawerClass: this.state.drawerClass,
       googleUser: this.state.googleUser,
+
       setError: this.setError,
       clearError: this.clearError,
       setUser: this.setUser,
+      updateLogin: this.updateLogin,
+      updateGoogleUser: this.updateGoogleUser,
+      handleOpenSideDrawer: this.handleOpenSideDrawer,
+      handleCloseSideDrawer: this.handleCloseSideDrawer,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
-      signInWithGoogle: this.signInWithGoogle,
-      signOutGoogle: this.signOutGoogle
     }
     return (
       <UserContext.Provider value={ user }>

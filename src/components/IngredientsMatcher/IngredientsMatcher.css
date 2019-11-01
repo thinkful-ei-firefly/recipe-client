@@ -1,0 +1,13 @@
+.find-recipes {
+  background-color: #f1f1f1;
+  color: black;
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.find-recipes:hover {
+  background-color: #01e00c;
+}

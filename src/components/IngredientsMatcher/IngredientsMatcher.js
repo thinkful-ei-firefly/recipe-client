@@ -3,6 +3,8 @@ import React from 'react'
 import RecipeContext from '../../contexts/RecipeContext'
 import GoodmealApiService from '../../services/goodmeal-api-service'
 
+import './IngredientsMatcher.css'
+
 
 class IngredientsMatcher extends React.Component {
 
@@ -33,8 +35,8 @@ class IngredientsMatcher extends React.Component {
 
     render() { 
         return(
-            <div className='IngedientsMatcher'>
-              <button onClick={this.handleIngredientMatch}>Find recipes with ingrdients I own</button>
+            <div className='IngredientsMatcher'>
+              <button className='find-recipes' onClick={this.handleIngredientMatch}>Find Recipes With Ingredients I Own</button>
             </div>
         )
     }

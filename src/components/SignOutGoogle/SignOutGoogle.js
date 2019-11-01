@@ -1,13 +1,13 @@
 import React from 'react'
 
-import MenuContext from '../../contexts/MenuContext'
+import UserContext from '../../contexts/UserContext'
 import Button from '../Button/Button'
 import firebase from 'firebase'
 import TokenService from '../../services/token-service'
 
 class SignOutGoogle extends React.Component {
 
-    static contextType = MenuContext
+    static contextType = UserContext
 
     handleClick = e => {
         e.preventDefault()

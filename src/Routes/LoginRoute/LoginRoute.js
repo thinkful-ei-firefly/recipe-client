@@ -3,7 +3,7 @@ import LoginForm from '../../components/Loginform/LoginForm'
 import SignInWithGoogle from '../../components/SignInWithGoogle/SignInWithGoogle'
 import SignInWithFacebook from '../../components/SignInWithFacebook/SignInWithFacebook'
 import { Link, withRouter } from 'react-router-dom'
-import MenuContext from '../../contexts/MenuContext'
+import UserContext from '../../contexts/UserContext'
 import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
 
@@ -13,7 +13,7 @@ import './loginRoute.css'
 
 class LoginRoute extends React.Component {
 
-  static contextType = MenuContext
+  static contextType = UserContext
 
   state = {
     error: null

@@ -6,6 +6,7 @@ import PublicRecipeInstructions from '../../components/PublicRecipeInstructions/
 
 import PublicRecipeContext from '../../contexts/PublicRecipeContext'
 import GoodmealApiService from '../../services/goodmeal-api-service'
+import { Link } from 'react-router-dom'
 import './PublicRecipeRoute.css'
 
 class RecipeRoute extends React.Component {
@@ -46,8 +47,13 @@ class RecipeRoute extends React.Component {
             publicRecipePage = <PublicRecipeInstructions />
 
         return(
-
+            <div className='single-recipe'>
             <div className='recipe-tabs' itemType = "http://schema.org/Recipe">
+            <Link
+          to = '/publicrecipes'
+          className = "back">
+         <i className="fas fa-backspace">&nbsp;<span>Back To Recipes</span></i> 
+      </Link>
                 <div>
                 <h1 itemProp = "name">
                     {
@@ -72,6 +78,7 @@ class RecipeRoute extends React.Component {
                     { publicRecipePage }
                 </div>
                 </div>
+            </div>
             </div>
           
         )

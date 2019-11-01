@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .my-recipe {
   display: flex;
   justify-content: center;
@@ -15,7 +22,8 @@ form.search input[type="text"] {
   font-size: 17px;
   border: 1px solid grey;
   float: left;
-  width: 300px;
+  width: 90%;
+  max-width: 300px;
   background: #f1f1f1;
   margin-bottom: 30px;
 }
@@ -26,7 +34,7 @@ section .search {
 
 form.search button {
   float: left;
-  width: 42px;
+  width: 50px;
   height: 42px;
   padding: 10px;
   background: #01e00c;
@@ -84,7 +92,8 @@ form.example::after {
   border: none;
   cursor: pointer;
   margin-bottom: 5px;
-  margin-right: 15px;
+  margin-right: 5px;
+  margin-left: 15px;
 }
 
 .recipe-buttons .remove-recipe:hover {
@@ -101,7 +110,7 @@ form.example::after {
 .recipe-card {
   border: 1px solid black;
   width: 100%;
-  max-width: 350px;
+  max-width: 300px;
   height: auto;
   text-align: end;
   border-radius: 5px;
@@ -111,9 +120,9 @@ form.example::after {
 
 .recipe-card img {
   object-fit: cover;
-  object-position: 100% 0;
-  max-width: 350px;
-  height: auto;
+  object-position: 100% 1;
+  max-width: 300px;
+  height: 300px;
   margin-bottom: 10px;
   box-shadow: 0px 3px 5px 1px #2e2e2e;
   border-bottom: 5px solid #01e00c;
