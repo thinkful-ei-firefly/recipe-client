@@ -7,6 +7,7 @@
   justify-content: center;
   font-size: 33px;
   clear: left;
+  margin-top: -20px;
 }
 
 form.search input[type="text"] {
@@ -47,7 +48,7 @@ form.example::after {
 }
 
 .add_new h3 {
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -112,7 +113,7 @@ form.example::after {
   object-fit: cover;
   object-position: 100% 0;
   max-width: 350px;
-  height: 300px;
+  height: auto;
   margin-bottom: 10px;
   box-shadow: 0px 3px 5px 1px #2e2e2e;
   border-bottom: 5px solid #01e00c;

@@ -20,7 +20,7 @@ class AddRecipeTitleForm extends React.Component {
         return(
             
             <form
-                className = "recipe-form"
+                className = "addIngredient-form"
                 onSubmit = { this.handleSubmit }>
                 <div className = "title">
                     <div className='section'><span>1</span>Title</div>

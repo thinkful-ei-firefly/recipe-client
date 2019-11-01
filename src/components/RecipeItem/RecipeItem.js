@@ -9,7 +9,7 @@ class RecipeItem extends React.Component {
 
     render() {
 
-        const { id, name, description, imageurl } = this.props.recipe
+        const { id, name, description, imageurl, matchPercent } = this.props.recipe
 
         return(
             <div className ='cards'>
@@ -29,6 +29,7 @@ class RecipeItem extends React.Component {
                     className = "name">
                     { name }
                 </Link>
+                <p>{matchPercent ? `You own ${matchPercent}% of these ingredients` : ''}</p>
                 <p className='description'>{ description } </p>
                 <div className='recipe-buttons'>
                 <button className='remove-recipe'

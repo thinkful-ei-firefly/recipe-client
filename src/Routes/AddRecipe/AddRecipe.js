@@ -36,6 +36,7 @@ class AddRecipe extends React.Component {
     render() {
 
         return(
+            <div className='add-form'>
             <section className = "addRecipe">
 
                 <h1>{this.context.editing?'Edit':'New'} Recipe</h1>
@@ -72,13 +73,13 @@ class AddRecipe extends React.Component {
 
                 <AddRecipePublic />
 
-                {!this.context.editing && <AddRecipeImage />}
+                <AddRecipeImage />
 
                 {this.context.error && <div>{this.context.error}</div>}
 
                 <Button className='submit_button'
                     onClick = { this.context.handleCreateRecipe }>
-                    Save Recipe
+                    Save
                 </Button>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <button className='submit_button' onClick={this.props.history.goBack}>Back</button>
@@ -88,6 +89,7 @@ class AddRecipe extends React.Component {
                 { this.context.saved && <Redirect to={'/recipes'}/> }
 
             </section>
+            </div>
         )
     }
 }

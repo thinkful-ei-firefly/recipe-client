@@ -2,6 +2,16 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.background {
+  margin-top: -350px;
+}
+
+section.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .landing {
   display: flex;
   justify-content: center;
@@ -9,12 +19,19 @@
   flex-direction: column;
 }
 
+.landing h2 {
+  font-size: 20px;
+  margin-top: -20px;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .landing .background {
-  height: auto;
-  max-width: 120%;
-  border: none;
-  display: block;
-  margin-top: -60px;
+  height: 100%;
 }
 
 .home {
@@ -29,8 +46,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  line-height: 0.5em;
-  margin-bottom: 3em;
+  line-height: 0.05em;
+  margin-bottom: 1em;
 }
 
 .landing .buttons .log-button,
@@ -40,7 +57,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   color: #f21323;
   text-transform: uppercase;
   background: #ffffff;
@@ -59,12 +76,25 @@
   transition: all 0.3s ease 0s;
 }
 
-@media (min-width: 700px) {
-  .landing {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 600px;
+@media (min-width: 600px) {
+  .background {
+    margin-top: -250px;
+  }
+
+  .landing h2 {
+    font-size: 30px;
+    margin-top: -20px;
+  }
+
+  .subtitle {
+    line-height: 0.5em;
+    margin-bottom: 1.5em;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 900px) {
+  .background {
+    margin-top: -150px;
   }
 }

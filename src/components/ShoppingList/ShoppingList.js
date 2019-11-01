@@ -2,6 +2,9 @@ import React from 'react';
 import ShoppingListContext from '../../contexts/ShoppingListContext'
 import ShoppingListItem from './ShoppingListItem'
 
+import logo from '../../images/logo.png'
+import './ShoppingList.css'
+
 class ShoppingList extends React.Component {
   static contextType = ShoppingListContext
 
@@ -16,12 +19,17 @@ class ShoppingList extends React.Component {
     })
 
       return(
-          <section className="re">
-              Your shopping list<br/>
+        <div className='shop-list'>
+          <section className="shop-list-page">
+            <div className='title'>
+              <h1>Shopping List</h1><br/>
+              <img src={logo} alt='logo'></img>
+              </div>
               <div>
                 { recipes }
               </div>
           </section>
+        </div>
       )
   }
 }

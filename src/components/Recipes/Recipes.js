@@ -3,6 +3,8 @@ import RecipeContext from '../../contexts/RecipeContext'
 import RecipeItem from '../RecipeItem/RecipeItem'
 import { Link } from 'react-router-dom'
 
+import IngredientsMatcher from '../IngredientsMatcher/IngredientsMatcher'
+
 import './Recipes.css'
 
 class Recipes extends React.Component {
@@ -46,6 +48,7 @@ class Recipes extends React.Component {
                       </input>
                       <button className='search_button' type='submit'><i className="fa fa-search"></i></button>
                       </form> 
+                    <IngredientsMatcher />
                     </div>   
                     <br/>
                     <h1 className='my-recipe'>My Recipes</h1>
