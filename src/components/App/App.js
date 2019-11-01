@@ -39,66 +39,70 @@ class App extends React.Component {
 
     return(
 
-        <div className = 'app' style={ { height: '100%' } }>
+      <div 
+        className="app" 
+        style={ { height: '100%' } }>
 
-          <Header updateLogin = { this.updateLogin } />
-          <SideDrawer updateLogin = { this.updateLogin } />
-          { backDrop }
+        <Header updateLogin={ this.updateLogin } />
 
-          <main style = { { marginTop: '64px' } }>
-            <Switch>
-              <Route
-                exact
-                path = { '/' }
-                component = { HomeRoute }
-                />
-              <Route
-                exact
-                path = { '/publicrecipes'}
-                component = { PublicRecipesRoute }
+        <SideDrawer updateLogin={ this.updateLogin } />
+
+        { backDrop }
+
+        <main style={ { marginTop: '64px' } }>
+          <Switch>
+            <Route
+              exact
+              path={ '/' }
+              component={ HomeRoute }
               />
-              <Route
-                path = { '/publicrecipes/:id' }
-                component = { PublicRecipeRoute }
-              />
-              <Route
-                path = { '/recipe/:id' }
-                component = { RecipeSingleRoute }
-              />
-              <PublicOnlyRoute
-                path = { '/login' }
-                component = { LoginRoute }
-              />
-              <PublicOnlyRoute
-                path = { '/register' }
-                component = { RegisterRoute }
-              />
-              <Route
-                path = { '/newrecipe' }
-                component = { AddRecipe }
-              />
-              <PrivateRoute
-                path = { '/recipes' }
-                component = { RecipesRoute }
-              />
-              <PrivateRoute
-                path = { '/editrecipe/:id' }
-                component = { AddRecipe }
-              />
-              <PrivateRoute
-                  path = { '/shoppinglist' }
-                  component = { ShoppingListRoute }
-              />
-              <PrivateRoute
-                path = {'/ingredients'}
-                component = { IngredientsRoute }
-              />
-              <Route
-                component = { NotFoundRoute }
-              />
-            </Switch>
-          </main>
-        </div>
+            <Route
+              exact
+              path={ '/publicrecipes'}
+              component={ PublicRecipesRoute }
+            />
+            <Route
+              path={ '/publicrecipes/:id' }
+              component={ PublicRecipeRoute }
+            />
+            <Route
+              path={ '/recipe/:id' }
+              component={ RecipeSingleRoute }
+            />
+            <PublicOnlyRoute
+              path={ '/login' }
+              component={ LoginRoute }
+            />
+            <PublicOnlyRoute
+              path={ '/register' }
+              component={ RegisterRoute }
+            />
+            <Route
+              path={ '/newrecipe' }
+              component={ AddRecipe }
+            />
+            <PrivateRoute
+              path={ '/recipes' }
+              component={ RecipesRoute }
+            />
+            <PrivateRoute
+              path={ '/editrecipe/:id' }
+              component={ AddRecipe }
+            />
+            <PrivateRoute
+                path={ '/shoppinglist' }
+                component={ ShoppingListRoute }
+            />
+            <PrivateRoute
+              path={ '/ingredients' }
+              component={ IngredientsRoute }
+            />
+            <Route
+              component={ NotFoundRoute }
+            />
+          </Switch>
+        </main>
+      </div>
     )
   }
 }
