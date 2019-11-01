@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service'
 import MenuContext from '../../contexts/MenuContext'
-
+import firebase from 'firebase'
 //import nav bar components
 import DrawerToggleButton from '../DrawerToggleButton/DrawerToggleButton'
 
@@ -13,8 +13,24 @@ class Header extends React.Component {
     static contextType = MenuContext
 
     handleLogout = () => {
+      if(!firebase.apps.length) {
         TokenService.clearAuthToken()
         this.context.updateLogin(false)
+      }else{
+        firebase.auth().onAuthStateChanged(user => {
+          if (user) {
+            console.log(user);
+            firebase.auth().signOut()
+                .then(() => {
+                    TokenService.clearAuthToken()
+                    this.context.updateLogin(false)
+                })
+          } else {
+            TokenService.clearAuthToken()
+            this.context.updateLogin(false)
+          }
+        });
+      }
     }
 
     renderLogin() {
@@ -48,7 +64,7 @@ class Header extends React.Component {
                         <i className="fas fa-utensil-spoon"><span>All Recipes</span></i>
                     </Link>
                 </li>
-                
+
             </ul>
         )
     }
@@ -72,7 +88,7 @@ class Header extends React.Component {
                     </li>
                     <li>
                         <Link
-                            to = "/shoppinglist" 
+                            to = "/shoppinglist"
                             className = "menu">
                             <i className="fas fa-shopping-basket"><span>Shopping List</span></i>
                         </Link>
@@ -117,11 +133,11 @@ class Header extends React.Component {
                     <div className="spacer"></div>
 
                     <div className="navigation-items">
-                        { 
+                        {
                             TokenService.hasAuthToken()
                                 ? this.renderLogout()
                                 : this.renderLogin()
-                        }   
+                        }
                     </div>
                 </nav>
 
