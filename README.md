@@ -12,9 +12,9 @@ username: demo
 password: Password1
 
 ## Installation
-*clone from github
-*run "npm install"
-*run "npm start"
+* clone from github
+* run "npm install"
+* run "npm start"
 
 ## Routes
 
