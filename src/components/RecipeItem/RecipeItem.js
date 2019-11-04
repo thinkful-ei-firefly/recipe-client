@@ -39,7 +39,7 @@ class RecipeItem extends React.Component {
                 </Link>
                 <button className='remove-recipe'
                     onClick = {e => this.context.delete(id)}>
-                    <i className="fas fa-trash-alt"></i>
+                    <i className="far fa-trash-alt"></i>
                 </button>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                

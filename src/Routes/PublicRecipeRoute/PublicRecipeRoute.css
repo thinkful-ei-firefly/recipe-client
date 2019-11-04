@@ -22,3 +22,7 @@
 .tab-panels {
   margin-left: 10px;
 }
+
+button.rate {
+  color: blue;
+}

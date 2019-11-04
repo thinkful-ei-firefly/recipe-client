@@ -34,8 +34,8 @@ class RatingPopup extends React.Component {
     return (
       <div className='RatingPopup'>
         
-        <button hidden={rated} className='rate=recipe' onClick = {e =>this.handleOpen(this.props.id)}>
-          Rate
+        <button hidden={rated} className='rate' onClick = {e =>this.handleOpen(this.props.id)}>
+        <i class="fas fa-star">&nbsp;<span>Rate</span></i>
         </button>
 
         <p hidden={!rated}>You gave this recipe {rated} stars</p>
