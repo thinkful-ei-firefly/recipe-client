@@ -22,10 +22,8 @@ class Sharing extends React.Component {
 
   shareMail = (e, id, name) => {
     e.preventDefault()
-    console.log(e.target.email.value);
-    const mailTo = e.target.email.value;
-    const mailContent = `Hello,%0D%0A%0D%0AHow to prepare ${name}:%0D%0A%0D%0ATo view the details please click the following link: https://good-meal-client.herokuapp.com/publicrecipes/${id}`
-    window.open(`mailto:${mailTo}?subject=Check this amazing recipe&body=${mailContent}`);
+    const mailContent = `Hey, %0D%0A I wanted to share this recipe I found online using Good Meal. %0D%0A https://good-meal-client.herokuapp.com/publicrecipes/${id}`
+    window.open(`mailto:?subject=New ${name} recipe &body=${mailContent}`);
   }
 
   render() {
@@ -36,10 +34,7 @@ class Sharing extends React.Component {
           <nav>
             <button type='button' onClick={e => this.shareFacebook(recipe.id)}>Share on Facebook</button>
             <button type='button' onClick={e => this.shareTwitter(recipe.id)}>Share on Twitter</button>
-            <form onSubmit={e => this.shareMail(e, recipe.id, recipe.name)}>
-              <label htmlFor="email">Email to:<input textholder="Email" type="email" required id="email" name="email"/></label>
-              <button type="submit">Share by email</button>
-            </form>
+            <button type='button' onClick={e => this.shareMail(e, recipe.id, recipe.name)}>Share by email</button>
         </nav>
       </div>
     )
