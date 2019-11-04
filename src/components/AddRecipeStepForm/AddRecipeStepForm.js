@@ -30,7 +30,9 @@ class AddStepToRecipeForm extends React.Component {
               htmlFor = "recipe-step">
               Step: <Required />
             </Label>
-            <Input className='input'
+            <Input 
+              placeholder = 'ex. "bake for 45 minutes"'
+              className='input'
               name = "step"
               id = "recipe-step"
               type = "text"

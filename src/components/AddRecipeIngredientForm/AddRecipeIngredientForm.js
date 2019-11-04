@@ -123,6 +123,7 @@ class AddRecipeIngredientForm extends React.Component {
               How much: <Required />
             </Label>
             <Input
+              placeholder = 'ex. "1 1/4"'
               name = "amount"
               id = "recipe-amount"
               type = "text"
@@ -141,9 +142,10 @@ class AddRecipeIngredientForm extends React.Component {
           <div className = "inner-wrap">
             <Label
               htmlFor = "recipe-measurement">
-              Measure <Required />
+              Unit of Measure: <Required />
             </Label>
             <Input
+              placeholder = 'ex. "each"'
               name = "measurement"
               id = "recipe-measurement"
               type = "text"
@@ -165,6 +167,7 @@ class AddRecipeIngredientForm extends React.Component {
               Ingredient: <Required />
             </Label>
             <Input
+              placeholder='ex. "apples"'
               name = "ingredient"
               id = "recipe-ingredient"
               type = "text"
