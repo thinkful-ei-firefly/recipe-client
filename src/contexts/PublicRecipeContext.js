@@ -4,6 +4,7 @@ import RecipeApiService from '../services/recipe-api-service'
 import TokenService from '../services/token-service'
 
 import { Link } from 'react-router-dom'
+import '../Routes/PublicRecipesRoute/PublicRecipes.css'
 
 const PublicRecipeContext = React.createContext({
   recipe: null,
@@ -143,7 +144,9 @@ export class PublicRecipeProvider extends React.Component {
           </p>
           <p 
             style={{
-              marginRight:'15px', 
+              float:'left',
+              fontWeight:'600',
+              marginLeft:'15px', 
               marginTop: '2em', 
               color: '#b6282b', 
               marginBottom:'-10px'
@@ -156,7 +159,8 @@ export class PublicRecipeProvider extends React.Component {
           { 
             TokenService.hasAuthToken() 
               && <div className='recipe-buttons'>
-                <button 
+                <button
+                  data-tooltip='Copy to My Recipes' 
                   className='remove-recipe' 
                   type='button' 
                   onClick = { e => this.cloneRecipe(recipe.id) }>
