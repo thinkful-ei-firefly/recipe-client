@@ -147,13 +147,9 @@ export class RecipeProvider extends React.Component {
       .catch(this.setError)
   }
 
-  getRandomRecipe = () => {
-    console.log(Math.floor(Math.random() * this.state.recipeList.length));
-  }
-
-  setSelectRandom = (selectRandom) => {
+  setSelectRandom = () => {
     this.setState({
-      selectRandom: true
+      selectRandom: !this.state.selectRandom
     })
   }
 
