@@ -224,6 +224,12 @@ export class RecipeProvider extends React.Component {
       })
     }
 
+    handleRemovePublic = (e) => {
+      this.setState({
+        recipePublic : false
+      })
+    }
+
     // takes recipe data from state and sends api query to server
     handleCreateRecipe = async () => {
 
@@ -343,6 +349,7 @@ export class RecipeProvider extends React.Component {
             handleCreateRecipe: this.handleCreateRecipe,
             handleAddImage: this.handleAddImage,
             handleAddPublic: this.handleAddPublic,
+            handleRemovePublic: this.handleRemovePublic,
             setError: this.setError,
             clearError: this.clearError,
             searchRecipesBy: this.searchRecipesBy,
