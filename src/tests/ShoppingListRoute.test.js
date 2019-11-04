@@ -6,11 +6,11 @@ import ShoppingListRoute from '../Routes/ShoppingListRoute/ShoppingListRoute';
 
 
 it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(
-        <BrowserRouter>
-            <ShoppingListRoute />
-        </BrowserRouter>
-    , div);
-    ReactDOM.unmountComponentAtNode(div);
+  const div = document.createElement('div');
+  ReactDOM.render(
+    <BrowserRouter>
+      <ShoppingListRoute />
+    </BrowserRouter>
+  , div);
+  ReactDOM.unmountComponentAtNode(div);
 });

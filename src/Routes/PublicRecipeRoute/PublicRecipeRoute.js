@@ -82,8 +82,10 @@ class RecipeRoute extends React.Component {
             <RatingPopups id={recipe.id} />
           </div>
         </div>
+
         <Sharing recipe={recipe} />
-      </div>
+
+     </div>
 
     )
   }

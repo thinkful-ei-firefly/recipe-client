@@ -18,6 +18,7 @@
   border: 1px solid #888;
   border-radius: 10px;
   box-shadow: 5px 5px 5px;
+  max-width: 600px;
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
@@ -58,4 +59,29 @@
 
 .rate i:hover {
   color: #fff;
+}
+
+.rate-submit {
+  background-color: #fff;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #01e00c;
+}
+
+.rate-submit:hover {
+  color: black;
+}
+
+#ratingSelector {
+  font-size: 18px;
+}
+
+.rated {
+  padding: 5px;
+  float: right;
+  margin: 10px;
+  margin-top: -10px;
+  color: red;
 }

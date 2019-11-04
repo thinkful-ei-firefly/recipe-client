@@ -6,11 +6,11 @@ import AddRecipeRoute from '../Routes/AddRecipe/AddRecipe';
 
 
 it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(
-        <BrowserRouter>
-            <AddRecipeRoute />
-        </BrowserRouter>
-    , div);
-    ReactDOM.unmountComponentAtNode(div);
+  const div = document.createElement('div');
+  ReactDOM.render(
+    <BrowserRouter>
+      <AddRecipeRoute />
+    </BrowserRouter>
+  , div);
+  ReactDOM.unmountComponentAtNode(div);
 });
