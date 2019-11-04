@@ -31,21 +31,6 @@ class Sharing extends React.Component {
   render() {
     const recipe = this.props.recipe
     return (
-<<<<<<< HEAD
-      <div>
-        <div className='share'>
-          <span>Share</span>
-          <div className='container'>
-            <button className='share_button' type='button' onClick={e => this.shareFacebook(recipe.id)}><i class="fab fa-facebook-f"></i></button>
-            <button className='share_button' type='button' onClick={e => this.shareTwitter(recipe.id)}><i class="fab fa-twitter"></i></button>
-          </div>
-        
-        <form onSubmit={e => this.shareMail(e, recipe.id, recipe.name)}>
-          <button type="submit"><i class="far fa-envelope"></i></button>
-          <label htmlFor="email">Email to:<input textholder="Email" type="email" required id="email" name="email"/></label>
-        </form>
-        </div>    
-=======
       <div className='share'>
       <span>Share</span>
           <nav>
@@ -56,7 +41,6 @@ class Sharing extends React.Component {
               <button type="submit">Share by email</button>
             </form>
         </nav>
->>>>>>> 52c8f288bbf3f058abff9b45f03c51d8b080d47f
       </div>
     )
   }
