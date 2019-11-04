@@ -63,7 +63,7 @@ class SignInWithGoogle extends React.Component {
             <Button
                 onClick = { this.handleClick }
                 className="google-button">
-                <span class='google-button_text'><i class="fab fa-google-plus-g"></i></span>     
+                <span className='google-button_text'><i class="fab fa-google-plus-g"></i></span>     
             </Button>
         )
     }
