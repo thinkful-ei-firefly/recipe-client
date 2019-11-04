@@ -75,7 +75,7 @@ form.example::after {
 
 .recipe-buttons .edit-recipe {
   color: #01e00c;
-  font-size: 17px;
+  font-size: 24px;
   margin-right: 10px;
 }
 
@@ -86,14 +86,13 @@ form.example::after {
 .recipe-buttons .remove-recipe {
   color: #01e00c;
   background-color: white;
-  font-size: 17px;
+  font-size: 24px;
   padding: 0;
   width: auto;
   border: none;
   cursor: pointer;
   margin-bottom: 5px;
-  margin-right: 5px;
-  margin-left: 15px;
+  margin-left: 10px;
 }
 
 .recipe-buttons .remove-recipe:hover {

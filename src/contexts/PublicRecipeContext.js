@@ -128,7 +128,9 @@ export class PublicRecipeProvider extends React.Component {
                         { recipe.name }
                     </Link>
                     <p className='description'>{ recipe.description}</p>
-                    <p className='Rating'>{Number(recipe.rating) ? `Rating: ${recipe.rating}` : 'Recipe not yet rated'}</p>
+                    <p 
+                      style={{marginRight:'15px', marginTop: '2em', color: '#b6282b', marginBottom:'-10px'}}
+                      className='rating'>{Number(recipe.rating) ? `Rating: ${recipe.rating}` : 'Recipe not yet rated'}</p>
                     { 
                         TokenService.hasAuthToken() &&
                         <div className='recipe-buttons'>
@@ -136,7 +138,8 @@ export class PublicRecipeProvider extends React.Component {
                                 className='remove-recipe' 
                                 type='button' 
                                 onClick = { e => this.cloneRecipe(recipe.id) }>
-                                <i className="fas fa-heart" style={{fontSize:'20px'}}></i>
+                                <i className="far fa-copy" 
+                                style={{fontSize:'24px', marginRight:'10px'}}></i>
                             </button>
                         </div>
                     }

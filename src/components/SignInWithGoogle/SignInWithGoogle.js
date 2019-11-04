@@ -13,32 +13,46 @@ require('dotenv').config()
 
 class SignInWithGoogle extends React.Component {
 
-    static contextType = UserContext
-    
-    initializeFirebase = () => {
-        if(!firebase.apps.length) {
-            firebase.initializeApp(config.FirebaseConfig)
+  static contextType = UserContext
+  
+  initializeFirebase = () => {
+    if(!firebase.apps.length) {
+      firebase.initializeApp(config.FirebaseConfig)
+    }
+    else {
+      return
+    }
+  }
+
+  handleClick = e => {
+    e.preventDefault()
+    this.initializeFirebase()
+    const provider = new firebase.auth.GoogleAuthProvider()
+    firebase.auth().signInWithPopup(provider)
+      .then(result => {
+        const googleUser = {
+          token: result.credential.idToken,
+          isNewUser: result.additionalUserInfo.isNewUser,
+          fullName: result.additionalUserInfo.profile.name,
+          email: result.user.email,
+          accountCreated: result.user.metadata.creationTime,
+          lastLogin: result.user.metadata.lastSignInTime
+        }
+        this.context.updateGoogleUser(googleUser)
+      })
+      .then(() => {
+        if(this.context.googleUser.isNewUser){
+          AuthApiService.postGoogleUser(this.context.googleUser)
+            .then(res => {
+              TokenService.saveAuthToken(res.authToken)
+              this.context.updateLogin(true)
+            })
         }
         else {
-            return
-        }
-      }
-
-    handleClick = e => {
-        e.preventDefault()
-        this.initializeFirebase()
-        const provider = new firebase.auth.GoogleAuthProvider()
-        firebase.auth().signInWithPopup(provider)
-            .then(result => {
-                const googleUser = {
-                    token: result.credential.idToken,
-                    isNewUser: result.additionalUserInfo.isNewUser,
-                    fullName: result.additionalUserInfo.profile.name,
-                    email: result.user.email,
-                    accountCreated: result.user.metadata.creationTime,
-                    lastLogin: result.user.metadata.lastSignInTime
-                }
-                this.context.updateGoogleUser(googleUser)
+          AuthApiService.postGoogleLogin(this.context.googleUser)
+            .then(res => {
+              TokenService.saveAuthToken(res.authToken)
+              this.context.updateLogin(true)
             })
                 .then(() => {
                     if(this.context.googleUser.isNewUser){
@@ -57,16 +71,18 @@ class SignInWithGoogle extends React.Component {
                     }
                 })
     }
-    
-    render() {
-        return(
-            <Button
-                onClick = { this.handleClick }
-                className="google-button">
-                <span className='google-button_text'><i class="fab fa-google-plus-g"></i></span>     
-            </Button>
-        )
-    }
+  
+  render() {
+    return(
+      <Button
+        onClick = { this.handleClick }
+        className="google-button">
+        <span className="google-button_text">
+          <i className="fab fa-google-plus-g"></i>
+        </span>     
+      </Button>
+    )
+  }
 }
 
 export default SignInWithGoogle

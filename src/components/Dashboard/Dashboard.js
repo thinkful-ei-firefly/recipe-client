@@ -6,7 +6,7 @@ import recipe2 from '../../images/RecipeIcon2.png'
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className='cl'>
 
       <div className='cards-list'>
 
