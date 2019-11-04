@@ -8,16 +8,16 @@ import App from './components/App/App'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
-    <BrowserRouter>
-        <UserProvider>
-            <RecipeProvider> 
-                <PublicRecipeProvider>
-                    <App />
-                </PublicRecipeProvider>
-            </RecipeProvider>
-        </UserProvider>
-    </BrowserRouter>
-    , document.getElementById('root')
+  <BrowserRouter>
+    <UserProvider>
+      <RecipeProvider> 
+        <PublicRecipeProvider>
+          <App />
+        </PublicRecipeProvider>
+      </RecipeProvider>
+    </UserProvider>
+  </BrowserRouter>
+  , document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
