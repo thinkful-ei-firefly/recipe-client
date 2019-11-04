@@ -84,7 +84,8 @@ class ListGenerator extends React.Component {
   createList = async () => {
     const newIngs = []
     this.state.ingredientsToAdd.forEach(ing => newIngs.push({amount: ing[0], unit: ing[1], name: ing[2]}))
-    await GoodmealApiService.addManyToShoppingList(newIngs)
+    if (newIngs.length) await GoodmealApiService.addManyToShoppingList(newIngs)
+    else this.setState({ feedback: 0 })
     document.getElementById("myModal").style.display = 'none'
     this.setState({ feedback: this.state.ingredientsToAdd.length })
   }
@@ -94,9 +95,9 @@ class ListGenerator extends React.Component {
     const {feedback} = this.state
     return (
       <div className='ListGenerator'>
-        {feedback ? `Added ${feedback} items ` : ''}
-        <Link hidden={!feedback} to='/shoppinglist'><button className='create'>View List</button></Link>
-        <button className='create' hidden={feedback} id='listCreateButton' onClick={this.handleListCreate}><i className="fas fa-cart-plus"><span>Create Shopping List</span></i></button>
+        {feedback !== null ? `Added ${feedback} items ` : ''}
+        <Link hidden={feedback === null} to='/shoppinglist'><button className='create'>View List</button></Link>
+        <button className='create' hidden={feedback !== null} id='listCreateButton' onClick={this.handleListCreate}><i className="fas fa-cart-plus"><span>Create Shopping List</span></i></button>
         <div id="myModal" className="modal">
           <div className='modal-content'>
             <ul>
