@@ -54,7 +54,23 @@ class SignInWithGoogle extends React.Component {
               TokenService.saveAuthToken(res.authToken)
               this.context.updateLogin(true)
             })
-        }
+                .then(() => {
+                    if(this.context.googleUser.isNewUser){
+                        AuthApiService.postGoogleUser(this.context.googleUser)
+                            .then(res => {
+                                TokenService.saveAuthToken(res.authToken)
+                                this.context.updateLogin(true)
+                            })
+                    }
+                    else {
+                        AuthApiService.postGoogleLogin(this.context.googleUser)
+                            .then(res => {
+                                TokenService.saveAuthToken(res.authToken)
+                                this.context.updateLogin(true)
+                            })
+                    }
+                })
+          }
       })
   }
   
@@ -63,8 +79,8 @@ class SignInWithGoogle extends React.Component {
       <Button
         onClick = { this.handleClick }
         className="google-button">
-        <span class='google-button_text'>
-          <i class="fab fa-google-plus-g"></i>
+        <span className="google-button_text">
+          <i className="fab fa-google-plus-g"></i>
         </span>     
       </Button>
     )
