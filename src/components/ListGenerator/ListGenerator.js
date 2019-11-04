@@ -57,6 +57,7 @@ class ListGenerator extends React.Component {
   handlePopUps = async (popUps) => {
     const popUpArray = []
     popUps.forEach((popUp, i) => {
+      console.log(popUp)
       const {amount, unit, name} = popUp[1]
       const newIng = popUp[0].join(' ')
       popUpArray.push(
@@ -73,11 +74,11 @@ class ListGenerator extends React.Component {
 
   handleYes = (event, i) => {
     event.preventDefault()
-    this.setState({ ingredientsToAdd: [...this.state.ingredientsToAdd, event.target.value.split(',')] })
-    event.target.parentElement.remove()
+    this.setState({ ingredientsToAdd: [...this.state.ingredientsToAdd, event.target.parentElement.value.split(',')] })
+    event.target.parentElement.parentElement.remove()
   }
   handleNo = (event) => {
-    event.target.parentElement.remove()
+    event.target.parentElement.parentElement.remove()
   }
   
   createList = async () => {
@@ -95,7 +96,7 @@ class ListGenerator extends React.Component {
       <div className='ListGenerator'>
         {feedback ? `Added ${feedback} items ` : ''}
         <Link hidden={!feedback} to='/shoppinglist'><button className='create'>View List</button></Link>
-        <button className='create' hidden={feedback} id='listCreateButton' onClick={this.handleListCreate}><i class="fas fa-cart-plus"><span>Create Shopping List</span></i></button>
+        <button className='create' hidden={feedback} id='listCreateButton' onClick={this.handleListCreate}><i className="fas fa-cart-plus"><span>Create Shopping List</span></i></button>
         <div id="myModal" className="modal">
           <div className='modal-content'>
             <ul>
