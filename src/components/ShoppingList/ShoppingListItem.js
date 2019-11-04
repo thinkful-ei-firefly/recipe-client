@@ -24,7 +24,7 @@ class RecipeItem extends React.Component {
   }
 
   render() {
-    const { id, name, amount, unit } = this.props.recipe
+    const { name, amount, unit } = this.props.recipe
     const { crossed } = this.state
     const text = crossed ? <strike>{`${amount} ${unit} ${name}`}</strike> : `${amount} ${unit} ${name}`
     //const ingredientList = ingredients.map(ingredient => <div>{ingredient}</div>)
