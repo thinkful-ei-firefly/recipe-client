@@ -1,22 +1,35 @@
-* {
-  font-family: "Montserrat", sans-serif;
-  box-sizing: border-box;
+.pantry-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .pantry {
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5px;
-
   border: 1px solid;
   border-radius: 10px;
+  margin-bottom: 10px;
   box-shadow: 5px 5px 5px;
+  padding-right: 10px;
+  width: 100%;
+  max-width: 500px;
 }
 
-.pantry h2 {
-  font-size: 25px;
+.pantry-page img {
+  margin-top: 10px;
+  width: 60px;
+  height: 60px;
+}
+
+.pantry-page .title {
+  display: flex;
+  justify-content: space-between;
   border-bottom: 2px solid #b6282b;
+  margin-bottom: 15px;
+}
+
+.pantry-page h1 {
+  font-size: 25px;
   padding-bottom: 15px;
   padding-left: 15px;
 }
@@ -81,11 +94,24 @@
   margin-top: 15px;
 }
 
+.pantry-page .title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #b6282b;
+  margin-bottom: 15px;
+}
+
 @media (min-width: 500px) {
   .pantry-buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+
+  @media (min-width: 600px) {
+    .pantry-page h1 {
+      font-size: 35px;
+    }
   }
 }

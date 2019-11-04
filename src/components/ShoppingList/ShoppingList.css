@@ -98,3 +98,9 @@ hr {
 .list-buttons i:hover {
   color: #01e00c;
 }
+
+@media (min-width: 600px) {
+  .shop-list h1 {
+    font-size: 35px;
+  }
+}

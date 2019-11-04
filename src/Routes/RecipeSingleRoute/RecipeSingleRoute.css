@@ -110,17 +110,12 @@ li.inst-list {
   padding: 5px 5px;
   border-top: 1px solid #ccc;
   padding-bottom: 10px;
-  
 }
 
 *,
 *:before,
 *:after {
   box-sizing: border-box;
-}
-
-body {
-  padding: 30px;
 }
 
 .tabset {
@@ -140,6 +135,10 @@ body {
 @media (min-width: 700px) {
   .recipe-tabs {
     font-size: 18px;
+  }
+
+  .recipe-tabs h1 {
+    font-size: 33px;
   }
 
   .tabset {

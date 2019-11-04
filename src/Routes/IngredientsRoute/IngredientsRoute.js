@@ -4,8 +4,9 @@ import GoodmealApiService from '../../services/goodmeal-api-service'
 
 import IngedientsAdderForm from '../../components/IngredientsAdderForm/IngredientsAdderForm'
 
-import "./IngredientsRoute.css"
 
+import "./IngredientsRoute.css"
+import logo from '../../images/logo.png'
 class IngredientsRoute extends React.Component {
 
   state = {
@@ -73,13 +74,16 @@ class IngredientsRoute extends React.Component {
     }
     return (
       <div className="pantry-page">
-        <div className='pantry'>
-        <h2>My Pantry</h2>
+        <section className='pantry'>
+          <div className='title'>
+            <h1>My Pantry</h1>
+            <img src={logo} alt='logo'></img>
+          </div> 
         { error }
         <ul className="pantry-list">
           { listElements }
         </ul>
-        </div>
+        </section>
         <div className='pantry-buttons'>
         { adding
           ? <IngedientsAdderForm handleSubmit={this.addIngredient} cancelSubmit={this.cancelSubmit}/>
