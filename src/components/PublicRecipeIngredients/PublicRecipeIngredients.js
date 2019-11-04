@@ -4,18 +4,18 @@ import PublicRecipeContext from '../../contexts/PublicRecipeContext'
 
 class PublicRecipeIngredients extends React.Component {
 
-    static contextType = PublicRecipeContext
+  static contextType = PublicRecipeContext
 
-    render() {
-        
-        return(
-            <section className = "tab-panel">
-                <ul className='ing-list'>
-                    { this.context.getIngredientsList() }
-                </ul>
-            </section>
-        )
-    }
+  render() {
+      
+    return(
+      <section className = "tab-panel">
+        <ul className='ing-list'>
+          { this.context.getIngredientsList() }
+        </ul>
+      </section>
+    )
+  }
 }
 
 export default PublicRecipeIngredients

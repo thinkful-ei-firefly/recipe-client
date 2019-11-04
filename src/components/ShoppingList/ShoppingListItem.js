@@ -30,16 +30,30 @@ class RecipeItem extends React.Component {
     //const ingredientList = ingredients.map(ingredient => <div>{ingredient}</div>)
     //const instructionList = instructions.map(instruction => <div>{instruction}</div>)
 
-      return(
-          <section>
-              <div className='item'>
-                <button className='check-buttons' onClick={this.crossUncross}>{crossed ? <i className="fas fa-check-square"></i> : <i className="fas fa-square"></i>}</button>
-                &nbsp;&nbsp;
-                <div className='food-item'>{text}</div>         
-              </div>
-              <hr />
-          </section>
-      )
+    return(
+      <section>
+        <div className='item'>
+          <button 
+            className='check-buttons' 
+            onClick={ this.crossUncross }>
+            {
+              crossed 
+                ? <i className="fas fa-check-square"></i> 
+                : <i className="fas fa-square"></i>
+            }
+          </button>
+
+          &nbsp;&nbsp;
+          
+          <div 
+            className='food-item'>
+            { text }
+          </div>
+                   
+        </div>
+        <hr />
+      </section>
+    )
   }
 }
 
