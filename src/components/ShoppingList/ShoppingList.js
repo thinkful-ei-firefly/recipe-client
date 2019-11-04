@@ -6,6 +6,7 @@ import logo from '../../images/logo.png'
 import './ShoppingList.css'
 
 class ShoppingList extends React.Component {
+  
   static contextType = ShoppingListContext
 
   componentDidMount(){

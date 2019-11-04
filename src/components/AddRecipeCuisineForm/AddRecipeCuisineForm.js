@@ -32,11 +32,28 @@ class AddRecipeCuisineForm extends React.Component {
               Cuisine: <Required />
             </Label>
             <Input
+              placeholder = 'ex. "Italian"'
               name = "cuisine"
               id = "recipe-cuisine"
               type = "text"
+              list = "cuisines"
               required>
             </Input>
+            <datalist
+                    id = "cuisines">
+                    <option value = "American"/>
+                    <option value = "Cajun"/>
+                    <option value = "Chinese"/>
+                    <option value = "French"/>
+                    <option value = "Greek"/>
+                    <option value = "Indian"/>
+                    <option value = "Italian"/>
+                    <option value = "Japanese"/>
+                    <option value = "Korean"/>
+                    <option value = "Mexican"/>
+                    <option value = "Soul"/>
+                    <option value = "Thai"/>
+                </datalist>
           </div>
           <Button className='add'
             type = "submit">
