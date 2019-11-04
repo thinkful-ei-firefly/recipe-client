@@ -7,26 +7,26 @@ import TokenService from '../../services/token-service'
 
 class SignOutGoogle extends React.Component {
 
-    static contextType = UserContext
+  static contextType = UserContext
 
-    handleClick = e => {
-        e.preventDefault()
-        firebase.auth().signOut()
-            .then(() => {
-                TokenService.clearAuthToken()
-                this.context.updateLogin(false)
-            })
-    }
+  handleClick = e => {
+    e.preventDefault()
+    firebase.auth().signOut()
+      .then(() => {
+        TokenService.clearAuthToken()
+        this.context.updateLogin(false)
+      })
+  }
 
-    render() {
-        return(
-            <Button
-                onClick = { this.handleClick }
-                className = "googleSignOut">
-                Sign Out Google
-            </Button>
-        )
-    }
+  render() {
+    return(
+      <Button
+        onClick={ this.handleClick }
+        className="googleSignOut">
+        Sign Out Google
+      </Button>
+    )
+  }
 }
 
 export default SignOutGoogle
