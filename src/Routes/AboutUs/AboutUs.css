@@ -1,0 +1,51 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+}
+
+.left{
+  text-align: left;
+}
+
+.right{
+  text-align: right;
+}
+
+h2{
+  font-size: 30px;
+}
+
+.lin:link{
+  color: black;
+}
+.lin:visited{
+  color:black;
+}
+.lin:hover{
+  color: #01e00c;
+}
+
+p{
+  font-size: 20px;;
+}
+
+.portfolio{
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  border: 0.5px solid black;
+  box-shadow: black 5px 5px 5px;
+  background: #5a5d5a;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 400px;
+}
+
+.portfolio:hover{
+  color: #01e00c;
+}
+
+.icon{
+  width: 25px;
+}

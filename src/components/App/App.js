@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 
 //import routes
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute'
@@ -15,6 +15,8 @@ import RecipeSingleRoute from '../../Routes/RecipeSingleRoute/RecipeSingleRoute'
 import IngredientsRoute from '../../Routes/IngredientsRoute/IngredientsRoute'
 import PublicRecipesRoute from '../../Routes/PublicRecipesRoute/PublicRecipesRoute'
 import NotFoundRoute from '../../Routes/NotFoundRoute/NotFoundRoute'
+import aboutUs from '../../Routes/AboutUs/AboutUs'
+import Footer from '../../components/Footer/footer'
 
 //import components
 import Header from '../Header/Header'
@@ -97,11 +99,16 @@ class App extends React.Component {
               path={ '/ingredients' }
               component={ IngredientsRoute }
             />
+            <PrivateRoute
+              path={ '/about' }
+              component={ aboutUs }
+            />
             <Route
               component={ NotFoundRoute }
             />
           </Switch>
         </main>
+        <Footer/>
       </div>
     )
   }
