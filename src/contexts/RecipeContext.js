@@ -224,66 +224,11 @@ export class RecipeProvider extends React.Component {
     })
   }
 
-  // takes recipe data from state and sends api query to server
-  handleCreateRecipe = async () => {
-
-    const fileName =  this.state.recipeImage?`${Date.parse(new Date())}.${this.state.recipeImage.name.split('.').pop()}`:null;
-
-    const requiredKeys = ['recipeTitle', 'recipeDesc', 'recipeIngredients', 'recipeSteps', 'recipeTime', 'recipeCuisine' ]
-    const requiredLabels = ['Title', 'Description', 'Ingredient', 'Instruction', 'Cooking Time', 'Cuisine' ]
-
-    for (let i=0; i<requiredKeys.length; i++){
-      if (!this.state[requiredKeys[i]] || this.state[requiredKeys[i]] === '' || this.state[requiredKeys[i]].length === 0) {
-        return this.setState({
-          error: `${requiredLabels[i]} is required`
-        })
-      }
-    }
-
-    const recipe = {
-      name: this.state.recipeTitle,
-      description: this.state.recipeDesc,
-      ingredients: "{" + this.state.recipeIngredients.join(',') + "}",
-      instructions: "{" + this.state.recipeSteps.join(',') + "}",
-      time_to_make: this.state.recipeTime,
-      category: this.state.recipeCuisine,
-      public: this.state.recipePublic,
-      imageurl: fileName
-    }
+  handleRemovePublic = (e) => {
     this.setState({
-      loading: true
+      recipePublic : false
     })
-
-    try{
-      if (this.state.editing) {
-        if (!recipe.imageurl) delete recipe.imageurl
-        await RecipeApiService.saveExisting(this.state.recipeId, recipe)
-      }
-      else {
-        await RecipeApiService.postRecipe(recipe)
-      }
-      if (fileName && fileName!=='') {
-        await UploadApiService.uploadImage(this.state.recipeImage, fileName)
-      }
-      this.setState({
-        loading: false,
-        error: null,
-        saved: true,
-        editing: false
-      })
-    }
-    catch(error) {
-      this.setState({
-        loading: false,
-        error: error.message || error.error
-      })
-    }
-
-    handleRemovePublic = (e) => {
-      this.setState({
-        recipePublic : false
-      })
-    }
+  }
 
     // takes recipe data from state and sends api query to server
     handleCreateRecipe = async () => {
