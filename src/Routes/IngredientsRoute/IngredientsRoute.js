@@ -67,24 +67,27 @@ class IngredientsRoute extends React.Component {
     if (ingredientList) {
     ingredientList.forEach(item => {
       let listItem = `${item.amount} ${item.unit} of ${item.name}`
-      listElements.push(<li className="pantry-item" key={item.id}><button className="del-item" onClick={() => this.deleteIngredient(item.id)}>Delete</button><div>{listItem}</div></li>)
+      listElements.push(<li className="pantry-item" key={item.id}><button className="del-item" onClick={() => this.deleteIngredient(item.id)}><i className="fas fa-times"></i></button><div>{listItem}</div></li>)
       listElements.push(<hr/>)
     })
     }
     return (
-      <div className="pantry">
+      <div className="pantry-page">
+        <div className='pantry'>
         <h2>My Pantry</h2>
-        <hr className="rule"/>
         { error }
         <ul className="pantry-list">
           { listElements }
         </ul>
+        </div>
+        <div className='pantry-buttons'>
         { adding
           ? <IngedientsAdderForm handleSubmit={this.addIngredient} cancelSubmit={this.cancelSubmit}/>
-          : <button className="new-pantry" onClick={this.openForm}>New Ingredient</button>}
+          : <button className="new-pantry" onClick={this.openForm}><i className="far fa-plus-square"><span>&nbsp;Add Item</span></i></button>}
         { (ingredientList && ingredientList.length)
-          ? <button className="delete-pantry" onClick={this.deleteAllIngredients}>Delete Whole List</button>
+          ? <button className="delete-pantry" onClick={this.deleteAllIngredients}><i className="far fa-trash-alt"><span>&nbsp;Delete List</span></i></button>
           : null}
+          </div>
       </div>
     )
   }

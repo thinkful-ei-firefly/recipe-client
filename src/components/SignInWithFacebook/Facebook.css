@@ -1,6 +1,6 @@
-.google-button {
+.facebook-button {
   font-size: 24px;
-  background: red;
+  background: #3a589a;
   color: #fff;
   padding: 6px;
   border-radius: 4px;
@@ -8,12 +8,12 @@
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  border: 1px solid red;
+  border: 1px solid #3a589a;
   cursor: pointer;
   width: 128px;
 }
 
-.google-button:hover {
+.facebook-button:hover {
   background: #fff;
-  color: red;
+  color: #3a589a;
 }

@@ -136,7 +136,7 @@ export class PublicRecipeProvider extends React.Component {
                                 className='remove-recipe' 
                                 type='button' 
                                 onClick = { e => this.cloneRecipe(recipe.id) }>
-                                <i className="fas fa-copy"></i>
+                                <i className="fas fa-heart" style={{fontSize:'20px'}}></i>
                             </button>
                         </div>
                     }

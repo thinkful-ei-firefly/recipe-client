@@ -22,7 +22,7 @@ class ShoppingList extends React.Component {
         <div className='shop-list'>
           <section className="shop-list-page">
             <div className='title'>
-              <h1>Shopping List</h1><br/>
+              <h1>Shopping List</h1>
               <img src={logo} alt='logo'></img>
               </div>
               <div>

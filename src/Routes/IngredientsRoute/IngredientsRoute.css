@@ -3,45 +3,62 @@
   box-sizing: border-box;
 }
 
-.pantry{
-  text-align: center;
-  max-width: 400px;
+.pantry {
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
 
   border: 1px solid;
   border-radius: 10px;
-  box-shadow:  5px 5px 5px;
+  box-shadow: 5px 5px 5px;
 }
 
-.pantry-list{
+.pantry h2 {
+  font-size: 25px;
+  border-bottom: 2px solid #b6282b;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+.pantry-list {
   text-align: left;
-  max-width: 400px;
+  max-width: 500px;
   padding: 5px;
 }
 
-.pantry-item{
-  margin: 15px;
+.pantry-item {
+  margin: -2px;
   padding-bottom: 5px;
   display: flex;
 }
 
-.del-item{
+.del-item {
   margin-right: 15px;
+  background-color: #fff;
+  border: none;
+  color: #01e00c;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-.del-item:hover{
-  color: #01e00c;
+.del-item:hover {
+  color: red;
 }
-.delete-pantry:hover{
-  color: #01e00c;
-}
-.new-pantry:hover{
+.delete-pantry:hover {
   color: #01e00c;
 }
 
-.new-pantry, .delete-pantry, .del-item{
+.new-pantry {
+  width: 149.92px;
+}
+
+.new-pantry:hover {
+  color: #01e00c;
+}
+
+.new-pantry,
+.delete-pantry {
   border: 0.5px solid black;
   box-shadow: black 5px 5px 5px;
   background: #5a5d5a;
@@ -56,27 +73,19 @@
   cursor: pointer;
 }
 
-
-
-@media (min-width: 600px) {
-  .background {
-    margin-top: -250px;
-  }
-
-  .landing h2 {
-    font-size: 30px;
-    margin-top: -20px;
-  }
-
-  .subtitle {
-    line-height: 0.5em;
-    margin-bottom: 1.5em;
-    font-size: 18px;
-  }
+.pantry-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
 }
 
-@media (min-width: 900px) {
-  .background {
-    margin-top: -150px;
+@media (min-width: 500px) {
+  .pantry-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }

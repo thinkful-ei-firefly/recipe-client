@@ -3,6 +3,7 @@ import SearchPublicRecipe from '../../components/SearchPublicRecipes/SearchPubli
 import PublicRecipeContext from '../../contexts/PublicRecipeContext'
 import { Redirect } from 'react-router-dom'
 
+import './PublicRecipes.css'
 class PublicRecipesRoute extends React.Component {
 
     static contextType = PublicRecipeContext
@@ -23,7 +24,7 @@ class PublicRecipesRoute extends React.Component {
     render() {
         return(
             <section className = "public-recipes">
-
+              <h1>All Recipes</h1>
                 {this.context.redirect && <Redirect to='/recipes' />}
                 
                 <SearchPublicRecipe handleSubmit={this.handleSubmit} label={'Search For:'}/>

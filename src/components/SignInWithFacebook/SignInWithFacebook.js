@@ -5,6 +5,7 @@ import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext'
 
+import "./Facebook.css"
 import Button from '../Button/Button'
 
 require('dotenv').config()
@@ -60,8 +61,8 @@ class SignInWithFacebook extends React.Component {
         return(
             <Button
                 onClick = { this.handleClick }
-                className="facebookSignIn">
-                Sign In With Facebook
+                className="facebook-button">
+                <i className='fab fa-facebook-f'></i>
             </Button>
         )
     }

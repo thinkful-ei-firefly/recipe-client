@@ -5,7 +5,6 @@ import LoginForm from '../../components/Loginform/LoginForm'
 import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
 
-import background from '../../images/background1.png'
 
 
 class RegisterRoute extends React.Component {
@@ -33,8 +32,7 @@ class RegisterRoute extends React.Component {
       return(
         <div className='login_page'>
           <section className = "login">
-          <img src={background} alt='background' className='back-image'/>
-              <h2>Sign Up</h2>
+              <h2>SIGN UP</h2>
               <LoginForm onSubmit={this.handleSubmit} buttonText='Sign up' error={this.state.error}/>
               <p>Already a member? <Link to='/login'>Log in</Link></p>
           </section>

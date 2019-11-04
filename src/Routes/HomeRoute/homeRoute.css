@@ -2,11 +2,9 @@
   font-family: "Montserrat", sans-serif;
 }
 
-
 img.back-image {
-  width:100%;
+  width: 100%;
   height: auto;
-  
 }
 
 section.home {
@@ -21,8 +19,8 @@ section.home {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-left:-50px;
-  margin-right:-50px;
+  margin-left: -50px;
+  margin-right: -50px;
 }
 
 .landing h2 {
@@ -36,8 +34,6 @@ section.home {
   justify-content: center;
   align-items: center;
 }
-
-
 
 .home {
   display: flex;
@@ -85,9 +81,8 @@ section.home {
   .background {
     width: 100%;
     height: auto;
-    margin-top:30px;
+    margin-top: 30px;
   }
-  
 
   .subtitle {
     line-height: 0.5em;

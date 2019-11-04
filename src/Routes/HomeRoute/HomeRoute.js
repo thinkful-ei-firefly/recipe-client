@@ -45,7 +45,6 @@ class HomeRoute extends React.Component {
                   <Link to="/register"className="reg-button">Register</Link> 
                 </div>
               }
-              <SearchPublicRecipe hidden={loggedIn} handleSubmit={this.handleSubmit} />
 
             </div>
         )

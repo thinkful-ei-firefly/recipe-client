@@ -119,9 +119,9 @@ class ShoppingListRoute extends React.Component {
         <ShoppingList />
         <div className="list-buttons">
         {adding ? <IngedientsAdderForm handleSubmit={this.addIngredient} cancelSubmit={this.cancelSubmit}/> : <button className='modify-buttons' onClick={this.openForm}><i className="far fa-plus-square"><span>&nbsp;Add Item</span></i></button>}      
-        <button className='modify-buttons' hidden={!this.state.recipeList.length}onClick={this.moveCrossedItems}><i className="fas fa-mouse-pointer"><span>&nbsp;Move Checked to Pantry</span></i></button>
+        <button className='modify-buttons' hidden={!this.state.recipeList.length}onClick={this.moveCrossedItems}><i className="far fa-arrow-alt-circle-up"><span>&nbsp;Move Checked to Pantry</span></i></button>
         <button className='modify-buttons' hidden={!this.state.recipeList.length}onClick={this.deleteCrossedItems}><i className="far fa-minus-square"><span>&nbsp;Delete Checked</span></i></button>
-        <button className='modify-buttons' hidden={!this.state.recipeList.length}onClick={this.deleteList}><i className="fas fa-trash-alt"><span>&nbsp;Delete All</span></i></button>
+        <button className='modify-buttons' hidden={!this.state.recipeList.length}onClick={this.deleteList}><i className="far fa-trash-alt"><span>&nbsp;Delete All</span></i></button>
         </div>
       </ShoppingListContext.Provider>
     )
