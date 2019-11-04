@@ -4,8 +4,8 @@ import UserContext from '../../contexts/UserContext'
 import LoginForm from '../../components/Loginform/LoginForm'
 import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
-
-
+import SignInWithGoogle from '../../components/SignInWithGoogle/SignInWithGoogle'
+import SignInWithFacebook from '../../components/SignInWithFacebook/SignInWithFacebook'
 
 class RegisterRoute extends React.Component {
 
@@ -33,8 +33,26 @@ class RegisterRoute extends React.Component {
         <div className='login_page'>
           <section className = "login">
               <h2>SIGN UP</h2>
-              <LoginForm onSubmit={this.handleSubmit} buttonText='Sign up' error={this.state.error}/>
-              <p>Already a member? <Link to='/login'>Log in</Link></p>
+              <p>Connect with</p>
+              <div className="signIn-button">
+                <SignInWithGoogle />
+                &nbsp;&nbsp;
+                <SignInWithFacebook />
+              </div>
+              <div className="divider">
+                <span>or</span>
+              </div>
+              <LoginForm 
+                onSubmit={ this.handleSubmit }
+                buttonText='Sign up' 
+                error={ this.state.error }
+              />
+              <p>Already a member?
+                <Link 
+                  to='/login'>
+                  Log in
+                </Link>
+              </p>
           </section>
           </div>
       )

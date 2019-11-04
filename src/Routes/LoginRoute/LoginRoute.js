@@ -34,20 +34,30 @@ class LoginRoute extends React.Component {
 
   render() {
     return(
-      <div className='login_page'>
+      <div className="login_page">
         <section className = "login">
           <h2>LOGIN</h2>
           <p>Connect with</p>
-          <div className='signIn-button'>
-          <SignInWithGoogle />
-          &nbsp;&nbsp;
-          <SignInWithFacebook />
+          <div className="signIn-button">
+            <SignInWithGoogle />
+            &nbsp;&nbsp;
+            <SignInWithFacebook />
           </div>
-          <div className='divider'>
+          <div className="divider">
             <span>or</span>
           </div>
-          <LoginForm className='sub' onSubmit={this.handleSubmit} buttonText='LOGIN' error={this.state.error}/>
-          <p>Haven't signed up? <Link to='/register'>Register</Link></p>
+          <LoginForm 
+            className='sub' 
+            onSubmit={ this.handleSubmit } 
+            buttonText='LOGIN' 
+            error={ this.state.error }
+          />
+          <p>Haven't signed up? 
+            <Link 
+              to='/register'>
+              Register
+            </Link>
+          </p>
         </section>
       </div>
     )
