@@ -70,7 +70,9 @@ class SignInWithGoogle extends React.Component {
                             })
                     }
                 })
-    }
+          }
+      })
+  }
   
   render() {
     return(
