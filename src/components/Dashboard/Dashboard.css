@@ -98,3 +98,10 @@
     margin-top: -230px;
   }
 }
+
+@media (min-width: 1150px) {
+  .cl {
+    display: flex;
+    flex-direction: row;
+  }
+}

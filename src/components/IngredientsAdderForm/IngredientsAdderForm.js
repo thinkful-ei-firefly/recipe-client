@@ -67,7 +67,7 @@ class IngredientsAdderForm extends React.Component {
                     id = "recipe-amount"
                     type = "text"
                     list = "amounts"
-                    placeholder = "1 1/4"
+                    placeholder = 'ex. "1 1/4"'
                     required>
                 </Input>
                 <datalist
@@ -81,13 +81,15 @@ class IngredientsAdderForm extends React.Component {
             <div className = "measurement">
                 <Label
                     htmlFor = "recipe-measurement">
-                    Measure: <Required />
+                    Unit of Measure: <Required />
                 </Label>
                 <Input className='addIng-input'
                     name = "measurement"
                     id = "recipe-measurement"
                     type = "text"
-                    list = "measurements">
+                    list = "measurements"
+                    placeholder = 'ex. "each"'
+                    required>
                 </Input>
                 <datalist
                     id = "measurements">
@@ -108,6 +110,7 @@ class IngredientsAdderForm extends React.Component {
                     name = "ingredient"
                     id = "recipe-ingredient"
                     type = "text"
+                    placeholder = 'ex. "apple"'
                     required>
                 </Input>
             </div>

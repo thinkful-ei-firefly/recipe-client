@@ -33,7 +33,9 @@ class AddRecipeTitleForm extends React.Component {
               htmlFor="recipe-title">
               Title: <Required />
             </Label>
-            <Input className="input"
+            <Input
+              placeholder = 'ex. "Spicy Tacos"'
+              className="input"
               name="title"
               id="text"
               type="text"

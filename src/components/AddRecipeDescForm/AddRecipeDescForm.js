@@ -30,7 +30,9 @@ class AddRecipeDescForm extends React.Component {
               htmlFor = "recipe-desc">
               Description: <Required />
             </Label>
-            <Input className='input'
+            <Input 
+              placeholder = 'ex. "This recipe is..."'
+              className='input'
               name = "desc"
               id = "recipe-desc"
               type = "text"

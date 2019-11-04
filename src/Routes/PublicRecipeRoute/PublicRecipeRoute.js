@@ -83,6 +83,8 @@ class RecipeRoute extends React.Component {
             <Sharing recipe={recipe} />
           </div>
         </div>
+        <button type='button' onClick={e => this.shareFacebook(recipe.id)}>Share on Facebook</button>
+        <button type='button' onClick={e => this.shareTwitter(recipe.id)}>Share on Twitter</button>
       </div>
 
     )

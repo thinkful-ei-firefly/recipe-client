@@ -32,7 +32,8 @@ class AddRecipeTimeForm extends React.Component {
               htmlFor="recipe-time">
               Time (in minutes): <Required />
             </Label>
-            <Input 
+            <Input
+              placeholder='ex. "10"' 
               className="input"
               name="time"
               id="recipe-step"
