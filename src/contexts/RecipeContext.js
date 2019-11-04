@@ -5,224 +5,230 @@ import UploadApiService from '../services/upload-api-service'
 
 
 const RecipeContext = React.createContext({
-    recipeTitle: '',
-    recipeDesc: '',
-    recipeIngredients: [],
-    recipeSteps: [],
-    recipeTime: '',
-    recipeCuisine: '',
-    recipeList: [],
-    searchRecipes: [],
-    searchBy: '',
-    filteredRecipes: [],
-    filterBy: null,
-    error: null,
-    saved: false,
-    redirect: false,
+  recipeTitle: '',
+  recipeDesc: '',
+  recipeIngredients: [],
+  recipeSteps: [],
+  recipeTime: '',
+  recipeCuisine: '',
+  recipeList: [],
+  searchRecipes: [],
+  searchBy: '',
+  filteredRecipes: [],
+  filterBy: null,
+  error: null,
+  saved: false,
+  redirect: false,
 
-    setError: () => {},
-    clearError: () => {},
-    setRecipeList: () => {},
-    removeRecipe: () => {},
-    getAllRecipes: () => {},
-    delete: () => {},
-    setFilter: () => {},
-    handleAddTitle: () => {},
-    handleRemoveTitle: () => {},
-    handleAddDesc: () => {},
-    handleRemoveDesc: () => {},
-    handleAddRecipeIngredient: () => {},
-    handleRemoveIngredient: () => {},
-    handleAddRecipeStep: () => {},
-    handleRemoveStep: () => {},
-    setRecipeTime: () => {},
-    handleAddCuisine: () => {},
-    handleRemoveCuisine: () => {},
-    handleCreateRecipe: () => {},
-    searchRecipesBy: () => {},
-    filterRecipesByTime: () => {},
-    setUser: () => {},
-    searchMyRecipes: () => {},
+  setError: () => {},
+  clearError: () => {},
+  setRecipeList: () => {},
+  removeRecipe: () => {},
+  getAllRecipes: () => {},
+  delete: () => {},
+  setFilter: () => {},
+  handleAddTitle: () => {},
+  handleRemoveTitle: () => {},
+  handleAddDesc: () => {},
+  handleRemoveDesc: () => {},
+  handleAddRecipeIngredient: () => {},
+  handleRemoveIngredient: () => {},
+  handleAddRecipeStep: () => {},
+  handleRemoveStep: () => {},
+  setRecipeTime: () => {},
+  handleAddCuisine: () => {},
+  handleRemoveCuisine: () => {},
+  handleCreateRecipe: () => {},
+  searchRecipesBy: () => {},
+  filterRecipesByTime: () => {},
+  setUser: () => {},
+  searchMyRecipes: () => {},
 })
 
 export default RecipeContext
 
 export class RecipeProvider extends React.Component {
-    constructor(props) {
-        super(props)
+  constructor(props) {
+    super(props)
 
-        const state = {
-            recipeId: null,
-            recipeTitle: '',
-            recipeDesc: '',
-            recipeIngredients: [],
-            recipeSteps: [],
-            recipeCuisine: '',
-            recipeTime: null,
-            recipeList: [],
-            searchRecipes: [],
-            searchBy: null,
-            filteredRecipes: [],
-            filterBy: null,
-            recipeImage: null,
-            recipePublic: false,
-            error: null,
-            loading: false,
-            saved: false,
-            editing: false,
-            redirect: false,
-        }
-
-        this.state = state
+    const state = {
+      recipeId: null,
+      recipeTitle: '',
+      recipeDesc: '',
+      recipeIngredients: [],
+      recipeSteps: [],
+      recipeCuisine: '',
+      recipeTime: null,
+      recipeList: [],
+      searchRecipes: [],
+      searchBy: null,
+      filteredRecipes: [],
+      filterBy: null,
+      recipeImage: null,
+      recipePublic: false,
+      error: null,
+      loading: false,
+      saved: false,
+      editing: false,
+      redirect: false,
     }
 
-    loadRecipe = (id) => {
-      RecipeApiService.getById(id)
-        .then(recipe => {
-          this.setState({
-            recipeId: recipe.id,
-            recipeTitle: recipe.name,
-            recipeDesc: recipe.description,
-            recipeIngredients: recipe.ingredients,
-            recipeSteps: recipe.instructions,
-            recipeCuisine: recipe.category,
-            recipeTime: recipe.time_to_make,
-            recipePublic: recipe.public,
-            recipeImage: null,
-            editing: true
-          })
+    this.state = state
+  }
+
+  loadRecipe = (id) => {
+    RecipeApiService.getById(id)
+      .then(recipe => {
+        this.setState({
+          recipeId: recipe.id,
+          recipeTitle: recipe.name,
+          recipeDesc: recipe.description,
+          recipeIngredients: recipe.ingredients,
+          recipeSteps: recipe.instructions,
+          recipeCuisine: recipe.category,
+          recipeTime: recipe.time_to_make,
+          recipePublic: recipe.public,
+          recipeImage: null,
+          editing: true
         })
-        .catch(res => this.setState({ error: res.error }))
-    }
-
-    clearRecipe = () => {
-      this.setState({
-        recipeId: null,
-        recipeTitle: '',
-        recipeDesc: '',
-        recipeIngredients: [],
-        recipeSteps: [],
-        recipeCuisine: '',
-        recipeTime: null,
-        recipeImage: null,
-        recipePublic: false,
-        editing: false
       })
-    }
+      .catch(res => this.setState({ error: res.error }))
+  }
 
-    setError = (error) => {
-        this.setState({
-            error
-        })
-    }
+  clearRecipe = () => {
+    this.setState({
+      recipeId: null,
+      recipeTitle: '',
+      recipeDesc: '',
+      recipeIngredients: [],
+      recipeSteps: [],
+      recipeCuisine: '',
+      recipeTime: null,
+      recipeImage: null,
+      recipePublic: false,
+      editing: false
+    })
+  }
 
-    clearError = () => {
-        this.setState({
-            error: null
-        })
-    }
+  setError = (error) => {
+    this.setState({
+      error
+    })
+  }
 
-    setRecipeList = (recipeList) => {
-        this.setState({
-            recipeList,
-            saved: false
-        })
-    }
+  clearError = () => {
+    this.setState({
+      error: null
+    })
+  }
 
-    removeRecipe = (idProduct) => {
-        this.setState({
-            recipeList: this.state.recipeList.filter((item, index) => item.id !== idProduct)
-        });
-    }
+  setRecipeList = (recipeList) => {
+    this.setState({
+      recipeList,
+      saved: false
+    })
+  }
 
-    getAllRecipes = () => {
-        RecipeApiService.getAll()
-            .then(this.setRecipeList)
-    }
+  removeRecipe = (idProduct) => {
+    this.setState({
+      recipeList: this.state.recipeList.filter((item, index) => item.id !== idProduct)
+    });
+  }
 
-    delete = (idRecipe) => {
-        RecipeApiService.delete(idRecipe)
-            .then(() => this.removeRecipe(idRecipe))
-            .catch(this.setError)
-    }
+  getAllRecipes = () => {
+    RecipeApiService.getAll()
+      .then(this.setRecipeList)
+  }
 
-    setFilter = (filterBy) => {
-        this.setState({ filterBy })
-    }
+  delete = (idRecipe) => {
+    RecipeApiService.delete(idRecipe)
+      .then(() => this.removeRecipe(idRecipe))
+      .catch(this.setError)
+  }
 
-    handleAddTitle = recipeTitle => {
-        this.setState({ recipeTitle })
-    }
+  setFilter = (filterBy) => {
+    this.setState({ filterBy })
+  }
 
-    handleRemoveTitle = () => {
-        this.setState({ recipeTitle: '' })
-    }
+  handleAddTitle = recipeTitle => {
+    this.setState({ recipeTitle })
+  }
 
-    handleAddDesc = recipeDesc => {
-        this.setState({ recipeDesc })
-    }
+  handleRemoveTitle = () => {
+    this.setState({ recipeTitle: '' })
+  }
 
-    handleRemoveDesc = () => {
-        this.setState({ recipeDesc: '' })
-    }
+  handleAddDesc = recipeDesc => {
+    this.setState({ recipeDesc })
+  }
 
-    handleAddRecipeIngredient = (amount, measurement, ingredient) => {
+  handleRemoveDesc = () => {
+    this.setState({ recipeDesc: '' })
+  }
 
-        const addIngredient = amount + ' ' + measurement + ' ' + ingredient
-        const recipeIngredients = this.state.recipeIngredients
-        recipeIngredients.push(addIngredient)
-        this.setState({
-            recipeIngredients
-        })
-    }
+  handleAddRecipeIngredient = (amount, measurement, ingredient) => {
 
-    handleRemoveIngredient = (ingToRemove) => {
-        const recipeIngredients = this.state.recipeIngredients
-            .filter(ing => ing !== ingToRemove)
-        this.setState({ recipeIngredients })
-    }
+    const addIngredient = amount + ' ' + measurement + ' ' + ingredient
+    const recipeIngredients = this.state.recipeIngredients
+    recipeIngredients.push(addIngredient)
+    this.setState({
+      recipeIngredients
+    })
+  }
 
-    handleAddRecipeStep = step => {
-        const recipeSteps = this.state.recipeSteps
-        recipeSteps.push(step)
-        this.setState({
-            recipeSteps
-        })
-    }
+  handleRemoveIngredient = (ingToRemove) => {
+    const recipeIngredients = this.state.recipeIngredients
+      .filter(ing => ing !== ingToRemove)
+    this.setState({ recipeIngredients })
+  }
 
-    handleRemoveStep = stepToRemove => {
-        const recipeSteps = this.state.recipeSteps
-            .filter(step => step !== stepToRemove)
-        this.setState({ recipeSteps })
-    }
+  handleAddRecipeStep = step => {
+    const recipeSteps = this.state.recipeSteps
+    recipeSteps.push(step)
+    this.setState({
+      recipeSteps
+    })
+  }
 
-    handleAddTime = recipeTime => {
-        this.setState({ recipeTime })
-    }
+  handleRemoveStep = stepToRemove => {
+    const recipeSteps = this.state.recipeSteps
+      .filter(step => step !== stepToRemove)
+    this.setState({ recipeSteps })
+  }
 
-    handleRemoveTime = () => {
-        this.setState({ recipeTime: null })
-    }
+  handleAddTime = recipeTime => {
+    this.setState({ recipeTime })
+  }
 
-    handleAddCuisine = recipeCuisine => {
-        this.setState({ recipeCuisine })
-    }
+  handleRemoveTime = () => {
+    this.setState({ recipeTime: null })
+  }
 
-    handleRemoveCuisine = () => {
-        this.setState({ recipeCuisine: '' })
-    }
+  handleAddCuisine = recipeCuisine => {
+    this.setState({ recipeCuisine })
+  }
 
-    handleAddImage = (e) => {
-      this.setState({
-        recipeImage : e[0]
-      })
-    }
+  handleRemoveCuisine = () => {
+    this.setState({ recipeCuisine: '' })
+  }
 
-    handleAddPublic = (e) => {
-      this.setState({
-        recipePublic : e.target.checked
-      })
-    }
+  handleAddImage = (e) => {
+    this.setState({
+      recipeImage : e[0]
+    })
+  }
+
+  handleAddPublic = (e) => {
+    this.setState({
+      recipePublic : e.target.checked
+    })
+  }
+
+  handleRemovePublic = (e) => {
+    this.setState({
+      recipePublic : false
+    })
+  }
 
     // takes recipe data from state and sends api query to server
     handleCreateRecipe = async () => {
@@ -343,6 +349,7 @@ export class RecipeProvider extends React.Component {
             handleCreateRecipe: this.handleCreateRecipe,
             handleAddImage: this.handleAddImage,
             handleAddPublic: this.handleAddPublic,
+            handleRemovePublic: this.handleRemovePublic,
             setError: this.setError,
             clearError: this.clearError,
             searchRecipesBy: this.searchRecipesBy,

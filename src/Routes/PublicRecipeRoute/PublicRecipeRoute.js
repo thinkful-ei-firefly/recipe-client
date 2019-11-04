@@ -4,6 +4,7 @@ import PublicRecipeSummary from '../../components/PublicRecipeSummary/PublicReci
 import PublicRecipeIngredients from '../../components/PublicRecipeIngredients/PublicRecipeIngredients'
 import PublicRecipeInstructions from '../../components/PublicRecipeInstructions/PublicRecipeInstructions'
 import RatingPopups from '../../components/RatingPopup/RatingPopup'
+import Sharing from '../../components/Sharing/Sharing'
 
 import PublicRecipeContext from '../../contexts/PublicRecipeContext'
 import GoodmealApiService from '../../services/goodmeal-api-service'
@@ -30,22 +31,6 @@ class RecipeRoute extends React.Component {
 
   handleTabClick(event) {
     this.context.updateDisplay(event.target.name)
-  }
-
-  shareFacebook = (id) => {
-    var facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=https://good-meal-client.herokuapp.com/publicrecipes/' + id, 'facebook-popup', 'height=350,width=600');
-    if(facebookWindow.focus) {
-      facebookWindow.focus();
-    }
-    return false;
-  }
-
-  shareTwitter = (id) => {
-    var twitterWindow = window.open('https://twitter.com/share?url=https://good-meal-client.herokuapp.com/publicrecipes/' + id, 'twitter-popup', 'height=350,width=600');
-    if(twitterWindow.focus) {
-      twitterWindow.focus();
-    }
-    return false;
   }
 
   render() {
@@ -95,6 +80,7 @@ class RecipeRoute extends React.Component {
               {publicRecipePage}
             </div>
             <RatingPopups id={recipe.id} />
+            <Sharing recipe={recipe} />
           </div>
         </div>
         <div className='share'>
