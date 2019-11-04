@@ -35,7 +35,7 @@ class Recipes extends React.Component {
       )
     }
 
-    if (this.context.selectRandom){
+    if (this.context.selectRandom && recipeList.length>0){
       const temp = recipeList[Math.floor(Math.random() * recipeList.length)]
       recipeList = []
       recipeList.push(temp)

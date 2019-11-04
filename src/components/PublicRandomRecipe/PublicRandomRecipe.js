@@ -1,13 +1,13 @@
 import React from 'react'
 
-import RecipeContext from '../../contexts/RecipeContext'
+import PublicRecipeContext from '../../contexts/PublicRecipeContext'
 
-class RandomRecipe extends React.Component {
+class PublicRandomRecipe extends React.Component {
 
-    static contextType = RecipeContext
+    static contextType = PublicRecipeContext
 
     handleRandomRecipe = async () => {
-      this.context.setSelectRandom()
+      this.context.updatePublicRecipesJSX(!this.context.selectRandom)
     }
 
     render() {
@@ -19,4 +19,4 @@ class RandomRecipe extends React.Component {
     }
 }
 
-export default RandomRecipe
+export default PublicRandomRecipe

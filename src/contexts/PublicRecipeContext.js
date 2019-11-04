@@ -29,7 +29,7 @@ export class PublicRecipeProvider extends React.Component {
     const state = {
       recipe: {
         title: '',
-        cuisine: '', 
+        cuisine: '',
         description: '',
         ingredients: [],
         instructions: [],
@@ -66,9 +66,9 @@ export class PublicRecipeProvider extends React.Component {
 
   getIngredientsList = () => {
     return this.state.recipe.ingredients
-      .map((item, index) => 
-        <li 
-          key={ index } 
+      .map((item, index) =>
+        <li
+          key={ index }
           itemProp="recipeIngredient">
           { item }
         </li>
@@ -77,8 +77,8 @@ export class PublicRecipeProvider extends React.Component {
 
   getInstructionsList = () => {
     return this.state.recipe.instructions
-      .map((step, index) => 
-        <li 
+      .map((step, index) =>
+        <li
           key = { index }>
           { step }
         </li>
@@ -104,10 +104,10 @@ export class PublicRecipeProvider extends React.Component {
       )
   }
 
-  updatePublicRecipesJSX = () => {
+  updatePublicRecipesJSX = (selectRandom) => {
 
     let recipes = this.state.publicRecipes
-    
+
     if(this.state.searchPublicRecipesBy !== ''){
       recipes = this.searchRecipesBy(
         recipes,
@@ -115,19 +115,25 @@ export class PublicRecipeProvider extends React.Component {
       )
     }
 
+    if (selectRandom && recipes.length>0){
+      const temp = recipes[Math.floor(Math.random() * recipes.length)]
+      recipes = []
+      recipes.push(temp)
+    }
+    
     recipes = recipes.map(recipe =>
-      <div 
-        key={ recipe.id } 
+      <div
+        key={ recipe.id }
         className="cards">
-        <section 
+        <section
           className="recipe-card"
           key={ recipe.id }>
             <Link to={ '/publicrecipes/' + recipe.id }>
               <div className = "image">
                 <img
-                  src={ 
-                    "https://good-meal.s3.amazonaws.com/" 
-                    + (recipe.imageurl?recipe.imageurl:"nofound.png") 
+                  src={
+                    "https://good-meal.s3.amazonaws.com/"
+                    + (recipe.imageurl?recipe.imageurl:"nofound.png")
                   }
                   alt={ recipe.name }>
                 </img>
@@ -138,35 +144,35 @@ export class PublicRecipeProvider extends React.Component {
             className="name">
             { recipe.name }
           </Link>
-          <p 
+          <p
             className="description">
             { recipe.description}
           </p>
-          <p 
+          <p
             style={{
               float:'left',
               fontWeight:'600',
-              marginLeft:'15px', 
-              marginTop: '2em', 
-              color: '#b6282b', 
+              marginLeft:'15px',
+              marginTop: '2em',
+              color: '#b6282b',
               marginBottom:'-10px'
             }}
             className='rating'>
-            { Number(recipe.rating) 
-              ? `Rating: ${recipe.rating}` 
+            { Number(recipe.rating)
+              ? `Rating: ${recipe.rating}`
               : 'Recipe not yet rated'}
           </p>
-          { 
-            TokenService.hasAuthToken() 
+          {
+            TokenService.hasAuthToken()
               && <div className='recipe-buttons'>
                 <button
-                  data-tooltip='Copy to My Recipes' 
-                  className='remove-recipe' 
-                  type='button' 
+                  data-tooltip='Copy to My Recipes'
+                  className='remove-recipe'
+                  type='button'
                   onClick = { e => this.cloneRecipe(recipe.id) }>
-                  <i className="far fa-copy" 
+                  <i className="far fa-copy"
                     style={{
-                      fontSize:'24px', 
+                      fontSize:'24px',
                       marginRight:'10px'
                     }}>
                   </i>
@@ -177,7 +183,8 @@ export class PublicRecipeProvider extends React.Component {
       </div>
     )
     this.setState({
-      publicRecipesJSX: recipes
+      publicRecipesJSX: recipes,
+      selectRandom: selectRandom
     })
   }
 
@@ -193,6 +200,7 @@ export class PublicRecipeProvider extends React.Component {
       recipe: this.state.recipe,
       display: this.state.display,
       publicRecipesJSX: this.state.publicRecipesJSX,
+      selectRandom: this.state.selectRandom,
 
       updateRecipe: this.updateRecipe,
       updateDisplay: this.updateDisplay,
@@ -201,6 +209,7 @@ export class PublicRecipeProvider extends React.Component {
       getInstructionsList: this.getInstructionsList,
       getPublicRecipes: this.getPublicRecipes,
       updatePublicRecipesJSX: this.updatePublicRecipesJSX,
+      setSelectRandom: this.setSelectRandom,
     }
 
     return(
