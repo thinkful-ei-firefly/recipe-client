@@ -80,16 +80,9 @@ class RecipeRoute extends React.Component {
               {publicRecipePage}
             </div>
             <RatingPopups id={recipe.id} />
-            <Sharing recipe={recipe} />
           </div>
         </div>
-        <div className='share'>
-          <span>Share</span>
-          <nav>
-            <button type='button' onClick={e => this.shareFacebook(recipe.id)}><i className='fab fa-facebook-f'></i></button>
-            <button type='button' onClick={e => this.shareTwitter(recipe.id)}><i className='fab fa-twitter'></i></button>
-          </nav>
-        </div>
+        <Sharing recipe={recipe} />
       </div>
 
     )
