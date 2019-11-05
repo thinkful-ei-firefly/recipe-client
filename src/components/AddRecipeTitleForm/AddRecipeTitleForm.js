@@ -1,7 +1,7 @@
 import React from 'react'
 import { Label, Input, Required } from '../Form/Form'
 import Button from '../Button/Button'
-
+import AddRecipeTitle from '../AddRecipeTitle/AddRecipeTitle'
 import RecipeContext from '../../contexts/RecipeContext'
 import './Add.css'
 import '../../Routes/AddRecipe/addRecipe.css'
@@ -16,11 +16,6 @@ class AddRecipeTitleForm extends React.Component {
     e.target.title.value = ''
   }
 
-  handleClick = e => {
-    e.preventDefault()
-    this.context.handleRemoveTitle()
-  }
-
   render() {
     return(
       <form
@@ -33,14 +28,7 @@ class AddRecipeTitleForm extends React.Component {
             Title
           </div>
           {this.context.recipeTitle ?
-            <div className="title">
-            <Button
-              className="edit-button"
-              onClick={ this.handleClick }>
-              -
-            </Button>
-            { this.context.recipeTitle }
-          </div>
+            <AddRecipeTitle />
           :
           <div>
             <div

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Label, Input, Required } from '../Form/Form'
 import Button from '../Button/Button'
+import AddRecipeCuisine from '../AddRecipeCuisine/AddRecipeCuisine'
 
 import RecipeContext from '../../contexts/RecipeContext'
 import '../../Routes/AddRecipe/addRecipe.css'
@@ -15,11 +16,6 @@ class AddRecipeCuisineForm extends React.Component {
     e.target.cuisine.value = ''
   }
 
-  handleClick = e => {
-    e.preventDefault()
-    this.context.handleRemoveCuisine()
-  }
-
   render() {
     return(
       <form
@@ -32,14 +28,7 @@ class AddRecipeCuisineForm extends React.Component {
               Cuisine
           </div>
           {this.context.recipeCuisine ?
-          <div className = "cuisine">
-            <Button
-            className = "edit-button"
-            onClick = { this.handleClick }>
-            -
-            </Button>
-            { this.context.recipeCuisine }
-          </div>
+          <AddRecipeCuisine />
           :
           <div>
             <div className="inner-wrap">

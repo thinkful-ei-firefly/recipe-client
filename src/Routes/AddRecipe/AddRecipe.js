@@ -36,12 +36,12 @@ class AddRecipe extends React.Component {
                 <h1>{this.context.editing?'Edit':'New'} Recipe</h1>
                 <AddRecipeTitleForm />
                 <AddRecipeDescForm />
-                <AddRecipeIngredientForm />
-                <AddRecipeStepForm />
                 <AddRecipeCuisineForm />
                 <AddRecipeTimeForm />
-                <AddRecipePublic />
                 <AddRecipeImage />
+                <AddRecipeIngredientForm />
+                <AddRecipeStepForm />
+                <AddRecipePublic />
 
                 {this.context.error && <div>{this.context.error}</div>}
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Label, Input, Required } from '../Form/Form'
 import Button from '../Button/Button'
-
+import AddRecipeStep from '../AddRecipeStep/AddRecipeStep'
 import RecipeContext from '../../contexts/RecipeContext'
 import '../../Routes/AddRecipe/addRecipe.css'
 
@@ -15,28 +15,7 @@ class AddStepToRecipeForm extends React.Component {
     e.target.step.value = ''
   }
 
-  handleClick = e => {
-    e.preventDefault()
-    this.context.handleRemoveStep(e.target.value)
-  }
-
   render() {
-    const steps = this.context.recipeSteps.map((step, index) => {
-      return(
-        <div
-          className="step"
-          key={ index }>
-          <Button
-            value={ step }
-            className="edit-button"
-            onClick={ this.handleClick }>
-            -
-          </Button>
-        { `${ index + 1 }) ${ step }` }
-        </div>
-        )
-      })
-
     return(
       <form
         className = "addIngredient-form"
@@ -46,9 +25,7 @@ class AddStepToRecipeForm extends React.Component {
             <span>4</span>
             Instructions
           </div>
-          <div className="list-steps">
-            { steps }
-          </div>
+          <AddRecipeStep />
           <div>
             <div className='inner-wrap'>
               <Label
