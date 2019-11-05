@@ -38,3 +38,11 @@
 .recipe-buttons_p .remove-recipe:hover {
   color: #2e2e2e;
 }
+
+.recipe-tabs .numbered {
+  list-style-type: decimal;
+}
+
+.recipe-tabs .bulleted {
+  list-style-type: disc;
+}

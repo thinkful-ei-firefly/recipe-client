@@ -6,7 +6,7 @@ import ListGenerator from '../../components/ListGenerator/ListGenerator'
 import './RecipeSingleRoute.css'
 import { Link } from 'react-router-dom'
 
-class RecipeRoute extends React.Component {
+class RecipeSingleRoute extends React.Component {
 
   state = {
     recipe: null,
@@ -37,9 +37,9 @@ class RecipeRoute extends React.Component {
     if (recipe) {
       description = recipe.description
       if (display==='ingredients') {
-        recipe.ingredients.forEach((item, i) => list.push(<li className='ing-list' key={i}>{item}</li>))
+        recipe.ingredients.forEach((item, i) => list.push(<li className='ing-list bulleted' key={i}>{item}</li>))
       } else if (display==='instructions') {
-        recipe.instructions.forEach((item, i) => list.push(<li className='inst-list' key={i}>{item}</li>))
+        recipe.instructions.forEach((item, i) => list.push(<li className='inst-list numbered' key={i}>{item}</li>))
       }
     }
     return (
@@ -69,7 +69,7 @@ class RecipeRoute extends React.Component {
         </div>
         <div className='tab-panels'>
           <section className='tab-panel'>
-            {display === 'summary' ? description : <ul>{list}</ul>}
+            {display === 'summary' ? description : <ul className='displayed-list'>{list}</ul>}
             </section>
         </div>
       </div>
@@ -79,4 +79,4 @@ class RecipeRoute extends React.Component {
   }
 }
 
-export default RecipeRoute
+export default RecipeSingleRoute

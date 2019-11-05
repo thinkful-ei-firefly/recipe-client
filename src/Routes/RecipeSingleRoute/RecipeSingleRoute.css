@@ -62,6 +62,14 @@ li.inst-list {
   margin-left: -15px;
 }
 
+ul.displayed-list, li.numbered {
+  list-style-type: decimal;
+}
+
+ul.displayed-list, li.bulleted {
+  list-style-type: disc;
+}
+
 .tabset {
   max-width: 300px;
   font-size: 10px;
