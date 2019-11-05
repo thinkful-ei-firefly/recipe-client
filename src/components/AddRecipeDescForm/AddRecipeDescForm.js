@@ -1,5 +1,5 @@
 import React from 'react'
-import { Label, Input, Required } from '../Form/Form'
+import { Label, Required, Textarea } from '../Form/Form'
 import Button from '../Button/Button'
 
 import RecipeContext from '../../contexts/RecipeContext'
@@ -47,14 +47,13 @@ class AddRecipeDescForm extends React.Component {
                 htmlFor = "recipe-desc">
                 Description: <Required />
               </Label>
-              <Input
+              <Textarea
                 placeholder = 'ex. "This recipe is..."'
-                className='input'
+                className='textarea'
                 name = "desc"
                 id = "recipe-desc"
-                type = "text"
                 required>
-              </Input>
+              </Textarea>
             </div>
             <Button className='add'
               type = "Submit">
