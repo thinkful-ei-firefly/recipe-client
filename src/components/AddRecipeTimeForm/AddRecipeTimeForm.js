@@ -1,7 +1,7 @@
 import React from 'react'
 import { Label, Input, Required } from '../Form/Form'
 import Button from '../Button/Button'
-
+import AddRecipeTime from '../AddRecipeTime/AddRecipeTime'
 import RecipeContext from '../../contexts/RecipeContext'
 import '../../Routes/AddRecipe/addRecipe.css'
 
@@ -11,11 +11,6 @@ class AddRecipeTimeForm extends React.Component {
 
   state = {
     error: null
-  }
-
-  handleClick = e => {
-    e.preventDefault()
-    this.context.handleRemoveTime()
   }
 
   handleSubmit = e => {
@@ -38,15 +33,8 @@ class AddRecipeTimeForm extends React.Component {
             <span>6</span>
             Cooking Time
           </div>
-          {this.context.recipeTime ? 
-          <div className="time">
-            <Button
-              className="edit-button"
-              onClick={ this.handleClick }>
-              -
-            </Button>
-            { this.context.recipeTime }
-          </div>
+          {this.context.recipeTime ?
+          <AddRecipeTime />
           :
           <div>
             <div

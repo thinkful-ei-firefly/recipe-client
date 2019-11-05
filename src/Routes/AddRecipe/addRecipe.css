@@ -59,7 +59,8 @@
 }
 
 .addRecipe input[type="text"],
-.addRecipe input[type="number"] {
+.addRecipe input[type="number"],
+.addRecipe textarea {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -67,6 +68,10 @@
   border-radius: 6px;
   border: 2px solid #fff;
   box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+}
+
+.addRecipe textarea {
+  font-size: 20px
 }
 
 .addRecipe .submit_button {

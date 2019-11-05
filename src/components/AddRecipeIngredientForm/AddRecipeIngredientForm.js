@@ -1,7 +1,7 @@
 import React from 'react'
 import { Label, Input, Required } from '../Form/Form'
 import Button from '../Button/Button'
-
+import AddRecipeIngredient from '../AddRecipeIngredient/AddRecipeIngredient'
 import RecipeContext from '../../contexts/RecipeContext'
 import '../../Routes/AddRecipe/addRecipe.css'
 class AddRecipeIngredientForm extends React.Component {
@@ -11,11 +11,6 @@ class AddRecipeIngredientForm extends React.Component {
   state = {
     amountError: null,
     measurementError: null
-  }
-
-  handleClick = e => {
-    e.preventDefault()
-    this.context.handleRemoveIngredient(e.target.value)
   }
 
   handleSubmit = e => {
@@ -112,21 +107,6 @@ class AddRecipeIngredientForm extends React.Component {
   measurements = ['tsp', 'Tbs', 'cup']
 
   render() {
-    const ingredients = this.context.recipeIngredients
-      .map((ingredient, index) => {
-        return(
-          <div className = "ingredient" key={ index }>
-            <Button
-              value = { ingredient }
-              className = "edit-button"
-              onClick = { this.handleClick }>
-              -
-            </Button>
-            { ingredient }
-          </div>
-          )
-        })
-
     return(
       <form
         className = "addIngredient-form"
@@ -136,9 +116,7 @@ class AddRecipeIngredientForm extends React.Component {
             <span>3</span>
             Ingredients
           </div>
-          <div className = "list-ingredients">
-            { ingredients }
-          </div>
+          <AddRecipeIngredient />
           <div>
             { this.state.amountError }
             <div className='inner-wrap'>
