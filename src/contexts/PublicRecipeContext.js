@@ -67,7 +67,7 @@ export class PublicRecipeProvider extends React.Component {
   getIngredientsList = () => {
     return this.state.recipe.ingredients
       .map((item, index) =>
-        <li
+        <li className='bulleted'
           key={ index }
           itemProp="recipeIngredient">
           { item }
@@ -79,6 +79,7 @@ export class PublicRecipeProvider extends React.Component {
     return this.state.recipe.instructions
       .map((step, index) =>
         <li
+          className='numbered'
           key = { index }>
           { step }
         </li>
