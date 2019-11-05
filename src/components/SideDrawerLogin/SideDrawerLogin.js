@@ -16,7 +16,7 @@ class SideDrawerLogin extends React.Component {
               className="menu"
               onClick={ this.context.handleCloseSideDrawer }>
               <i className="fas fa-home">
-                <span>Home</span>
+                <span>{ ' Home' }</span>
               </i>
             </Link>
           </li>
@@ -26,7 +26,7 @@ class SideDrawerLogin extends React.Component {
               className="menu"
               onClick={ this.context.handleCloseSideDrawer }>
               <i className="fas fa-sign-in-alt">
-                <span>LogIn</span>
+                <span>{ ' LogIn' }</span>
               </i>
             </Link>
           </li>
@@ -36,7 +36,7 @@ class SideDrawerLogin extends React.Component {
               className="menu"
               onClick={ this.context.handleCloseSideDrawer }>
               <i className="fas fa-registered">
-                <span>Register</span>
+                <span>{ ' Register' }</span>
               </i>
             </Link>
           </li>
@@ -46,7 +46,7 @@ class SideDrawerLogin extends React.Component {
               className="menu"
               onClick={ this.context.handleCloseSideDrawer }>
               <i className="fas fa-utensil-spoon">
-                <span>All Recipes</span>
+                <span>{ ' All Recipes' }</span>
               </i>
             </Link>
           </li>
