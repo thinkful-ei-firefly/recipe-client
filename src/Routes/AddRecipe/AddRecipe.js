@@ -1,17 +1,11 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import AddRecipeTitleForm from '../../components/AddRecipeTitleForm/AddRecipeTitleForm'
-import AddRecipeTitle from '../../components/AddRecipeTitle/AddRecipeTitle'
 import AddRecipeDescForm from '../../components/AddRecipeDescForm/AddRecipeDescForm'
-import AddRecipeDesc from '../../components/AddRecipeDesc/AddRecipeDesc'
 import AddRecipeIngredientForm from '../../components/AddRecipeIngredientForm/AddRecipeIngredientForm'
-import AddRecipeIngredient from '../../components/AddRecipeIngredient/AddRecipeIngredient'
 import AddRecipeStepForm from '../../components/AddRecipeStepForm/AddRecipeStepForm'
-import AddRecipeStep from '../../components/AddRecipeStep/AddRecipeStep'
 import AddRecipeTimeForm from '../../components/AddRecipeTimeForm/AddRecipeTimeForm'
-import AddRecipeTime from '../../components/AddRecipeTime/AddRecipeTime'
 import AddRecipeCuisineForm from '../../components/AddRecipeCuisineForm/AddRecipeCuisineForm'
-import AddRecipeCuisine from '../../components/AddRecipeCuisine/AddRecipeCuisine'
 import AddRecipeImage from '../../components/AddRecipeImage/AddRecipeImage'
 import AddRecipePublic from '../../components/AddRecipePublic/AddRecipePublic'
 import Button from '../../components/Button/Button'
@@ -40,39 +34,13 @@ class AddRecipe extends React.Component {
             <section className = "addRecipe">
 
                 <h1>{this.context.editing?'Edit':'New'} Recipe</h1>
-
-                {
-                    this.context.recipeTitle
-                        ? <AddRecipeTitle />
-                        : <AddRecipeTitleForm />
-                }
-
-                {
-                    this.context.recipeDesc
-                        ? <AddRecipeDesc />
-                        : <AddRecipeDescForm />
-                }
-
-                <AddRecipeIngredient />
+                <AddRecipeTitleForm />
+                <AddRecipeDescForm />
                 <AddRecipeIngredientForm />
-
-                <AddRecipeStep />
                 <AddRecipeStepForm />
-
-                {
-                    this.context.recipeCuisine
-                        ? <AddRecipeCuisine />
-                        : <AddRecipeCuisineForm />
-                }
-
-                {
-                    this.context.recipeTime
-                        ? <AddRecipeTime />
-                        : <AddRecipeTimeForm />
-                }
-
+                <AddRecipeCuisineForm />
+                <AddRecipeTimeForm />
                 <AddRecipePublic />
-
                 <AddRecipeImage />
 
                 {this.context.error && <div>{this.context.error}</div>}
