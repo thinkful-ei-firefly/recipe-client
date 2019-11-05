@@ -32,7 +32,7 @@ class RegisterRoute extends React.Component {
       return(
         <div className='login_page'>
           <section className = "login">
-              <h2>SIGN UP</h2>
+              <h2>REGISTER</h2>
               <p>Connect with</p>
               <div className="signIn-button">
                 <SignInWithGoogle />
