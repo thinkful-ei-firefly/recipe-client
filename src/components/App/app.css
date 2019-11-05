@@ -1,0 +1,23 @@
+
+html, body, .root {
+    height: 100%;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space between;
+}
+
+.main {
+    flex: 1 0 auto;
+}
+
+.app-spacer {
+    flex: 1;
+}
+
+.footer {
+    flex-shrink: 0;
+}
+

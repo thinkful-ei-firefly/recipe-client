@@ -1,4 +1,7 @@
 # Good Meal Client
+
+<img src="./src/images/background1.png" alt="Good Meal" width="auto">
+
 Good Meal is your digital recipe card index file, where users can create and share private and public recipes, store shopping lists, lists of items already in their pantry and create shopping lists from the recipes they have.
 
 Live app: https://good-meal-client.herokuapp.com/

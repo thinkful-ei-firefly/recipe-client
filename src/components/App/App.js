@@ -1,6 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import './app.css'
+
 //import routes
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../../components/PublicOnlyRoute/PublicOnlyRoute'
@@ -109,7 +111,11 @@ class App extends React.Component {
             />
           </Switch>
         </main>
+
+        <div className="app-spacer"></div>
+        
         <Footer/>
+      
       </div>
     )
   }
