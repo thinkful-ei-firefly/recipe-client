@@ -150,7 +150,7 @@ export class PublicRecipeProvider extends React.Component {
           </p>
           <p
             style={{
-              float:'left',
+              
               fontWeight:'600',
               marginLeft:'15px', 
               marginTop: '2em', 
@@ -164,7 +164,7 @@ export class PublicRecipeProvider extends React.Component {
           </p>
           {
             TokenService.hasAuthToken()
-              && <div className='recipe-buttons'>
+              && <div className='recipe-buttons_p'>
                 <button
                   data-tooltip='Copy to My Recipes'
                   className='remove-recipe'
@@ -172,8 +172,8 @@ export class PublicRecipeProvider extends React.Component {
                   onClick = { e => this.cloneRecipe(recipe.id) }>
                   <i className="far fa-copy"
                     style={{
-                      fontSize:'24px', 
-                      marginRight:'15px',
+                      textAlign:'end',
+                      fontSize:'24px',
                     }}>
                   </i>
                 </button>
