@@ -68,8 +68,17 @@ form.example::after {
   color: #2e2e2e;
 }
 
+.recipe-buttons_p {
+  margin-top: -45px;
+  float: right;
+  margin-bottom: 5px;
+}
+
 .recipe-buttons {
-  margin-top: 30px;
+  margin-top: 10px;
+  float: right;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 .recipe-buttons .edit-recipe {
@@ -100,6 +109,7 @@ form.example::after {
 
 .cards {
   width: 100%;
+  min-width: 300px;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -116,7 +126,7 @@ form.example::after {
   width: 100%;
   max-width: 500px;
   height: auto;
-  text-align: end;
+  text-align: start;
   border-radius: 5px;
   box-shadow: 0px 0px 5px;
   margin-bottom: 50px;
@@ -133,20 +143,31 @@ form.example::after {
 }
 
 .recipe-card .name {
+  display: block;
+  max-width: 297px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   font-size: 25px;
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
-  padding-right: 15px;
+  padding-left: 15px;
   color: #2e2e2e;
 }
 
 .recipe-card p.description {
+  display: block;
+  width: 297px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   font-size: 15px;
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
   padding-right: 15px;
   color: #2e2e2e;
   margin-bottom: -16px;
+  padding-left: 15px;
 }
 
 .recipe-card .name:hover {

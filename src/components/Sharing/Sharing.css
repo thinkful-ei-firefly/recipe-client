@@ -1,4 +1,128 @@
-.share {
+.share_icon {
+  opacity: 0;
+  font-size: 30px;
+  color: #01e00c;
+  will-change: transform;
+  -webkit-transform: scale(0.1);
+  transform: scale(0.1);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.share_button {
+  background-color: #fff;
+  border: none;
+}
+
+.share_icon:hover {
+  font-size: 40px;
+}
+
+.fa-facebook-f:hover {
+  color: #3b5998;
+}
+
+.fa-twitter:hover {
+  color: #6699ff;
+}
+
+.fa-envelope:hover {
+  color: black;
+}
+
+.btn_wrap {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
   margin-top: 20px;
+  box-shadow: 5px 5px 5px;
+  width: 200px;
+  height: 52px;
+  background-color: #fff;
+  border-radius: 80px;
+  padding: 0 18px;
+  will-change: transform;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn_wrap:hover {
+  /* transition-delay: .4s; */
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.btn_wrap span {
+  position: absolute;
+  z-index: 99;
+  width: 200px;
+  height: 72px;
+  border-radius: 80px;
+  font-size: 24px;
+  text-align: center;
+  line-height: 70px;
+  letter-spacing: 2px;
+  color: black;
+  background-color: #01e00c;
+  padding: 0 18px;
+  -webkit-transition: all 1.2s ease;
+  transition: all 1.2s ease;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 240px;
+  height: 64px;
+  border-radius: 80px;
+}
+
+.container i:nth-of-type(1) {
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+
+.container i:nth-of-type(2) {
+  -webkit-transition-delay: 0.9s;
+  transition-delay: 0.9s;
+}
+
+.container i:nth-of-type(3) {
+  -webkit-transition-delay: 0.7s;
+  transition-delay: 0.7s;
+}
+
+.container i:nth-of-type(4) {
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+
+.btn_wrap:hover span {
+  -webkit-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+  -webkit-transform: translateX(-280px);
+  transform: translateX(-280px);
+}
+
+.btn_wrap:hover i {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }

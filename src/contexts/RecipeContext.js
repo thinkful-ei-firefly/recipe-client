@@ -189,8 +189,15 @@ export class RecipeProvider extends React.Component {
     this.setState({ recipeIngredients })
   }
 
+
+  convertString = (string) => {
+    let newString = string.toString().split(',').join('&#44;')
+    return newString
+    }
+
   handleAddRecipeStep = step => {
     const recipeSteps = this.state.recipeSteps
+    this.convertString(recipeSteps)
     recipeSteps.push(step)
     this.setState({
       recipeSteps

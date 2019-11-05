@@ -29,13 +29,13 @@ class Sharing extends React.Component {
   render() {
     const recipe = this.props.recipe
     return (
-      <div className='share'>
-      <span>Share</span>
-          <nav>
-            <button type='button' onClick={e => this.shareFacebook(recipe.id)}>Share on Facebook</button>
-            <button type='button' onClick={e => this.shareTwitter(recipe.id)}>Share on Twitter</button>
-            <button type='button' onClick={e => this.shareMail(e, recipe.id, recipe.name)}>Share by email</button>
-        </nav>
+      <div className='btn_wrap'>
+        <span>Share <i class="fas fa-share-alt"></i></span>
+        <div className='container'>
+          <button className='share_button' type='button' onClick={e => this.shareFacebook(recipe.id)}><i className="share_icon fab fa-facebook-f"></i></button>
+          <button className='share_button' type='button' onClick={e => this.shareTwitter(recipe.id)}><i className="share_icon fab fa-twitter"></i></button>
+          <button className='share_button' type='button' onClick={e => this.shareMail(e, recipe.id, recipe.name)}><i className="share_icon far fa-envelope"></i></button>     
+        </div>
       </div>
     )
   }

@@ -67,7 +67,7 @@ export class PublicRecipeProvider extends React.Component {
   getIngredientsList = () => {
     return this.state.recipe.ingredients
       .map((item, index) =>
-        <li
+        <li className='bulleted'
           key={ index }
           itemProp="recipeIngredient">
           { item }
@@ -79,6 +79,7 @@ export class PublicRecipeProvider extends React.Component {
     return this.state.recipe.instructions
       .map((step, index) =>
         <li
+          className='numbered'
           key = { index }>
           { step }
         </li>
@@ -150,7 +151,7 @@ export class PublicRecipeProvider extends React.Component {
           </p>
           <p
             style={{
-              float:'left',
+              
               fontWeight:'600',
               marginLeft:'15px', 
               marginTop: '2em', 
@@ -164,7 +165,7 @@ export class PublicRecipeProvider extends React.Component {
           </p>
           {
             TokenService.hasAuthToken()
-              && <div className='recipe-buttons'>
+              && <div className='recipe-buttons_p'>
                 <button
                   data-tooltip='Copy to My Recipes'
                   className='remove-recipe'
@@ -172,8 +173,8 @@ export class PublicRecipeProvider extends React.Component {
                   onClick = { e => this.cloneRecipe(recipe.id) }>
                   <i className="far fa-copy"
                     style={{
-                      fontSize:'24px', 
-                      marginRight:'15px',
+                      textAlign:'end',
+                      fontSize:'24px',
                     }}>
                   </i>
                 </button>
