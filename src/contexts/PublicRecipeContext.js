@@ -149,7 +149,7 @@ export class PublicRecipeProvider extends React.Component {
               marginLeft:'15px', 
               marginTop: '2em', 
               color: '#b6282b', 
-              marginBottom:'-10px'
+              marginBottom:'10px'
             }}
             className='rating'>
             { Number(recipe.rating) 
@@ -167,7 +167,7 @@ export class PublicRecipeProvider extends React.Component {
                   <i className="far fa-copy" 
                     style={{
                       fontSize:'24px', 
-                      marginRight:'10px'
+                      marginRight:'15px',
                     }}>
                   </i>
                 </button>

@@ -10,21 +10,24 @@
   text-align: center;
 }
 
-.foot{
+.foot {
   margin: 10px;
   font-size: 20px;
 }
-.foot:link{
+.foot:link {
   color: #fff;
 }
-.foot:visited{
+.foot:visited {
   color: #fff;
 }
-.foot:hover{
+.foot:hover {
   color: lightgreen;
 }
 
-.foot > i{
+.foot > i {
   padding: 15px;
 }
 
+.footer p {
+  color: #fff;
+}
