@@ -153,7 +153,7 @@ export class PublicRecipeProvider extends React.Component {
             }}
             className='rating'>
             { Number(recipe.rating) 
-              ? `Rating: ${recipe.rating}` 
+              ? `Rating: ${Math.round(recipe.rating * 10)/10}` 
               : 'Recipe not yet rated'}
           </p>
           { 
