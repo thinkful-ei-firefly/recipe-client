@@ -125,7 +125,8 @@ export class RecipeProvider extends React.Component {
   setRecipeList = (recipeList) => {
     this.setState({
       recipeList,
-      saved: false
+      saved: false,
+      selectRandom: false
     })
   }
 
@@ -146,8 +147,14 @@ export class RecipeProvider extends React.Component {
       .catch(this.setError)
   }
 
+  setSelectRandom = () => {
+    this.setState({
+      selectRandom: !this.state.selectRandom
+    })
+  }
+
   setFilter = (filterBy) => {
-    this.setState({ filterBy })
+    this.setState({ filterBy, selectRandom: false })
   }
 
   handleAddTitle = recipeTitle => {
@@ -288,7 +295,7 @@ export class RecipeProvider extends React.Component {
     searchMyRecipes = (e) => {
       e.preventDefault()
       const searchBy = e.target['recipe-search'].value.trim();
-      this.setState({ searchBy })
+      this.setState({ searchBy, selectRandom:false })
     }
 
     searchRecipesBy = (recipeList, term) => {
@@ -328,6 +335,7 @@ export class RecipeProvider extends React.Component {
             saved: this.state.saved,
             editing: this.state.editing,
             redirect: this.state.redirect,
+            selectRandom: this.state.selectRandom,
 
             setRecipeList: this.setRecipeList,
             removeRecipe: this.removeRecipe,
@@ -358,6 +366,7 @@ export class RecipeProvider extends React.Component {
             loadRecipe: this.loadRecipe,
             clearRecipe: this.clearRecipe,
             searchMyRecipes: this.searchMyRecipes,
+            setSelectRandom: this.setSelectRandom,
             setUser: () => {},
         }
 

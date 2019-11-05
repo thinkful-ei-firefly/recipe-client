@@ -5,7 +5,6 @@ import background from '../../images/background1.png'
 import RecipeContext from '../../contexts/RecipeContext'
 import Dashboard from '../../components/Dashboard/Dashboard'
 import TokenService from '../../services/token-service'
-import SearchPublicRecipe from '../../components/SearchPublicRecipes/SearchPublicRecipes'
 
 import './homeRoute.css'
 
@@ -39,11 +38,20 @@ class HomeRoute extends React.Component {
               </section>
               
               {
-                loggedIn ? <Dashboard /> :
-                <div className='buttons'>
-                  <Link to="/login" className="log-button">Log In</Link>
-                  <Link to="/register"className="reg-button">Register</Link> 
-                </div>
+                loggedIn 
+                  ? <Dashboard /> 
+                  : <div className='buttons'>
+                    <Link 
+                      to="/login" 
+                      className="log-button">
+                      Log In
+                    </Link>
+                    <Link 
+                      to="/register"
+                      className="reg-button">
+                      Register
+                    </Link> 
+                  </div>
               }
 
             </div>

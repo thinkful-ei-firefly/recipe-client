@@ -8,10 +8,17 @@ import '../../Routes/AddRecipe/addRecipe.css'
 class AddRecipeTimeForm extends React.Component {
   
   static contextType = RecipeContext
+
+  state = {
+    error: null
+  }
   
   handleSubmit = e => {
     e.preventDefault()
-    this.context.handleAddTime(e.target.time.value)
+    const time = e.target.time.value
+    if (time < 0) return this.setState({ error: 'Cook time cannot be negative'})
+    this.setState({ error: null})
+    this.context.handleAddTime(time)
     e.target.time.value = ''
   }
   
@@ -28,6 +35,7 @@ class AddRecipeTimeForm extends React.Component {
           </div>
           <div 
             className="inner-wrap">
+            <p>{this.state.error}</p>
             <Label
               htmlFor="recipe-time">
               Time (in minutes): <Required />

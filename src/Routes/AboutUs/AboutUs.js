@@ -19,9 +19,9 @@ class aboutUs extends React.Component{
         </div>
         <hr/>
         <div className="right">
-        <a className="lin" href=""><h2><img className="icon" alt="linkedin" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"/>Richard Gates</h2></a>
+        <a className="lin" href="https://www.linkedin.com/in/gatesrichard/"><h2>Richard Gates<img className="icon" alt="linkedin" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"/></h2></a>
           <p>What you contributed</p>
-          <a href="" className="link"><button className="portfolio">See More Work Here</button></a>
+          <a href="https://richarjgates-portfolio.now.sh/" className="link"><button className="portfolio">See More Work Here</button></a>
         </div>
         <hr/>
         <div className="left">

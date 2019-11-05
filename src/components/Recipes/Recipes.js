@@ -4,6 +4,7 @@ import RecipeItem from '../RecipeItem/RecipeItem'
 import { Link } from 'react-router-dom'
 
 import IngredientsMatcher from '../IngredientsMatcher/IngredientsMatcher'
+import RandomRecipe from '../RandomRecipe/RandomRecipe'
 
 import './Recipes.css'
 
@@ -34,6 +35,12 @@ class Recipes extends React.Component {
       )
     }
 
+    if (this.context.selectRandom && recipeList.length>0){
+      const temp = recipeList[Math.floor(Math.random() * recipeList.length)]
+      recipeList = []
+      recipeList.push(temp)
+    }
+
     const recipes = recipeList
         .map(recipe =>
             { return <RecipeItem key={recipe.id} recipe={recipe}/> }
@@ -41,7 +48,7 @@ class Recipes extends React.Component {
 
     return(
       <section>
-        
+
         <div className='search-bar'>
           <h1 className='my-recipe'>My Recipes</h1>
             <form onSubmit={this.context.searchMyRecipes} className = "search">
@@ -51,19 +58,20 @@ class Recipes extends React.Component {
                     placeholder='Search...'
                     name='search'>
               </input>
-              <button 
-                className='search_button' 
+              <button
+                className='search_button'
                 type='submit'>
                 <i className="fa fa-search"></i>
               </button>
-            </form> 
+            </form>
 
           <IngredientsMatcher />
+          <RandomRecipe />
         </div>
 
         <br/>
 
-        <form> 
+        <form>
           <div className='add_new'>
             <h3>Add New Recipe
               &nbsp;
@@ -77,7 +85,7 @@ class Recipes extends React.Component {
         </form>
 
         { recipes }
-        
+
       </section>
     )
   }
