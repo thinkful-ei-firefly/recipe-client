@@ -2,13 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 
-import RecipeRoute from '../Routes/RecipeSingleRoute/RecipeSingleRoute'
+import RecipeSingleRoute from '../Routes/RecipeSingleRoute/RecipeSingleRoute'
 
 it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(
         <BrowserRouter>
-            <RecipeRoute />
+            <RecipeSingleRoute />
         </BrowserRouter>
     , div)
     ReactDOM.unmountComponentAtNode(div)
