@@ -22,8 +22,7 @@ form.search input[type="text"] {
   font-size: 17px;
   border: 1px solid grey;
   float: left;
-  width: 90%;
-  max-width: 300px;
+  width: 250px;
   background: #f1f1f1;
   margin-bottom: 30px;
 }
@@ -35,7 +34,7 @@ section .search {
 form.search button {
   float: left;
   width: 50px;
-  height: 42px;
+  height: 43.09px;
   padding: 10px;
   background: #01e00c;
   color: white;

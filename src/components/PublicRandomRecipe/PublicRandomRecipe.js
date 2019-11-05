@@ -12,8 +12,8 @@ class PublicRandomRecipe extends React.Component {
 
     render() {
         return(
-            <div className='IngredientsMatcher'>
-              <button className='find-recipes' onClick={this.handleRandomRecipe}>{this.context.selectRandom?'Show all recipes':'Get random recipe'}</button>
+            <div style={ {display:'flex', justifyContent:'center', alignItems:'center'} }className='IngredientsMatcher'>
+              <button className='find-recipes' onClick={this.handleRandomRecipe}>{this.context.selectRandom?'Show all recipes':'Get Random Recipe'}</button>
             </div>
         )
     }
