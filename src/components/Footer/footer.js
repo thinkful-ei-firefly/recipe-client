@@ -5,18 +5,22 @@ import "./footer.css";
 class Footer extends React.Component {
   render() {
     return(
-      <section className="footer">
-        <Link to="/about" className="foot">
+      <footer className="footer">
+        <Link 
+          to="/about" 
+          className="foot">
           <i className="fas">
             <span>About The Makers</span>
           </i>
         </Link>
-        <Link to="/"className="foot">
+        <Link 
+          to="/" 
+          className="foot">
           <i className="fas fa-home">
             <span>Home</span>
           </i>
         </Link>
-      </section>
+      </footer>
     );
   }
 }
