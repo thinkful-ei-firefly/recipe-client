@@ -47,13 +47,14 @@ form.LoginForm h2 {
   width: 70%;
   margin: 30px auto;
 }
+
 .divider span {
   width: 30px;
   height: 20px;
   background: #fff;
   position: absolute;
   left: 50%;
-  margin-left: -10px;
+  margin-left: -16px;
   top: -12px;
   text-align: center;
   color: #999;
