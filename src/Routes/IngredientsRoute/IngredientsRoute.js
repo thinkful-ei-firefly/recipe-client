@@ -69,7 +69,7 @@ class IngredientsRoute extends React.Component {
     ingredientList.forEach(item => {
       let listItem = `${item.amount} ${item.unit} of ${item.name}`
       listElements.push(<li className="pantry-item" key={item.id}><button className="del-item" onClick={() => this.deleteIngredient(item.id)}><i className="fas fa-times"></i></button><div>{listItem}</div></li>)
-      listElements.push(<hr/>)
+      listElements.push(<hr key={item.id*100}/>)
     })
     }
     return (
