@@ -6,47 +6,65 @@ import RecipeContext from '../../contexts/RecipeContext'
 import '../../Routes/AddRecipe/addRecipe.css'
 
 class AddRecipeDescForm extends React.Component {
-  
+
   static contextType = RecipeContext
-  
+
   handleSubmit = e => {
-    e.preventDefault() 
+    e.preventDefault()
     this.context.handleAddDesc(e.target.desc.value)
     e.target.desc.value = ''
   }
+
+  handleClick = e => {
+    e.preventDefault()
+    this.context.handleRemoveDesc()
+  }
+
   render() {
     return(
       <form
         className = "addIngredient-form"
         onSubmit = { this.handleSubmit }>
         <div className = "description">
-          <div 
+          <div
             className='section'>
             <span>2</span>
             Description
           </div>
-          <div className='inner-wrap'>
-            <Label
-              htmlFor = "recipe-desc">
-              Description: <Required />
-            </Label>
-            <Input 
-              placeholder = 'ex. "This recipe is..."'
-              className='input'
-              name = "desc"
-              id = "recipe-desc"
-              type = "text"
-              required>
-            </Input>
+          { this.context.recipeDesc ?
+          <div className = "description">
+            <Button
+              className = "edit-button"
+              onClick = { this.handleClick }>
+              -
+            </Button>
+            { this.context.recipeDesc }
           </div>
-          <Button className='add'
-            type = "Submit">
-            +
-          </Button>
+          :
+          <div>
+            <div className='inner-wrap'>
+              <Label
+                htmlFor = "recipe-desc">
+                Description: <Required />
+              </Label>
+              <Input
+                placeholder = 'ex. "This recipe is..."'
+                className='input'
+                name = "desc"
+                id = "recipe-desc"
+                type = "text"
+                required>
+              </Input>
+            </div>
+            <Button className='add'
+              type = "Submit">
+              +
+            </Button>
+          </div> }
         </div>
       </form>
     )
   }
 }
-  
+
 export default AddRecipeDescForm
