@@ -84,9 +84,10 @@ class IngredientsRoute extends React.Component {
           { listElements }
         </ul>
         </section>
+        {adding ? <IngedientsAdderForm handleSubmit={this.addIngredient} cancelSubmit={this.cancelSubmit}/> : ''}
         <div className='pantry-buttons'>
         { adding
-          ? <IngedientsAdderForm handleSubmit={this.addIngredient} cancelSubmit={this.cancelSubmit}/>
+          ? ''
           : <button className="new-pantry" onClick={this.openForm}><i className="far fa-plus-square"><span>&nbsp;Add Item</span></i></button>}
         { (ingredientList && ingredientList.length)
           ? <button className="delete-pantry" onClick={this.deleteAllIngredients}><i className="far fa-trash-alt"><span>&nbsp;Delete List</span></i></button>
