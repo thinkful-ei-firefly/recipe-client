@@ -1,9 +1,8 @@
 import React from 'react';
 import ShoppingListContext from '../../contexts/ShoppingListContext'
-import ShoppingListItem from './ShoppingListItem'
+import ShoppingListItem from '../ShoppingListItem/ShoppingListItem'
 
 import logo from '../../images/logo.png'
-import './ShoppingList.css'
 
 class ShoppingList extends React.Component {
   
@@ -20,16 +19,17 @@ class ShoppingList extends React.Component {
     })
 
       return(
-        <div className='shop-list'>
-          <section className="shop-list-page">
-            <div className='title'>
-              <h1>Shopping List</h1>
-              <img src={logo} alt='logo'></img>
-              </div>
-              <div>
-                { recipes }
-              </div>
-          </section>
+        <div className="shop-list">
+
+          <div className="title">
+            <h1>Shopping List</h1>
+            <img src={ logo } alt="logo"></img>
+          </div>
+
+          <div className="shopping-list-items">
+            { recipes }
+          </div>
+
         </div>
       )
   }

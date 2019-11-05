@@ -3,8 +3,6 @@ import ShoppingListContext from '../../contexts/ShoppingListContext'
 
 import GoodmealApiService from '../../services/goodmeal-api-service'
 
-import './ShoppingList.css'
-
 class RecipeItem extends React.Component {
   static contextType = ShoppingListContext
 
@@ -32,7 +30,7 @@ class RecipeItem extends React.Component {
 
     return(
       <section>
-        <div className='item'>
+        <div className='shopping-item'>
           <button 
             className='check-buttons' 
             onClick={ this.crossUncross }>
