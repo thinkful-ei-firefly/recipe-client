@@ -6,7 +6,7 @@ import ListGenerator from '../../components/ListGenerator/ListGenerator'
 import './RecipeSingleRoute.css'
 import { Link } from 'react-router-dom'
 
-class RecipeRoute extends React.Component {
+class RecipeSingleRoute extends React.Component {
 
   state = {
     recipe: null,
@@ -79,4 +79,4 @@ class RecipeRoute extends React.Component {
   }
 }
 
-export default RecipeRoute
+export default RecipeSingleRoute
