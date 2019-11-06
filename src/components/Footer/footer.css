@@ -1,4 +1,7 @@
 .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   background: black;
   height: 56px;
@@ -24,8 +27,13 @@
   padding: 15px;
 }
 
-.footer p {
+div.foot {
   color: #fff;
+}
+
+.vl {
+  border-left: 1px solid #fff;
+  height: 30px;
 }
 
 @media (min-width: 700px) {

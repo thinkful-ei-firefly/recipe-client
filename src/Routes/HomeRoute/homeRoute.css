@@ -2,7 +2,10 @@
   font-family: "Montserrat", sans-serif;
 }
 
-img.back-image, .wrapper, .home, .landing {
+img.back-image,
+.wrapper,
+.home,
+.landing {
   width: 100%;
 }
 
@@ -64,21 +67,21 @@ section.home {
   align-items: center;
   flex-direction: column;
   margin-bottom: 1em;
-  color: #f21323;
+  color: #fff;
   text-transform: uppercase;
-  background: #ffffff;
+  background: #b72327;
   padding: 0.35em 0.75em;
-  border: 2px solid #f21323;
+  border: 2px solid #b72327;
   border-radius: 6px;
   transition: all 0.3s ease 0s;
-  width: 150px;
+  width: 200px;
 }
 
 .log-button:hover,
 .reg-button:hover {
-  color: #000000;
-  border-radius: 50px;
-  border-color: #000000;
+  color: #b72327;
+  background-color: #fff;
+  border-color: #b72327;
   transition: all 0.3s ease 0s;
 }
 

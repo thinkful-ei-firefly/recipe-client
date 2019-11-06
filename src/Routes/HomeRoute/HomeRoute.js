@@ -44,12 +44,12 @@ class HomeRoute extends React.Component {
                     <Link 
                       to="/login" 
                       className="log-button">
-                      Log In
+                      LOGIN
                     </Link>
                     <Link 
                       to="/register"
                       className="reg-button">
-                      Register
+                      REGISTER
                     </Link> 
                   </div>
               }

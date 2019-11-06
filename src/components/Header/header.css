@@ -17,15 +17,6 @@
   padding: 0 1rem 0 1rem;
 }
 
-.head_logo {
-  width: 50px;
-  height: 50px;
-}
-
-.toggle-button {
-  display: flex;
-}
-
 .logo {
   margin-left: 1rem;
 }
@@ -61,13 +52,13 @@
   color: lightgreen;
 }
 
-@media (max-width: 730px) {
+@media (max-width: 715px) {
   .navigation-items {
     display: none;
   }
 }
 
-@media (min-width: 731px) {
+@media (min-width: 716px) {
   .toggle-button {
     display: none;
   }

@@ -28,7 +28,7 @@
   margin: 8px;
 }
 
-.login input[type="text"], 
+.login input[type="text"],
 .login input[type="password"] {
   font-size: 20px;
 }
@@ -38,9 +38,9 @@
   margin: 25px 0 20px 0;
   color: #fff;
   text-transform: uppercase;
-  background: red;
+  background: #b72327;
   padding: 10px 10px;
-  border: 2px solid #f21323;
+  border: 2px solid #b72327;
   border-radius: 4px;
   letter-spacing: 3px;
   transition: all 0.3s ease 0s;
@@ -53,8 +53,8 @@
 
 .sub:hover {
   background: #fff;
-  color: red;
-  border-color: red;
+  color: #b72327;
+  border-color: #b72327;
   transition: all 0.3s ease 0s;
 }
 
