@@ -14,7 +14,7 @@ class Footer extends React.Component {
           </i>
         </Link>
         <div className='vl'></div>
-        <div className="foot"><i class="far fa-copyright"><span>2019 GoodMeal</span></i></div>
+        <div className="foot"><i className="far fa-copyright"><span>2019 GoodMeal</span></i></div>
       </footer>
     );
   }
