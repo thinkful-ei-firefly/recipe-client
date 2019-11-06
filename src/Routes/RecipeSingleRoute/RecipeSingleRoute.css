@@ -62,11 +62,13 @@ li.inst-list {
   margin-left: -15px;
 }
 
-ul.displayed-list, li.numbered {
+ul.displayed-list,
+li.numbered {
   list-style-type: decimal;
 }
 
-ul.displayed-list, li.bulleted {
+ul.displayed-list,
+li.bulleted {
   list-style-type: disc;
 }
 
@@ -151,5 +153,9 @@ ul.displayed-list, li.bulleted {
 
   .tabset {
     font-size: 16px;
+  }
+
+  .single-recipe {
+    margin-top: 50px;
   }
 }
