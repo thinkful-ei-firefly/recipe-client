@@ -5,10 +5,12 @@
 
 .left{
   text-align: left;
+  margin: 0 0 0 20px;
 }
 
 .right{
   text-align: right;
+  margin: 0 20px 0 0;
 }
 
 h2{

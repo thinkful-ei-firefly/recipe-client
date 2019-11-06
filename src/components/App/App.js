@@ -102,7 +102,7 @@ class App extends React.Component {
               path={ '/ingredients' }
               component={ IngredientsRoute }
             />
-            <PrivateRoute
+            <Route
               path={ '/about' }
               component={ aboutUs }
             />
