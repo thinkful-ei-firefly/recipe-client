@@ -10,14 +10,22 @@ class AddRecipeIngredientForm extends React.Component {
 
   state = {
     amountError: null,
-    measurementError: null
+    measurementError: null,
+    ingredientError: null
   }
 
   handleSubmit = e => {
     e.preventDefault()
+    this.setState({
+      amountError: null,
+      measurementError: null,
+      ingredientError: null
+    })
     if (!this.validateAmount(e))
       return
     if (!this.validateMeasurement(e))
+      return
+    if (!this.validateIngredient(e))
       return
     const {amount, measurement, ingredient} = e.target
     this.context.handleAddRecipeIngredient(
@@ -31,20 +39,28 @@ class AddRecipeIngredientForm extends React.Component {
   }
 
   validateMeasurement = (event) => {
-    this.setState({
-      measurementError: null
-    })
-    if (event.target.measurement.value.includes(' '))
+    const str = event.target.measurement.value
+    const invalid = /~|\^|\*|\[|\{|\]|\}|;|:|\s|"|,|\|/.test(str)
+    if (invalid) {
       return this.setState({
-        measurementError: 'Error: your measurement unit cannot contain any spaces'
+        measurementError: 'Error: measurement cannot contain special characters, commas, quotes, or spaces'
       })
+    }
+    return true
+  }
+
+  validateIngredient = (event) => {
+    const str = event.target.ingredient.value
+    const invalid = /~|\^|\*|\[|\{|\]|\}|;|:|"|,|\|/.test(str)
+    if (invalid) {
+      return this.setState({
+        ingredientError: 'Error: ingredient cannot contain special characters, commas, or quotes'
+      })
+    }
     return true
   }
 
   validateAmount = (event) => {
-    this.setState({
-      amountError: null
-    })
     const string = event.target.amount.value
     const isNumber = /^[\d/ ]+$/.test(string)
     if(!isNumber)
@@ -163,6 +179,7 @@ class AddRecipeIngredientForm extends React.Component {
                 <option value = "each"/>
               </datalist>
             </div>
+            {this.state.ingredientError}
             <div className = "inner-wrap">
               <Label
                 htmlFor = "recipe-ingredient">
