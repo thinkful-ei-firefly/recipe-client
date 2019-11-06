@@ -37,7 +37,7 @@ class aboutUs extends React.Component{
               Richard Gates
             </h2>
           </a>
-          <p>What you contributed</p>
+          <p>Project Owner</p>
           <a 
             href="https://richardjgates-portfolio.now.sh/"
             className="link"
