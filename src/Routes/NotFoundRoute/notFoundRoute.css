@@ -1,0 +1,31 @@
+.notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notFound h2 {
+    font-size: 28px;
+    margin: 20px;
+    text-align: center;
+}
+
+.notFound .head p {
+    font-size: 20px;
+    margin: 20px;
+}
+
+.notFound p {
+    font-size: 18px;
+    margin: 20px;
+}
+
+.notFound .links {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.notFound .links .menu {
+    margin: 10px;
+}
