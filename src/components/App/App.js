@@ -54,7 +54,7 @@ class App extends React.Component {
 
         { backDrop }
 
-        <main style={ { marginTop: '64px' } }>
+        <main style={ { marginTop: '56px' } }>
           <Switch>
             <Route
               exact

@@ -4,7 +4,6 @@ import RecipeApiService from '../services/recipe-api-service'
 import TokenService from '../services/token-service'
 
 import { Link } from 'react-router-dom'
-import '../Routes/PublicRecipesRoute/PublicRecipes.css'
 
 const PublicRecipeContext = React.createContext({
   recipe: null,
@@ -123,10 +122,7 @@ export class PublicRecipeProvider extends React.Component {
     }
     
     recipes = recipes.map(recipe =>
-      <div
-        key={ recipe.id }
-        className="cards">
-        <section
+        <div
           className="recipe-card"
           key={ recipe.id }>
             <Link to={ '/publicrecipes/' + recipe.id }>
@@ -180,8 +176,7 @@ export class PublicRecipeProvider extends React.Component {
                 </button>
               </div>
           }
-        </section>
-      </div>
+        </div>
     )
     this.setState({
       publicRecipesJSX: recipes,

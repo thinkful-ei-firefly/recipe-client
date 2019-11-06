@@ -1,9 +1,25 @@
-.public-recipes h1 {
+.public-recipes-head {
   display: flex;
+  flex-direction: column;
+  align-content: center;
   justify-content: center;
   align-items: center;
-  font-size: 33px;
-  margin-top: 90px;
+}
+
+.public-recipes h1 {
+  font-size: 28px;
+  margin: 20px;
+}
+
+.public-recipes .find-recipes {
+  margin: 15px 0;
+}
+
+.public-recipes .public-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 [data-tooltip] {

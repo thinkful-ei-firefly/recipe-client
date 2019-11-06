@@ -1,13 +1,8 @@
-* {
-  box-sizing: border-box;
-}
 
 .search-public-recipes {
   display: flex;
   justify-content: center;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
 }
 
 .search-public-recipes input[type="text"] {
@@ -15,7 +10,7 @@
   font-size: 17px;
   border: 1px solid grey;
   float: left;
-  width: 250px;
+  width: 230px;
   background: #f1f1f1;
 }
 
