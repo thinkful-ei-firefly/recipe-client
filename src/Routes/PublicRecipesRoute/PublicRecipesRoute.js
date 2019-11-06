@@ -4,39 +4,49 @@ import PublicRandomRecipe from '../../components/PublicRandomRecipe/PublicRandom
 import PublicRecipeContext from '../../contexts/PublicRecipeContext'
 import { Redirect } from 'react-router-dom'
 
-import './PublicRecipes.css'
+import './publicRecipesRoute.css'
 class PublicRecipesRoute extends React.Component {
 
-    static contextType = PublicRecipeContext
+  static contextType = PublicRecipeContext
 
-    componentDidMount = async () => {
-        await this.context.getPublicRecipes()
-        this.context.updatePublicRecipesJSX()
-    }
-
-    handleSubmit = async e => {
-      e.preventDefault()
-      await this.context.updateSearchPublicRecipesBy(
-          e.target.publicSearch.value
-      )
-      this.context.updatePublicRecipesJSX()
+  componentDidMount = async () => {
+    await this.context.getPublicRecipes()
+    this.context.updatePublicRecipesJSX()
   }
 
-    render() {
-        return(
-            <section className = "public-recipes">
-              <h1>All Recipes</h1>
-                {this.context.redirect && <Redirect to='/recipes' />}
+  handleSubmit = async e => {
+    e.preventDefault()
+    await this.context.updateSearchPublicRecipesBy(
+      e.target.publicSearch.value
+    )
+    this.context.updatePublicRecipesJSX()
+}
 
-                <SearchPublicRecipe handleSubmit={this.handleSubmit} label={'Search For:'}/>
+  render() {
+    return(
+      <section className = "public-recipes">
 
-                <PublicRandomRecipe />
+        <div className="public-recipes-head">
 
-                { this.context.publicRecipesJSX }
+          <h1>All Recipes</h1>
+          
+          { this.context.redirect && <Redirect to='/recipes' /> }
 
-            </section>
-        )
-    }
+          <SearchPublicRecipe 
+            handleSubmit={ this.handleSubmit } 
+            label={ 'Search For:' }/>
+
+          <PublicRandomRecipe />
+
+        </div>
+
+        <section className="public-cards">
+            { this.context.publicRecipesJSX }
+        </section>
+
+      </section>
+    )
+  }
 }
 
 export default PublicRecipesRoute

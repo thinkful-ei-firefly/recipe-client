@@ -9,15 +9,15 @@ class Footer extends React.Component {
         <Link 
           to="/about" 
           className="foot">
-          <i className="fas">
-            <span>About The Makers</span>
+          <i className="fas fa-users">
+            <span>{ ' About The Makers' }</span>
           </i>
         </Link>
         <Link 
           to="/" 
           className="foot">
           <i className="fas fa-home">
-            <span>Home</span>
+            <span>{ ' Home' }</span>
           </i>
         </Link>
       </footer>

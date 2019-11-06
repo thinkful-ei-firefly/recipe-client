@@ -1,18 +1,14 @@
 .footer {
-  margin-top: 30px;
-  bottom: 0;
-  left: 0;
   width: 100%;
   background: black;
   height: 56px;
-  z-index: 50;
   box-shadow: grey 0 0 5px 0;
   text-align: center;
 }
 
 .foot {
   margin: 10px;
-  font-size: 20px;
+  font-size: 12px;
 }
 .foot:link {
   color: #fff;
@@ -30,4 +26,10 @@
 
 .footer p {
   color: #fff;
+}
+
+@media (min-width: 700px) {
+  .foot {
+    font-size: 20px;
+  }
 }

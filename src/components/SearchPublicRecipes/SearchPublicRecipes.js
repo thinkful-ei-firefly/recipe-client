@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input } from '../Form/Form'
+import { Input, Label } from '../Form/Form'
 import Button from '../Button/Button'
 
 import './SearchPublicRecipes.css'
@@ -18,17 +18,21 @@ class SearchPublicRecipes extends React.Component {
       <form 
         onSubmit = { this.props.handleSubmit }
         className = "search-public-recipes">
+        
         { error }
 
-        <Input
-          placeholder='Search Recipes...'
-          id = "public-recipe-search"
-          name = "publicSearch"
-          type = "text">    
-        </Input>
-        
+        <Label
+          htmlFor="public-recipe-search">
+          <Input
+            placeholder='Search Recipes...'
+            id="public-recipe-search"
+            name="publicSearch"
+            type="text">    
+          </Input>
+        </Label>
+
         <Button
-          type = "Submit">
+          type="Submit">
           <i className="fa fa-search"></i>
         </Button>
 

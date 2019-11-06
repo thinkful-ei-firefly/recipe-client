@@ -1,46 +1,54 @@
-.shop-list {
+.shop-list-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.shop-list-page {
-  border: 1px solid;
+.shop-list {
+  border: 1px solid black;
   border-radius: 10px;
-  margin-bottom: 10px;
   box-shadow: 5px 5px 5px;
-  padding-right: 10px;
-  width: 100%;
+  width: 95%;
   max-width: 500px;
 }
 
-.shop-list img {
-  margin-top: 10px;
+.shop-list-page img {
+  margin: 10px;
   width: 60px;
   height: 60px;
 }
 
-.shop-list .title {
+.shop-list-page .title {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-content: center;
   border-bottom: 2px solid #b6282b;
-  margin-bottom: 15px;
+  padding: 0 5px 0 20px;
 }
 
-.shop-list h1 {
-  padding-left: 15px;
-  padding-bottom: 15px;
+.shop-list-page h1 {
   font-size: 25px;
 }
 
-.item {
+.shopping-list-items {
+  padding: 0 0 7px 0;
+}
+
+.shopping-item {
+  padding: 7px 0;
+  margin: 0 0 0 15px;
   display: flex;
   flex-direction: row;
-  padding: 10px;
-  align-items: center;
-  margin-bottom: -12px;
-  margin-top: -12px;
+  align-content: center;
+  align-items: baseline;
+}
+
+.shop-list-page hr {
+  width: 95%;
+  color: #b6282b;
+  margin: 0;
 }
 
 .check-buttons i {
@@ -71,6 +79,7 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 .modify-buttons {
@@ -104,3 +113,4 @@ hr {
     font-size: 35px;
   }
 }
+

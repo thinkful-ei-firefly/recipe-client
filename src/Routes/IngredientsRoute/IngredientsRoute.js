@@ -68,32 +68,72 @@ class IngredientsRoute extends React.Component {
     if (ingredientList) {
     ingredientList.forEach(item => {
       let listItem = `${item.amount} ${item.unit} of ${item.name}`
-      listElements.push(<li className="pantry-item" key={item.id}><button className="del-item" onClick={() => this.deleteIngredient(item.id)}><i className="fas fa-times"></i></button><div>{listItem}</div></li>)
-      listElements.push(<hr key={item.id*100}/>)
+      listElements.push(
+        <div 
+          className="pantry-item" 
+          key={ item.id }>
+            <button 
+              className="del-item" 
+              onClick={ () => this.deleteIngredient(item.id) }>
+                <i className="fas fa-times">
+                </i>
+            </button>
+            <div className="single-item">
+              { listItem }
+            </div>
+        </div>)
+      listElements.push(<hr key={ item.id*100 }/>)
     })
     }
+
     return (
-      <div className="pantry-page">
-        <section className='pantry'>
-          <div className='title'>
+      <section className="pantry-page">
+
+        <div className="pantry">
+          <div className="title">
             <h1>My Pantry</h1>
-            <img src={logo} alt='logo'></img>
+            <img src={ logo } alt="logo"></img>
           </div> 
-        { error }
-        <ul className="pantry-list">
-          { listElements }
-        </ul>
-        </section>
-        {adding ? <IngedientsAdderForm handleSubmit={this.addIngredient} cancelSubmit={this.cancelSubmit}/> : ''}
-        <div className='pantry-buttons'>
-        { adding
-          ? ''
-          : <button className="new-pantry" onClick={this.openForm}><i className="far fa-plus-square"><span>&nbsp;Add Item</span></i></button>}
-        { (ingredientList && ingredientList.length)
-          ? <button className="delete-pantry" onClick={this.deleteAllIngredients}><i className="far fa-trash-alt"><span>&nbsp;Delete List</span></i></button>
-          : null}
+          { error }
+          <div className="pantry-list">
+            { listElements }
           </div>
-      </div>
+        </div>
+
+        { adding 
+          ? <IngedientsAdderForm 
+              handleSubmit={ this.addIngredient } 
+              cancelSubmit={ this.cancelSubmit }
+            /> 
+          : '' 
+        }
+        
+        <div className="pantry-buttons">
+
+          { adding
+            ? ''
+            : <button 
+              className="new-pantry" 
+              onClick={ this.openForm }>
+                <i className="far fa-plus-square">
+                  <span>&nbsp;Add Item</span>
+                </i>
+            </button>
+          }
+
+          { (ingredientList && ingredientList.length)
+            ? <button 
+                className="delete-pantry" 
+                onClick={ this.deleteAllIngredients }>
+                  <i className="far fa-trash-alt">
+                    <span>&nbsp;Delete List</span>
+                  </i>
+              </button>
+            : null
+          }
+
+        </div>
+      </section>
     )
   }
 }

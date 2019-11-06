@@ -44,7 +44,7 @@ class Header extends React.Component {
             to="/"
             className="menu">
             <i className="fas fa-home">
-              <span>Home</span>
+              <span>{ ' Home' }</span>
             </i>
           </Link>
         </li>
@@ -54,7 +54,7 @@ class Header extends React.Component {
             to="/login"
             className="menu">
             <i className="fas fa-sign-in-alt">
-              <span>LogIn</span>
+              <span>{ ' LogIn' }</span>
             </i>
           </Link>
         </li>
@@ -64,7 +64,7 @@ class Header extends React.Component {
             to="/register"
             className="menu">
             <i className="fas fa-registered">
-              <span>Register</span>
+              <span>{ ' Register' }</span>
             </i>
           </Link>
         </li>
@@ -74,7 +74,7 @@ class Header extends React.Component {
             to="/publicrecipes"
             className="menu">
             <i className="fas fa-utensil-spoon">
-              <span>All Recipes</span>
+              <span>{ ' All Recipes' }</span>
             </i>
           </Link>
         </li>
@@ -91,7 +91,7 @@ class Header extends React.Component {
             to = "/"
             className = "menu">
             <i className="fas fa-home">
-              <span>Home</span>
+              <span>{ ' Home' }</span>
             </i>
           </Link>
         </li>
@@ -101,7 +101,7 @@ class Header extends React.Component {
             to = "/recipes"
             className = "menu">
             <i className="fas fa-utensils">
-              <span>My Recipes</span>
+              <span>{ ' My Recipes' }</span>
             </i>
           </Link>
         </li>
@@ -111,7 +111,7 @@ class Header extends React.Component {
             to = "/shoppinglist"
             className = "menu">
             <i className="fas fa-shopping-basket">
-              <span>Shopping List</span>
+              <span>{ ' Shopping List' }</span>
             </i>
           </Link>
         </li>
@@ -121,7 +121,7 @@ class Header extends React.Component {
             to = "/ingredients"
             className = "menu">
             <i className="fas fa-clipboard-list">
-              <span>My Pantry</span>
+              <span>{ ' My Pantry' }</span>
             </i>
           </Link>
         </li>
@@ -131,7 +131,7 @@ class Header extends React.Component {
             to="/publicrecipes"
             className="menu">
             <i className="fas fa-utensil-spoon">
-              <span>All Recipes</span>
+              <span>{ ' All Recipes' }</span>
             </i>
           </Link>
         </li>
@@ -142,7 +142,7 @@ class Header extends React.Component {
             to = "/"
             className = "menu">
             <i className="fas fa-sign-out-alt">
-              <span>LogOut</span>
+              <span>{ ' LogOut' }</span>
             </i>
           </Link>
         </li>

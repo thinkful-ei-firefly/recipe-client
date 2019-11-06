@@ -1,6 +1,7 @@
 import React from 'react'
-import { Label, Input, Required } from '../Form/Form'
+import { Label, Textarea, Required } from '../Form/Form'
 import Button from '../Button/Button'
+import AddRecipeDesc from '../AddRecipeDesc/AddRecipeDesc'
 
 import RecipeContext from '../../contexts/RecipeContext'
 import '../../Routes/AddRecipe/addRecipe.css'
@@ -15,11 +16,6 @@ class AddRecipeDescForm extends React.Component {
     e.target.desc.value = ''
   }
 
-  handleClick = e => {
-    e.preventDefault()
-    this.context.handleRemoveDesc()
-  }
-
   render() {
     return(
       <form
@@ -32,14 +28,7 @@ class AddRecipeDescForm extends React.Component {
             Description
           </div>
           { this.context.recipeDesc ?
-          <div className = "description">
-            <Button
-              className = "edit-button"
-              onClick = { this.handleClick }>
-              -
-            </Button>
-            { this.context.recipeDesc }
-          </div>
+          <AddRecipeDesc/>
           :
           <div>
             <div className='inner-wrap'>
@@ -47,14 +36,13 @@ class AddRecipeDescForm extends React.Component {
                 htmlFor = "recipe-desc">
                 Description: <Required />
               </Label>
-              <Input
+              <Textarea
                 placeholder = 'ex. "This recipe is..."'
                 className='input'
                 name = "desc"
                 id = "recipe-desc"
-                type = "text"
                 required>
-              </Input>
+              </Textarea>
             </div>
             <Button className='add'
               type = "Submit">
