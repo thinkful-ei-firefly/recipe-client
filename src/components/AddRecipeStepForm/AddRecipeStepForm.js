@@ -9,10 +9,27 @@ class AddStepToRecipeForm extends React.Component {
 
   static contextType = RecipeContext
 
+  state = {
+    error: null
+  }
+
   handleSubmit = e => {
     e.preventDefault()
+    if (!this.validateStep(e)) return
     this.context.handleAddRecipeStep(e.target.step.value)
     e.target.step.value = ''
+  }
+
+  validateStep = (event) => {
+    this.setState({ error: null })
+    const str = event.target.step.value
+    const invalid = /\^|\[|\{|\]|\}|\|/.test(str)
+    if (invalid) {
+      return this.setState({
+        error: 'Error: Instruction cannot contain any of the following characters: ^ { } [ ] |'
+      })
+    }
+    return true
   }
 
   render() {
@@ -27,6 +44,7 @@ class AddStepToRecipeForm extends React.Component {
           </div>
           <AddRecipeStep />
           <div>
+            {this.state.error}
             <div className='inner-wrap'>
               <Label
                 htmlFor = "recipe-step">
