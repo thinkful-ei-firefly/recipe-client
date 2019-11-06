@@ -16,8 +16,24 @@ class RecipeSingleRoute extends React.Component {
 
   componentDidMount() {
     GoodmealApiService.getRecipe(this.props.match.params.id)
-      .then(recipe => this.setState({ recipe }))
+      .then(recipe => {
+        const convertedInstructions = []
+        recipe.instructions.forEach(step => {
+          convertedInstructions.push(this.deconvertCharacters(step))
+        })
+        recipe.instructions = convertedInstructions
+        this.setState({ recipe })
+      })
       .catch(res => this.setState({ error: res.error }))
+  }
+
+  deconvertCharacters = str => {
+    let newStr = str.split('')
+    for (let i=0; i<newStr.length; i++) {
+      if (newStr[i] === '^') newStr[i] = ','
+      else if (newStr[i] === '|') newStr[i] = '"'
+    }
+    return newStr.join('')
   }
 
   handleTabClick(event) {

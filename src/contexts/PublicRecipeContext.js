@@ -46,9 +46,21 @@ export class PublicRecipeProvider extends React.Component {
   }
 
   updateRecipe = recipe => {
+    const convertedInstructions = []
+    recipe.instructions.forEach(step => convertedInstructions.push(this.deconvertCharacters(step)))
+    recipe.instructions = convertedInstructions
     this.setState({
       recipe
     })
+  }
+
+  deconvertCharacters = str => {
+    let newStr = str.split('')
+    for (let i=0; i<newStr.length; i++) {
+      if (newStr[i] === '^') newStr[i] = ','
+      else if (newStr[i] === '|') newStr[i] = '"'
+    }
+    return newStr.join('')
   }
 
   updateDisplay = display => {

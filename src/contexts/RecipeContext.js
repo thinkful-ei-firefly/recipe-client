@@ -190,17 +190,15 @@ export class RecipeProvider extends React.Component {
   }
 
 
-  convertString = (string) => {
-    let newString = string.toString().split(',').join('&#44;')
-    return newString
-    }
+  // convertString = (string) => {
+  //   let newString = string.toString().split(',').join('&#44;')
+  //   return newString
+  // }
 
   handleAddRecipeStep = step => {
-    const recipeSteps = this.state.recipeSteps
-    this.convertString(recipeSteps)
-    recipeSteps.push(step)
+    const { recipeSteps } = this.state
     this.setState({
-      recipeSteps
+      recipeSteps: [...recipeSteps, step]
     })
   }
 
@@ -260,11 +258,14 @@ export class RecipeProvider extends React.Component {
           }
         }
 
+        let convertedSteps = []
+        this.state.recipeSteps.forEach(step => {convertedSteps.push(this.convertCharacters(step))})
+
         const recipe = {
             name: this.state.recipeTitle,
             description: this.state.recipeDesc,
             ingredients: "{" + this.state.recipeIngredients.join(',') + "}",
-            instructions: "{" + this.state.recipeSteps.join(',') + "}",
+            instructions: "{" + convertedSteps.join(',') + "}",
             time_to_make: this.state.recipeTime,
             category: this.state.recipeCuisine,
             public: this.state.recipePublic,
@@ -297,6 +298,24 @@ export class RecipeProvider extends React.Component {
             error: error.message || error.error
           })
         }
+    }
+
+    convertCharacters = str => {
+      let newStr = str.split('')
+      for (let i=0; i<newStr.length; i++) {
+        if (newStr[i] === ',') newStr[i] = '^'
+        else if (newStr[i] === '"') newStr[i] = '|'
+      }
+      return newStr.join('')
+    }
+
+    deconvertCharacters = str => {
+      let newStr = str.split('')
+      for (let i=0; i<newStr.length; i++) {
+        if (newStr[i] === '^') newStr[i] = ','
+        else if (newStr[i] === '|') newStr[i] = '"'
+      }
+      return newStr.join('')
     }
 
     searchMyRecipes = (e) => {
