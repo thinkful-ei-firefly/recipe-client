@@ -2,6 +2,8 @@ import React from 'react';
 import RecipeContext from '../../contexts/RecipeContext'
 import RecipeItem from '../RecipeItem/RecipeItem'
 import { Link } from 'react-router-dom'
+import { Label, Input } from '../Form/Form'
+import Button from '../Button/Button'
 
 import IngredientsMatcher from '../IngredientsMatcher/IngredientsMatcher'
 import RandomRecipe from '../RandomRecipe/RandomRecipe'
@@ -47,42 +49,43 @@ class Recipes extends React.Component {
         )
 
     return(
-      <section>
+      <section className="my-recipes">
 
-        <div className='search-bar'>
-          <h1 className='my-recipe'>My Recipes</h1>
-            <form onSubmit={this.context.searchMyRecipes} className = "search">
-              <input
+        <div className="head">
+          <h1>My Recipes</h1>
+          <form 
+            onSubmit={ this.context.searchMyRecipes } 
+            className = "search">
+            <Label
+              htmlFor="recipe-search">
+              <Input
                     id='recipe-search'
                     type='text'
                     placeholder='Search...'
                     name='search'>
-              </input>
-              <button
-                className='search_button'
-                type='submit'>
-                <i className="fa fa-search"></i>
-              </button>
-            </form>
+              </Input>
+            </Label>
+            <Button
+              className='search_button'
+              type='submit'>
+              <i className="fa fa-search"></i>
+            </Button>
+          </form>
 
           <IngredientsMatcher />
+          
           <RandomRecipe />
-        </div>
 
-        <br/>
-
-        <form>
           <div className='add_new'>
-            <h3>Add New Recipe
-              &nbsp;
-              <Link
-                to="/newrecipe"
-                className="menu">
-                <i className="far fa-plus-square"></i>
-              </Link>
-            </h3>
+            <h3>{ ' Add New Recipe' }</h3>
+            <Link
+              to="/newrecipe"
+              className="menu">
+              <i className="far fa-plus-square"></i>
+            </Link>
           </div>
-        </form>
+
+        </div>
 
         { recipes }
 

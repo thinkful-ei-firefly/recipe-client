@@ -1,37 +1,31 @@
-* {
-  box-sizing: border-box;
-}
 
-.search-bar {
+.my-recipes .head {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 0 20px 0;
 }
 
-.my-recipe {
-  display: flex;
-  justify-content: center;
-  font-size: 33px;
-  clear: left;
-  margin-top: 20px;
+.my-recipes h1 {
+  font-size: 28px;
+  margin: 20px;
 }
 
-form.search input[type="text"] {
+.my-recipes .search {
+  margin: 0 0 10px 0;
+}
+
+.my-recipes .search input[type="text"] {
   padding: 10px;
   font-size: 17px;
   border: 1px solid grey;
   float: left;
-  width: 250px;
+  width: 230px;
   background: #f1f1f1;
-  margin-bottom: 30px;
-}
-section .search {
-  display: flex;
-  justify-content: center;
 }
 
-form.search button {
+.my-recipes .search button {
   float: left;
   width: 50px;
   height: 43.09px;
@@ -54,9 +48,17 @@ form.example::after {
   display: table;
 }
 
+.add_new {
+  display: flex;
+  flex-direction: row;
+  align-content: baseline;
+  margin: 10px;
+}
+
 .add_new h3 {
   font-size: 20px;
   text-align: center;
+  margin: 0;
 }
 
 .add_new i {
@@ -112,7 +114,6 @@ form.example::after {
   min-width: 300px;
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
 }
 
 .recipe-card:hover {
