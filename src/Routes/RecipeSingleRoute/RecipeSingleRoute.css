@@ -34,6 +34,7 @@
   display: block;
   width: auto;
   max-width: 500px;
+  margin: 2px 7px 0 3px;
 }
 
 .recipe-tabs .image {
