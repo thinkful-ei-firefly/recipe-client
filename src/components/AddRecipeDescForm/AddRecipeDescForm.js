@@ -25,7 +25,7 @@ class AddRecipeDescForm extends React.Component {
           <div
             className='section'>
             <span>2</span>
-            Description
+            <h3>Description</h3>
           </div>
           { this.context.recipeDesc ?
           <AddRecipeDesc/>

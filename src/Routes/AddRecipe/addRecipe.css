@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 2px;
 }
 
 .addRecipe {
@@ -43,7 +44,13 @@
 .addRecipe .section {
   font: normal 20px "Bitter", serif;
   color: #01e00c;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
+  margin-top: 30px;
+  margin-left: 45px;
+}
+
+.addRecipe .section h3 {
+  margin: 0 0 5px 0;
 }
 
 .addRecipe .section span {
@@ -53,6 +60,7 @@
   border-radius: 50%;
   border: 4px solid #fff;
   font-size: 14px;
+  /* margin-bottom: 5px; */
   margin-left: -45px;
   color: #fff;
   margin-top: -3px;

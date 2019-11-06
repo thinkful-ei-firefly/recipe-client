@@ -14,8 +14,8 @@ class AddRecipeImage extends React.Component {
         <div className = "description">
           <div 
             className='section'>
-            <span>8</span>
-            Image
+            <span>5</span>
+            <h3>Image</h3>
           </div>
           <div className='inner-wrap'>
             <label htmlFor='image'>Image
