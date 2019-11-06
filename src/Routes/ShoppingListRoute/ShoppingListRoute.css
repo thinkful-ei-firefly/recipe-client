@@ -112,5 +112,8 @@ hr {
   .shop-list h1 {
     font-size: 35px;
   }
-}
 
+  .shop-list-page {
+    margin-top: 50px;
+  }
+}
