@@ -111,7 +111,7 @@ li.bulleted {
 .tabset > input:checked + label {
   border-color: #ccc;
   border-bottom: 1px solid #fff;
-  margin-bottom: -1px;
+  margin-bottom: -5px;
 }
 
 .tab-panel {
