@@ -129,8 +129,8 @@ class AddRecipeIngredientForm extends React.Component {
         onSubmit = { this.handleSubmit }>
           <div className = "amount">
           <div className='section'>
-            <span>3</span>
-            Ingredients
+            <span>6</span>
+            <h3>Ingredients</h3>
           </div>
           <AddRecipeIngredient />
           <div>

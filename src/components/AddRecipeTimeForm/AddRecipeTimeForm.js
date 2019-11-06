@@ -30,8 +30,8 @@ class AddRecipeTimeForm extends React.Component {
         <div className="time">
           <div
             className="section">
-            <span>6</span>
-            Cooking Time
+            <span>4</span>
+            <h3>Cooking Time</h3>
           </div>
           {this.context.recipeTime ?
           <AddRecipeTime />

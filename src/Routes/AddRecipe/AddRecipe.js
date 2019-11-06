@@ -30,10 +30,11 @@ class AddRecipe extends React.Component {
     render() {
 
         return(
-            <div className='add-form'>
+            <div className="add-form">
             <section className = "addRecipe">
 
-                <h1>{this.context.editing?'Edit':'New'} Recipe</h1>
+                <h1>{ this.context.editing ? 'Edit' : 'New' } Recipe</h1>
+
                 <AddRecipeTitleForm />
                 <AddRecipeDescForm />
                 <AddRecipeCuisineForm />
@@ -43,18 +44,25 @@ class AddRecipe extends React.Component {
                 <AddRecipeStepForm />
                 <AddRecipePublic />
 
-                {this.context.error && <div>{this.context.error}</div>}
+                { this.context.error && <div>{ this.context.error }</div> }
 
-                <Button className='submit_button'
-                    onClick = { this.context.handleCreateRecipe }>
-                    Save
+                <Button 
+                  className="submit_button"
+                  onClick = { this.context.handleCreateRecipe }>
+                  Save
                 </Button>
+
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <button className='submit_button' onClick={this.props.history.goBack}>Back</button>
+
+                <Button 
+                  className="submit_button" 
+                  onClick={ this.props.history.goBack }>
+                  Back
+                </Button>
 
                 { this.context.loading && <div>Saving..</div> }
 
-                { this.context.saved && <Redirect to={'/recipes'}/> }
+                { this.context.saved && <Redirect to={ '/recipes' }/> }
 
             </section>
             </div>
