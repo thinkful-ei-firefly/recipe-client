@@ -39,7 +39,7 @@ class AddRecipeTimeForm extends React.Component {
           <div>
             <div
               className="inner-wrap">
-              <p>{this.state.error}</p>
+              <p role='alert'>{this.state.error}</p>
               <Label
                 htmlFor="recipe-time">
                 Time (in minutes): <Required />

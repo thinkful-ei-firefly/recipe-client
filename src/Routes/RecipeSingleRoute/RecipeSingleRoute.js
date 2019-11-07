@@ -67,7 +67,7 @@ class RecipeSingleRoute extends React.Component {
          <i className="fas fa-backspace">&nbsp;<span>Back To Recipes</span></i> 
       </Link>
         <h1>{recipe ? recipe.name : 'loading...'}</h1>
-        {error}
+        <p role='alert'>{error}</p>
         
         <div className = "image">
                     <img

@@ -8,7 +8,7 @@ const LoginForm = (props) => {
     <form 
       className='LoginForm' 
       onSubmit={ event=>onSubmit(event) }>
-      <p>{ error }</p>
+      <p role='alert'>{ error }</p>
       <div className='inputs'>
         <Label 
           className="label"
