@@ -1,11 +1,14 @@
 import React from 'react'
 
-import '../../services/goodmeal-api-service'
+import GoodmealApiService from '../../services/goodmeal-api-service'
+import UserContext from '../../contexts/UserContext'
 
 import './RatingPopup.css'
-import GoodmealApiService from '../../services/goodmeal-api-service'
+
 
 class RatingPopup extends React.Component {
+
+  static contextType = UserContext
 
   state = {
     rated: false
@@ -35,7 +38,7 @@ class RatingPopup extends React.Component {
       <div className='RatingPopup'>
         
         <button 
-          hidden={ rated } 
+          hidden={ rated || !this.context.login } 
           className='rate' 
           onClick={ e =>this.handleOpen(this.props.id) }>
           <i className="fas fa-star">&nbsp;<span>Rate</span></i>
