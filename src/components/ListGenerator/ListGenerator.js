@@ -95,11 +95,28 @@ class ListGenerator extends React.Component {
     const {feedback} = this.state
     return (
       <div className='ListGenerator'>
+<<<<<<< HEAD
         {feedback !== null ? `Added ${feedback} items ` : ''}
         <Link hidden={feedback === null} to='/shoppinglist'><button aria-label='View list' className='create'>View List</button></Link>
         <button aria-label='create shopping list' className='create' hidden={feedback !== null} id='listCreateButton' onClick={this.handleListCreate}><i className="fas fa-cart-plus"><span>Create Shopping List</span></i></button>
+=======
+        <p aria-live="polite">{feedback !== null ? `Added ${feedback} items ` : ''}</p>
+        <Link hidden={feedback === null} to='/shoppinglist'>
+          <button aria-live="polite" className='create'>View List</button>
+        </Link>
+        <button 
+          className='create' 
+          hidden={feedback !== null} 
+          id='listCreateButton' 
+          onClick={this.handleListCreate}
+        >
+          <i className="fas fa-cart-plus">
+            <span>Create Shopping List</span>
+          </i>
+        </button>
+>>>>>>> 2cf34575efd33c9019b0e8bd29fd24a9063903cb
         <div id="myModal" className="modal">
-          <div className='modal-content'>
+          <div aria-live="polite" className='modal-content'>
             <ul>
               {this.state.popUpArray}
             </ul>

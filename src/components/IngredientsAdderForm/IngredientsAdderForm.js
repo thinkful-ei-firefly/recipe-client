@@ -56,7 +56,7 @@ class IngredientsAdderForm extends React.Component {
 
             <legend>Add An Item:</legend>
             <hr/>
-            {this.state.amountError}
+            <p role='alert'>{this.state.amountError}</p>
             <div className = "amount">
                 <Label
                     htmlFor = "recipe-amount">

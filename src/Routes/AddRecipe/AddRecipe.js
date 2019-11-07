@@ -44,7 +44,7 @@ class AddRecipe extends React.Component {
                 <AddRecipeStepForm />
                 <AddRecipePublic />
 
-                { this.context.error && <div>{ this.context.error }</div> }
+                { this.context.error && <div role='alert'>{ this.context.error }</div> }
 
                 <Button 
                   className="submit_button"

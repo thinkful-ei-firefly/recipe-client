@@ -68,7 +68,7 @@ class RecipeSingleRoute extends React.Component {
          <i className="fas fa-backspace">&nbsp;<span>Back To Recipes</span></i> 
       </Link>
         <h1>{recipe ? recipe.name : 'loading...'}</h1>
-        {error}
+        <p role='alert'>{error}</p>
         
         <div className = "image">
                     <img
@@ -85,7 +85,7 @@ class RecipeSingleRoute extends React.Component {
           <label htmlFor='tab3'>Instructions</label>
         </div>
         <div className='tab-panels'>
-          <section className='tab-panel'>
+          <section aria-live="polite" className='tab-panel'>
             {display === 'summary' ? description : <ul className='displayed-list'>{list}</ul>}
             </section>
         </div>

@@ -44,7 +44,7 @@ class AddStepToRecipeForm extends React.Component {
           </div>
           <AddRecipeStep />
           <div>
-            {this.state.error}
+            <p role='alert'> {this.state.error} </p>
             <div className='inner-wrap'>
               <Label
                 htmlFor = "recipe-step">

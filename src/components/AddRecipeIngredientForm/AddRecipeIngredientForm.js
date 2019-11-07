@@ -134,7 +134,7 @@ class AddRecipeIngredientForm extends React.Component {
           </div>
           <AddRecipeIngredient />
           <div>
-            { this.state.amountError }
+            <p role='alert'>{ this.state.amountError }</p>
             <div className='inner-wrap'>
               <Label
                 htmlFor = "recipe-amount">
@@ -156,7 +156,7 @@ class AddRecipeIngredientForm extends React.Component {
                 <option value = "1"/>
               </datalist>
             </div>
-            {this.state.measurementError}
+            <p role='alert'>{this.state.measurementError}</p>
             <div className = "inner-wrap">
               <Label
                 htmlFor = "recipe-measurement">
@@ -179,7 +179,7 @@ class AddRecipeIngredientForm extends React.Component {
                 <option value = "each"/>
               </datalist>
             </div>
-            {this.state.ingredientError}
+            <p role='alert'>{this.state.ingredientError}</p>
             <div className = "inner-wrap">
               <Label
                 htmlFor = "recipe-ingredient">
