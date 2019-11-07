@@ -14,14 +14,15 @@ class aboutUs extends React.Component{
   render(){
     return (
       <section>
-        <div className="left">
-          <a
+        <div itemscope itemtype ="http://schema.org/Person" className="left">
+          <a 
+            itemprop="contactPoint"
             className="lin"
             href="https://www.linkedin.com/in/sam-walker-25aba918b/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2>
+            <h2 itemprop="name">
               Sam Walker
               <img
                 className="icon" 
@@ -50,13 +51,14 @@ class aboutUs extends React.Component{
         
         <hr/>
 
-        <div className="right">
+        <div itemscope itemtype ="http://schema.org/Person" className="right">
           <a 
+            itemprop="contactPoint"
             href="https://www.linkedin.com/in/gatesrichard/"
             className="lin"
             target="_blank" 
             rel="noopener noreferrer">
-            <h2>
+            <h2 itemprop="name">
               <img 
                 className="icon" 
                 alt="linkedin" 
@@ -80,22 +82,86 @@ class aboutUs extends React.Component{
 
         <hr/>
 
-        <div className="left">
-        <a className="lin" href="" target="_blank" rel="noopener noreferrer"><h2>Keith Prince <img className="icon" alt="linkedin" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"/></h2></a>
+        <div itemscope itemtype ="http://schema.org/Person" className="left">
+          <a 
+            itemprop="contactPoint" 
+            className="lin" 
+            href="" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <h2 itemprop="name">
+              Keith Prince 
+              <img 
+                className="icon" 
+                alt="linkedin" 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"
+              />
+            </h2>
+          </a>
           <p>What you contributed</p>
-          <a href="https://swordsagekeith.github.io/PortfolioSite/" className="link" target="_blank" rel="noopener noreferrer"><Button className="portfolio">See More Work Here</Button></a>
+          <a 
+            href="https://swordsagekeith.github.io/PortfolioSite/" 
+            className="link" target="_blank" rel="noopener noreferrer"
+          >
+            <Button className="portfolio">See More Work Here</Button>
+          </a>
         </div>
         <hr/>
-        <div className="right">
-        <a className="lin" href="" target="_blank" rel="noopener noreferrer"><h2><img className="icon" alt="linkedin" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"/>Fabian Lema</h2></a>
+        <div itemscope itemtype ="http://schema.org/Person" className="right">
+          <a 
+            itemprop="contactPoint"
+            className="lin" 
+            href="" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <h2 itemprop="name">
+              <img 
+                className="icon" 
+                alt="linkedin" 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"
+              />
+              Fabian Lema
+            </h2>
+          </a>
           <p>What you contributed</p>
-          <a href="" className="link" target="_blank" rel="noopener noreferrer"><Button className="portfolio">See More Work Here</Button></a>
+          <a 
+            href="" 
+            className="link" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <Button className="portfolio">See More Work Here</Button>
+          </a>
         </div>
         <hr/>
-        <div className="left">
-       <a className="lin" href="" target="_blank" rel="noopener noreferrer"><h2>Hector Valles <img className="icon" alt="linkedin" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"/></h2></a>
+        <div itemscope itemtype ="http://schema.org/Person" className="left">
+          <a 
+            itemprop="contactPoint" 
+            className="lin" 
+            href="" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <h2 itemprop="name">
+              Hector Valles 
+              <img 
+                className="icon" 
+                alt="linkedin" 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"
+              />
+            </h2>
+          </a>
           <p>What you contributed</p>
-          <a href="" className="link" target="_blank" rel="noopener noreferrer"><Button className="portfolio">See More Work Here</Button></a>
+          <a 
+            href="" 
+            className="link" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <Button className="portfolio">See More Work Here</Button>
+          </a>
         </div>
         <hr/>
       </section>
