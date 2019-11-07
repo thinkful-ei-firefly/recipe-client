@@ -14,15 +14,15 @@ class aboutUs extends React.Component{
   render(){
     return (
       <section>
-        <div itemscope itemtype ="http://schema.org/Person" className="left">
+        <div itemScope itemType ="http://schema.org/Person" className="left">
           <a 
-            itemprop="contactPoint"
+            itemProp="contactPoint"
             className="lin"
             href="https://www.linkedin.com/in/sam-walker-25aba918b/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2 itemprop="name">
+            <h2 itemProp="name">
               Sam Walker
               <img
                 className="icon" 
@@ -51,14 +51,14 @@ class aboutUs extends React.Component{
         
         <hr/>
 
-        <div itemscope itemtype ="http://schema.org/Person" className="right">
+        <div itemScope itemType ="http://schema.org/Person" className="right">
           <a 
-            itemprop="contactPoint"
+            itemProp="contactPoint"
             href="https://www.linkedin.com/in/gatesrichard/"
             className="lin"
             target="_blank" 
             rel="noopener noreferrer">
-            <h2 itemprop="name">
+            <h2 itemProp="name">
               <img 
                 className="icon" 
                 alt="linkedin" 
@@ -82,15 +82,15 @@ class aboutUs extends React.Component{
 
         <hr/>
 
-        <div itemscope itemtype ="http://schema.org/Person" className="left">
+        <div itemScope itemType ="http://schema.org/Person" className="left">
           <a 
-            itemprop="contactPoint" 
+            itemProp="contactPoint" 
             className="lin" 
             href="" 
             target="_blank" 
             rel="noopener noreferrer"
           >
-            <h2 itemprop="name">
+            <h2 itemProp="name">
               Keith Prince 
               <img 
                 className="icon" 
@@ -109,15 +109,15 @@ class aboutUs extends React.Component{
         </div>
         <hr/>
         
-        <div itemscope itemtype ="http://schema.org/Person" className="right">
+        <div itemScope itemType ="http://schema.org/Person" className="right">
           <a 
-            itemprop="contactPoint"
+            itemProp="contactPoint"
             className="lin" 
             href="" 
             target="_blank" 
             rel="noopener noreferrer"
           >
-            <h2 itemprop="name">
+            <h2 itemProp="name">
               <img 
                 className="icon" 
                 alt="linkedin" 
@@ -145,15 +145,15 @@ class aboutUs extends React.Component{
         </div>
 
         <hr/>
-        <div itemscope itemtype ="http://schema.org/Person" className="left">
+        <div itemScope itemType ="http://schema.org/Person" className="left">
           <a 
-            itemprop="contactPoint" 
+            itemProp="contactPoint" 
             className="lin" 
             href="" 
             target="_blank" 
             rel="noopener noreferrer"
           >
-            <h2 itemprop="name">
+            <h2 itemProp="name">
               Hector Valles 
               <img 
                 className="icon" 
