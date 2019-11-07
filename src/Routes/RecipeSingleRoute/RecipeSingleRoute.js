@@ -84,7 +84,7 @@ class RecipeSingleRoute extends React.Component {
           <label htmlFor='tab3'>Instructions</label>
         </div>
         <div className='tab-panels'>
-          <section className='tab-panel'>
+          <section aria-live="polite" className='tab-panel'>
             {display === 'summary' ? description : <ul className='displayed-list'>{list}</ul>}
             </section>
         </div>

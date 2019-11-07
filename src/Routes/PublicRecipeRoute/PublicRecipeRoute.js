@@ -76,7 +76,7 @@ class RecipeRoute extends React.Component {
 
             <PublicRecipeTabs />
 
-            <div className='tab-panels'>
+            <div aria-live="polite" className='tab-panels'>
               {publicRecipePage}
             </div>
             <RatingPopups id={recipe.id} />

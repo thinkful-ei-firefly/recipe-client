@@ -44,10 +44,10 @@ class RatingPopup extends React.Component {
           <i className="fas fa-star">&nbsp;<span>Rate</span></i>
         </button>
 
-        <p className='rated' hidden={!rated}>You gave this recipe {rated} stars</p>
+        <p aria-live="polite" className='rated' hidden={!rated}>You gave this recipe {rated} stars</p>
 
         <div id="myModal" className="modal">
-          <div className="modal-content">
+          <div aria-live="polite" className="modal-content">
             <span onClick = {this.handleClose}className="close">&times;</span>
             <form className='rate_form' onSubmit={e => this.handleSubmit(e)}>
               <legend>Rate This Recipe</legend>
