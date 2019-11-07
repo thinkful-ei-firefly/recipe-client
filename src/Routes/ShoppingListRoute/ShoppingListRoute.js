@@ -127,7 +127,8 @@ class ShoppingListRoute extends React.Component {
                 ? <IngedientsAdderForm 
                     handleSubmit={ this.addIngredient } 
                     cancelSubmit={ this.cancelSubmit }/> 
-                : <button 
+                : <button
+                    aria-label='Add item' 
                     className='modify-buttons' 
                     onClick={ this.openForm }>
                       <i className="far fa-plus-square">
@@ -137,6 +138,7 @@ class ShoppingListRoute extends React.Component {
             }
 
             <button 
+              aria-label='move checked to pantry'
               className='modify-buttons' 
               hidden={ !this.state.recipeList.length }
               onClick={ this.moveCrossedItems }>
@@ -146,6 +148,7 @@ class ShoppingListRoute extends React.Component {
             </button>
 
             <button 
+              aria-label='delete checked'
               className='modify-buttons' 
               hidden={ !this.state.recipeList.length }
               onClick={ this.deleteCrossedItems }>
@@ -155,6 +158,7 @@ class ShoppingListRoute extends React.Component {
             </button>
 
             <button 
+              aria-label='delete all        '
               className='modify-buttons' 
               hidden={ !this.state.recipeList.length }
               onClick={ this.deleteList }>

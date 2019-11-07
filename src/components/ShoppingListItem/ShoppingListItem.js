@@ -31,7 +31,8 @@ class RecipeItem extends React.Component {
     return(
       <section>
         <div className='shopping-item'>
-          <button 
+          <button
+            aria-label='unchecked' 
             className='check-buttons' 
             onClick={ this.crossUncross }>
             {

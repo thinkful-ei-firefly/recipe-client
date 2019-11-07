@@ -41,6 +41,7 @@ class Header extends React.Component {
 
         <li>
           <Link
+            aria-label='home' 
             to="/"
             className="menu">
             <i className="fas fa-home">
@@ -51,6 +52,7 @@ class Header extends React.Component {
 
         <li>
           <Link
+            aria-label='log in'
             to="/login"
             className="menu">
             <i className="fas fa-sign-in-alt">
@@ -61,6 +63,7 @@ class Header extends React.Component {
 
         <li>
           <Link
+            aria-label='register'
             to="/register"
             className="menu">
             <i className="fas fa-registered">
@@ -68,9 +71,10 @@ class Header extends React.Component {
             </i>
           </Link>
         </li>
-        
+
         <li>
           <Link
+            aria-label='all recipes'
             to="/publicrecipes"
             className="menu">
             <i className="fas fa-utensil-spoon">
@@ -88,6 +92,7 @@ class Header extends React.Component {
       <ul>
         <li>
           <Link
+            aria-label='home'
             to = "/"
             className = "menu">
             <i className="fas fa-home">
@@ -98,6 +103,7 @@ class Header extends React.Component {
 
         <li>
           <Link
+            aria-label='my recipes'
             to = "/recipes"
             className = "menu">
             <i className="fas fa-utensils">
@@ -108,6 +114,7 @@ class Header extends React.Component {
 
         <li>
           <Link
+            aria-label='shopping list'
             to = "/shoppinglist"
             className = "menu">
             <i className="fas fa-shopping-basket">
@@ -118,6 +125,7 @@ class Header extends React.Component {
 
         <li>
           <Link
+            aria-label='My pantry'
             to = "/ingredients"
             className = "menu">
             <i className="fas fa-clipboard-list">
@@ -128,6 +136,7 @@ class Header extends React.Component {
 
         <li>
           <Link
+            aria-label='all recipes'
             to="/publicrecipes"
             className="menu">
             <i className="fas fa-utensil-spoon">
@@ -138,6 +147,7 @@ class Header extends React.Component {
 
         <li>
           <Link
+            aria-label='log out'
             onClick = { this.handleLogout }
             to = "/"
             className = "menu">
@@ -145,7 +155,7 @@ class Header extends React.Component {
               <span>{ ' LogOut' }</span>
             </i>
           </Link>
-        </li>
+        </li>         
       </ul>
     )
   }
@@ -154,7 +164,8 @@ class Header extends React.Component {
     return(
       <header className="header">
       
-        <nav className="navigation">
+        <nav  className='navigation' 
+              aria-label="navigation">
           
         
           <div className="toggle-button">

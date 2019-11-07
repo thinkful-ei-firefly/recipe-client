@@ -44,14 +44,16 @@ class LoginRoute extends React.Component {
           <div className="divider">
             <span>or</span>
           </div>
-          <LoginForm 
+          <LoginForm
+            aria-label='log in' 
             className='sub' 
             onSubmit={ this.handleSubmit } 
             buttonText='LOGIN' 
             error={ this.state.error }
           />
           <p>Haven't signed up? 
-            <Link 
+            <Link
+              aria-label='register' 
               to='/register'>
               Register
             </Link>

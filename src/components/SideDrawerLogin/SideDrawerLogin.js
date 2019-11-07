@@ -12,6 +12,7 @@ class SideDrawerLogin extends React.Component {
         <ul>
           <li> 
             <Link
+              aria-label='Home' 
               to="/"
               className="menu"
               onClick={ this.context.handleCloseSideDrawer }>
@@ -22,6 +23,7 @@ class SideDrawerLogin extends React.Component {
           </li>
           <li>
             <Link
+              aria-label='Log in' 
               to="/login"
               className="menu"
               onClick={ this.context.handleCloseSideDrawer }>
@@ -32,6 +34,7 @@ class SideDrawerLogin extends React.Component {
           </li>
           <li>
             <Link
+              aria-label='register' 
               to="/register"
               className="menu"
               onClick={ this.context.handleCloseSideDrawer }>
@@ -42,6 +45,7 @@ class SideDrawerLogin extends React.Component {
           </li>
           <li>
             <Link
+              aria-label='public recipes' 
               to="/publicrecipes"
               className="menu"
               onClick={ this.context.handleCloseSideDrawer }>

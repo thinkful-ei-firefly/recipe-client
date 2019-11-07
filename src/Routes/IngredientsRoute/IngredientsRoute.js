@@ -72,7 +72,8 @@ class IngredientsRoute extends React.Component {
         <div 
           className="pantry-item" 
           key={ item.id }>
-            <button 
+            <button
+              aria-label='delete item' 
               className="del-item" 
               onClick={ () => this.deleteIngredient(item.id) }>
                 <i className="fas fa-times">
@@ -112,7 +113,8 @@ class IngredientsRoute extends React.Component {
 
           { adding
             ? ''
-            : <button 
+            : <button
+              aria-label='Add item' 
               className="new-pantry" 
               onClick={ this.openForm }>
                 <i className="far fa-plus-square">
@@ -123,6 +125,7 @@ class IngredientsRoute extends React.Component {
 
           { (ingredientList && ingredientList.length)
             ? <button 
+                aria-label='delete list'
                 className="delete-pantry" 
                 onClick={ this.deleteAllIngredients }>
                   <i className="far fa-trash-alt">

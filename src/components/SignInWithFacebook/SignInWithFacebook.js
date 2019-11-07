@@ -59,6 +59,7 @@ class SignInWithFacebook extends React.Component {
   render() {
     return(
       <Button
+        aria-label='Sign in with Facebook'
         onClick = { this.handleClick }
         className="facebook-button">
         <i className='fab fa-facebook-f'></i>

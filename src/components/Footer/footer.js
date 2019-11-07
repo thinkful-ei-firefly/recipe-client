@@ -6,7 +6,8 @@ class Footer extends React.Component {
   render() {
     return(
       <footer className="footer">
-        <Link 
+        <Link
+          aria-label='about us'  
           to="/about" 
           className="foot">
           <i className="fas fa-users">
