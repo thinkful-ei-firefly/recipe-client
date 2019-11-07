@@ -15,13 +15,6 @@
   margin: 15px 0;
 }
 
-.public-recipes .public-cards {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 [data-tooltip] {
   position: relative;
   z-index: 2;

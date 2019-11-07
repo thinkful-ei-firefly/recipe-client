@@ -134,7 +134,8 @@ export class PublicRecipeProvider extends React.Component {
     }
     
     recipes = recipes.map(recipe =>
-        <div
+      <div className ='cards'>
+        <section
           className="recipe-card"
           key={ recipe.id }>
             <Link to={ '/publicrecipes/' + recipe.id }>
@@ -188,7 +189,8 @@ export class PublicRecipeProvider extends React.Component {
                 </button>
               </div>
           }
-        </div>
+        </section>
+      </div>  
     )
     this.setState({
       publicRecipesJSX: recipes,

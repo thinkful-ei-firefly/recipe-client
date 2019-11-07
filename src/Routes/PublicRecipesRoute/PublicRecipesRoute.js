@@ -38,12 +38,10 @@ class PublicRecipesRoute extends React.Component {
 
           <PublicRandomRecipe />
 
-        </div>
-
-        <section className="public-cards">
+        </div>   
+          <section>
             { this.context.publicRecipesJSX }
-        </section>
-
+          </section>
       </section>
     )
   }

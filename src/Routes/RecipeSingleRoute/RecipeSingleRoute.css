@@ -21,6 +21,8 @@
 */
 
 .single-recipe {
+  width: 100%;
+  min-width: 300px;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -28,18 +30,27 @@
 }
 
 .recipe-tabs {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
   color: #111;
   font-weight: 300;
   font-size: 14px;
   display: block;
-  width: auto;
-  max-width: 500px;
   margin: 2px 7px 0 3px;
 }
 
 .recipe-tabs .image {
+  max-width: 500px;
+  object-fit: cover;
+  object-position: 100% 1;
+  height: auto;
+}
+
+.public-cards {
   width: 100%;
   max-width: 500px;
+  height: auto;
 }
 
 .recipe-tabs li {
@@ -143,7 +154,7 @@ li.bulleted {
   color: black;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 500px) {
   .recipe-tabs {
     font-size: 18px;
   }

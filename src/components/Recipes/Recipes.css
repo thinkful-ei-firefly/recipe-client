@@ -124,7 +124,7 @@ form.example::after {
 .recipe-card {
   border: 1px solid black;
   width: 100%;
-  max-width: 280px;
+  max-width: 500px;
   height: auto;
   text-align: start;
   border-radius: 5px;
@@ -171,9 +171,11 @@ form.example::after {
 }
 
 .recipe-card p.match {
+  color: #b72327;
   font-size: 16px;
   margin-top: 30px;
   margin-left: 15px;
+  margin-bottom: 5px;
 }
 
 .recipe-card .name:hover {
