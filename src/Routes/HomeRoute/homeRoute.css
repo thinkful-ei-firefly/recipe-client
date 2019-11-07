@@ -86,21 +86,27 @@ section.home {
 }
 
 @media (min-width: 600px) {
-  section.home {
-    margin-top: -90px;
-    margin-bottom: 2em;
+  .landing .home {
+    margin-top: -40px;
   }
 
   .landing h2 {
-    line-height: 0.5em;
-    margin-bottom: 1em;
-    margin-top: -0.5em;
     font-size: 30px;
+    margin: 20px 0 30px 0;
+  }
+
+  .landing .buttons {
+    margin: 20px 0 20px 0;
   }
 }
 
 @media (min-width: 1150px) {
+  .landing .home {
+    margin-top: -40px;
+  }
+  
   .landing h2 {
-    margin-bottom: 2em;
+    font-size: 48px;
+    margin: 0 0 40px 0;
   }
 }
