@@ -86,11 +86,35 @@ class aboutUs extends React.Component{
           <a href="https://swordsagekeith.github.io/PortfolioSite/" className="link" target="_blank" rel="noopener noreferrer"><Button className="portfolio">See More Work Here</Button></a>
         </div>
         <hr/>
+
         <div className="right">
-        <a className="lin" href="" target="_blank" rel="noopener noreferrer"><h2><img className="icon" alt="linkedin" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"/>Fabian Lema</h2></a>
-          <p>What you contributed</p>
-          <a href="" className="link" target="_blank" rel="noopener noreferrer"><Button className="portfolio">See More Work Here</Button></a>
+          <a className="lin" 
+            href="" 
+            target="_blank" 
+            rel="noopener noreferrer">
+            <h2>
+              <img className="icon" 
+                alt="linkedin" 
+                src={ linkedinLogo }/>
+                Fabian Lema
+            </h2>
+          </a>
+          <p>Full Stack Developer</p>
+          <ul>
+            <li>Managed Facebook API to login</li>
+            <li>Configured and Managed AWS S3 to store images</li>
+            <li>Collaborated with creating API endpoints</li>
+            <li>Fixed front-end and back-end bug</li>
+            <li>Tested server endpoints using Mocha, Chai, and supertest</li>
+          </ul>
+          <a href="" 
+            className="link" 
+            target="_blank" 
+            rel="noopener noreferrer">
+            <Button className="portfolio">See More Work Here</Button>
+          </a>
         </div>
+
         <hr/>
         <div className="left">
        <a className="lin" href="" target="_blank" rel="noopener noreferrer"><h2>Hector Valles <img className="icon" alt="linkedin" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"/></h2></a>
