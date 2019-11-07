@@ -134,10 +134,8 @@ export class PublicRecipeProvider extends React.Component {
     }
     
     recipes = recipes.map(recipe =>
-      <div className ='cards'>
-        <section
-          className="recipe-card"
-          key={ recipe.id }>
+      <div key={ recipe.id } className ='cards'>
+        <section className="recipe-card">
             <Link to={ '/publicrecipes/' + recipe.id }>
               <div className = "image">
                 <img
