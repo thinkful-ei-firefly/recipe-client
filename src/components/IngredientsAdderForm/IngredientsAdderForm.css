@@ -15,14 +15,20 @@
 }
 
 .ingredients-buttons {
+  cursor: pointer;
   float: right;
   padding-top: 10px;
 }
 
 .ingr-button i {
+  cursor: pointer;
   background-color: #fff;
   color: #01e00c;
   font-size: 24px;
+}
+
+.ingr-button i:hover {
+  color: black;
 }
 
 button.ingr-button {

@@ -37,12 +37,14 @@ class RecipeItem extends React.Component {
             </p>
             <div className='recipe-buttons'>
               <Link
+                data-tooltip='Edit Recipe'
                 aria-label='edit recipe'
                 to={ '/editrecipe/'+id }
                 className="edit-recipe">
                 <i className="fas fa-edit"></i>
               </Link>
             <button
+              data-tooltip='Delete Recipe'
               aria-label='delete recipe' 
               className='remove-recipe'
               onClick = {e => this.context.delete(id)}>

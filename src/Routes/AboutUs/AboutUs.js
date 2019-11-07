@@ -99,7 +99,7 @@ class aboutUs extends React.Component{
               />
             </h2>
           </a>
-          <p>What you contributed</p>
+         <p>What you contributed</p>
           <a 
             href="https://swordsagekeith.github.io/PortfolioSite/" 
             className="link" target="_blank" rel="noopener noreferrer"
@@ -149,7 +149,7 @@ class aboutUs extends React.Component{
           <a 
             itemProp="contactPoint" 
             className="lin" 
-            href="" 
+            href="https://www.linkedin.com/in/hector-valles-web-developer/" 
             target="_blank" 
             rel="noopener noreferrer"
           >
@@ -162,9 +162,17 @@ class aboutUs extends React.Component{
               />
             </h2>
           </a>
-          <p>What you contributed</p>
+          <p>Design Lead</p>
+          <ul>
+            <li>Created the look and feel of the project.</li>
+            <li>Implemented the css for all pages.</li>
+            <li>Ensured project was A11y compliant.</li>
+            <li>Designed hero image as well as the logo.</li>
+            <li>Ensured project was responsive to all screen sizes</li>
+            <li>Performed some testing and bug fixing</li>
+          </ul>
           <a 
-            href="" 
+            href="https://hmvalles75.github.io/modern_portfolio/" 
             className="link" 
             target="_blank" 
             rel="noopener noreferrer"

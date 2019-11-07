@@ -118,12 +118,17 @@ class IngredientsAdderForm extends React.Component {
                 </Input>
             </div>
             <div className='ingredients-buttons'>
-              <Button aria-label='add item' className ='ingr-button'
+              <Button
+                data-tooltip='Add Item' 
+                aria-label='add item' 
+                className ='ingr-button'
                 type = "Submit">
                 <i className="fas fa-plus"></i>
               </Button>
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <Button aria-label='cancel' className ='ingr-button'
+              <Button
+                data-tooltip='Cancel Add Item' 
+                aria-label='cancel' className ='ingr-button'
                 onClick={this.props.cancelSubmit}
                 type = "Button">
                 <i className="fas fa-times"></i>
