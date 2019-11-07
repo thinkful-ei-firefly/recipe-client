@@ -108,7 +108,7 @@ class aboutUs extends React.Component{
           </a>
         </div>
         <hr/>
-<
+        
         <div itemscope itemtype ="http://schema.org/Person" className="right">
           <a 
             itemprop="contactPoint"
