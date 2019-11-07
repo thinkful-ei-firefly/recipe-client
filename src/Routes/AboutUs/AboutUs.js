@@ -68,6 +68,14 @@ class aboutUs extends React.Component{
             </h2>
           </a>
           <p>Project Owner</p>
+          <ul>
+            <li>Managed user stories</li>
+            <li>{ 'Login with Google (firebase), front/back end' }</li>
+            <li>Created Add Recipe, and Private Recipes Route</li>
+            <li>Designed and coded hamburger menu</li>
+            <li>user, Recipe, and PublicRecipe Context</li>
+            <li>Extensive user testing, and bug fixes</li>
+          </ul>
           <a 
             href="https://richardjgates-portfolio.now.sh/"
             className="link"
