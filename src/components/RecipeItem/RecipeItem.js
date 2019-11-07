@@ -30,7 +30,7 @@ class RecipeItem extends React.Component {
             </Link>
             <p className='description'>{ description } </p>
             <p className='match'>
-              { matchPercent !== null
+              { matchPercent !== undefined
                   ? `You own ${matchPercent}% of these ingredients` 
                   : '' 
               }
