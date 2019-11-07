@@ -3,35 +3,35 @@
   box-sizing: border-box;
 }
 
-.left{
+.left {
   text-align: left;
   margin: 0 0 0 20px;
 }
 
-.right{
+.right {
   text-align: right;
   margin: 0 20px 0 0;
 }
 
-h2{
+h2 {
   font-size: 30px;
 }
 
-.lin:link{
+.lin:link {
   color: black;
 }
-.lin:visited{
-  color:black;
+.lin:visited {
+  color: black;
 }
-.lin:hover{
+.lin:hover {
   color: #01e00c;
 }
 
-p{
-  font-size: 20px;;
+p {
+  font-size: 20px;
 }
 
-.portfolio{
+.portfolio {
   color: #fff;
   cursor: pointer;
   font-size: 20px;
@@ -44,10 +44,10 @@ p{
   max-width: 400px;
 }
 
-.portfolio:hover{
+.portfolio:hover {
   color: #01e00c;
 }
 
-.icon{
+.icon {
   width: 25px;
 }
