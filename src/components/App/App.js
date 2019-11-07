@@ -70,7 +70,7 @@ class App extends React.Component {
               path={ '/publicrecipes/:id' }
               component={ PublicRecipeRoute }
             />
-            <Route
+            <PrivateRoute
               path={ '/recipe/:id' }
               component={ RecipeSingleRoute }
             />
@@ -82,7 +82,7 @@ class App extends React.Component {
               path={ '/register' }
               component={ RegisterRoute }
             />
-            <Route
+            <PrivateRoute
               path={ '/newrecipe' }
               component={ AddRecipe }
             />

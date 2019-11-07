@@ -108,6 +108,7 @@ class aboutUs extends React.Component{
           </a>
         </div>
         <hr/>
+<
         <div itemscope itemtype ="http://schema.org/Person" className="right">
           <a 
             itemprop="contactPoint"
@@ -120,12 +121,19 @@ class aboutUs extends React.Component{
               <img 
                 className="icon" 
                 alt="linkedin" 
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"
+                src= { linkedinLogo }
               />
               Fabian Lema
             </h2>
           </a>
-          <p>What you contributed</p>
+          <p>Full Stack Developer</p>
+          <ul>
+            <li>Managed Facebook API to login</li>
+            <li>Configured and Managed AWS S3 to store images</li>
+            <li>Collaborated with creating API endpoints</li>
+            <li>Fixed front-end and back-end bug</li>
+            <li>Tested server endpoints using Mocha, Chai, and supertest</li>
+          </ul>
           <a 
             href="" 
             className="link" 
@@ -135,6 +143,7 @@ class aboutUs extends React.Component{
             <Button className="portfolio">See More Work Here</Button>
           </a>
         </div>
+
         <hr/>
         <div itemscope itemtype ="http://schema.org/Person" className="left">
           <a 
