@@ -51,3 +51,7 @@ p {
 .icon {
   width: 25px;
 }
+
+.right ul {
+  direction: rtl;
+}
