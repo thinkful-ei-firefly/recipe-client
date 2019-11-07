@@ -38,7 +38,7 @@ class aboutUs extends React.Component{
             <li>Coded AJAX requests for the client</li>
             <li>Designed several REACT routes, including the recipe and shopping list pages</li>
             <li>Implemented numerous features, including searching and rating recipes, and creating shopping lists from recipe cards.</li>
-            <li>Performed rigourous testing and bug fixing</li>
+            <li>Performed rigorous testing and bug fixing</li>
           </ul>
           <a
             href="https://thinkful-ei-firefly.github.io/portfolio-sam/" 
