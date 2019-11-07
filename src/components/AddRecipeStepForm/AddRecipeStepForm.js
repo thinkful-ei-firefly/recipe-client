@@ -39,8 +39,8 @@ class AddStepToRecipeForm extends React.Component {
         onSubmit = { this.handleSubmit }>
         <div className = "step">
           <div className='section'>
-            <span>4</span>
-            Instructions
+            <span>7</span>
+            <h3>Instructions</h3>
           </div>
           <AddRecipeStep />
           <div>

@@ -24,8 +24,8 @@ class AddRecipeCuisineForm extends React.Component {
         <div className = "cuisine">
           <div
             className='section'>
-              <span>5</span>
-              Cuisine
+              <span>3</span>
+              <h3>Cuisine</h3>
           </div>
           {this.context.recipeCuisine ?
           <AddRecipeCuisine />

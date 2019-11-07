@@ -14,8 +14,8 @@ class AddRecipePublic extends React.Component {
         className = "addIngredient-form">
         <div className = "description">
           <div className="section">
-            <span>7</span>
-            Visibility
+            <span>8</span>
+            <h3>Visibility</h3>
           </div>
           <div className="inner-wrap">
             <p>Do you want this recipe to be publicly available to everyone?</p>

@@ -1,8 +1,6 @@
 import React from 'react'
 import Button from '../Button/Button'
 
-import '../AddRecipeTitleForm/Add.css'
-
 import RecipeContext from '../../contexts/RecipeContext'
 
 class AddRecipeCuisine extends React.Component {
