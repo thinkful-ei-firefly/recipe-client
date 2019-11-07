@@ -65,7 +65,7 @@ class RecipeRoute extends React.Component {
               }
             </h1>
 
-            {error}
+            <p role='alert'>{error}</p>
 
             <div className="image" itemProp="image">
               <img

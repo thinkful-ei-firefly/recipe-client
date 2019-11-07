@@ -19,7 +19,7 @@ class SearchPublicRecipes extends React.Component {
         onSubmit = { this.props.handleSubmit }
         className = "search-public-recipes">
         
-        { error }
+        <p role='alert'>{ error }</p>
 
         <Label
           htmlFor="public-recipe-search">
