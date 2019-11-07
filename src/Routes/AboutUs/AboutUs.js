@@ -15,9 +15,37 @@ class aboutUs extends React.Component{
     return (
       <section>
         <div className="left">
-          <a className="lin" href="" target="_blank" rel="noopener noreferrer"><h2>Sam Walker <img className="icon" alt="linkedin" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"/></h2></a>
-          <p>What you contributed</p>
-          <a href="" className="link" target="_blank" rel="noopener noreferrer"><Button className="portfolio">See More Work Here</Button></a>
+          <a
+            className="lin"
+            href="https://www.linkedin.com/in/sam-walker-25aba918b/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h2>
+              Sam Walker
+              <img
+                className="icon" 
+                alt="linkedin" 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"
+              />
+            </h2>
+          </a>
+          <p>Project Manager</p>
+          <ul>
+            <li>Created API endpoints on server</li>
+            <li>Helped design and manage the postgreSQL database</li>
+            <li>Coded AJAX requests for the client</li>
+            <li>Designed several REACT routes, including the recipe and shopping list pages</li>
+            <li>Implemented numerous features, including searching and rating recipes, and creating shopping lists from recipe cards.</li>
+            <li>Performed rigourous testing and bug fixing</li>
+          </ul>
+          <a
+            href="https://thinkful-ei-firefly.github.io/portfolio-sam/" 
+            className="link" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <Button className="portfolio">See More Work Here</Button></a>
         </div>
         
         <hr/>
