@@ -8,7 +8,7 @@ const Dashboard = () => {
     <section className='dashboard'>
 
       <div className="group">
-        <Link to="/recipe/2">
+        <Link to="/publicrecipes">
           <div className="card">
           <p>
             View and search public recipes. 
