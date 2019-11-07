@@ -28,13 +28,13 @@ class RecipeItem extends React.Component {
               className = "name">
               { name }
             </Link>
-            <p>
+            <p className='description'>{ description } </p>
+            <p className='match'>
               { matchPercent !== null
                   ? `You own ${matchPercent}% of these ingredients` 
                   : '' 
               }
             </p>
-            <p className='description'>{ description } </p>
             <div className='recipe-buttons'>
               <Link
                 to={ '/editrecipe/'+id }
