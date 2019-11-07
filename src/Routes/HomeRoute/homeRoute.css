@@ -32,7 +32,7 @@ section.home {
   flex-direction: column;
 }
 
-.landing h2 {
+.landing h1 {
   font-size: 18px;
   margin-bottom: 1.5em;
 }
@@ -90,7 +90,7 @@ section.home {
     margin-top: -40px;
   }
 
-  .landing h2 {
+  .landing h1 {
     font-size: 30px;
     margin: 20px 0 30px 0;
   }
@@ -104,8 +104,8 @@ section.home {
   .landing .home {
     margin-top: -40px;
   }
-  
-  .landing h2 {
+
+  .landing h1 {
     font-size: 48px;
     margin: 0 0 40px 0;
   }

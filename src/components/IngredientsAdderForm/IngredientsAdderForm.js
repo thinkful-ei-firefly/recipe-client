@@ -63,6 +63,7 @@ class IngredientsAdderForm extends React.Component {
                     Quantity: <Required />
                 </Label>
                 <Input className='addIng-input'
+                    aria-label='enter Quantity' 
                     name = "amount"
                     id = "recipe-amount"
                     type = "text"
@@ -84,6 +85,7 @@ class IngredientsAdderForm extends React.Component {
                     Unit of Measure: <Required />
                 </Label>
                 <Input className='addIng-input'
+                    aria-label='enter measurement' 
                     name = "measurement"
                     id = "recipe-measurement"
                     type = "text"
@@ -107,6 +109,7 @@ class IngredientsAdderForm extends React.Component {
                     Ingredient: <Required />
                 </Label>
                 <Input className='addIng-input'
+                    aria-label='enter ingredient' 
                     name = "ingredient"
                     id = "recipe-ingredient"
                     type = "text"
@@ -115,12 +118,12 @@ class IngredientsAdderForm extends React.Component {
                 </Input>
             </div>
             <div className='ingredients-buttons'>
-              <Button className ='ingr-button'
+              <Button aria-label='add item' className ='ingr-button'
                 type = "Submit">
                 <i className="fas fa-plus"></i>
               </Button>
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <Button className ='ingr-button'
+              <Button aria-label='cancel' className ='ingr-button'
                 onClick={this.props.cancelSubmit}
                 type = "Button">
                 <i className="fas fa-times"></i>

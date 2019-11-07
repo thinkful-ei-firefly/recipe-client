@@ -59,6 +59,7 @@ class Recipes extends React.Component {
             <Label
               htmlFor="recipe-search">
               <Input
+                    aria-label='Search recipes'
                     id='recipe-search'
                     type='text'
                     placeholder='Search...'
@@ -66,6 +67,7 @@ class Recipes extends React.Component {
               </Input>
             </Label>
             <Button
+              aria-label='search'
               className='search_button'
               type='submit'>
               <i className="fa fa-search"></i>
@@ -79,6 +81,7 @@ class Recipes extends React.Component {
           <div className='add_new'>
             <h3>{ ' Add New Recipe' }</h3>
             <Link
+              aria-label='add new recipe'
               to="/newrecipe"
               className="menu">
               <i className="far fa-plus-square"></i>

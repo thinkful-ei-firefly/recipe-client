@@ -77,6 +77,7 @@ class SignInWithGoogle extends React.Component {
   render() {
     return(
       <Button
+        aria-label='Sign in with Google'
         onClick = { this.handleClick }
         className="google-button">
         <span className="google-button_text">

@@ -18,6 +18,7 @@ class SideDrawerLogout extends React.Component {
         <ul>
           <li>
             <Link
+              aria-label='home' 
               to="/"
               className="menu"
               onClick={ this.context.handleCloseSideDrawer }>
@@ -28,6 +29,7 @@ class SideDrawerLogout extends React.Component {
           </li>
           <li>
             <Link
+              aria-label='my recipes' 
               to="/recipes"
               className="menu"
               onClick={ this.context.handleCloseSideDrawer }>
@@ -38,6 +40,7 @@ class SideDrawerLogout extends React.Component {
           </li>
           <li>
             <Link
+              aria-label='shopping list' 
               to="/shoppinglist" 
               className="menu"
               onClick={ this.context.handleCloseSideDrawer }>
@@ -48,6 +51,7 @@ class SideDrawerLogout extends React.Component {
           </li>
           <li>
             <Link
+              aria-label='my pantry' 
               to="/ingredients"
               className="menu"
               onClick={ this.context.handleCloseSideDrawer }>
@@ -58,6 +62,7 @@ class SideDrawerLogout extends React.Component {
           </li>
           <li>
             <Link
+              aria-label='public recipes' 
               to="/publicrecipes"
               className="menu"
               onClick={ this.context.handleCloseSideDrawer }>
@@ -68,6 +73,7 @@ class SideDrawerLogout extends React.Component {
           </li>
           <li>
             <Link
+              aria-label='log out' 
               to="/login"
               className="menu"
               onClick={ this.handleLogout }>

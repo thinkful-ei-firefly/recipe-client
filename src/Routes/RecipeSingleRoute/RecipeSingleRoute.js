@@ -61,7 +61,8 @@ class RecipeSingleRoute extends React.Component {
     return (
       <div className='single-recipe'>
       <div className='recipe-tabs'>
-      <Link
+      <Link 
+          aria-label='back to recipes'
           to = '/recipes'
           className = "back">
          <i className="fas fa-backspace">&nbsp;<span>Back To Recipes</span></i> 
@@ -76,11 +77,11 @@ class RecipeSingleRoute extends React.Component {
                     />
                   </div>
         <div className='tabset'>
-          <input type='radio' id='tab1' defaultChecked  value="summary" name="recipe" onClick={event=>this.handleTabClick(event)}></input>
+          <input type='radio' aria-checked="true" id='tab1' defaultChecked  value="summary" name="recipe" onClick={event=>this.handleTabClick(event)}></input>
           <label htmlFor='tab1'>Summary</label>
-          <input type='radio' id='tab2'  value="ingredients" name="recipe" onClick={event=>this.handleTabClick(event)}></input>
+          <input type='radio' aria-checked="false" id='tab2'  value="ingredients" name="recipe" onClick={event=>this.handleTabClick(event)}></input>
           <label htmlFor='tab2'>Ingredients</label>
-          <input type='radio' id='tab3'  value="instructions" name="recipe" onClick={event=>this.handleTabClick(event)}></input>
+          <input type='radio' aria-checked="false" id='tab3'  value="instructions" name="recipe" onClick={event=>this.handleTabClick(event)}></input>
           <label htmlFor='tab3'>Instructions</label>
         </div>
         <div className='tab-panels'>
