@@ -52,13 +52,23 @@
   color: lightgreen;
 }
 
-@media (max-width: 715px) {
+/*
+Below 728px the Nav bar elemtents become to wide to fit
+in the header. Please keep this at 730px.
+  - Richard
+*/
+@media (max-width: 730px) {
   .navigation-items {
     display: none;
   }
 }
 
-@media (min-width: 716px) {
+/*
+Below 728px the Nav bar elemtents become to wide to fit
+in the header. Please keep this at 731px.
+  - Richard
+*/
+@media (min-width: 731px) {
   .toggle-button {
     display: none;
   }

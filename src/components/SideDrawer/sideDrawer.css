@@ -41,8 +41,13 @@
   color: #01e00c;
 }
 
+/* 
+This is not needed and will break
+the hamburger menu between 700px and up. 
+  - Richard
 @media (min-width: 700px) {
   .side-drawer {
     display: none;
   }
-}
+} 
+*/
