@@ -113,7 +113,7 @@ class aboutUs extends React.Component{
           <a 
             itemProp="contactPoint"
             className="lin" 
-            href="" 
+            href="https://www.linkedin.com/in/fabian-lema-79539250" 
             target="_blank" 
             rel="noopener noreferrer"
           >
@@ -135,7 +135,7 @@ class aboutUs extends React.Component{
             <li>Tested server endpoints using Mocha, Chai, and supertest</li>
           </ul>
           <a 
-            href="" 
+            href="http://www.fabianlema.tech/" 
             className="link" 
             target="_blank" 
             rel="noopener noreferrer"
