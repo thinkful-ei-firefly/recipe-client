@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 
 import RecipeApiService from '../../services/recipe-api-service'
+import TokenService from '../../services/token-service'
 
 class RecipeButton extends React.Component {
 
@@ -12,7 +13,7 @@ class RecipeButton extends React.Component {
 
     render() {
         return(
-            <div className='recipe-buttons_p'>
+            <div hidden={!TokenService.hasAuthToken()} className='recipe-buttons_p'>
                 <button
                     data-tooltip='Copy to My Recipes'
                     className='remove-recipe'
