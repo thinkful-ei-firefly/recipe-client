@@ -7,7 +7,7 @@ class RecipeButton extends React.Component {
 
     cloneRecipe = (id) => {
         RecipeApiService.cloneRecipe(id)
-          .then(() => this.props.history.push('/recipe/'+id))
+          .then(() => this.props.history.push('/recipes/'))
       }
 
     render() {
