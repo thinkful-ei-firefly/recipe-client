@@ -3,7 +3,7 @@ import React from 'react'
 import RecipeApiService from '../services/recipe-api-service'
 import TokenService from '../services/token-service'
 
-import RecipeButton from '../components/RecipeButton/RecipeButton'
+import RecipeCopyButton from '../components/RecipeCopyButton/RecipeCopyButton'
 
 import { Link } from 'react-router-dom'
 
@@ -173,7 +173,7 @@ export class PublicRecipeProvider extends React.Component {
               : 'Recipe not yet rated'}
           </p>
           {
-            TokenService.hasAuthToken && <RecipeButton recipeId = { recipe.id }/>
+            TokenService.hasAuthToken && <RecipeCopyButton recipeId = { recipe.id }/>
           }
         </section>
       </div>

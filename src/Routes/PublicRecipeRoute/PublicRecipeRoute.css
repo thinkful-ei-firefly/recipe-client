@@ -46,3 +46,9 @@
 .recipe-tabs .bulleted {
   list-style-type: disc;
 }
+
+.publicButtons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
