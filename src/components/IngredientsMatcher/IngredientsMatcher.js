@@ -21,7 +21,6 @@ class IngredientsMatcher extends React.Component {
         total++
         for (let i = 0; i < myPantry.length; i++) {
           if (ing.includes(myPantry[i].name)) {
-            console.log(ing + ' includes ' + myPantry[i].name)
             match++
             break
           }
