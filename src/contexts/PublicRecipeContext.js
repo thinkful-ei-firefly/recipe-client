@@ -3,6 +3,8 @@ import React from 'react'
 import RecipeApiService from '../services/recipe-api-service'
 import TokenService from '../services/token-service'
 
+import RecipeButton from '../components/RecipeButton/RecipeButton'
+
 import { Link } from 'react-router-dom'
 
 const PublicRecipeContext = React.createContext({
@@ -171,21 +173,7 @@ export class PublicRecipeProvider extends React.Component {
               : 'Recipe not yet rated'}
           </p>
           {
-            TokenService.hasAuthToken()
-            && <div className='recipe-buttons_p'>
-              <button
-                data-tooltip='Copy to My Recipes'
-                className='remove-recipe'
-                type='button'
-                onClick={e => this.cloneRecipe(recipe.id)}>
-                <i className="far fa-copy"
-                  style={{
-                    textAlign: 'end',
-                    fontSize: '24px',
-                  }}>
-                </i>
-              </button>
-            </div>
+            TokenService.hasAuthToken && <RecipeButton recipeId = { recipe.id }/>
           }
         </section>
       </div>
@@ -194,13 +182,6 @@ export class PublicRecipeProvider extends React.Component {
       publicRecipesJSX: recipes,
       selectRandom: selectRandom
     })
-  }
-
-  cloneRecipe = (id) => {
-    RecipeApiService.cloneRecipe(id)
-      .then(recipe => this.setState({ redirect: true },
-        () => this.setState({ redirect: false })
-      ))
   }
 
   render() {
