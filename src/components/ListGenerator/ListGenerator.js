@@ -16,7 +16,6 @@ class ListGenerator extends React.Component {
   }
 
   handleListCreate = async () => {
-    console.log('create')
     const popUpArray = []
     const ingredientsToAdd = []
     let newIngs = []
@@ -47,10 +46,8 @@ class ListGenerator extends React.Component {
     })
     this.setState({ ingredientsToAdd })
     if (!!popUpArray.length) {
-      console.log('popups')
       this.handlePopUps(popUpArray)
     } else {
-      console.log('no popups')
       this.createList()
     }
   }
@@ -58,7 +55,6 @@ class ListGenerator extends React.Component {
   handlePopUps = async (popUps) => {
     const popUpArray = []
     popUps.forEach((popUp, i) => {
-      console.log(popUp)
       const { amount, unit, name } = popUp[1]
       const newIng = popUp[0].join(' ')
       popUpArray.push(
