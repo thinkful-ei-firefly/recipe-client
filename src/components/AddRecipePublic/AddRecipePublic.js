@@ -19,28 +19,30 @@ class AddRecipePublic extends React.Component {
           </div>
           <div className="inner-wrap">
             <p>Do you want this recipe to be publicly available to everyone?</p>
-            <Label
-              htmlFor="recipe-type-yes">
-              Yes
-            </Label>
-            <Input
-              name="measurement"
-              id="recipe-type-yes"
-              type="radio"
-              checked={this.context.recipePublic}
-              onChange={this.context.handleAddPublic}>
-            </Input>
-            <Label
-              htmlFor="recipe-type-no">
-              No
-            </Label>
-            <Input
-              name="measurement"
-              id="recipe-type-no"
-              type="radio"
-              checked={!this.context.recipePublic}
-              onChange={this.context.handleRemovePublic}>
-            </Input>
+            <div className='yes_no'>
+              <Label
+                htmlFor="recipe-type-yes">
+                Yes
+              </Label>
+              <Input
+                name="measurement"
+                id="recipe-type-yes"
+                type="radio"
+                checked={this.context.recipePublic}
+                onChange={this.context.handleAddPublic}>
+              </Input>
+                <Label
+                htmlFor="recipe-type-no">
+                No
+              </Label>
+              <Input
+                name="measurement"
+                id="recipe-type-no"
+                type="radio"
+                checked={!this.context.recipePublic}
+                onChange={this.context.handleRemovePublic}>
+              </Input>
+            </div>
           </div>
         </div>
       </form>

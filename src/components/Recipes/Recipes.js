@@ -7,7 +7,6 @@ import Button from '../Button/Button'
 
 import IngredientsMatcher from '../IngredientsMatcher/IngredientsMatcher'
 import RandomRecipe from '../RandomRecipe/RandomRecipe'
-import logo from '../../images/logo.png'
 
 import './Recipes.css'
 
