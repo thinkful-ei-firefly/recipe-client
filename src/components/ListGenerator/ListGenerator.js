@@ -60,8 +60,17 @@ class ListGenerator extends React.Component {
       popUpArray.push(
         <li key={i} id={i}>
           {`You already own ${amount} ${unit} of ${name}. Add ${newIng} to your shopping list?`}
-          <button className='yes-no-button' value={popUp[0]} onClick={event => this.handleYes(event, i)}><i className="fas fa-check-circle"></i></button>
-          <button className='yes-no-button' onClick={event => this.handleNo(event)}><i className="fas fa-times-circle"></i></button>
+          <button
+            className='yes-no-button'
+            value={popUp[0]}
+            onClick={event => this.handleYes(event, i)}
+          >
+            <i className="fas fa-check-circle"></i></button>
+          <button
+            className='yes-no-button'
+            onClick={event => this.handleNo(event)}
+          >
+            <i className="fas fa-times-circle"></i></button>
         </li>)
     })
     await this.setState({ popUpArray })
