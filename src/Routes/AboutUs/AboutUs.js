@@ -69,11 +69,11 @@ class aboutUs extends React.Component {
           </a>
           <p>Project Owner</p>
           <ul>
-            <li>Managed user stories</li>
             <li>{'Login with Google (firebase), front/back end'}</li>
             <li>Created Add Recipe, and Private Recipes Route</li>
             <li>Designed and coded hamburger menu</li>
-            <li>user, Recipe, and PublicRecipe Context</li>
+            <li>Sitemap, added schema on recipe card pages.</li>
+            <li>Created, coded User, Recipe, and PublicRecipe Context</li>
             <li>Extensive user testing, and bug fixes</li>
           </ul>
           <a
