@@ -49,7 +49,7 @@ password: Password1
 <img src="./src/images/screenshots/goodMealShoppingList.png" alt="" width="400px">
 
 ### Pantry List
-<img src="./src/images/screenshots/goodMealMyPantry" alt="" width="400px">
+<img src="./src/images/screenshots/goodMealMyPantry.png" alt="" width="400px">
 
 
 ## Additional Features
