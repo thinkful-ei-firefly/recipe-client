@@ -33,39 +33,43 @@ class AddStepToRecipeForm extends React.Component {
   }
 
   render() {
-    return (
-      <form
-        className="addIngredient-form"
-        onSubmit={this.handleSubmit}>
-        <div className="step">
-          <div className='section'>
-            <span>7</span>
-            <h3>Instructions</h3>
-          </div>
-          <AddRecipeStep />
-          <div>
-            <p role='alert'> {this.state.error} </p>
-            <div className='inner-wrap'>
-              <Label
-                htmlFor="recipe-step">
-                Step: <Required />
-              </Label>
-              <Input
-                placeholder='ex. "bake for 45 minutes"'
-                className='input'
-                name="step"
-                id="recipe-step"
-                type="text"
-                required>
-              </Input>
+    return(
+      <div className="addIngredient-form">
+
+        <h3>Instructions</h3>
+        <AddRecipeStep />
+
+        <form
+          onSubmit = { this.handleSubmit }>
+          <div className = "step">
+            <div className='section'>
+              <span>7</span>
             </div>
-            <Button className='add'
-              type="submit">
-              +
-            </Button>
+            <div>
+              <p role='alert'> {this.state.error} </p>
+              <div className='inner-wrap'>
+                <Label
+                  htmlFor = "recipe-step">
+                  Step: <Required />
+                </Label>
+                <Input
+                  placeholder = 'ex. "bake for 45 minutes"'
+                  className='input'
+                  name = "step"
+                  id = "recipe-step"
+                  type = "text"
+                  required>
+                </Input>
+              </div>
+              <Button className='add'
+                type = "submit">
+                +
+              </Button>
+            </div>
+
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     )
   }
 }
