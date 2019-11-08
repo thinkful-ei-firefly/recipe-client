@@ -209,6 +209,7 @@ export class PublicRecipeProvider extends React.Component {
       display: this.state.display,
       publicRecipesJSX: this.state.publicRecipesJSX,
       selectRandom: this.state.selectRandom,
+      redirect: this.state.redirect,
 
       updateRecipe: this.updateRecipe,
       updateDisplay: this.updateDisplay,
