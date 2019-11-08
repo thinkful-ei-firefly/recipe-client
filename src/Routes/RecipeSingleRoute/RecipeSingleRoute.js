@@ -29,7 +29,7 @@ class RecipeSingleRoute extends React.Component {
 
   deconvertCharacters = str => {
     let newStr = str.split('')
-    for (let i=0; i<newStr.length; i++) {
+    for (let i = 0; i < newStr.length; i++) {
       if (newStr[i] === '^') newStr[i] = ','
       else if (newStr[i] === '|') newStr[i] = '"'
     }
@@ -56,14 +56,15 @@ class RecipeSingleRoute extends React.Component {
       cuisine= recipe.category
       time_to_make= recipe.time_to_make
       description = recipe.description
-      if (display==='ingredients') {
+      if (display === 'ingredients') {
         recipe.ingredients.forEach((item, i) => list.push(<li className='ing-list bulleted' key={i}>{item}</li>))
-      } else if (display==='instructions') {
+      } else if (display === 'instructions') {
         recipe.instructions.forEach((item, i) => list.push(<li className='inst-list numbered' key={i}>{item}</li>))
       }
     }
     return (
       <div className='single-recipe'>
+<<<<<<< HEAD
       <div className='recipe-tabs'>
       <Link 
           aria-label='back to recipes'
@@ -97,10 +98,60 @@ class RecipeSingleRoute extends React.Component {
               <p className = "cuisine" itemProp = "recipeCuisine"><span style={{ fontWeight:'600' }}>Cuisine:</span> { cuisine }</p>
             </div>
             : <ul className='displayed-list'>{list}</ul>}
+=======
+        <div className='recipe-tabs'>
+          <Link
+            aria-label='back to recipes'
+            to='/recipes'
+            className="back">
+            <i className="fas fa-backspace">&nbsp;<span>Back To Recipes</span></i>
+          </Link>
+          <h1>{recipe ? recipe.name : 'loading...'}</h1>
+          <p role='alert'>{error}</p>
+
+          <div className="image">
+            <img
+              src={"https://good-meal.s3.amazonaws.com/" + (recipe && recipe.imageurl ? recipe.imageurl : 'nofound.png')}
+              alt={name}
+            />
+          </div>
+          <div className='tabset'>
+            <input
+              type='radio'
+              aria-checked="true"
+              id='tab1'
+              defaultChecked value="summary"
+              name="recipe"
+              onClick={event => this.handleTabClick(event)}
+            ></input>
+            <label htmlFor='tab1'>Summary</label>
+            <input
+              type='radio'
+              aria-checked="false"
+              id='tab2'
+              value="ingredients"
+              name="recipe"
+              onClick={event => this.handleTabClick(event)}
+            ></input>
+            <label htmlFor='tab2'>Ingredients</label>
+            <input
+              type='radio'
+              aria-checked="false"
+              id='tab3'
+              value="instructions"
+              name="recipe"
+              onClick={event => this.handleTabClick(event)}
+            ></input>
+            <label htmlFor='tab3'>Instructions</label>
+          </div>
+          <div className='tab-panels'>
+            <section aria-live="polite" className='tab-panel'>
+              {display === 'summary' ? description : <ul className='displayed-list'>{list}</ul>}
+>>>>>>> 562800b39eb941f99bda5f8ac112c9a9d381a68b
             </section>
+          </div>
         </div>
-      </div>
-      <ListGenerator recipe={this.state.recipe}/>
+        <ListGenerator recipe={this.state.recipe} />
       </div>
     )
   }

@@ -15,47 +15,47 @@ const RecipeApiService = {
       )
   },
   getAll() {
-      return fetch(`${config.API_ENDPOINT}/recipes`, {
-        headers: {
-          "Authorization": `bearer ${TokenService.getAuthToken()}`,
-        },
-      })
-        .then(res =>
-          (!res.ok)
-            ? res.json().then(e => Promise.reject(e))
-            : res.json()
-        )
-    },
+    return fetch(`${config.API_ENDPOINT}/recipes`, {
+      headers: {
+        "Authorization": `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
 
   getById(id) {
-        return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
-          headers: {
-            "Authorization": `bearer ${TokenService.getAuthToken()}`,
-          },
-        })
-          .then(res =>
-            (!res.ok)
-              ? res.json().then(e => Promise.reject(e))
-              : res.json()
-          )
+    return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
+      headers: {
+        "Authorization": `bearer ${TokenService.getAuthToken()}`,
       },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
 
   postRecipe(recipe) {
-        return fetch(`${config.API_ENDPOINT}/recipes`, {
-        method: 'POST',
-        headers: {
-            'authorization': `Bearer ${TokenService.getAuthToken()}`,
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(recipe)
-        })
+    return fetch(`${config.API_ENDPOINT}/recipes`, {
+      method: 'POST',
+      headers: {
+        'authorization': `Bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(recipe)
+    })
 
-        .then(res =>
-            (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
-        )
-    },
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
 
   saveNew(obj) {
     return fetch(`${config.API_ENDPOINT}/recipes`, {
@@ -126,7 +126,7 @@ const RecipeApiService = {
         "Authorization": `bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json',
       },
-      body: JSON.stringify({id}),
+      body: JSON.stringify({ id }),
     })
       .then(res =>
         (!res.ok)

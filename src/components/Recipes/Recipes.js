@@ -15,7 +15,7 @@ class Recipes extends React.Component {
 
   static contextType = RecipeContext
 
-  componentDidMount(){
+  componentDidMount() {
     this.context.clearError()
     this.context.getAllRecipes()
   }
@@ -38,33 +38,32 @@ class Recipes extends React.Component {
       )
     }
 
-    if (this.context.selectRandom && recipeList.length>0){
+    if (this.context.selectRandom && recipeList.length > 0) {
       const temp = recipeList[Math.floor(Math.random() * recipeList.length)]
       recipeList = []
       recipeList.push(temp)
     }
 
     const recipes = recipeList
-        .map(recipe =>
-            { return <RecipeItem key={recipe.id} recipe={recipe}/> }
-        )
+      .map(recipe => { return <RecipeItem key={recipe.id} recipe={recipe} /> }
+      )
 
-    return(
+    return (
       <section className="my-recipes">
         
         <div className="head">
           <h1>My Recipes</h1>
-          <form 
-            onSubmit={ this.context.searchMyRecipes } 
-            className = "search">
+          <form
+            onSubmit={this.context.searchMyRecipes}
+            className="search">
             <Label
               htmlFor="recipe-search">
               <Input
-                    aria-label='Search recipes'
-                    id='recipe-search'
-                    type='text'
-                    placeholder='Search...'
-                    name='search'>
+                aria-label='Search recipes'
+                id='recipe-search'
+                type='text'
+                placeholder='Search...'
+                name='search'>
               </Input>
             </Label>
             <Button
@@ -76,11 +75,11 @@ class Recipes extends React.Component {
           </form>
 
           <IngredientsMatcher />
-          
+
           <RandomRecipe />
 
           <div className='add_new'>
-            <h3>{ ' Add New Recipe' }</h3>
+            <h3>{' Add New Recipe'}</h3>
             <Link
               aria-label='add new recipe'
               to="/newrecipe"
@@ -91,7 +90,7 @@ class Recipes extends React.Component {
 
         </div>
 
-        { recipes }
+        {recipes}
 
       </section>
     )

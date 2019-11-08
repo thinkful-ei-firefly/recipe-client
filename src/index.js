@@ -10,7 +10,7 @@ import * as serviceWorker from './serviceWorker'
 ReactDOM.render(
   <BrowserRouter>
     <UserProvider>
-      <RecipeProvider> 
+      <RecipeProvider>
         <PublicRecipeProvider>
           <App />
         </PublicRecipeProvider>

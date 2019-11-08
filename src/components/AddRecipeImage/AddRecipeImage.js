@@ -8,24 +8,24 @@ class AddRecipeImage extends React.Component {
   static contextType = RecipeContext
 
   render() {
-    return(
+    return (
       <form
-        className = "addIngredient-form">
-        <div className = "description">
-          <div 
+        className="addIngredient-form">
+        <div className="description">
+          <div
             className='section'>
             <span>5</span>
             <h3>Image</h3>
           </div>
           <div className='inner-wrap'>
             <label htmlFor='image'>Image
-              <input 
-                id='image' 
-                type="file" 
-                accept=".png,.jpg,.jpeg" 
-                onChange={ 
-                  (e) => this.context.handleAddImage(e.target.files) 
-                }/>
+              <input
+                id='image'
+                type="file"
+                accept=".png,.jpg,.jpeg"
+                onChange={
+                  (e) => this.context.handleAddImage(e.target.files)
+                } />
             </label>
           </div>
         </div>

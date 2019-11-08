@@ -16,7 +16,7 @@ class AddRecipeTitleForm extends React.Component {
   }
 
   renderInnerWrap() {
-    return(
+    return (
       <div>
         <div className="inner-wrap">
           <Label
@@ -24,7 +24,7 @@ class AddRecipeTitleForm extends React.Component {
             Title: <Required />
           </Label>
           <Input
-            placeholder = 'ex. "Spicy Tacos"'
+            placeholder='ex. "Spicy Tacos"'
             className="input"
             name="title"
             id="text"
@@ -42,18 +42,18 @@ class AddRecipeTitleForm extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <form
-        className = "addIngredient-form"
-        onSubmit = { this.handleSubmit }>
-        <div className = "title">
+        className="addIngredient-form"
+        onSubmit={this.handleSubmit}>
+        <div className="title">
           <div
             className="section">
             <span>1</span>
             <h3>Title</h3>
           </div>
           {
-            this.context.recipeTitle 
+            this.context.recipeTitle
               ? <AddRecipeTitle />
               : this.renderInnerWrap()
           }

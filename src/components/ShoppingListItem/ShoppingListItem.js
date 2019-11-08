@@ -11,14 +11,14 @@ class RecipeItem extends React.Component {
   }
 
   crossUncross = () => {
-    GoodmealApiService.strikeUnstrikeListItem(this.props.recipe.id, {crossed: !this.state.crossed})
+    GoodmealApiService.strikeUnstrikeListItem(this.props.recipe.id, { crossed: !this.state.crossed })
       .then(() => {
         let list = this.context.recipeList
         const index = list.indexOf(this.props.recipe)
         list[index].crossed = !list[index].crossed
         this.context.setRecipeList(list)
       })
-      .then(() => this.setState({crossed: !this.state.crossed}))
+      .then(() => this.setState({ crossed: !this.state.crossed }))
   }
 
   render() {
@@ -28,27 +28,27 @@ class RecipeItem extends React.Component {
     //const ingredientList = ingredients.map(ingredient => <div>{ingredient}</div>)
     //const instructionList = instructions.map(instruction => <div>{instruction}</div>)
 
-    return(
+    return (
       <section>
         <div className='shopping-item'>
           <button
-            aria-label='unchecked' 
-            className='check-buttons' 
-            onClick={ this.crossUncross }>
+            aria-label='unchecked'
+            className='check-buttons'
+            onClick={this.crossUncross}>
             {
-              crossed 
-                ? <i className="fas fa-check-square"></i> 
+              crossed
+                ? <i className="fas fa-check-square"></i>
                 : <i className="fas fa-square"></i>
             }
           </button>
 
           &nbsp;&nbsp;
-          
-          <div 
+
+          <div
             className='food-item'>
-            { text }
+            {text}
           </div>
-                   
+
         </div>
         <hr />
       </section>

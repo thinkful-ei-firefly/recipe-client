@@ -25,7 +25,7 @@ class RatingPopup extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     const { value } = event.target.ratingSelector
-    GoodmealApiService.submitRating(this.props.id, {rating: value})
+    GoodmealApiService.submitRating(this.props.id, { rating: value })
       .then(() => {
         this.setState({ rated: value })
         this.handleClose()
@@ -36,11 +36,11 @@ class RatingPopup extends React.Component {
     const { rated } = this.state
     return (
       <div className='RatingPopup'>
-        
-        <button 
-          hidden={ rated || !this.context.login } 
-          className='rate' 
-          onClick={ e =>this.handleOpen(this.props.id) }>
+
+        <button
+          hidden={rated || !this.context.login}
+          className='rate'
+          onClick={e => this.handleOpen(this.props.id)}>
           <i className="fas fa-star">&nbsp;<span>Rate</span></i>
         </button>
 
@@ -48,10 +48,10 @@ class RatingPopup extends React.Component {
 
         <div id="myModal" className="modal">
           <div aria-live="polite" className="modal-content">
-            <span onClick = {this.handleClose}className="close">&times;</span>
+            <span onClick={this.handleClose} className="close">&times;</span>
             <form className='rate_form' onSubmit={e => this.handleSubmit(e)}>
               <legend>Rate This Recipe</legend>
-              <br/>
+              <br />
               <select name='ratingSelector' id='ratingSelector' defaultValue='5'>
                 <option value="1">1 star</option>
                 <option value="2">2 star</option>
@@ -59,7 +59,7 @@ class RatingPopup extends React.Component {
                 <option value="4">4 star</option>
                 <option value="5">5 star</option>
               </select>
-              
+
               <button className='rate-submit' type='submit'>Rate</button>
             </form>
           </div>

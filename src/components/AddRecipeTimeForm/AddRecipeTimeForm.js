@@ -16,17 +16,17 @@ class AddRecipeTimeForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     const time = e.target.time.value
-    if (time < 0) return this.setState({ error: 'Cook time cannot be negative'})
-    this.setState({ error: null})
+    if (time < 0) return this.setState({ error: 'Cook time cannot be negative' })
+    this.setState({ error: null })
     this.context.handleAddTime(time)
     e.target.time.value = ''
   }
 
   render() {
-    return(
+    return (
       <form
         className="addIngredient-form"
-        onSubmit={ this.handleSubmit }>
+        onSubmit={this.handleSubmit}>
         <div className="time">
           <div
             className="section">
@@ -34,31 +34,31 @@ class AddRecipeTimeForm extends React.Component {
             <h3>Cooking Time</h3>
           </div>
           {this.context.recipeTime ?
-          <AddRecipeTime />
-          :
-          <div>
-            <div
-              className="inner-wrap">
-              <p role='alert'>{this.state.error}</p>
-              <Label
-                htmlFor="recipe-time">
-                Time (in minutes): <Required />
-              </Label>
-              <Input
-                placeholder='ex. "10"'
-                className="input"
-                name="time"
-                id="recipe-step"
-                type="number"
-                required>
-              </Input>
-            </div>
-            <Button
-              className="add"
-              type="submit">
-              +
+            <AddRecipeTime />
+            :
+            <div>
+              <div
+                className="inner-wrap">
+                <p role='alert'>{this.state.error}</p>
+                <Label
+                  htmlFor="recipe-time">
+                  Time (in minutes): <Required />
+                </Label>
+                <Input
+                  placeholder='ex. "10"'
+                  className="input"
+                  name="time"
+                  id="recipe-step"
+                  type="number"
+                  required>
+                </Input>
+              </div>
+              <Button
+                className="add"
+                type="submit">
+                +
             </Button>
-          </div> }
+            </div>}
         </div>
       </form>
     )

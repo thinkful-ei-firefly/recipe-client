@@ -10,14 +10,14 @@ import DrawerToggleButton from '../DrawerToggleButton/DrawerToggleButton'
 import './header.css'
 
 class Header extends React.Component {
-  
+
   static contextType = UserContext
-  
+
   handleLogout = () => {
-    if(!firebase.apps.length) {
+    if (!firebase.apps.length) {
       TokenService.clearAuthToken()
       this.context.updateLogin(false)
-    }else{
+    } else {
       firebase.auth().onAuthStateChanged(user => {
         if (user) {
           console.log(user);
@@ -36,16 +36,16 @@ class Header extends React.Component {
   }
 
   renderLogin() {
-    return(
+    return (
       <ul className='links'>
 
         <li>
           <Link
-            aria-label='home' 
+            aria-label='home'
             to="/"
             className="menu">
             <i className="fas fa-home">
-              <span>{ ' Home' }</span>
+              <span>{' Home'}</span>
             </i>
           </Link>
         </li>
@@ -56,7 +56,7 @@ class Header extends React.Component {
             to="/login"
             className="menu">
             <i className="fas fa-sign-in-alt">
-              <span>{ ' LogIn' }</span>
+              <span>{' LogIn'}</span>
             </i>
           </Link>
         </li>
@@ -67,7 +67,7 @@ class Header extends React.Component {
             to="/register"
             className="menu">
             <i className="fas fa-registered">
-              <span>{ ' Register' }</span>
+              <span>{' Register'}</span>
             </i>
           </Link>
         </li>
@@ -78,7 +78,7 @@ class Header extends React.Component {
             to="/publicrecipes"
             className="menu">
             <i className="fas fa-utensil-spoon">
-              <span>{ ' All Recipes' }</span>
+              <span>{' All Recipes'}</span>
             </i>
           </Link>
         </li>
@@ -88,15 +88,15 @@ class Header extends React.Component {
   }
 
   renderLogout() {
-    return(
+    return (
       <ul>
         <li>
           <Link
             aria-label='home'
-            to = "/"
-            className = "menu">
+            to="/"
+            className="menu">
             <i className="fas fa-home">
-              <span>{ ' Home' }</span>
+              <span>{' Home'}</span>
             </i>
           </Link>
         </li>
@@ -104,10 +104,10 @@ class Header extends React.Component {
         <li>
           <Link
             aria-label='my recipes'
-            to = "/recipes"
-            className = "menu">
+            to="/recipes"
+            className="menu">
             <i className="fas fa-utensils">
-              <span>{ ' My Recipes' }</span>
+              <span>{' My Recipes'}</span>
             </i>
           </Link>
         </li>
@@ -115,10 +115,10 @@ class Header extends React.Component {
         <li>
           <Link
             aria-label='shopping list'
-            to = "/shoppinglist"
-            className = "menu">
+            to="/shoppinglist"
+            className="menu">
             <i className="fas fa-shopping-basket">
-              <span>{ ' Shopping List' }</span>
+              <span>{' Shopping List'}</span>
             </i>
           </Link>
         </li>
@@ -126,10 +126,10 @@ class Header extends React.Component {
         <li>
           <Link
             aria-label='My pantry'
-            to = "/ingredients"
-            className = "menu">
+            to="/ingredients"
+            className="menu">
             <i className="fas fa-clipboard-list">
-              <span>{ ' My Pantry' }</span>
+              <span>{' My Pantry'}</span>
             </i>
           </Link>
         </li>
@@ -140,7 +140,7 @@ class Header extends React.Component {
             to="/publicrecipes"
             className="menu">
             <i className="fas fa-utensil-spoon">
-              <span>{ ' All Recipes' }</span>
+              <span>{' All Recipes'}</span>
             </i>
           </Link>
         </li>
@@ -148,41 +148,41 @@ class Header extends React.Component {
         <li>
           <Link
             aria-label='log out'
-            onClick = { this.handleLogout }
-            to = "/"
-            className = "menu">
+            onClick={this.handleLogout}
+            to="/"
+            className="menu">
             <i className="fas fa-sign-out-alt">
-              <span>{ ' LogOut' }</span>
+              <span>{' LogOut'}</span>
             </i>
           </Link>
-        </li>         
+        </li>
       </ul>
     )
   }
-      
+
   render() {
-    return(
+    return (
       <header className="header">
-      
-        <nav  className='navigation' 
-              aria-label="navigation">
-          
-        
+
+        <nav className='navigation'
+          aria-label="navigation">
+
+
           <div className="toggle-button">
             <DrawerToggleButton />
           </div>
-          
+
           <div className="spacer"></div>
-          
+
           <div className="navigation-items">
-            { 
+            {
               TokenService.hasAuthToken()
-              ? this.renderLogout()
-              : this.renderLogin()
-            }   
+                ? this.renderLogout()
+                : this.renderLogin()
+            }
           </div>
         </nav>
-      
+
       </header>
     )
   }
