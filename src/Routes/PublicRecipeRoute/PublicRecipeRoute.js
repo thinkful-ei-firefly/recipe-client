@@ -10,6 +10,8 @@ import Sharing from '../../components/Sharing/Sharing'
 import ListGenerator from '../../components/ListGenerator/ListGenerator'
 import PublicRecipeContext from '../../contexts/PublicRecipeContext'
 import GoodmealApiService from '../../services/goodmeal-api-service'
+import RecipeCopyButton from '../../components/RecipeCopyButton/RecipeCopyButton'
+import TokenService from '../../services/token-service'
 
 
 import './PublicRecipeRoute.css'
@@ -82,7 +84,12 @@ class RecipeRoute extends React.Component {
             <div aria-live="polite" className='tab-panels'>
               {publicRecipePage}
             </div>
-            <RatingPopups id={recipe.id} />
+            <div className='publicButtons'>
+              {
+                TokenService.hasAuthToken && <RecipeCopyButton recipeId = { recipe.id }/>
+              }
+              <RatingPopups id={recipe.id} />
+            </div>
           </div>
         </div>
         <ListGenerator recipe={recipe} />
