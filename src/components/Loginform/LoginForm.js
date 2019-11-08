@@ -1,22 +1,22 @@
 import React from 'react'
-import {Label, Input } from '../Form/Form'
+import { Label, Input } from '../Form/Form'
 import Button from '../Button/Button'
 
 const LoginForm = (props) => {
   const { onSubmit, buttonText, error } = props
   return (
-    <form 
-      className='LoginForm' 
-      onSubmit={ event=>onSubmit(event) }>
-      <p role='alert'>{ error }</p>
+    <form
+      className='LoginForm'
+      onSubmit={event => onSubmit(event)}>
+      <p role='alert'>{error}</p>
       <div className='inputs'>
-        <Label 
+        <Label
           className="label"
           htmlFor="username_input">
-          <Input 
-            placeholder='Username' 
-            name='user_name' 
-            type='text' 
+          <Input
+            placeholder='Username'
+            name='user_name'
+            type='text'
             id='username_input'
             required>
           </Input>
@@ -33,10 +33,10 @@ const LoginForm = (props) => {
           </Input>
         </Label>
       </div>
-      <Button 
+      <Button
         className='sub'
         type='submit'>
-        { buttonText }
+        {buttonText}
       </Button>
     </form>
   )

@@ -15,7 +15,7 @@ class SignInWithFacebook extends React.Component {
   static contextType = UserContext
 
   initializeFirebase = () => {
-    if(!firebase.apps.length) {
+    if (!firebase.apps.length) {
       firebase.initializeApp(config.FirebaseConfig)
     }
     else {
@@ -39,7 +39,7 @@ class SignInWithFacebook extends React.Component {
         }
       })
       .then(facebookUser => {
-        if(facebookUser.isNewUser){
+        if (facebookUser.isNewUser) {
           AuthApiService.postFacebookUser(facebookUser)
             .then(res => {
               TokenService.saveAuthToken(res.authToken)
@@ -57,10 +57,10 @@ class SignInWithFacebook extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <Button
         aria-label='Sign in with Facebook'
-        onClick = { this.handleClick }
+        onClick={this.handleClick}
         className="facebook-button">
         <i className='fab fa-facebook-f'></i>
       </Button>

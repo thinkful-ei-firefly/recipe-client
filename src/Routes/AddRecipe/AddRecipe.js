@@ -16,58 +16,58 @@ import './addRecipe.css'
 
 class AddRecipe extends React.Component {
 
-    static contextType = RecipeContext
+  static contextType = RecipeContext
 
-    componentDidMount() {
-      const idRecipe = this.props.match.params.id;
-      if (idRecipe) {
-        this.context.loadRecipe(idRecipe)
-      }else{
-        this.context.clearRecipe()
-      }
+  componentDidMount() {
+    const idRecipe = this.props.match.params.id;
+    if (idRecipe) {
+      this.context.loadRecipe(idRecipe)
+    } else {
+      this.context.clearRecipe()
     }
+  }
 
-    render() {
+  render() {
 
-        return(
-            <div className="add-form">
-            <section className = "addRecipe">
+    return (
+      <div className="add-form">
+        <section className="addRecipe">
 
-                <h1>{ this.context.editing ? 'Edit' : 'New' } Recipe</h1>
+          <h1>{this.context.editing ? 'Edit' : 'New'} Recipe</h1>
 
-                <AddRecipeTitleForm />
-                <AddRecipeDescForm />
-                <AddRecipeCuisineForm />
-                <AddRecipeTimeForm />
-                <AddRecipeImage />
-                <AddRecipeIngredientForm />
-                <AddRecipeStepForm />
-                <AddRecipePublic />
+          <AddRecipeTitleForm />
+          <AddRecipeDescForm />
+          <AddRecipeCuisineForm />
+          <AddRecipeTimeForm />
+          <AddRecipeImage />
+          <AddRecipeIngredientForm />
+          <AddRecipeStepForm />
+          <AddRecipePublic />
 
-                { this.context.error && <div role='alert'>{ this.context.error }</div> }
+          {this.context.error && <div role='alert'>{this.context.error}</div>}
 
-                <Button 
-                  className="submit_button"
-                  onClick = { this.context.handleCreateRecipe }>
-                  Save
+          <Button
+            className="submit_button"
+            onClick={this.context.handleCreateRecipe}>
+            Save
                 </Button>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;
 
-                <Button 
-                  className="submit_button" 
-                  onClick={ this.props.history.goBack }>
-                  Back
+                <Button
+            className="submit_button"
+            onClick={this.props.history.goBack}>
+            Back
                 </Button>
 
-                { this.context.loading && <div>Saving..</div> }
+          {this.context.loading && <div>Saving..</div>}
 
-                { this.context.saved && <Redirect to={ '/recipes' }/> }
+          {this.context.saved && <Redirect to={'/recipes'} />}
 
-            </section>
-            </div>
-        )
-    }
+        </section>
+      </div>
+    )
+  }
 }
 
 export default AddRecipe

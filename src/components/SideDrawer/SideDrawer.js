@@ -10,11 +10,11 @@ import './sideDrawer.css'
 class SideDrawer extends React.Component {
 
   static contextType = UserContext
-    
+
   render() {
-    return(
-      <nav className={ this.context.drawerClass }>
-        { TokenService.hasAuthToken()
+    return (
+      <nav className={this.context.drawerClass}>
+        {TokenService.hasAuthToken()
           ? <SideDrawerLogout />
           : <SideDrawerLogin />
         }

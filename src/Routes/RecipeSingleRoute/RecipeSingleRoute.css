@@ -82,6 +82,7 @@ li.numbered {
 ul.displayed-list,
 li.bulleted {
   list-style-type: disc;
+  list-style-position: inside;
 }
 
 .tabset {

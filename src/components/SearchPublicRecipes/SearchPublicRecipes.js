@@ -11,15 +11,15 @@ class SearchPublicRecipes extends React.Component {
   }
 
   render() {
-    
+
     const error = this.state.error
-    
-    return(
-      <form 
-        onSubmit = { this.props.handleSubmit }
-        className = "search-public-recipes">
-        
-        <p role='alert'>{ error }</p>
+
+    return (
+      <form
+        onSubmit={this.props.handleSubmit}
+        className="search-public-recipes">
+
+        <p role='alert'>{error}</p>
 
         <Label
           htmlFor="public-recipe-search">
@@ -27,7 +27,7 @@ class SearchPublicRecipes extends React.Component {
             placeholder='Search Recipes...'
             id="public-recipe-search"
             name="publicSearch"
-            type="text">    
+            type="text">
           </Input>
         </Label>
 

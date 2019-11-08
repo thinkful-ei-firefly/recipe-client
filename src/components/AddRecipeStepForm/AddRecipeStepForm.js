@@ -67,6 +67,7 @@ class AddStepToRecipeForm extends React.Component {
                 +
               </Button>
             </div>
+
           </div>
         </form>
       </div>

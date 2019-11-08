@@ -7,50 +7,50 @@ class SideDrawerLogin extends React.Component {
   static contextType = UserContext
 
   render() {
-    return(
-      <div className="sidebar-navigation-items">    
+    return (
+      <div className="sidebar-navigation-items">
         <ul>
-          <li> 
+          <li>
             <Link
-              aria-label='Home' 
+              aria-label='Home'
               to="/"
               className="menu"
-              onClick={ this.context.handleCloseSideDrawer }>
+              onClick={this.context.handleCloseSideDrawer}>
               <i className="fas fa-home">
-                <span>{ ' Home' }</span>
+                <span>{' Home'}</span>
               </i>
             </Link>
           </li>
           <li>
             <Link
-              aria-label='Log in' 
+              aria-label='Log in'
               to="/login"
               className="menu"
-              onClick={ this.context.handleCloseSideDrawer }>
+              onClick={this.context.handleCloseSideDrawer}>
               <i className="fas fa-sign-in-alt">
-                <span>{ ' LogIn' }</span>
+                <span>{' LogIn'}</span>
               </i>
             </Link>
           </li>
           <li>
             <Link
-              aria-label='register' 
+              aria-label='register'
               to="/register"
               className="menu"
-              onClick={ this.context.handleCloseSideDrawer }>
+              onClick={this.context.handleCloseSideDrawer}>
               <i className="fas fa-registered">
-                <span>{ ' Register' }</span>
+                <span>{' Register'}</span>
               </i>
             </Link>
           </li>
           <li>
             <Link
-              aria-label='public recipes' 
+              aria-label='public recipes'
               to="/publicrecipes"
               className="menu"
-              onClick={ this.context.handleCloseSideDrawer }>
+              onClick={this.context.handleCloseSideDrawer}>
               <i className="fas fa-utensil-spoon">
-                <span>{ ' All Recipes' }</span>
+                <span>{' All Recipes'}</span>
               </i>
             </Link>
           </li>
