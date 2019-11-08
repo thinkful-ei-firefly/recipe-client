@@ -2,6 +2,7 @@ import React from 'react'
 
 import GoodmealApiService from '../../services/goodmeal-api-service'
 import ListGenerator from '../../components/ListGenerator/ListGenerator'
+import Sharing from '../../components/Sharing/Sharing'
 
 import './RecipeSingleRoute.css'
 import { Link } from 'react-router-dom'
@@ -101,6 +102,7 @@ class RecipeSingleRoute extends React.Component {
           </div>
         </div>
         <ListGenerator recipe={this.state.recipe} />
+        <Sharing recipe={recipe} />
       </div>
     )
   }

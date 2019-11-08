@@ -44,8 +44,14 @@
 
 .ListGenerator {
   float: right;
-  margin-top: -33px;
+  margin-top: -60px;
   margin-right: 10px;
+}
+.ListGenerator .added {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
 }
 
 .ListGenerator ul {
@@ -53,8 +59,17 @@
   font-size: 14px;
 }
 
+.ListGenerator .view {
+  font-size: 18px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  color: #01e00c;
+  font-weight: 600;
+}
+
 .ListGenerator .create {
-  font-size: 12px;
+  font-size: 18px;
   background-color: white;
   border: none;
   cursor: pointer;
@@ -63,24 +78,24 @@
   border-radius: 5px;
   margin-left: 10px;
   font-weight: 600;
-  margin-top: 50px;
-
+  margin-top: -10px;
 }
 
-.ListGenerator .create:hover {
+.ListGenerator .create:hover,
+.view:hover {
   color: #5a5d5a;
-  border: 1px solid #5a5d5a;
+  font-size: 20px;
 }
 
 .yes-no-button {
   border: none;
-  background-color:white;
-  cursor:pointer;
+  background-color: white;
+  cursor: pointer;
 }
 
 .yes-no-button i {
- font-size: 20px;
- color: #01e00c;
+  font-size: 20px;
+  color: #01e00c;
 }
 
 .yes-no-button i:hover {

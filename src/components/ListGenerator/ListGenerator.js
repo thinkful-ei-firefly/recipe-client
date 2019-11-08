@@ -96,10 +96,12 @@ class ListGenerator extends React.Component {
     const { feedback } = this.state
     return (
       <div className='ListGenerator'>
-        <p aria-live="polite">{feedback !== null ? `Added ${feedback} items ` : ''}</p>
-        <Link hidden={feedback === null} to='/shoppinglist'>
-          <button aria-live="polite" className='create'>View List</button>
-        </Link>
+        <div className='added'>
+          <p aria-live="polite">{feedback !== null ? `Added ${feedback} item(s) ` : ''}</p>
+          <Link hidden={feedback === null} to='/shoppinglist'>
+            <button aria-live="polite" className='view'>View List</button>
+          </Link>
+        </div>
         <button
           className='create'
           hidden={feedback !== null || !TokenService.hasAuthToken()}
