@@ -17,54 +17,54 @@ class AddRecipeCuisineForm extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <form
-        className = "addIngredient-form"
-        onSubmit = { this.handleSubmit }>
-        <div className = "cuisine">
+        className="addIngredient-form"
+        onSubmit={this.handleSubmit}>
+        <div className="cuisine">
           <div
             className='section'>
-              <span>3</span>
-              <h3>Cuisine</h3>
+            <span>3</span>
+            <h3>Cuisine</h3>
           </div>
           {this.context.recipeCuisine ?
-          <AddRecipeCuisine />
-          :
-          <div>
-            <div className="inner-wrap">
-              <Label
-                htmlFor = "recipe-cuisine">
-                Cuisine: <Required />
-              </Label>
-              <Input
-                placeholder = 'ex. "Italian"'
-                name = "cuisine"
-                id = "recipe-cuisine"
-                type = "text"
-                list = "cuisines"
-                required>
-              </Input>
-              <datalist
-                      id = "cuisines">
-                      <option value = "American"/>
-                      <option value = "Cajun"/>
-                      <option value = "Chinese"/>
-                      <option value = "French"/>
-                      <option value = "Greek"/>
-                      <option value = "Indian"/>
-                      <option value = "Italian"/>
-                      <option value = "Japanese"/>
-                      <option value = "Korean"/>
-                      <option value = "Mexican"/>
-                      <option value = "Soul"/>
-                      <option value = "Thai"/>
-                  </datalist>
-            </div>
-            <Button className='add'
-              type = "submit">
-              +
+            <AddRecipeCuisine />
+            :
+            <div>
+              <div className="inner-wrap">
+                <Label
+                  htmlFor="recipe-cuisine">
+                  Cuisine: <Required />
+                </Label>
+                <Input
+                  placeholder='ex. "Italian"'
+                  name="cuisine"
+                  id="recipe-cuisine"
+                  type="text"
+                  list="cuisines"
+                  required>
+                </Input>
+                <datalist
+                  id="cuisines">
+                  <option value="American" />
+                  <option value="Cajun" />
+                  <option value="Chinese" />
+                  <option value="French" />
+                  <option value="Greek" />
+                  <option value="Indian" />
+                  <option value="Italian" />
+                  <option value="Japanese" />
+                  <option value="Korean" />
+                  <option value="Mexican" />
+                  <option value="Soul" />
+                  <option value="Thai" />
+                </datalist>
+              </div>
+              <Button className='add'
+                type="submit">
+                +
             </Button>
-          </div>
+            </div>
           }
         </div>
       </form>
