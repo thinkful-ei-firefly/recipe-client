@@ -20,28 +20,28 @@ class PublicRecipesRoute extends React.Component {
       e.target.publicSearch.value
     )
     this.context.updatePublicRecipesJSX()
-}
+  }
 
   render() {
-    return(
-      <section className = "public-recipes">
+    return (
+      <section className="public-recipes">
 
         <div className="public-recipes-head">
 
           <h1>All Recipes</h1>
-          
-          { this.context.redirect && <Redirect to='/recipes' /> }
 
-          <SearchPublicRecipe 
-            handleSubmit={ this.handleSubmit } 
-            label={ 'Search For:' }/>
+          {this.context.redirect && <Redirect to='/recipes' />}
+
+          <SearchPublicRecipe
+            handleSubmit={this.handleSubmit}
+            label={'Search For:'} />
 
           <PublicRandomRecipe />
 
-        </div>   
-          <section>
-            { this.context.publicRecipesJSX }
-          </section>
+        </div>
+        <section>
+          {this.context.publicRecipesJSX}
+        </section>
       </section>
     )
   }

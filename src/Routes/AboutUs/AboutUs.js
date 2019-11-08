@@ -4,18 +4,18 @@ import Button from '../../components/Button/Button'
 import './AboutUs.css'
 const linkedinLogo = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"
 
-class aboutUs extends React.Component{
+class aboutUs extends React.Component {
 
   handleClick = e => {
     e.preventDefault()
     this.context.handleRemoveStep(e.target.value)
   }
 
-  render(){
+  render() {
     return (
       <section>
-        <div itemScope itemType ="http://schema.org/Person" className="left">
-          <a 
+        <div itemScope itemType="http://schema.org/Person" className="left">
+          <a
             itemProp="contactPoint"
             className="lin"
             href="https://www.linkedin.com/in/sam-walker-25aba918b/"
@@ -25,8 +25,8 @@ class aboutUs extends React.Component{
             <h2 itemProp="name">
               Sam Walker
               <img
-                className="icon" 
-                alt="linkedin" 
+                className="icon"
+                alt="linkedin"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"
               />
             </h2>
@@ -41,28 +41,28 @@ class aboutUs extends React.Component{
             <li>Performed rigorous testing and bug fixing</li>
           </ul>
           <a
-            href="https://thinkful-ei-firefly.github.io/portfolio-sam/" 
-            className="link" 
-            target="_blank" 
+            href="https://thinkful-ei-firefly.github.io/portfolio-sam/"
+            className="link"
+            target="_blank"
             rel="noopener noreferrer"
           >
             <Button className="portfolio">See More Work Here</Button></a>
         </div>
-        
-        <hr/>
 
-        <div itemScope itemType ="http://schema.org/Person" className="right">
-          <a 
+        <hr />
+
+        <div itemScope itemType="http://schema.org/Person" className="right">
+          <a
             itemProp="contactPoint"
             href="https://www.linkedin.com/in/gatesrichard/"
             className="lin"
-            target="_blank" 
+            target="_blank"
             rel="noopener noreferrer">
             <h2 itemProp="name">
-              <img 
-                className="icon" 
-                alt="linkedin" 
-                src={ linkedinLogo }>
+              <img
+                className="icon"
+                alt="linkedin"
+                src={linkedinLogo}>
               </img>
               Richard Gates
             </h2>
@@ -70,66 +70,66 @@ class aboutUs extends React.Component{
           <p>Project Owner</p>
           <ul>
             <li>Managed user stories</li>
-            <li>{ 'Login with Google (firebase), front/back end' }</li>
+            <li>{'Login with Google (firebase), front/back end'}</li>
             <li>Created Add Recipe, and Private Recipes Route</li>
             <li>Designed and coded hamburger menu</li>
             <li>user, Recipe, and PublicRecipe Context</li>
             <li>Extensive user testing, and bug fixes</li>
           </ul>
-          <a 
+          <a
             href="https://richardjgates-portfolio.now.sh/"
             className="link"
             target="_blank"
             rel="noopener noreferrer">
-            <Button 
+            <Button
               className="portfolio">
               See More Work Here
             </Button>
           </a>
         </div>
 
-        <hr/>
+        <hr />
 
-        <div itemScope itemType ="http://schema.org/Person" className="left">
-          <a 
-            itemProp="contactPoint" 
-            className="lin" 
-            href="" 
-            target="_blank" 
+        <div itemScope itemType="http://schema.org/Person" className="left">
+          <a
+            itemProp="contactPoint"
+            className="lin"
+            href=""
+            target="_blank"
             rel="noopener noreferrer"
           >
             <h2 itemProp="name">
-              Keith Prince 
-              <img 
-                className="icon" 
-                alt="linkedin" 
+              Keith Prince
+              <img
+                className="icon"
+                alt="linkedin"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"
               />
             </h2>
           </a>
-         <p>What you contributed</p>
-          <a 
-            href="https://swordsagekeith.github.io/PortfolioSite/" 
+          <p>What you contributed</p>
+          <a
+            href="https://swordsagekeith.github.io/PortfolioSite/"
             className="link" target="_blank" rel="noopener noreferrer"
           >
             <Button className="portfolio">See More Work Here</Button>
           </a>
         </div>
-        <hr/>
-        
-        <div itemScope itemType ="http://schema.org/Person" className="right">
-          <a 
+        <hr />
+
+        <div itemScope itemType="http://schema.org/Person" className="right">
+          <a
             itemProp="contactPoint"
-            className="lin" 
-            href="https://www.linkedin.com/in/fabian-lema-79539250" 
-            target="_blank" 
+            className="lin"
+            href="https://www.linkedin.com/in/fabian-lema-79539250"
+            target="_blank"
             rel="noopener noreferrer"
           >
             <h2 itemProp="name">
-              <img 
-                className="icon" 
-                alt="linkedin" 
-                src= { linkedinLogo }
+              <img
+                className="icon"
+                alt="linkedin"
+                src={linkedinLogo}
               />
               Fabian Lema
             </h2>
@@ -142,30 +142,30 @@ class aboutUs extends React.Component{
             <li>Fixed front-end and back-end bug</li>
             <li>Tested server endpoints using Mocha, Chai, and supertest</li>
           </ul>
-          <a 
-            href="http://www.fabianlema.tech/" 
-            className="link" 
-            target="_blank" 
+          <a
+            href="http://www.fabianlema.tech/"
+            className="link"
+            target="_blank"
             rel="noopener noreferrer"
           >
             <Button className="portfolio">See More Work Here</Button>
           </a>
         </div>
 
-        <hr/>
-        <div itemScope itemType ="http://schema.org/Person" className="left">
-          <a 
-            itemProp="contactPoint" 
-            className="lin" 
-            href="https://www.linkedin.com/in/hector-valles-web-developer/" 
-            target="_blank" 
+        <hr />
+        <div itemScope itemType="http://schema.org/Person" className="left">
+          <a
+            itemProp="contactPoint"
+            className="lin"
+            href="https://www.linkedin.com/in/hector-valles-web-developer/"
+            target="_blank"
             rel="noopener noreferrer"
           >
             <h2 itemProp="name">
-              Hector Valles 
-              <img 
-                className="icon" 
-                alt="linkedin" 
+              Hector Valles
+              <img
+                className="icon"
+                alt="linkedin"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt4E7LHr3gH8nsPnHrCHrT0xiSALbTtl7XX-oJpBByTzR_zxV3"
               />
             </h2>
@@ -179,16 +179,16 @@ class aboutUs extends React.Component{
             <li>Ensured project was responsive to all screen sizes</li>
             <li>Performed some testing and bug fixing</li>
           </ul>
-          <a 
-            href="https://hmvalles75.github.io/modern_portfolio/" 
-            className="link" 
-            target="_blank" 
+          <a
+            href="https://hmvalles75.github.io/modern_portfolio/"
+            className="link"
+            target="_blank"
             rel="noopener noreferrer"
           >
             <Button className="portfolio">See More Work Here</Button>
           </a>
         </div>
-        <hr/>
+        <hr />
       </section>
     )
   }

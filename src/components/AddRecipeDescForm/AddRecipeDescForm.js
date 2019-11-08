@@ -17,38 +17,38 @@ class AddRecipeDescForm extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <form
-        className = "addIngredient-form"
-        onSubmit = { this.handleSubmit }>
-        <div className = "description">
+        className="addIngredient-form"
+        onSubmit={this.handleSubmit}>
+        <div className="description">
           <div
             className='section'>
             <span>2</span>
             <h3>Description</h3>
           </div>
-          { this.context.recipeDesc ?
-          <AddRecipeDesc/>
-          :
-          <div>
-            <div className='inner-wrap'>
-              <Label
-                htmlFor = "recipe-desc">
-                Description: <Required />
-              </Label>
-              <Textarea
-                placeholder = 'ex. "This recipe is..."'
-                className='input'
-                name = "desc"
-                id = "recipe-desc"
-                required>
-              </Textarea>
-            </div>
-            <Button className='add'
-              type = "Submit">
-              +
+          {this.context.recipeDesc ?
+            <AddRecipeDesc />
+            :
+            <div>
+              <div className='inner-wrap'>
+                <Label
+                  htmlFor="recipe-desc">
+                  Description: <Required />
+                </Label>
+                <Textarea
+                  placeholder='ex. "This recipe is..."'
+                  className='input'
+                  name="desc"
+                  id="recipe-desc"
+                  required>
+                </Textarea>
+              </div>
+              <Button className='add'
+                type="Submit">
+                +
             </Button>
-          </div> }
+            </div>}
         </div>
       </form>
     )

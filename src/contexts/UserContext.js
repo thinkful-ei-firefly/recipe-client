@@ -12,15 +12,15 @@ const UserContext = React.createContext({
   user: {},
   googleUser: {},
 
-  setError: () => {},
-  clearError: () => {},
-  setUser: () => {},
-  updateLogin: () => {},
-  updateGoogleUser: () => {},
-  handleOpenSideDrawer: () => {},
-  handleCloseSideDrawer: () => {},
-  processLogin: () => {},
-  processLogout: () => {},
+  setError: () => { },
+  clearError: () => { },
+  setUser: () => { },
+  updateLogin: () => { },
+  updateGoogleUser: () => { },
+  handleOpenSideDrawer: () => { },
+  handleCloseSideDrawer: () => { },
+  processLogin: () => { },
+  processLogout: () => { },
 })
 
 export default UserContext
@@ -30,12 +30,12 @@ export class UserProvider extends Component {
 
     super(props)
 
-    const state = { 
+    const state = {
       error: null,
       login: false,
       sideDrawerIsOpen: false,
       drawerClass: 'side-drawer',
-      user: {}, 
+      user: {},
       googleUser: {}
     }
 
@@ -69,7 +69,7 @@ export class UserProvider extends Component {
   }
 
   updateLogin = bool => {
-    this.setState({ login: bool})
+    this.setState({ login: bool })
   }
 
   updateGoogleUser = googleUser => {
@@ -77,23 +77,23 @@ export class UserProvider extends Component {
   }
 
   handleOpenSideDrawer = () => {
-      this.setState({
-        sideDrawerIsOpen: true,
-        drawerClass: 'side-drawer is-open'
-      })
-    }
+    this.setState({
+      sideDrawerIsOpen: true,
+      drawerClass: 'side-drawer is-open'
+    })
+  }
 
-    handleCloseSideDrawer = () => {
-      this.setState({
-        sideDrawerIsOpen: false,
-        drawerClass: 'side-drawer'
-      })
-    }
+  handleCloseSideDrawer = () => {
+    this.setState({
+      sideDrawerIsOpen: false,
+      drawerClass: 'side-drawer'
+    })
+  }
 
-    processLogout = () => {
-      TokenService.clearAuthToken()
-      TokenService.clearCallbackBeforeExpiry()
-    }
+  processLogout = () => {
+    TokenService.clearAuthToken()
+    TokenService.clearCallbackBeforeExpiry()
+  }
 
   processLogin = authToken => {
     TokenService.saveAuthToken(authToken)
@@ -134,7 +134,7 @@ export class UserProvider extends Component {
       processLogout: this.processLogout,
     }
     return (
-      <UserContext.Provider value={ user }>
+      <UserContext.Provider value={user}>
         {this.props.children}
       </UserContext.Provider>
     )

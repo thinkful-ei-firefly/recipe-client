@@ -19,9 +19,9 @@ class SignOutGoogle extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <Button
-        onClick={ this.handleClick }
+        onClick={this.handleClick}
         className="googleSignOut">
         Sign Out Google
       </Button>

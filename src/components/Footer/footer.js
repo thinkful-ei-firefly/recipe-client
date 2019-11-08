@@ -4,14 +4,14 @@ import "./footer.css";
 
 class Footer extends React.Component {
   render() {
-    return(
+    return (
       <footer className="footer">
         <Link
-          aria-label='about us'  
-          to="/about" 
+          aria-label='about us'
+          to="/about"
           className="foot">
           <i className="fas fa-users">
-            <span>{ ' About Us' }</span>
+            <span>{' About Us'}</span>
           </i>
         </Link>
         <div className='vl'></div>

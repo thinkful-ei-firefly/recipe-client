@@ -21,7 +21,7 @@ class LoginRoute extends React.Component {
     event.preventDefault()
     const user_name = event.target.user_name.value
     const password = event.target.password.value
-    AuthApiService.postLogin({user_name, password})
+    AuthApiService.postLogin({ user_name, password })
       .then(response => {
         TokenService.saveAuthToken(response.authToken)
         this.context.updateLogin(true)
@@ -31,9 +31,9 @@ class LoginRoute extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div className="login_page">
-        <section className = "login">
+        <section className="login">
           <h2>LOGIN</h2>
           <p>Connect with</p>
           <div className="signIn-button">
@@ -45,15 +45,15 @@ class LoginRoute extends React.Component {
             <span>or</span>
           </div>
           <LoginForm
-            aria-label='log in' 
-            className='sub' 
-            onSubmit={ this.handleSubmit } 
-            buttonText='LOGIN' 
-            error={ this.state.error }
+            aria-label='log in'
+            className='sub'
+            onSubmit={this.handleSubmit}
+            buttonText='LOGIN'
+            error={this.state.error}
           />
-          <p>Haven't signed up? 
+          <p>Haven't signed up?
             <Link
-              aria-label='register' 
+              aria-label='register'
               to='/register'>
               Register
             </Link>
