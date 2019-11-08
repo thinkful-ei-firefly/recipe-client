@@ -72,7 +72,7 @@ class aboutUs extends React.Component {
             <li>{'Login with Google (firebase), front/back end'}</li>
             <li>Created Add Recipe, and Private Recipes Route</li>
             <li>Designed and coded hamburger menu</li>
-            <li>Sitemap, added schema on recipe card pages.</li>
+            <li>Sitemap, added schema on recipe card pages</li>
             <li>Created, coded User, Recipe, and PublicRecipe Context</li>
             <li>Extensive user testing, and bug fixes</li>
           </ul>
