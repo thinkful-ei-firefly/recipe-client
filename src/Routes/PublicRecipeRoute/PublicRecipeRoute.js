@@ -85,7 +85,7 @@ class RecipeRoute extends React.Component {
 
         <Sharing recipe={recipe} />
 
-     </div>
+      </div>
 
     )
   }

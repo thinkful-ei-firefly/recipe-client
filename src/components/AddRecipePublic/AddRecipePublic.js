@@ -9,10 +9,10 @@ class AddRecipePublic extends React.Component {
   static contextType = RecipeContext
 
   render() {
-    return(
+    return (
       <form
-        className = "addIngredient-form">
-        <div className = "description">
+        className="addIngredient-form">
+        <div className="description">
           <div className="section">
             <span>8</span>
             <h3>Visibility</h3>
@@ -27,8 +27,8 @@ class AddRecipePublic extends React.Component {
               name="measurement"
               id="recipe-type-yes"
               type="radio"
-              checked={ this.context.recipePublic }
-              onChange={ this.context.handleAddPublic }>
+              checked={this.context.recipePublic}
+              onChange={this.context.handleAddPublic}>
             </Input>
             <Label
               htmlFor="recipe-type-no">
@@ -38,8 +38,8 @@ class AddRecipePublic extends React.Component {
               name="measurement"
               id="recipe-type-no"
               type="radio"
-              checked={ !this.context.recipePublic }
-              onChange={ this.context.handleRemovePublic }>
+              checked={!this.context.recipePublic}
+              onChange={this.context.handleRemovePublic}>
             </Input>
           </div>
         </div>

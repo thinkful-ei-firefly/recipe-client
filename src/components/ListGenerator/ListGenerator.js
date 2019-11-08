@@ -6,14 +6,14 @@ import GoodmealApiService from '../../services/goodmeal-api-service'
 import './ListGenerator.css'
 
 class ListGenerator extends React.Component {
-  
+
   state = {
     ingredientsToAdd: [],
     feedback: null,
     popUpArray: null,
     poppingUp: false
   }
-  
+
   handleListCreate = async () => {
     console.log('create')
     const popUpArray = []
@@ -33,7 +33,7 @@ class ListGenerator extends React.Component {
     const myIngs = await GoodmealApiService.getIngredientList()
     newIngs.forEach(newIng => {
       let includes = false
-      for(let i=0; i<myIngs.length; i++) {
+      for (let i = 0; i < myIngs.length; i++) {
         if (newIng[2].includes(myIngs[i].name)) {
           includes = true
           popUpArray.push([newIng, myIngs[i]])
@@ -58,7 +58,7 @@ class ListGenerator extends React.Component {
     const popUpArray = []
     popUps.forEach((popUp, i) => {
       console.log(popUp)
-      const {amount, unit, name} = popUp[1]
+      const { amount, unit, name } = popUp[1]
       const newIng = popUp[0].join(' ')
       popUpArray.push(
         <li key={i} id={i}>
@@ -69,7 +69,7 @@ class ListGenerator extends React.Component {
     })
     await this.setState({ popUpArray })
     const modal = document.getElementById("myModal");
-    modal.style.display= "block"
+    modal.style.display = "block"
   }
 
   handleYes = (event, i) => {
@@ -80,29 +80,29 @@ class ListGenerator extends React.Component {
   handleNo = (event) => {
     event.target.parentElement.parentElement.remove()
   }
-  
+
   createList = async () => {
     const newIngs = []
-    this.state.ingredientsToAdd.forEach(ing => newIngs.push({amount: ing[0], unit: ing[1], name: ing[2]}))
+    this.state.ingredientsToAdd.forEach(ing => newIngs.push({ amount: ing[0], unit: ing[1], name: ing[2] }))
     if (newIngs.length) await GoodmealApiService.addManyToShoppingList(newIngs)
     else this.setState({ feedback: 0 })
     document.getElementById("myModal").style.display = 'none'
     this.setState({ feedback: this.state.ingredientsToAdd.length })
   }
-    
+
 
   render() {
-    const {feedback} = this.state
+    const { feedback } = this.state
     return (
       <div className='ListGenerator'>
         <p aria-live="polite">{feedback !== null ? `Added ${feedback} items ` : ''}</p>
         <Link hidden={feedback === null} to='/shoppinglist'>
           <button aria-live="polite" className='create'>View List</button>
         </Link>
-        <button 
-          className='create' 
-          hidden={feedback !== null} 
-          id='listCreateButton' 
+        <button
+          className='create'
+          hidden={feedback !== null}
+          id='listCreateButton'
           onClick={this.handleListCreate}
         >
           <i className="fas fa-cart-plus">

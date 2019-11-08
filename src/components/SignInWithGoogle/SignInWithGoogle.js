@@ -14,9 +14,9 @@ require('dotenv').config()
 class SignInWithGoogle extends React.Component {
 
   static contextType = UserContext
-  
+
   initializeFirebase = () => {
-    if(!firebase.apps.length) {
+    if (!firebase.apps.length) {
       firebase.initializeApp(config.FirebaseConfig)
     }
     else {
@@ -41,7 +41,7 @@ class SignInWithGoogle extends React.Component {
         this.context.updateGoogleUser(googleUser)
       })
       .then(() => {
-        if(this.context.googleUser.isNewUser){
+        if (this.context.googleUser.isNewUser) {
           AuthApiService.postGoogleUser(this.context.googleUser)
             .then(res => {
               TokenService.saveAuthToken(res.authToken)
@@ -54,35 +54,35 @@ class SignInWithGoogle extends React.Component {
               TokenService.saveAuthToken(res.authToken)
               this.context.updateLogin(true)
             })
-                .then(() => {
-                    if(this.context.googleUser.isNewUser){
-                        AuthApiService.postGoogleUser(this.context.googleUser)
-                            .then(res => {
-                                TokenService.saveAuthToken(res.authToken)
-                                this.context.updateLogin(true)
-                            })
-                    }
-                    else {
-                        AuthApiService.postGoogleLogin(this.context.googleUser)
-                            .then(res => {
-                                TokenService.saveAuthToken(res.authToken)
-                                this.context.updateLogin(true)
-                            })
-                    }
-                })
-          }
+            .then(() => {
+              if (this.context.googleUser.isNewUser) {
+                AuthApiService.postGoogleUser(this.context.googleUser)
+                  .then(res => {
+                    TokenService.saveAuthToken(res.authToken)
+                    this.context.updateLogin(true)
+                  })
+              }
+              else {
+                AuthApiService.postGoogleLogin(this.context.googleUser)
+                  .then(res => {
+                    TokenService.saveAuthToken(res.authToken)
+                    this.context.updateLogin(true)
+                  })
+              }
+            })
+        }
       })
   }
-  
+
   render() {
-    return(
+    return (
       <Button
         aria-label='Sign in with Google'
-        onClick = { this.handleClick }
+        onClick={this.handleClick}
         className="google-button">
         <span className="google-button_text">
           <i className="fab fa-google-plus-g"></i>
-        </span>     
+        </span>
       </Button>
     )
   }

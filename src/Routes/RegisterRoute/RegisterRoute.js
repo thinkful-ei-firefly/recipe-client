@@ -19,7 +19,7 @@ class RegisterRoute extends React.Component {
     event.preventDefault()
     const user_name = event.target.user_name.value
     const password = event.target.password.value
-    AuthApiService.postUser({user_name, password})
+    AuthApiService.postUser({ user_name, password })
       .then(response => {
         TokenService.saveAuthToken(response.authToken)
         this.context.updateLogin(true)
@@ -29,33 +29,33 @@ class RegisterRoute extends React.Component {
   }
 
   render() {
-      return(
-        <div className='login_page'>
-          <section className = "login">
-              <h2>REGISTER</h2>
-              <p>Connect with</p>
-              <div className="signIn-button">
-                <SignInWithGoogle />
-                &nbsp;&nbsp;
+    return (
+      <div className='login_page'>
+        <section className="login">
+          <h2>REGISTER</h2>
+          <p>Connect with</p>
+          <div className="signIn-button">
+            <SignInWithGoogle />
+            &nbsp;&nbsp;
                 <SignInWithFacebook />
-              </div>
-              <div className="divider">
-                <span>or</span>
-              </div>
-              <LoginForm 
-                onSubmit={ this.handleSubmit }
-                buttonText='Sign up' 
-                error={ this.state.error }
-              />
-              <p>Already a member?
-                <Link 
-                  to='/login'>
-                  Log in
-                </Link>
-              </p>
-          </section>
           </div>
-      )
+          <div className="divider">
+            <span>or</span>
+          </div>
+          <LoginForm
+            onSubmit={this.handleSubmit}
+            buttonText='Sign up'
+            error={this.state.error}
+          />
+          <p>Already a member?
+                <Link
+              to='/login'>
+              Log in
+                </Link>
+          </p>
+        </section>
+      </div>
+    )
   }
 }
 

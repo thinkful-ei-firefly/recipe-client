@@ -27,7 +27,7 @@ class AddRecipeIngredientForm extends React.Component {
       return
     if (!this.validateIngredient(e))
       return
-    const {amount, measurement, ingredient} = e.target
+    const { amount, measurement, ingredient } = e.target
     this.context.handleAddRecipeIngredient(
       amount.value,
       measurement.value,
@@ -63,15 +63,15 @@ class AddRecipeIngredientForm extends React.Component {
   validateAmount = (event) => {
     const string = event.target.amount.value
     const isNumber = /^[\d/ ]+$/.test(string)
-    if(!isNumber)
+    if (!isNumber)
       return this.setState({
         amountError: 'Error: Amount must contain only numbers and fractions'
       })
-    if(string.startsWith(' ') || string.endsWith(' '))
+    if (string.startsWith(' ') || string.endsWith(' '))
       return this.setState({
         amountError: 'Error: Amount cannot start or end with an empty space'
       })
-    if(string.startsWith('/') || string.endsWith('/'))
+    if (string.startsWith('/') || string.endsWith('/'))
       return this.setState({
         amountError: 'Error: Amount cannot start or end with a slash'
       })
@@ -106,7 +106,7 @@ class AddRecipeIngredientForm extends React.Component {
               amountError: 'Error: Amount cannot have a number that starts or ends with a slash'
             })
           }
-        } else if (slashSplit.length !== 1){
+        } else if (slashSplit.length !== 1) {
           return this.setState({
             amountError: 'Error: Amount cannot have more than 1 fraction'
           })
@@ -137,67 +137,67 @@ class AddRecipeIngredientForm extends React.Component {
             
           </div>
           <div>
-            <p role='alert'>{ this.state.amountError }</p>
+            <p role='alert'>{this.state.amountError}</p>
             <div className='inner-wrap'>
               <Label
-                htmlFor = "recipe-amount">
+                htmlFor="recipe-amount">
                 How much: <Required />
               </Label>
               <Input
-                placeholder = 'ex. "1 1/4"'
-                name = "amount"
-                id = "recipe-amount"
-                type = "text"
-                list = "amounts"
+                placeholder='ex. "1 1/4"'
+                name="amount"
+                id="recipe-amount"
+                type="text"
+                list="amounts"
                 required>
               </Input>
               <datalist
-                id = "amounts">
-                <option value = "1/8"/>
-                <option value = "1/4"/>
-                <option value = "1/2"/>
-                <option value = "1"/>
+                id="amounts">
+                <option value="1/8" />
+                <option value="1/4" />
+                <option value="1/2" />
+                <option value="1" />
               </datalist>
             </div>
             <p role='alert'>{this.state.measurementError}</p>
-            <div className = "inner-wrap">
+            <div className="inner-wrap">
               <Label
-                htmlFor = "recipe-measurement">
+                htmlFor="recipe-measurement">
                 Unit of Measure: <Required />
               </Label>
               <Input
-                placeholder = 'ex. "each"'
-                name = "measurement"
-                id = "recipe-measurement"
-                type = "text"
-                list = "measurements">
+                placeholder='ex. "each"'
+                name="measurement"
+                id="recipe-measurement"
+                type="text"
+                list="measurements">
               </Input>
               <datalist
-                id = "measurements">
-                <option value = "tsp"/>
-                <option value = "Tbs"/>
-                <option value = "cup"/>
-                <option value = "dozen"/>
-                <option value = "lb"/>
-                <option value = "each"/>
+                id="measurements">
+                <option value="tsp" />
+                <option value="Tbs" />
+                <option value="cup" />
+                <option value="dozen" />
+                <option value="lb" />
+                <option value="each" />
               </datalist>
             </div>
             <p role='alert'>{this.state.ingredientError}</p>
-            <div className = "inner-wrap">
+            <div className="inner-wrap">
               <Label
-                htmlFor = "recipe-ingredient">
+                htmlFor="recipe-ingredient">
                 Ingredient: <Required />
               </Label>
               <Input
                 placeholder='ex. "apples"'
-                name = "ingredient"
-                id = "recipe-ingredient"
-                type = "text"
+                name="ingredient"
+                id="recipe-ingredient"
+                type="text"
                 required>
               </Input>
             </div>
             <Button className='add'
-              type = "Submit">
+              type="Submit">
               +
             </Button>
           </div>
