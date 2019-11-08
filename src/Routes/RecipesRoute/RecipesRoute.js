@@ -5,13 +5,13 @@ import RecipeContext from '../../contexts/RecipeContext'
 
 class RecipesRoute extends React.Component {
 
-    static contextType = RecipeContext
+  static contextType = RecipeContext
 
-    render() { 
-        return(
-            <Recipes />
-        )
-    }
+  render() {
+    return (
+      <Recipes />
+    )
+  }
 }
 
 export default RecipesRoute

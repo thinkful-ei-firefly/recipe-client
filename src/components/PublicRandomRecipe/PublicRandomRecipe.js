@@ -11,11 +11,11 @@ class PublicRandomRecipe extends React.Component {
   }
 
   render() {
-    return(
-      <button 
-        className='find-recipes' 
-        onClick={ this.handleRandomRecipe }>
-        { 
+    return (
+      <button
+        className='find-recipes'
+        onClick={this.handleRandomRecipe}>
+        {
           this.context.selectRandom
             ? 'Show all recipes'
             : 'Get Random Recipe'

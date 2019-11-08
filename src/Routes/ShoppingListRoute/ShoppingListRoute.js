@@ -37,7 +37,7 @@ class ShoppingListRoute extends React.Component {
 
   removeRecipe = (idProduct) => {
     this.setState({
-        recipeList: this.state.recipeList.filter((item, index) => item.id !== idProduct)
+      recipeList: this.state.recipeList.filter((item, index) => item.id !== idProduct)
     });
   }
 
@@ -72,7 +72,7 @@ class ShoppingListRoute extends React.Component {
 
   deleteList = () => {
     GoodmealApiService.deletShoppingList()
-      .then(() => this.setState({ recipeList: []}))
+      .then(() => this.setState({ recipeList: [] }))
       .catch(this.setError)
   }
 
@@ -114,59 +114,59 @@ class ShoppingListRoute extends React.Component {
     }
     const { adding } = this.state
 
-    return(
+    return (
 
-      <ShoppingListContext.Provider value={ value }>
+      <ShoppingListContext.Provider value={value}>
         <section className="shop-list-page">
 
           <ShoppingList />
-          
+
           <div className="list-buttons">
-            { 
-              adding 
-                ? <IngedientsAdderForm 
-                    handleSubmit={ this.addIngredient } 
-                    cancelSubmit={ this.cancelSubmit }/> 
+            {
+              adding
+                ? <IngedientsAdderForm
+                  handleSubmit={this.addIngredient}
+                  cancelSubmit={this.cancelSubmit} />
                 : <button
-                    aria-label='Add item' 
-                    className='modify-buttons' 
-                    onClick={ this.openForm }>
-                      <i className="far fa-plus-square">
-                        <span>&nbsp;Add Item</span>
-                      </i>
-                  </button>
+                  aria-label='Add item'
+                  className='modify-buttons'
+                  onClick={this.openForm}>
+                  <i className="far fa-plus-square">
+                    <span>&nbsp;Add Item</span>
+                  </i>
+                </button>
             }
 
-            <button 
+            <button
               aria-label='move checked to pantry'
-              className='modify-buttons' 
-              hidden={ !this.state.recipeList.length }
-              onClick={ this.moveCrossedItems }>
-                <i className="far fa-arrow-alt-circle-up">
-                  <span>&nbsp;Move Checked to Pantry</span>
-                </i>
+              className='modify-buttons'
+              hidden={!this.state.recipeList.length}
+              onClick={this.moveCrossedItems}>
+              <i className="far fa-arrow-alt-circle-up">
+                <span>&nbsp;Move Checked to Pantry</span>
+              </i>
             </button>
 
-            <button 
+            <button
               aria-label='delete checked'
-              className='modify-buttons' 
-              hidden={ !this.state.recipeList.length }
-              onClick={ this.deleteCrossedItems }>
-                <i className="far fa-minus-square">
-                  <span>&nbsp;Delete Checked</span>
-                </i>
+              className='modify-buttons'
+              hidden={!this.state.recipeList.length}
+              onClick={this.deleteCrossedItems}>
+              <i className="far fa-minus-square">
+                <span>&nbsp;Delete Checked</span>
+              </i>
             </button>
 
-            <button 
+            <button
               aria-label='delete all        '
-              className='modify-buttons' 
-              hidden={ !this.state.recipeList.length }
-              onClick={ this.deleteList }>
-                <i className="far fa-trash-alt">
-                  <span>&nbsp;Delete All</span>
-                </i>
+              className='modify-buttons'
+              hidden={!this.state.recipeList.length}
+              onClick={this.deleteList}>
+              <i className="far fa-trash-alt">
+                <span>&nbsp;Delete All</span>
+              </i>
             </button>
-          
+
           </div>
         </section>
       </ShoppingListContext.Provider>

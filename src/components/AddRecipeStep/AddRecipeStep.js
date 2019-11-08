@@ -4,35 +4,35 @@ import Button from '../Button/Button'
 import RecipeContext from '../../contexts/RecipeContext'
 
 class AddRecipeStep extends React.Component {
-  
+
   static contextType = RecipeContext
-  
+
   handleClick = e => {
     e.preventDefault()
     this.context.handleRemoveStep(e.target.value)
   }
-  
+
   render() {
-    
+
     const steps = this.context.recipeSteps.map((step, index) => {
-      return(
-        <div 
-          className="step" 
-          key={ index }>
+      return (
+        <div
+          className="step"
+          key={index}>
           <Button
-            value={ step }
+            value={step}
             className="edit-button"
-            onClick={ this.handleClick }>
+            onClick={this.handleClick}>
             -
           </Button>
-        { `${ index + 1 }) ${ step }` }
+          {`${index + 1}) ${step}`}
         </div>
-        )
-      })
-      
-    return(
+      )
+    })
+
+    return (
       <div className="list-steps">
-        { steps }
+        {steps}
       </div>
     )
   }

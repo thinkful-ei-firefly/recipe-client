@@ -33,11 +33,11 @@ class AddStepToRecipeForm extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <form
-        className = "addIngredient-form"
-        onSubmit = { this.handleSubmit }>
-        <div className = "step">
+        className="addIngredient-form"
+        onSubmit={this.handleSubmit}>
+        <div className="step">
           <div className='section'>
             <span>7</span>
             <h3>Instructions</h3>
@@ -47,20 +47,20 @@ class AddStepToRecipeForm extends React.Component {
             <p role='alert'> {this.state.error} </p>
             <div className='inner-wrap'>
               <Label
-                htmlFor = "recipe-step">
+                htmlFor="recipe-step">
                 Step: <Required />
               </Label>
               <Input
-                placeholder = 'ex. "bake for 45 minutes"'
+                placeholder='ex. "bake for 45 minutes"'
                 className='input'
-                name = "step"
-                id = "recipe-step"
-                type = "text"
+                name="step"
+                id="recipe-step"
+                type="text"
                 required>
               </Input>
             </div>
             <Button className='add'
-              type = "submit">
+              type="submit">
               +
             </Button>
           </div>

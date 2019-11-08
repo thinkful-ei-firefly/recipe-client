@@ -37,85 +37,85 @@ class App extends React.Component {
   render() {
 
     let backDrop
-    if(this.context.sideDrawerIsOpen) {
-      backDrop = <BackDrop click = { this.context.handleCloseSideDrawer }/>
+    if (this.context.sideDrawerIsOpen) {
+      backDrop = <BackDrop click={this.context.handleCloseSideDrawer} />
     }
 
 
-    return(
+    return (
 
-      <div 
-        className="app" 
-        style={ { height: '100%' } }>
+      <div
+        className="app"
+        style={{ height: '100%' }}>
 
-        <Header updateLogin={ this.updateLogin } />
+        <Header updateLogin={this.updateLogin} />
 
-        <SideDrawer updateLogin={ this.updateLogin } />
+        <SideDrawer updateLogin={this.updateLogin} />
 
-        { backDrop }
+        {backDrop}
 
-        <main style={ { marginTop: '56px' } }>
+        <main style={{ marginTop: '56px' }}>
           <Switch>
             <Route
               exact
-              path={ '/' }
-              component={ HomeRoute }
-              />
+              path={'/'}
+              component={HomeRoute}
+            />
             <Route
               exact
-              path={ '/publicrecipes'}
-              component={ PublicRecipesRoute }
+              path={'/publicrecipes'}
+              component={PublicRecipesRoute}
             />
             <Route
-              path={ '/publicrecipes/:id' }
-              component={ PublicRecipeRoute }
+              path={'/publicrecipes/:id'}
+              component={PublicRecipeRoute}
             />
             <PrivateRoute
-              path={ '/recipe/:id' }
-              component={ RecipeSingleRoute }
+              path={'/recipe/:id'}
+              component={RecipeSingleRoute}
             />
             <PublicOnlyRoute
-              path={ '/login' }
-              component={ LoginRoute }
+              path={'/login'}
+              component={LoginRoute}
             />
             <PublicOnlyRoute
-              path={ '/register' }
-              component={ RegisterRoute }
+              path={'/register'}
+              component={RegisterRoute}
             />
             <PrivateRoute
-              path={ '/newrecipe' }
-              component={ AddRecipe }
+              path={'/newrecipe'}
+              component={AddRecipe}
             />
             <PrivateRoute
-              path={ '/recipes' }
-              component={ RecipesRoute }
+              path={'/recipes'}
+              component={RecipesRoute}
             />
             <PrivateRoute
-              path={ '/editrecipe/:id' }
-              component={ AddRecipe }
+              path={'/editrecipe/:id'}
+              component={AddRecipe}
             />
             <PrivateRoute
-                path={ '/shoppinglist' }
-                component={ ShoppingListRoute }
+              path={'/shoppinglist'}
+              component={ShoppingListRoute}
             />
             <PrivateRoute
-              path={ '/ingredients' }
-              component={ IngredientsRoute }
+              path={'/ingredients'}
+              component={IngredientsRoute}
             />
             <Route
-              path={ '/about' }
-              component={ aboutUs }
+              path={'/about'}
+              component={aboutUs}
             />
             <Route
-              component={ NotFoundRoute }
+              component={NotFoundRoute}
             />
           </Switch>
         </main>
 
         <div className="app-spacer"></div>
-        
-        <Footer/>
-      
+
+        <Footer />
+
       </div>
     )
   }
