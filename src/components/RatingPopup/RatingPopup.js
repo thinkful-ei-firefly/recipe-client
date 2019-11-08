@@ -2,6 +2,7 @@ import React from 'react'
 
 import GoodmealApiService from '../../services/goodmeal-api-service'
 import UserContext from '../../contexts/UserContext'
+import TokenService from '../../services/token-service'
 
 import './RatingPopup.css'
 
@@ -15,11 +16,11 @@ class RatingPopup extends React.Component {
   }
 
   handleOpen = () => {
-    document.getElementById("myModal").style.display = "block"
+    document.getElementById("myRatingModal").style.display = "block"
   }
 
   handleClose = () => {
-    document.getElementById("myModal").style.display = "none"
+    document.getElementById("myRatingModal").style.display = "none"
   }
 
   handleSubmit = (event) => {
@@ -38,7 +39,7 @@ class RatingPopup extends React.Component {
       <div className='RatingPopup'>
 
         <button
-          hidden={rated || !this.context.login}
+          hidden={rated || !TokenService.hasAuthToken()}
           className='rate'
           onClick={e => this.handleOpen(this.props.id)}>
           <i className="fas fa-star">&nbsp;<span>Rate</span></i>
@@ -46,7 +47,7 @@ class RatingPopup extends React.Component {
 
         <p aria-live="polite" className='rated' hidden={!rated}>You gave this recipe {rated} stars</p>
 
-        <div id="myModal" className="modal">
+        <div id="myRatingModal" className="modal">
           <div aria-live="polite" className="modal-content">
             <span onClick={this.handleClose} className="close">&times;</span>
             <form className='rate_form' onSubmit={e => this.handleSubmit(e)}>

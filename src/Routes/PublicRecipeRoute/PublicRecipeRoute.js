@@ -1,14 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import PublicRecipeTabs from '../../components/PublicRecipeTabs/PublicRecipeTabs'
 import PublicRecipeSummary from '../../components/PublicRecipeSummary/PublicRecipeSummary'
 import PublicRecipeIngredients from '../../components/PublicRecipeIngredients/PublicRecipeIngredients'
 import PublicRecipeInstructions from '../../components/PublicRecipeInstructions/PublicRecipeInstructions'
 import RatingPopups from '../../components/RatingPopup/RatingPopup'
 import Sharing from '../../components/Sharing/Sharing'
-
+import ListGenerator from '../../components/ListGenerator/ListGenerator'
 import PublicRecipeContext from '../../contexts/PublicRecipeContext'
 import GoodmealApiService from '../../services/goodmeal-api-service'
-import { Link } from 'react-router-dom'
+
+
 import './PublicRecipeRoute.css'
 
 class RecipeRoute extends React.Component {
@@ -82,9 +85,8 @@ class RecipeRoute extends React.Component {
             <RatingPopups id={recipe.id} />
           </div>
         </div>
-
+        <ListGenerator recipe={recipe} />
         <Sharing recipe={recipe} />
-
       </div>
 
     )

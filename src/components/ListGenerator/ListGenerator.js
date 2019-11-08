@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import GoodmealApiService from '../../services/goodmeal-api-service'
+import TokenService from '../../services/token-service'
 
 import './ListGenerator.css'
 
@@ -68,7 +69,7 @@ class ListGenerator extends React.Component {
         </li>)
     })
     await this.setState({ popUpArray })
-    const modal = document.getElementById("myModal");
+    const modal = document.getElementById("myListModal");
     modal.style.display = "block"
   }
 
@@ -86,7 +87,7 @@ class ListGenerator extends React.Component {
     this.state.ingredientsToAdd.forEach(ing => newIngs.push({ amount: ing[0], unit: ing[1], name: ing[2] }))
     if (newIngs.length) await GoodmealApiService.addManyToShoppingList(newIngs)
     else this.setState({ feedback: 0 })
-    document.getElementById("myModal").style.display = 'none'
+    document.getElementById("myListModal").style.display = 'none'
     this.setState({ feedback: this.state.ingredientsToAdd.length })
   }
 
@@ -101,7 +102,7 @@ class ListGenerator extends React.Component {
         </Link>
         <button
           className='create'
-          hidden={feedback !== null}
+          hidden={feedback !== null || !TokenService.hasAuthToken()}
           id='listCreateButton'
           onClick={this.handleListCreate}
         >
@@ -109,7 +110,7 @@ class ListGenerator extends React.Component {
             <span>Create Shopping List</span>
           </i>
         </button>
-        <div id="myModal" className="modal">
+        <div id="myListModal" className="modal">
           <div aria-live="polite" className='modal-content'>
             <ul>
               {this.state.popUpArray}
