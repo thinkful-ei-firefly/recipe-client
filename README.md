@@ -102,6 +102,8 @@ password: Password1
 
 * Heroku
 * Firebase
+  * Google login
+  * Facebook login
 * AWS
 * Jason Web Tokens
 * FontAwesome
