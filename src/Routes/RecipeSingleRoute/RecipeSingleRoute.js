@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 class RecipeSingleRoute extends React.Component {
 
   state = {
-    recipe: null,
+    recipe: {id: null},
     error: null,
     display: 'summary' //summary, ingredients, or instructions
   }
@@ -43,7 +43,7 @@ class RecipeSingleRoute extends React.Component {
 
   handleDelete = () => {
     GoodmealApiService.deleteRecipe(this.props.match.params.id)
-      .then(this.props.history.push('/'))
+      .then(this.props.history.push('/recipes'))
       .catch(res => this.setState({ error: res.error }))
   }
 
@@ -99,6 +99,23 @@ class RecipeSingleRoute extends React.Component {
             </div>
             : <ul className='displayed-list'>{list}</ul>}
             </section>
+          </div>
+          <div className='recipe-buttons'>
+            <Link
+              data-tooltip='Edit Recipe'
+              aria-label='edit recipe'
+              to={'/editrecipe/' + recipe.id}
+              className="edit-recipe">
+              <i className="fas fa-edit"></i>
+            </Link>
+            <button
+              data-tooltip='Delete Recipe'
+              aria-label='delete recipe'
+              className='remove-recipe'
+              onClick={e => this.handleDelete(recipe.id)}>
+              <i className="fas fa-trash-alt"></i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
           </div>
         </div>
         <ListGenerator recipe={this.state.recipe} />

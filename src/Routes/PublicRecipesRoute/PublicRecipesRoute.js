@@ -30,7 +30,7 @@ class PublicRecipesRoute extends React.Component {
 
           <h1>All Recipes</h1>
 
-          {this.context.redirect && <Redirect to='/recipes' />}
+          {this.context.redirect && this.props.history.push('/recipes')}
 
           <SearchPublicRecipe
             handleSubmit={this.handleSubmit}
