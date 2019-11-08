@@ -125,17 +125,17 @@ class AddRecipeIngredientForm extends React.Component {
   render() {
     return(
       <div className="addIngredient-form">
-        
-        <h3>Ingredients</h3>
+        <div className='section'>
+          <span>6</span>
+          <h3>Ingredients</h3>
+        </div>
+
         <AddRecipeIngredient />
 
       <form
         onSubmit = { this.handleSubmit }>
           <div className = "amount">
-          <div className='section'>
-            <span>6</span>
-            
-          </div>
+          
           <div>
             <p role='alert'>{ this.state.amountError }</p>
             <div className='inner-wrap'>

@@ -35,16 +35,17 @@ class AddStepToRecipeForm extends React.Component {
   render() {
     return(
       <div className="addIngredient-form">
+        <div className='section'>
+          <span>7</span>
+          <h3>Instructions</h3>
+        </div>
 
-        <h3>Instructions</h3>
         <AddRecipeStep />
 
         <form
           onSubmit = { this.handleSubmit }>
           <div className = "step">
-            <div className='section'>
-              <span>7</span>
-            </div>
+            
             <div>
               <p role='alert'> {this.state.error} </p>
               <div className='inner-wrap'>
