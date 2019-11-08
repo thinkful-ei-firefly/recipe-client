@@ -12,6 +12,15 @@ class AddRecipeStep extends React.Component {
     this.context.handleRemoveStep(e.target.value)
   }
 
+  deconvertCharacters = str => {
+    let newStr = str.split('')
+    for (let i = 0; i < newStr.length; i++) {
+      if (newStr[i] === '^') newStr[i] = ','
+      else if (newStr[i] === '|') newStr[i] = '"'
+    }
+    return newStr.join('')
+  }
+
   render() {
 
     const steps = this.context.recipeSteps.map((step, index) => {
@@ -25,7 +34,7 @@ class AddRecipeStep extends React.Component {
             onClick={this.handleClick}>
             -
           </Button>
-          {`${index + 1}) ${step}`}
+          {`${index + 1}) ${this.deconvertCharacters(step)}`}
         </div>
       )
     })
