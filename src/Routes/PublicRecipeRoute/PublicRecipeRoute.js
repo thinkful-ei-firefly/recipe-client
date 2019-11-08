@@ -84,11 +84,13 @@ class RecipeRoute extends React.Component {
             <div aria-live="polite" className='tab-panels'>
               {publicRecipePage}
             </div>
-            <RatingPopups id={recipe.id} />
+            <div className='publicButtons'>
+              {
+                TokenService.hasAuthToken && <RecipeCopyButton recipeId = { recipe.id }/>
+              }
+              <RatingPopups id={recipe.id} />
+            </div>
           </div>
-          {
-            TokenService.hasAuthToken && <RecipeCopyButton recipeId = { recipe.id }/>
-          }
         </div>
         <ListGenerator recipe={recipe} />
         <Sharing recipe={recipe} />

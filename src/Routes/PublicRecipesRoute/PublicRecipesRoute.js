@@ -2,7 +2,6 @@ import React from 'react'
 import SearchPublicRecipe from '../../components/SearchPublicRecipes/SearchPublicRecipes'
 import PublicRandomRecipe from '../../components/PublicRandomRecipe/PublicRandomRecipe'
 import PublicRecipeContext from '../../contexts/PublicRecipeContext'
-import { Redirect } from 'react-router-dom'
 
 import './publicRecipesRoute.css'
 class PublicRecipesRoute extends React.Component {
