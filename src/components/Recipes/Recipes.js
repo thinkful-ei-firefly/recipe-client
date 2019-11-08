@@ -7,6 +7,7 @@ import Button from '../Button/Button'
 
 import IngredientsMatcher from '../IngredientsMatcher/IngredientsMatcher'
 import RandomRecipe from '../RandomRecipe/RandomRecipe'
+import logo from '../../images/logo.png'
 
 import './Recipes.css'
 
@@ -50,7 +51,7 @@ class Recipes extends React.Component {
 
     return(
       <section className="my-recipes">
-
+        
         <div className="head">
           <h1>My Recipes</h1>
           <form 

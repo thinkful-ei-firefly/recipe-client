@@ -20,6 +20,13 @@
   height: 60px;
 }
 
+.shop-list-page img:hover {
+  margin: 0px;
+  width: 100px;
+  height: 100px;
+  transition: ease-in-out 0.3s;
+}
+
 .shop-list-page .title {
   display: flex;
   flex-direction: row;

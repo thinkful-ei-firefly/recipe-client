@@ -47,10 +47,14 @@ class RecipeSingleRoute extends React.Component {
   }
 
   render() {
-    const { name, recipe, error, display } = this.state
+    const { name, recipe, error, display  } = this.state
     let description
+    let time_to_make
+    let cuisine
     let list = []
     if (recipe) {
+      cuisine= recipe.category
+      time_to_make= recipe.time_to_make
       description = recipe.description
       if (display==='ingredients') {
         recipe.ingredients.forEach((item, i) => list.push(<li className='ing-list bulleted' key={i}>{item}</li>))
@@ -86,7 +90,13 @@ class RecipeSingleRoute extends React.Component {
         </div>
         <div className='tab-panels'>
           <section aria-live="polite" className='tab-panel'>
-            {display === 'summary' ? description : <ul className='displayed-list'>{list}</ul>}
+            {display === 'summary' ?
+            <div>
+              <p className = "description" itemProp = 'description'><span style={{ fontWeight:'600' }}>Description:</span> { description }</p>
+              <p className = "timeToMake"><span style={{ fontWeight:'600' }}>Time to make:</span> { time_to_make } minutes</p>
+              <p className = "cuisine" itemProp = "recipeCuisine"><span style={{ fontWeight:'600' }}>Cuisine:</span> { cuisine }</p>
+            </div>
+            : <ul className='displayed-list'>{list}</ul>}
             </section>
         </div>
       </div>

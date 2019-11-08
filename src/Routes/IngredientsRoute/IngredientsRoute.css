@@ -19,6 +19,14 @@
   width: 60px;
   height: 60px;
 }
+
+.pantry-page img:hover {
+  margin: 0px;
+  width: 100px;
+  height: 100px;
+  transition: ease-in-out 0.3s;
+}
+
 .pantry-page .title {
   display: flex;
   flex-direction: row;
