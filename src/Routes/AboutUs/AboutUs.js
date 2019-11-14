@@ -94,7 +94,7 @@ class aboutUs extends React.Component {
           <a
             itemProp="contactPoint"
             className="lin"
-            href=""
+            href="https://www.linkedin.com/in/keith-prince-429697a8/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -107,7 +107,14 @@ class aboutUs extends React.Component {
               />
             </h2>
           </a>
-          <p>What you contributed</p>
+          <p>Full Stack Developer</p>
+          <ul>
+            <li>Front end styling on shopping list and about us pages</li>
+            <li>Database design and management</li>
+            <li>Collaborated with creating API endpoints and database services</li>
+            <li>User testing and bug fixing on front end and back end</li>
+            <li>Created and tested validation of user inputs</li>
+          </ul>
           <a
             href="https://swordsagekeith.github.io/PortfolioSite/"
             className="link" target="_blank" rel="noopener noreferrer"
