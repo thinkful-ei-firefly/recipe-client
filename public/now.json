@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "good-meal",
+    "name": "good-meal-client",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+  }
