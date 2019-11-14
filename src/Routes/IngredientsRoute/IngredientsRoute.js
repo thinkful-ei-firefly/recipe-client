@@ -58,7 +58,7 @@ class IngredientsRoute extends React.Component {
 
   deleteAllIngredients = () => {
     GoodmealApiService.deleteIngredientList()
-      .then(() => this.setState({ ingredientList: null }))
+      .then(() => this.setState({ ingredientList: [] }))
       .catch(res => this.setState({ error: res.error }))
   }
 
