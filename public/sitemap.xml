@@ -13,12 +13,18 @@
        <loc>https://good-meal-client.herokuapp.com/</loc>
        <lastmod>2019-10-29T15:37:37+00:00</lastmod>
        <changefreq>daily</changefreq>
-       <priority>0.9000</priority>
+       <priority>0.8000</priority>
   </url>
   <url>
        <loc>https://good-meal-client.herokuapp.com/publicrecipes</loc>
        <lastmod>2019-10-29T15:37:37+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>1.0000</priority>
+  </url>
+  <url>
+     <loc>https://good-meal-client.herokuapp.com/about</loc>
+     <lastmod>2019-10-29T15:37:37+00:00</lastmod>
+     <changefreq>yearly</changefreq>
+     <priority>.9000</priority>
   </url>
 </urlset>

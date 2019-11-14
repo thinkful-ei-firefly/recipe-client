@@ -14,6 +14,17 @@
   margin: 0 0 20px 0;
 }
 
+.demoCreds {
+  margin-bottom: 15px;
+}
+
+.demoCreds p {
+  font-size: 16px;
+  line-height: 22px;
+  padding: 0;
+  margin: 0;
+}
+
 .inputs {
   display: flex;
   justify-content: center;

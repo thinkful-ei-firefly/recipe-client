@@ -51,6 +51,11 @@ class LoginRoute extends React.Component {
             buttonText='LOGIN'
             error={this.state.error}
           />
+          <div className="demoCreds">
+            <p>Demo Credentials</p>
+            <p>Username: demo</p>
+            <p>Password: Password1</p>
+          </div>
           <p>Haven't signed up?
             <Link
               aria-label='register'
