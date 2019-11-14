@@ -21,7 +21,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "git push heroku master",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "deploynow": "now ./build"
   },
   "eslintConfig": {
     "extends": "react-app"

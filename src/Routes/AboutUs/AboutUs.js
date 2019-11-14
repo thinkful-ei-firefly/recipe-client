@@ -23,7 +23,8 @@ class aboutUs extends React.Component {
             rel="noopener noreferrer"
           >
             <h2 itemProp="name">
-              { 'Sam Walker '}
+              { 'Sam Walker'}
+              <span>{'  '}</span>
               <img
                 className="icon"
                 alt="linkedin"
@@ -64,7 +65,7 @@ class aboutUs extends React.Component {
                 alt="linkedin"
                 src={linkedinLogo}>
               </img>
-              {'Richard Gates '}
+              {' Richard Gates'}
             </h2>
           </a>
           <p>Project Owner</p>
@@ -138,7 +139,7 @@ class aboutUs extends React.Component {
                 alt="linkedin"
                 src={linkedinLogo}
               />
-              {'Fabian Lema '}
+              {' Fabian Lema'}
             </h2>
           </a>
           <p>Full Stack Developer</p>

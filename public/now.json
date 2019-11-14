@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "alias": "good-meal",
+    "alias": "good-meal-app",
     "name": "good-meal-client",
     "routes": [
         {
