@@ -10,6 +10,7 @@
 
 # production
 /build
+/pubic/now.json
 
 # misc
 .DS_Store

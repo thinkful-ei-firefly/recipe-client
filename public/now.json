@@ -27,5 +27,8 @@
           "src": ".*",
           "dest": "/index.html"
         }
-    ]
+    ],
+    "env": {
+      "REACT_APP_FIREBASE_API": "AIzaSyBv-WLiOMAh3oBruqOS_yaaZ4PJ1c5PK7s"
+    }
   }

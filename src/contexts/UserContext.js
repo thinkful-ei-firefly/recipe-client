@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import config from '../config'
-import firebase from 'firebase'
 import TokenService from '../services/token-service'
-
 
 const UserContext = React.createContext({
   error: null,
@@ -108,10 +105,6 @@ export class UserProvider extends Component {
   processLogout = () => {
     TokenService.clearAuthToken()
     this.setUser({})
-  }
-
-  initializeFirebase = () => {
-    firebase.initializeApp(config.FirebaseConfig)
   }
 
   render() {
