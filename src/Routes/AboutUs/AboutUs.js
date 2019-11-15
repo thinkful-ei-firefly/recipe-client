@@ -41,7 +41,7 @@ class aboutUs extends React.Component {
             <li>Performed rigorous testing and bug fixing</li>
           </ul>
           <a
-            href="https://thinkful-ei-firefly.github.io/portfolio-sam/"
+            href="https://sam-walker-portfolio.now.sh"
             className="link"
             target="_blank"
             rel="noopener noreferrer"
